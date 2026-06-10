@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Assinatura — Helotron</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 40px;
+    }
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .copy-btn {
+      margin-top: 14px;
+      background: #1a1a2e;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+    .copy-btn:hover { background: #0f3460; }
+    .instructions {
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.8;
+      border: 1px solid #ddd;
+    }
+    .instructions h3 { margin-bottom: 12px; color: #1a1a2e; }
+    .instructions ol { padding-left: 18px; }
+    .instructions li { margin-bottom: 6px; }
+    .instructions code {
+      background: #f0f2f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <div class="label">📧 Prévia da assinatura</div>
+
+  <!-- ===================== ASSINATURA ===================== -->
+  <div id="signature" style="font-family:Arial,sans-serif;max-width:520px;">
+
+    <!-- Linha divisória superior -->
+    <div style="border-top:2px solid #1a1a2e;margin-bottom:14px;"></div>
+
+    <!-- Bloco principal -->
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+      <tr>
+        <!-- Coluna esquerda — bloco colorido com inicial -->
+        <td style="width:54px;vertical-align:top;padding-right:14px;">
+          <div style="width:54px;height:54px;background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:54px;">
+            <span style="color:white;font-size:22px;font-weight:700;font-family:Arial,sans-serif;display:block;margin-top:13px;">H</span>
+          </div>
+        </td>
+
+        <!-- Coluna direita — dados -->
+        <td style="vertical-align:top;">
+          <!-- Nome -->
+          <div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:1px;">Anderson Santos</div>
+          <!-- Cargo -->
+          <div style="font-size:11px;color:#0f3460;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">Importação &amp; Comércio Exterior</div>
+
+          <!-- Linha separadora fina -->
+          <div style="border-top:1px solid #e0e0e0;margin-bottom:8px;"></div>
+
+          <!-- Empresa -->
+          <div style="font-size:12px;font-weight:700;color:#1a1a2e;margin-bottom:3px;">HELOTRON COMERCIO DE UTILIDADES LTDA</div>
+
+          <!-- Email -->
+          <div style="font-size:11px;color:#555;margin-bottom:2px;">
+            <span style="color:#0f3460;">✉</span>&nbsp;
+            <a href="mailto:helotron.imp@gmail.com" style="color:#0f3460;text-decoration:none;font-weight:600;">helotron.imp@gmail.com</a>
+          </div>
+
+          <!-- Localização -->
+          <div style="font-size:11px;color:#555;margin-bottom:2px;">
+            <span style="color:#0f3460;">📍</span>&nbsp;Curitiba, PR — Brasil
+          </div>
+
+          <!-- CNPJ -->
+          <div style="font-size:10px;color:#999;margin-top:4px;">
+            CNPJ: 63.403.148/0001-97
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Rodapé com tagline -->
+    <div style="margin-top:12px;padding:8px 12px;background:#f8f9fa;border-left:3px solid #1a1a2e;border-radius:0 4px 4px 0;">
+      <span style="font-size:10px;color:#888;font-style:italic;">
+        Qualidade importada, entregue com cuidado.
+      </span>
+    </div>
+
+  </div>
+  <!-- ===================== FIM ASSINATURA ===================== -->
+
+  <div style="text-align:center;">
+    <button class="copy-btn" onclick="copySignature()">📋 Copiar assinatura</button>
+    <div id="copy-msg" style="font-size:12px;color:#2e7d32;margin-top:6px;min-height:18px;"></div>
+  </div>
+</div>
+
+<!-- INSTRUÇÕES -->
+<div class="instructions">
+  <h3>📌 Como instalar no Gmail</h3>
+  <ol>
+    <li>Clique em <strong>"Copiar assinatura"</strong> acima</li>
+    <li>Abra o <a href="https://mail.google.com" target="_blank" style="color:#0f3460;">Gmail</a> → ⚙️ Configurações → <strong>Ver todas as configurações</strong></li>
+    <li>Vá até a aba <strong>Geral</strong></li>
+    <li>Role até a seção <strong>"Assinatura"</strong> e clique em <strong>"Criar nova"</strong></li>
+    <li>Dê o nome: <code>Helotron</code></li>
+    <li>No editor, clique em <strong>⋮ → Modo HTML</strong> (ou simplesmente cole com <code>Ctrl+V</code>)</li>
+    <li>Marque como assinatura padrão para novos emails e respostas</li>
+    <li>Clique em <strong>"Salvar alterações"</strong> no final da página</li>
+  </ol>
+</div>
+
+<script>
+function copySignature() {
+  const sig = document.getElementById('signature');
+  const range = document.createRange();
+  range.selectNode(sig);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+  document.getElementById('copy-msg').textContent = '✅ Assinatura copiada! Cole diretamente no Gmail.';
+  setTimeout(() => document.getElementById('copy-msg').textContent = '', 4000);
+}
+</script>
+
+</body>
+</html>
