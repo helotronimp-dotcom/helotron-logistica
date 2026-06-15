@@ -331,7 +331,7 @@ function historicoHtml(hist, pmv) {
       <span style="color:${cor};font-weight:${peso}">${h.medio != null ? 'R$ ' + h.medio.toFixed(2).replace('.',',') : '—'}${seta}</span>
     </div>`;
   }).join('');
-  return `<div style="min-width:110px">${rows}${sparkline(hist, pmv)}</div>`;
+  return `<div style="min-width:110px">${rows}</div>`;
 }
 
 function tendencia(hist) {
