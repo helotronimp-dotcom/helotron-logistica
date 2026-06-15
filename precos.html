@@ -120,6 +120,66 @@ footer {
 }
 
 .note { font-size: 10px; color: #888; padding: 8px 14px; }
+
+/* LINHA CLICÁVEL */
+tbody tr { cursor: pointer; }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: white;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: modalIn 0.18s ease;
+}
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.modal-header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white; padding: 18px 22px;
+  border-radius: 14px 14px 0 0;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.modal-header h2 { font-size: 16px; font-weight: 700; }
+.modal-header p  { font-size: 11px; opacity: 0.6; margin-top: 3px; }
+.modal-close {
+  background: rgba(255,255,255,0.15); border: none; color: white;
+  width: 30px; height: 30px; border-radius: 50%;
+  font-size: 16px; cursor: pointer; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: rgba(255,255,255,0.3); }
+.modal-body { padding: 20px 22px; }
+.modal-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin-bottom: 20px;
+}
+.mstat { background: #f8f9fa; border-radius: 8px; padding: 10px 12px; text-align: center; }
+.mstat label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #888; display: block; margin-bottom: 4px; }
+.mstat span  { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.mstat.pmv-s { background: #eceff1; }
+.mstat.ok-s  { background: #e8f5e9; }
+.mstat.ok-s span { color: #2e7d32; }
+.mstat.risco-s { background: #ffebee; }
+.mstat.risco-s span { color: #c62828; }
+.chart-title { font-size: 11px; font-weight: 600; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.chart-wrap { background: #f8f9fa; border-radius: 10px; padding: 16px; }
+.chart-legend { display: flex; gap: 16px; margin-top: 10px; font-size: 10px; color: #888; }
+.leg-dot { display: inline-block; width: 10px; height: 3px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -197,6 +257,30 @@ footer {
     <div class="eta-badge" id="cont-eta">ETA: —</div>
   </div>
   <div class="cont-body" id="cont-body"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="fecharModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <h2 id="modal-nome">—</h2>
+        <p id="modal-sub">Evolução do preço médio · Mercado Livre</p>
+      </div>
+      <button class="modal-close" onclick="fecharModalBtn()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-stats" id="modal-stats"></div>
+      <div class="chart-title">📈 Evolução do Preço Médio</div>
+      <div class="chart-wrap">
+        <div id="modal-chart"></div>
+        <div class="chart-legend">
+          <span><span class="leg-dot" style="background:#1565c0"></span>Preço médio</span>
+          <span><span class="leg-dot" style="background:#ef5350;border-top:2px dashed #ef5350;height:0"></span>PMV (linha tracejada)</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>
@@ -324,6 +408,7 @@ async function init() {
         }).join('<br>');
 
     const tr = document.createElement('tr');
+    tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
       <td>${p.nome}</td>
       <td class="pmv-col">${BRL(p.pmv)}</td>
@@ -336,6 +421,7 @@ async function init() {
       <td style="text-align:left">${badges}</td>
       <td>${historicoHtml(p.historico, p.pmv)}</td>
     `;
+    tr.addEventListener('click', () => abrirModal(p));
     tbody.appendChild(tr);
   });
 
@@ -360,6 +446,116 @@ async function init() {
 }
 
 init();
+
+// ── MODAL ──────────────────────────────────────────────────
+function abrirModal(p) {
+  document.getElementById('modal-nome').textContent = p.nome;
+
+  // Cards de resumo
+  const margem = p.pmv && p.medio
+    ? ((p.medio - p.pmv) / p.pmv * 100).toFixed(1)
+    : null;
+  const margemCls = margem === null ? '' : margem >= 0 ? 'ok-s' : 'risco-s';
+  document.getElementById('modal-stats').innerHTML = `
+    <div class="mstat pmv-s"><label>PMV</label><span>${BRL(p.pmv)}</span></div>
+    <div class="mstat"><label>Mínimo</label><span>${BRL(p.minimo)}</span></div>
+    <div class="mstat"><label>Médio</label><span>${BRL(p.medio)}</span></div>
+    <div class="mstat ${margemCls}"><label>GAP méd/PMV</label><span>${margem !== null ? (margem >= 0 ? '+' : '') + margem + '%' : '—'}</span></div>
+  `;
+
+  // Gráfico grande
+  document.getElementById('modal-chart').innerHTML = graficoGrande(p.historico, p.pmv);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModalBtn() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function fecharModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) fecharModalBtn();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModalBtn(); });
+
+function graficoGrande(hist, pmv) {
+  if (!hist || hist.length < 2) return '<p style="color:#aaa;text-align:center;padding:20px">Sem dados suficientes</p>';
+  const vals  = hist.map(h => h.medio);
+  const datas = hist.map(h => h.data);
+  const allV  = pmv ? [...vals, pmv] : vals;
+  const lo = Math.min(...allV.filter(v => v != null)) * 0.93;
+  const hi = Math.max(...allV.filter(v => v != null)) * 1.07;
+
+  const W = 560, H = 180;
+  const PAD = { t: 14, r: 20, b: 36, l: 60 };
+  const CW = W - PAD.l - PAD.r;
+  const CH = H - PAD.t - PAD.b;
+  const n  = vals.length;
+
+  const px = i => (PAD.l + (i / (n - 1)) * CW).toFixed(1);
+  const py = v  => (PAD.t + CH - ((v - lo) / (hi - lo)) * CH).toFixed(1);
+
+  // Grade horizontal
+  const numLinhas = 4;
+  let grade = '';
+  for (let i = 0; i <= numLinhas; i++) {
+    const v   = lo + (hi - lo) * (i / numLinhas);
+    const y   = parseFloat(py(v));
+    const lbl = 'R$ ' + v.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    grade += `<line x1="${PAD.l}" y1="${y}" x2="${W - PAD.r}" y2="${y}" stroke="#e8e8e8" stroke-width="1"/>`;
+    grade += `<text x="${PAD.l - 6}" y="${y + 4}" text-anchor="end" font-size="9" fill="#aaa">${lbl}</text>`;
+  }
+
+  // Linha PMV
+  let pmvLine = '';
+  if (pmv) {
+    const yp = py(pmv);
+    pmvLine = `<line x1="${PAD.l}" y1="${yp}" x2="${W - PAD.r}" y2="${yp}"
+      stroke="#ef5350" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.8"/>
+      <text x="${W - PAD.r + 4}" y="${parseFloat(yp) + 4}" font-size="9" fill="#ef5350">PMV</text>`;
+  }
+
+  // Área preenchida
+  const ptsPoly = vals.map((v, i) => `${px(i)},${py(v)}`).join(' ');
+  const areaPath = `M${px(0)},${py(vals[0])} ` +
+    vals.map((v, i) => `L${px(i)},${py(v)}`).join(' ') +
+    ` L${px(n-1)},${PAD.t + CH} L${px(0)},${PAD.t + CH} Z`;
+
+  // Pontos e labels de valor
+  let pontos = '', labelsVal = '';
+  vals.forEach((v, i) => {
+    if (v == null) return;
+    const abaixo = pmv && v < pmv;
+    const cor = abaixo ? '#ef5350' : '#1565c0';
+    pontos   += `<circle cx="${px(i)}" cy="${py(v)}" r="4" fill="${cor}" stroke="white" stroke-width="1.5"/>`;
+    const yLabel = parseFloat(py(v)) - 9;
+    labelsVal += `<text x="${px(i)}" y="${yLabel}" text-anchor="middle" font-size="9" font-weight="600" fill="${cor}">R$${v.toFixed(0)}</text>`;
+  });
+
+  // Datas no eixo X
+  let eixoX = '';
+  datas.forEach((d, i) => {
+    eixoX += `<text x="${px(i)}" y="${H - 6}" text-anchor="middle" font-size="9" fill="#999">${d}</text>`;
+  });
+
+  return `<svg width="100%" viewBox="0 0 ${W} ${H}" style="display:block;overflow:visible">
+    ${grade}
+    <defs>
+      <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1565c0" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#1565c0" stop-opacity="0.01"/>
+      </linearGradient>
+    </defs>
+    <path d="${areaPath}" fill="url(#areaGrad)"/>
+    ${pmvLine}
+    <polyline points="${ptsPoly}" fill="none" stroke="#1565c0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${labelsVal}
+    ${pontos}
+    ${eixoX}
+  </svg>`;
+}
 </script>
 </body>
 </html>
