@@ -99,33 +99,33 @@
     <span class="brand-name">HELOTRON</span>
   </div>
   <div class="tabs">
-    <button class="tab active" id="btn-produtos" onclick="show('produtos')">
-      <span class="tab-icon">🧾</span> Produtos &amp; Invoice
+    <button class="tab active" id="btn-vendas" onclick="show('vendas')">
+      <span class="tab-icon">📊</span> Monitor de Vendas
     </button>
     <button class="tab" id="btn-logistica" onclick="show('logistica')">
       <span class="tab-icon">🚢</span> Logística
     </button>
-    <button class="tab" id="btn-precos" onclick="show('precos')">
-      <span class="tab-icon">📊</span> Monitor de Preços
+    <button class="tab" id="btn-invoice" onclick="show('invoice')">
+      <span class="tab-icon">🧾</span> Produtos &amp; Invoice
     </button>
   </div>
 </nav>
 
 <div class="content">
-  <div class="pane active" id="pane-produtos">
-    <iframe src="./dashboard.html" title="Produtos e Invoice"></iframe>
+  <div class="pane active" id="pane-vendas">
+    <iframe src="./precos.html" title="Monitor de Vendas"></iframe>
   </div>
   <div class="pane" id="pane-logistica">
     <iframe src="./logistica.html" title="Monitor de Logística"></iframe>
   </div>
-  <div class="pane" id="pane-precos">
-    <iframe src="./precos.html" title="Monitor de Preços ML"></iframe>
+  <div class="pane" id="pane-invoice">
+    <iframe src="./dashboard.html" title="Produtos e Invoice"></iframe>
   </div>
 </div>
 
 <script>
   function show(id) {
-    ['produtos', 'logistica', 'precos'].forEach(t => {
+    ['vendas', 'logistica', 'invoice'].forEach(t => {
       document.getElementById('btn-' + t).classList.toggle('active', t === id);
       document.getElementById('pane-' + t).classList.toggle('active', t === id);
     });
