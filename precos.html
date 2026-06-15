@@ -237,7 +237,6 @@ tbody tr { cursor: pointer; }
           <th>Tend.</th>
           <th>GAP méd/PMV</th>
           <th>Alertas</th>
-          <th>Histórico (jun)</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -419,7 +418,6 @@ async function init() {
       <td class="${tend.cls}">${tend.icon}</td>
       <td>${gapHtml(p.medio, p.pmv)}</td>
       <td style="text-align:left">${badges}</td>
-      <td>${historicoHtml(p.historico, p.pmv)}</td>
     `;
     tr.addEventListener('click', () => abrirModal(p));
     tbody.appendChild(tr);
