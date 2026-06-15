@@ -214,7 +214,7 @@ function sparkline(hist, pmv) {
   const allV = pmv ? [...vals, pmv] : vals;
   const lo = Math.min(...allV) * 0.96;
   const hi = Math.max(...allV) * 1.04;
-  const W = 84, H = 32, n = vals.length;
+  const W = 110, H = 36, n = vals.length;
   const px = i => ((i / (n - 1)) * W).toFixed(1);
   const py = v => (H - ((v - lo) / (hi - lo)) * H).toFixed(1);
   const pts = vals.map((v, i) => `${px(i)},${py(v)}`).join(' ');
@@ -222,11 +222,32 @@ function sparkline(hist, pmv) {
   const col = last > prev ? '#4caf50' : last < prev ? '#ef5350' : '#90a4ae';
   const pmvLine = pmv ? `<line x1="0" y1="${py(pmv)}" x2="${W}" y2="${py(pmv)}"
     stroke="#ef5350" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>` : '';
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block">
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block;margin-top:6px">
     ${pmvLine}
     <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="${px(n-1)}" cy="${py(last)}" r="2.5" fill="${col}"/>
   </svg>`;
+}
+
+function historicoHtml(hist, pmv) {
+  if (!hist || hist.length === 0) return '<span style="color:#ccc;font-size:10px">—</span>';
+  const rows = hist.map((h, i) => {
+    const prev = i > 0 ? hist[i-1].medio : null;
+    let seta = '';
+    if (prev !== null && h.medio !== null) {
+      seta = h.medio > prev ? ' <span style="color:#4caf50">▲</span>'
+           : h.medio < prev ? ' <span style="color:#ef5350">▼</span>'
+           : ' <span style="color:#90a4ae">–</span>';
+    }
+    const abaixoPMV = pmv && h.medio !== null && h.medio < pmv;
+    const cor = abaixoPMV ? '#c62828' : '#555';
+    const peso = abaixoPMV ? '700' : '400';
+    return `<div style="display:flex;justify-content:space-between;gap:8px;font-size:10px;line-height:1.7;">
+      <span style="color:#999">${h.data}</span>
+      <span style="color:${cor};font-weight:${peso}">${h.medio != null ? 'R$ ' + h.medio.toFixed(2).replace('.',',') : '—'}${seta}</span>
+    </div>`;
+  }).join('');
+  return `<div style="min-width:110px">${rows}${sparkline(hist, pmv)}</div>`;
 }
 
 function tendencia(hist) {
@@ -313,7 +334,7 @@ async function init() {
       <td class="${tend.cls}">${tend.icon}</td>
       <td>${gapHtml(p.medio, p.pmv)}</td>
       <td style="text-align:left">${badges}</td>
-      <td>${sparkline(p.historico, p.pmv)}</td>
+      <td>${historicoHtml(p.historico, p.pmv)}</td>
     `;
     tbody.appendChild(tr);
   });
