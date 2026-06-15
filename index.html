@@ -1,599 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Helotron — Monitor de Logística</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helotron — Central de Informações</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      min-height: 100vh;
-    }
+  /* BARRA DE ABAS */
+  .tabbar {
+    display: flex;
+    align-items: stretch;
+    background: #1a1a2e;
+    border-bottom: 3px solid #0f3460;
+    height: 52px;
+    position: relative;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-right: 1px solid #30363d;
+    min-width: 160px;
+  }
+  .brand-icon {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, #0f3460, #1565c0);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .brand-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e6edf3;
+    letter-spacing: 0.5px;
+  }
+  .tabs {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+  }
+  .tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 24px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #7d8590;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .tab:hover {
+    color: #e6edf3;
+    background: rgba(255,255,255,0.04);
+  }
+  .tab.active {
+    color: #58a6ff;
+    border-bottom-color: #58a6ff;
+    background: rgba(88,166,255,0.06);
+  }
+  .tab .tab-icon { font-size: 15px; }
 
-    /* TOPBAR */
-    .topbar {
-      background: #161b22;
-      border-bottom: 1px solid #30363d;
-      padding: 14px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .topbar-left { display: flex; align-items: center; gap: 14px; }
-    .logo {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, #0f3460, #1565c0);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-    }
-    .topbar h1 { font-size: 16px; font-weight: 600; color: #e6edf3; }
-    .topbar p { font-size: 11px; color: #7d8590; margin-top: 1px; }
-    .badge-live {
-      background: #1f6feb22;
-      border: 1px solid #1f6feb;
-      color: #58a6ff;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 20px;
-      letter-spacing: 1px;
-    }
-    .badge-live::before {
-      content: '●';
-      color: #3fb950;
-      margin-right: 5px;
-      animation: blink 1.5s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-    /* MAIN */
-    .main { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
-
-    /* ALERT BANNER */
-    .alert-banner {
-      background: #1c2128;
-      border: 1px solid #f0883e55;
-      border-left: 4px solid #f0883e;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .alert-banner .icon { font-size: 22px; }
-    .alert-banner strong { color: #f0883e; font-size: 13px; }
-    .alert-banner p { color: #8b949e; font-size: 12px; margin-top: 2px; }
-
-    /* GRID CARDS */
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-    @media(max-width:768px){ .grid-4{ grid-template-columns:1fr 1fr; } }
-
-    .stat-card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
-      padding: 18px;
-      transition: border-color 0.2s;
-    }
-    .stat-card:hover { border-color: #58a6ff55; }
-    .stat-card .label {
-      font-size: 10px;
-      color: #7d8590;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .stat-card .value {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.1;
-    }
-    .stat-card .sub {
-      font-size: 11px;
-      color: #7d8590;
-      margin-top: 5px;
-    }
-    .green { color: #3fb950; }
-    .blue  { color: #58a6ff; }
-    .orange{ color: #f0883e; }
-    .red   { color: #f85149; }
-    .white { color: #e6edf3; }
-
-    /* COUNTDOWN */
-    .countdown-card {
-      background: linear-gradient(135deg, #0d1b2e, #0f3460);
-      border: 1px solid #1f6feb44;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .countdown-label { font-size: 12px; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .countdown-title { font-size: 15px; font-weight: 600; color: #e6edf3; }
-    .countdown-blocks { display: flex; gap: 10px; }
-    .countdown-block {
-      background: #0d1117;
-      border: 1px solid #1f6feb55;
-      border-radius: 10px;
-      padding: 12px 16px;
-      text-align: center;
-      min-width: 64px;
-    }
-    .countdown-block .num {
-      font-size: 28px;
-      font-weight: 700;
-      color: #58a6ff;
-      line-height: 1;
-    }
-    .countdown-block .unit {
-      font-size: 9px;
-      color: #7d8590;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* GRID 2 COLUNAS */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-    @media(max-width:700px){ .grid-2{ grid-template-columns:1fr; } }
-
-    .card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .card h2 {
-      font-size: 12px;
-      font-weight: 600;
-      color: #7d8590;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #21262d;
-    }
-
-    /* ROTA */
-    .route {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 4px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .route-stop { text-align: center; flex: 1; min-width: 80px; }
-    .route-dot {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      margin: 0 auto 6px;
-    }
-    .dot-done    { background: #1f6a2e; border: 2px solid #3fb950; }
-    .dot-current { background: #1f3a5c; border: 2px solid #58a6ff; animation: pulse 2s infinite; }
-    .dot-future  { background: #21262d; border: 2px solid #30363d; }
-    @keyframes pulse {
-      0%,100%{ box-shadow: 0 0 0 0 #58a6ff44; }
-      50%{ box-shadow: 0 0 0 8px #58a6ff00; }
-    }
-    .route-name { font-size: 11px; font-weight: 600; color: #e6edf3; }
-    .route-date { font-size: 10px; color: #7d8590; margin-top: 2px; }
-    .route-line {
-      flex: 0.4;
-      height: 2px;
-      background: linear-gradient(90deg, #3fb950, #58a6ff);
-      border-radius: 2px;
-    }
-    .route-line-future {
-      flex: 0.4;
-      height: 2px;
-      background: #21262d;
-      border-radius: 2px;
-    }
-
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 20px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: #21262d;
-    }
-    .tl-item { position: relative; margin-bottom: 16px; }
-    .tl-dot {
-      position: absolute;
-      left: -17px; top: 4px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-    }
-    .tl-dot-done    { background: #3fb950; }
-    .tl-dot-warn    { background: #f0883e; }
-    .tl-dot-danger  { background: #f85149; }
-    .tl-dot-current { background: #58a6ff; box-shadow: 0 0 0 3px #1f6feb33; }
-    .tl-date { font-size: 10px; color: #7d8590; margin-bottom: 2px; }
-    .tl-title { font-size: 12px; font-weight: 600; color: #e6edf3; }
-    .tl-desc { font-size: 11px; color: #7d8590; margin-top: 2px; }
-    .tl-highlight {
-      background: #1f3a5c;
-      border: 1px solid #1f6feb55;
-      border-radius: 6px;
-      padding: 8px 10px;
-    }
-
-    /* DOCS TABLE */
-    .docs-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    .docs-table tr { border-bottom: 1px solid #21262d; }
-    .docs-table tr:last-child { border-bottom: none; }
-    .docs-table td { padding: 9px 0; }
-    .docs-table td:first-child { color: #7d8590; width: 45%; }
-    .docs-table td:last-child { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 600; color: #e6edf3; }
-    .tag {
-      display: inline-block;
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .tag-ok    { background: #1f6a2e; color: #3fb950; }
-    .tag-warn  { background: #3d2a00; color: #f0883e; }
-    .tag-info  { background: #1f3a5c; color: #58a6ff; }
-
-    /* FREETIME */
-    .freetime-bar {
-      background: #21262d;
-      border-radius: 8px;
-      height: 10px;
-      overflow: hidden;
-      margin: 10px 0 6px;
-    }
-    .freetime-fill {
-      height: 100%;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #3fb950, #58a6ff);
-      width: 0%;
-      transition: width 1s ease;
-    }
-
-    /* ACTIONS */
-    .action-list { list-style: none; }
-    .action-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid #21262d;
-      font-size: 12px;
-    }
-    .action-list li:last-child { border-bottom: none; }
-    .action-num {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .num-red    { background: #f85149; color: white; }
-    .num-blue   { background: #1f6feb; color: white; }
-    .num-gray   { background: #30363d; color: #8b949e; }
-    .action-list strong { color: #e6edf3; }
-    .action-list p { color: #7d8590; margin-top: 2px; font-size: 11px; }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #30363d;
-      font-size: 11px;
-      border-top: 1px solid #21262d;
-      margin-top: 10px;
-    }
-    footer a { color: #58a6ff; text-decoration: none; }
-  </style>
+  /* CONTEÚDO */
+  .content {
+    height: calc(100vh - 52px);
+    position: relative;
+  }
+  .pane {
+    display: none;
+    position: absolute;
+    inset: 0;
+  }
+  .pane.active { display: block; }
+  .pane iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-left">
-    <div class="logo">🚢</div>
-    <div>
-      <h1>Helotron — Monitor de Logística</h1>
-      <p>Embarque ST260001 · Container KOCU4189250</p>
-    </div>
+<nav class="tabbar">
+  <div class="brand">
+    <div class="brand-icon">📦</div>
+    <span class="brand-name">HELOTRON</span>
   </div>
-  <div style="display:flex;gap:10px;align-items:center;">
-    <span class="badge-live">AO VIVO</span>
-    <span id="clock" style="font-size:12px;color:#7d8590;"></span>
+  <div class="tabs">
+    <button class="tab active" id="btn-produtos" onclick="show('produtos')">
+      <span class="tab-icon">🧾</span> Produtos &amp; Invoice
+    </button>
+    <button class="tab" id="btn-logistica" onclick="show('logistica')">
+      <span class="tab-icon">🚢</span> Logística
+    </button>
+    <button class="tab" id="btn-precos" onclick="show('precos')">
+      <span class="tab-icon">📊</span> Monitor de Preços
+    </button>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="pane active" id="pane-produtos">
+    <iframe src="./dashboard.html" title="Produtos e Invoice"></iframe>
+  </div>
+  <div class="pane" id="pane-logistica">
+    <iframe src="./logistica.html" title="Monitor de Logística"></iframe>
+  </div>
+  <div class="pane" id="pane-precos">
+    <iframe src="./precos.html" title="Monitor de Preços ML"></iframe>
   </div>
 </div>
-
-<div class="main">
-
-  <!-- CONFIRMAÇÃO DANIEL -->
-  <div class="alert-banner" style="background:#0f2a1a;border-color:#3fb95055;border-left-color:#3fb950;">
-    <div class="icon">✅</div>
-    <div>
-      <strong style="color:#3fb950;">Daniel confirmou — Carga embarcada! ETA 12/Jul/2026 confirmada</strong>
-      <p>Resposta recebida em 09/06 22:40. HBL atualizado a caminho para conferência. Booking NBOZHAG97600 mantido.</p>
-    </div>
-  </div>
-
-  <!-- CARDS DE STATUS -->
-  <div class="grid-4">
-    <div class="stat-card">
-      <div class="label">📦 Container</div>
-      <div class="value green">✅ Embarcado</div>
-      <div class="sub">Vessel Departure · 10/Jun 04:14</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">🚢 Navio Atual</div>
-      <div class="value white" style="font-size:16px;">HYUNDAI GRACE</div>
-      <div class="sub">Voyage 0154W · IMO 9330721</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">🇧🇷 ETA Paranaguá</div>
-      <div class="value blue">12/Jul/2026</div>
-      <div class="sub">23:44 ETB · Oficial HMM</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">⏱️ Freetime</div>
-      <div class="value green">21 dias</div>
-      <div class="sub">Sem demurrage até ~02/Ago</div>
-    </div>
-  </div>
-
-  <!-- COUNTDOWN -->
-  <div class="countdown-card">
-    <div>
-      <div class="countdown-label">🎯 Contagem Regressiva</div>
-      <div class="countdown-title">Chegada estimada em Paranaguá — 12/Jul/2026</div>
-    </div>
-    <div class="countdown-blocks" id="countdown">
-      <div class="countdown-block"><div class="num" id="cd-days">--</div><div class="unit">Dias</div></div>
-      <div class="countdown-block"><div class="num" id="cd-hours">--</div><div class="unit">Horas</div></div>
-      <div class="countdown-block"><div class="num" id="cd-min">--</div><div class="unit">Minutos</div></div>
-    </div>
-  </div>
-
-  <!-- ROTA -->
-  <div class="card" style="margin-bottom:20px;">
-    <h2>🗺️ Rota do Embarque</h2>
-    <div class="route">
-      <div class="route-stop">
-        <div class="route-dot dot-done">✅</div>
-        <div class="route-name">NINGBO</div>
-        <div class="route-date">China</div>
-        <div class="route-date" style="color:#3fb950;">Saiu 10/Jun</div>
-      </div>
-      <div class="route-line"></div>
-      <div class="route-stop">
-        <div class="route-dot dot-done">🇰🇷</div>
-        <div class="route-name">BUSAN</div>
-        <div class="route-date">Coreia do Sul</div>
-        <div class="route-date" style="color:#3fb950;">~11/Jun</div>
-      </div>
-      <div class="route-line"></div>
-      <div class="route-stop">
-        <div class="route-dot dot-current">🌊</div>
-        <div class="route-name">PACÍFICO</div>
-        <div class="route-date">Em trânsito</div>
-        <div class="route-date" style="color:#58a6ff;">~30 dias</div>
-      </div>
-      <div class="route-line-future"></div>
-      <div class="route-stop">
-        <div class="route-dot dot-future">🔒</div>
-        <div class="route-name">PANAMÁ</div>
-        <div class="route-date">Canal</div>
-        <div class="route-date">~Jul</div>
-      </div>
-      <div class="route-line-future"></div>
-      <div class="route-stop">
-        <div class="route-dot dot-future">🇧🇷</div>
-        <div class="route-name">PARANAGUÁ</div>
-        <div class="route-date">Brasil</div>
-        <div class="route-date" style="color:#58a6ff;">ETA 12/Jul</div>
-      </div>
-    </div>
-    <!-- Freetime bar -->
-    <div style="margin-top:10px;">
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:#7d8590;margin-bottom:4px;">
-        <span>Progresso estimado da viagem</span>
-        <span id="progress-pct">calculando...</span>
-      </div>
-      <div class="freetime-bar"><div class="freetime-fill" id="progress-bar"></div></div>
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:#7d8590;margin-top:4px;">
-        <span>10/Jun · Saída Ningbo</span>
-        <span>12/Jul · ETA Paranaguá</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- GRID 2 COLUNAS -->
-  <div class="grid-2">
-
-    <!-- HISTÓRICO DE ROLAGENS -->
-    <div class="card">
-      <h2>🔄 Histórico de Rolagens</h2>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot tl-dot-done"></div>
-          <div class="tl-date">06/Mai/2026</div>
-          <div class="tl-title">Booking Original</div>
-          <div class="tl-desc">HYUNDAI HONGKONG · ETA 15/Jun · USD 3.825</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot tl-dot-warn"></div>
-          <div class="tl-date">19/Mai/2026 · 1ª Rolagem</div>
-          <div class="tl-title">HMM SKY V.0005W</div>
-          <div class="tl-desc">ETD 26/Mai · ETA 29/Jun · USD 5.325 (+$1.500)</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot tl-dot-warn"></div>
-          <div class="tl-date">04/Jun/2026 · 2ª Rolagem</div>
-          <div class="tl-title">Via WhatsApp</div>
-          <div class="tl-desc">Booking não formalizado — email enviado a Daniel</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot tl-dot-danger"></div>
-          <div class="tl-date">09/Jun/2026 · 3ª Rolagem</div>
-          <div class="tl-title">HYUNDAI GRACE / 0154W</div>
-          <div class="tl-desc">Allen Ge (HELKA) · ETD Ningbo 09/Jun</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot tl-dot-current"></div>
-          <div class="tl-date">10/Jun/2026 · STATUS ATUAL</div>
-          <div class="tl-highlight">
-            <div class="tl-title" style="color:#58a6ff;">✅ Container Embarcado</div>
-            <div class="tl-desc">Vessel Departure from POL · 04:14<br>ETA Paranaguá: <strong style="color:#58a6ff;">12/Jul/2026</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DOCUMENTOS + AÇÕES -->
-    <div style="display:flex;flex-direction:column;gap:16px;">
-
-      <!-- DOCUMENTOS -->
-      <div class="card">
-        <h2>📋 Referências do Embarque</h2>
-        <table class="docs-table">
-          <tr><td>Container No.</td><td>KOCU4189250</td></tr>
-          <tr><td>Booking No.</td><td>NBOZHAG97600</td></tr>
-          <tr><td>HBL</td><td>HRYSE26050082 <span class="tag tag-warn">check</span></td></tr>
-          <tr><td>MBL</td><td>MRYSE26050054 <span class="tag tag-warn">check</span></td></tr>
-          <tr><td>Seal No.</td><td>26H0109614</td></tr>
-          <tr><td>Carga</td><td>467 ctn · 64,946 CBM</td></tr>
-          <tr><td>Peso</td><td>8.776,4 kg</td></tr>
-          <tr><td>Terminal PNG</td><td style="font-family:'Segoe UI';font-size:11px;">TERMINAL DE CNTR DE PARANAGUA</td></tr>
-        </table>
-        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.hmm21.com/e-service/general/trackNTrace/TrackNTrace.do" target="_blank"
-             style="display:inline-flex;align-items:center;gap:5px;background:#1f3a5c;color:#58a6ff;text-decoration:none;font-size:11px;padding:6px 12px;border-radius:6px;border:1px solid #1f6feb44;">
-            🔍 HMM Track &amp; Trace
-          </a>
-          <a href="https://www.myshiptracking.com/vessels/hyundai-grace-mmsi-538007484-imo-9330721" target="_blank"
-             style="display:inline-flex;align-items:center;gap:5px;background:#1f3a5c;color:#58a6ff;text-decoration:none;font-size:11px;padding:6px 12px;border-radius:6px;border:1px solid #1f6feb44;">
-            📡 Posição do Navio
-          </a>
-        </div>
-      </div>
-
-      <!-- PRÓXIMAS AÇÕES -->
-      <div class="card">
-        <h2>✅ Próximas Ações</h2>
-        <ul class="action-list">
-          <li>
-            <div class="action-num" style="background:#3fb950;color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">✓</div>
-            <div>
-              <strong style="color:#3fb950;">HBL atualizado — aguardando recebimento</strong>
-              <p>Daniel confirmou embarque e informou que enviará o HBL atualizado para conferência em breve.</p>
-            </div>
-          </li>
-          <li>
-            <div class="action-num num-blue">2</div>
-            <div>
-              <strong>Monitorar ETA diariamente</strong>
-              <p>HMM Track & Trace (KOCU4189250) + MyShipTracking (IMO 9330721).</p>
-            </div>
-          </li>
-          <li>
-            <div class="action-num num-gray">3</div>
-            <div>
-              <strong>~05/Jul — Pre-arrival</strong>
-              <p>Contatar Daniel para pré-aviso e frete rodoviário Paranaguá → Curitiba.</p>
-            </div>
-          </li>
-          <li>
-            <div class="action-num num-gray">4</div>
-            <div>
-              <strong>01/Jul — Tabela de frete</strong>
-              <p>Solicitar nova tabela a Daniel para planejamento do próximo embarque.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  Agente de Logística · <strong style="color:#8b949e;">HELOTRON COMERCIO DE UTILIDADES LTDA</strong> ·
-  Fontes: <a href="https://www.hmm21.com/e-service/general/trackNTrace/TrackNTrace.do" target="_blank">HMM Track &amp; Trace</a> ·
-  <a href="https://www.myshiptracking.com" target="_blank">MyShipTracking</a> ·
-  Atualizado em 11/06/2026 00:39 · Monitor de preços rodou ✅ · HYUNDAI GRACE a caminho de Busan (ETA ~12/Jun)
-</footer>
 
 <script>
-  // RELÓGIO
-  function updateClock() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2,'0');
-    const m = String(now.getMinutes()).padStart(2,'0');
-    const s = String(now.getSeconds()).padStart(2,'0');
-    document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+  function show(id) {
+    ['produtos', 'logistica', 'precos'].forEach(t => {
+      document.getElementById('btn-' + t).classList.toggle('active', t === id);
+      document.getElementById('pane-' + t).classList.toggle('active', t === id);
+    });
   }
-  setInterval(updateClock, 1000);
-  updateClock();
-
-  // COUNTDOWN para 12/Jul/2026 23:44
-  function updateCountdown() {
-    const eta = new Date('2026-07-12T23:44:00');
-    const now = new Date();
-    const diff = eta - now;
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '0';
-      document.getElementById('cd-hours').textContent = '0';
-      document.getElementById('cd-min').textContent = '0';
-      return;
-    }
-    const days  = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-    const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
-    document.getElementById('cd-days').textContent  = String(days);
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('cd-min').textContent   = String(mins).padStart(2,'0');
-  }
-  setInterval(updateCountdown, 60000);
-  updateCountdown();
-
-  // BARRA DE PROGRESSO DA VIAGEM
-  function updateProgress() {
-    const start = new Date('2026-06-10T04:14:00');
-    const end   = new Date('2026-07-12T23:44:00');
-    const now   = new Date();
-    const total = end - start;
-    const elapsed = now - start;
-    const pct = Math.min(100, Math.max(0, (elapsed / total) * 100));
-    document.getElementById('progress-bar').style.width = pct.toFixed(1) + '%';
-    document.getElementById('progress-pct').textContent = pct.toFixed(0) + '% concluído';
-  }
-  updateProgress();
-  setInterval(updateProgress, 60000);
 </script>
 </body>
 </html>
