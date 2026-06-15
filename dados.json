@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "atualizado_em": "12/06/2026 19:15",
+    "total_produtos": 11,
+    "fonte": "monitor_precos.py (local) + CSVs"
+  },
+  "container": {
+    "referencia": "ST260001",
+    "numero": "KOCU4189250",
+    "navio": "HYUNDAI GRACE",
+    "imo": "9330721",
+    "rota": "China → Busan → Pacífico → Paranaguá (PR)",
+    "eta_paranagua": "12/Jul/2026",
+    "status": "Em trânsito",
+    "ultima_atualizacao": "09/Jun/2026",
+    "fonte": "Daniel Gardini — SITI Logistics"
+  },
+  "produtos": [
+    {
+      "nome": "Cortador de Alimentos 16 em 1",
+      "pmv": 82.00,
+      "minimo": 33.00,
+      "medio": 46.60,
+      "maximo": 129.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 44.77},
+        {"data": "06/06", "medio": 41.40},
+        {"data": "08/06", "medio": 42.43},
+        {"data": "11/06", "medio": 39.77},
+        {"data": "12/06", "medio": 46.60}
+      ]
+    },
+    {
+      "nome": "Fatiador Rotativo de Legumes",
+      "pmv": 69.00,
+      "minimo": 19.00,
+      "medio": 49.80,
+      "maximo": 107.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 56.83},
+        {"data": "06/06", "medio": 52.73},
+        {"data": "08/06", "medio": 52.07},
+        {"data": "11/06", "medio": 49.83},
+        {"data": "12/06", "medio": 49.80}
+      ]
+    },
+    {
+      "nome": "Kit 7 Potes Hermeticos",
+      "pmv": 133.00,
+      "minimo": 17.00,
+      "medio": 85.40,
+      "maximo": 251.00,
+      "anuncios": 30,
+      "alertas": ["margem", "guerra", "minimo"],
+      "historico": [
+        {"data": "04/06", "medio": 117.40},
+        {"data": "06/06", "medio": 110.33},
+        {"data": "08/06", "medio": 93.13},
+        {"data": "11/06", "medio": 107.00},
+        {"data": "12/06", "medio": 85.40}
+      ]
+    },
+    {
+      "nome": "Conjunto Potes Organizadores",
+      "pmv": 77.00,
+      "minimo": 24.00,
+      "medio": 57.83,
+      "maximo": 102.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 60.20},
+        {"data": "06/06", "medio": 55.17},
+        {"data": "08/06", "medio": 74.17},
+        {"data": "11/06", "medio": 59.93},
+        {"data": "12/06", "medio": 57.83}
+      ]
+    },
+    {
+      "nome": "Tapete de Silicone para Cozinha",
+      "pmv": 65.00,
+      "minimo": 11.00,
+      "medio": 51.63,
+      "maximo": 496.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 60.77},
+        {"data": "06/06", "medio": 55.63},
+        {"data": "08/06", "medio": 53.73},
+        {"data": "11/06", "medio": 49.67},
+        {"data": "12/06", "medio": 51.63}
+      ]
+    },
+    {
+      "nome": "Spray de Oleo Cozinha",
+      "pmv": 42.00,
+      "minimo": 8.00,
+      "medio": 27.10,
+      "maximo": 75.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 29.27},
+        {"data": "06/06", "medio": 23.50},
+        {"data": "08/06", "medio": 23.97},
+        {"data": "11/06", "medio": 23.00},
+        {"data": "12/06", "medio": 27.10}
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo 2 un.",
+      "pmv": 110.00,
+      "minimo": 26.00,
+      "medio": 88.27,
+      "maximo": 219.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 84.90},
+        {"data": "06/06", "medio": 90.53},
+        {"data": "08/06", "medio": 87.23},
+        {"data": "11/06", "medio": 85.10},
+        {"data": "12/06", "medio": 88.27}
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo 3 un.",
+      "pmv": 115.00,
+      "minimo": 33.00,
+      "medio": 84.10,
+      "maximo": 244.00,
+      "anuncios": 30,
+      "alertas": ["margem", "guerra"],
+      "historico": [
+        {"data": "04/06", "medio": 78.90},
+        {"data": "06/06", "medio": 115.63},
+        {"data": "08/06", "medio": 95.40},
+        {"data": "11/06", "medio": 100.00},
+        {"data": "12/06", "medio": 84.10}
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia 3 Hastes",
+      "pmv": 145.00,
+      "minimo": 33.00,
+      "medio": 98.40,
+      "maximo": 219.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 102.10},
+        {"data": "06/06", "medio": 91.67},
+        {"data": "08/06", "medio": 89.03},
+        {"data": "11/06", "medio": 94.27},
+        {"data": "12/06", "medio": 98.40}
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia PVC",
+      "pmv": 95.00,
+      "minimo": 21.00,
+      "medio": 104.60,
+      "maximo": 478.00,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {"data": "04/06", "medio": 106.03},
+        {"data": "06/06", "medio": 106.47},
+        {"data": "08/06", "medio": 110.50},
+        {"data": "11/06", "medio": 99.60},
+        {"data": "12/06", "medio": 104.60}
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia Ferro",
+      "pmv": 162.00,
+      "minimo": 26.00,
+      "medio": 81.90,
+      "maximo": 478.00,
+      "anuncios": 30,
+      "alertas": ["margem"],
+      "historico": [
+        {"data": "04/06", "medio": 160.47},
+        {"data": "06/06", "medio": 94.60},
+        {"data": "08/06", "medio": 84.27},
+        {"data": "11/06", "medio": 89.13},
+        {"data": "12/06", "medio": 81.90}
+      ]
+    }
+  ]
+}
