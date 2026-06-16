@@ -158,6 +158,10 @@
       <label>Frete Rodoviário PNG→CWB (BRL) · 00111/26</label>
       <input type="number" id="p-frete-rod" value="4488.20" step="100" oninput="recalcular()">
     </div>
+    <div class="param-item">
+      <label>Desembaraço Aduaneiro (BRL) · 00111/26</label>
+      <input type="number" id="p-despacho" value="4800" step="100" oninput="recalcular()">
+    </div>
     <div class="param-sep"></div>
     <div class="param-item">
       <label>PIS Importação (%)</label>
@@ -200,7 +204,7 @@
   <div class="card" style="border-color:#10b981; grid-column: span 2;">
     <div class="card-label">💰 Total Nacionalizado (BRL)</div>
     <div class="card-valor" id="total-nac" style="color:#15803d">—</div>
-    <div class="card-sub">FOB + Frete Int'l + Frete Rod. + Impostos · <span id="custo-nac-unit"></span> / unidade</div>
+    <div class="card-sub">FOB + Frete Int'l + Frete Rod. + Despacho + Impostos · <span id="custo-nac-unit"></span> / unidade</div>
   </div>
 </div>
 
@@ -240,6 +244,7 @@
       <th class="nac-th">IPI%</th>
       <th class="nac-th">Frete Int'l Unit.</th>
       <th class="nac-th">Frete Rod. Unit.</th>
+      <th class="nac-th">Despacho Unit.</th>
       <th class="nac-th">Impostos Unit.</th>
       <th class="nac-th">Custo Nac. Unit.</th>
       <th class="nac-th">Custo Nac. Total</th>
@@ -436,6 +441,7 @@ function getParams() {
   return {
     freteInt: parseFloat(document.getElementById("p-frete-int").value) || 0,
     freteRod: parseFloat(document.getElementById("p-frete-rod").value) || 0,
+    despacho: parseFloat(document.getElementById("p-despacho").value)  || 0,
     pis:      parseFloat(document.getElementById("p-pis").value)    / 100 || 0,
     cofins:   parseFloat(document.getElementById("p-cofins").value) / 100 || 0,
     icms:     parseFloat(document.getElementById("p-icms").value)   / 100 || 0,
@@ -452,7 +458,8 @@ function calcNac(p, taxa, params, totalFOBusd) {
   // Rateio pro-rata pelo valor FOB
   const ratioFrete   = totalFOBusd > 0 ? fobTotalUSD / totalFOBusd : 0;
   const freteIntUnit = (params.freteInt * ratioFrete / p.qtd) * taxa;
-  const freteRodUnit = (params.freteRod * ratioFrete / p.qtd);
+  const freteRodUnit  = (params.freteRod  * ratioFrete / p.qtd);
+  const despachoUnit  = (params.despacho  * ratioFrete / p.qtd);
 
   // Base CIF em BRL (por unidade) — FOB usa taxa real, frete usa taxa atual
   const cif = fobUnit * taxaFOB + params.freteInt * ratioFrete / p.qtd * taxa;
@@ -468,10 +475,10 @@ function calcNac(p, taxa, params, totalFOBusd) {
   const icms     = baseIcms / (1 - params.icms) * params.icms;
   const impostos = ii + ipi + pis + cofins + icms;
 
-  const nacUnit  = fobUnit * taxaFOB + freteIntUnit + freteRodUnit + impostos;
+  const nacUnit  = fobUnit * taxaFOB + freteIntUnit + freteRodUnit + despachoUnit + impostos;
   const nacTotal = nacUnit * p.qtd;
 
-  return { freteIntUnit, freteRodUnit, impostos, nacUnit, nacTotal };
+  return { freteIntUnit, freteRodUnit, despachoUnit, impostos, nacUnit, nacTotal };
 }
 
 function renderizar(lista) {
@@ -524,6 +531,7 @@ function renderizar(lista) {
         <td class="num nac" style="font-size:12px">${(p.ipi*100).toFixed(2)}%</td>
         <td class="num nac">${fmt(nac.freteIntUnit)}</td>
         <td class="num nac">${fmt(nac.freteRodUnit)}</td>
+        <td class="num nac">${fmt(nac.despachoUnit)}</td>
         <td class="num nac">${fmt(nac.impostos)}</td>
         <td class="num nac" style="font-size:14px">${fmt(nac.nacUnit)}</td>
         <td class="num nac-total">${fmt(nac.nacTotal)}</td>
