@@ -1,8 +1,14 @@
 {
   "meta": {
-    "atualizado_em": "12/06/2026 19:15",
+    "atualizado_em": "15/06/2026 19:46",
     "total_produtos": 11,
-    "fonte": "monitor_precos.py (local) + CSVs"
+    "fonte": "monitor_precos.py (local) + CSVs",
+    "cambio": 5.75,
+    "frete_int_usd": 5325,
+    "frete_rod_brl": 4488.2,
+    "despacho_brl": 4800.0,
+    "margem_alvo": 0.3,
+    "comissao_ml": 0.18
   },
   "container": {
     "referencia": "ST260001",
@@ -17,179 +23,448 @@
   },
   "produtos": [
     {
-      "nome": "Cortador de Alimentos 16 em 1",
-      "pmv": 82.00,
-      "minimo": 33.00,
-      "medio": 46.60,
-      "maximo": 129.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 44.77},
-        {"data": "06/06", "medio": 41.40},
-        {"data": "08/06", "medio": 42.43},
-        {"data": "11/06", "medio": 39.77},
-        {"data": "12/06", "medio": 46.60}
-      ]
-    },
-    {
-      "nome": "Fatiador Rotativo de Legumes",
-      "pmv": 69.00,
-      "minimo": 19.00,
-      "medio": 49.80,
-      "maximo": 107.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 56.83},
-        {"data": "06/06", "medio": 52.73},
-        {"data": "08/06", "medio": 52.07},
-        {"data": "11/06", "medio": 49.83},
-        {"data": "12/06", "medio": 49.80}
-      ]
-    },
-    {
-      "nome": "Kit 7 Potes Hermeticos",
-      "pmv": 133.00,
-      "minimo": 17.00,
-      "medio": 85.40,
-      "maximo": 251.00,
-      "anuncios": 30,
-      "alertas": ["margem", "guerra", "minimo"],
-      "historico": [
-        {"data": "04/06", "medio": 117.40},
-        {"data": "06/06", "medio": 110.33},
-        {"data": "08/06", "medio": 93.13},
-        {"data": "11/06", "medio": 107.00},
-        {"data": "12/06", "medio": 85.40}
-      ]
-    },
-    {
-      "nome": "Conjunto Potes Organizadores",
-      "pmv": 77.00,
-      "minimo": 24.00,
-      "medio": 57.83,
-      "maximo": 102.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 60.20},
-        {"data": "06/06", "medio": 55.17},
-        {"data": "08/06", "medio": 74.17},
-        {"data": "11/06", "medio": 59.93},
-        {"data": "12/06", "medio": 57.83}
-      ]
-    },
-    {
-      "nome": "Tapete de Silicone para Cozinha",
-      "pmv": 65.00,
-      "minimo": 11.00,
-      "medio": 51.63,
-      "maximo": 496.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 60.77},
-        {"data": "06/06", "medio": 55.63},
-        {"data": "08/06", "medio": 53.73},
-        {"data": "11/06", "medio": 49.67},
-        {"data": "12/06", "medio": 51.63}
-      ]
-    },
-    {
-      "nome": "Spray de Oleo Cozinha",
-      "pmv": 42.00,
-      "minimo": 8.00,
-      "medio": 27.10,
-      "maximo": 75.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 29.27},
-        {"data": "06/06", "medio": 23.50},
-        {"data": "08/06", "medio": 23.97},
-        {"data": "11/06", "medio": 23.00},
-        {"data": "12/06", "medio": 27.10}
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo 2 un.",
-      "pmv": 110.00,
-      "minimo": 26.00,
-      "medio": 88.27,
-      "maximo": 219.00,
-      "anuncios": 30,
-      "alertas": ["margem"],
-      "historico": [
-        {"data": "04/06", "medio": 84.90},
-        {"data": "06/06", "medio": 90.53},
-        {"data": "08/06", "medio": 87.23},
-        {"data": "11/06", "medio": 85.10},
-        {"data": "12/06", "medio": 88.27}
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo 3 un.",
-      "pmv": 115.00,
-      "minimo": 33.00,
-      "medio": 84.10,
-      "maximo": 244.00,
-      "anuncios": 30,
-      "alertas": ["margem", "guerra"],
-      "historico": [
-        {"data": "04/06", "medio": 78.90},
-        {"data": "06/06", "medio": 115.63},
-        {"data": "08/06", "medio": 95.40},
-        {"data": "11/06", "medio": 100.00},
-        {"data": "12/06", "medio": 84.10}
-      ]
-    },
-    {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
-      "pmv": 145.00,
-      "minimo": 33.00,
-      "medio": 98.40,
-      "maximo": 219.00,
+      "pmv": 71.76,
+      "custo_nac": 37.31,
+      "minimo": 22.0,
+      "medio": 69.0,
+      "maximo": 219.0,
       "anuncios": 30,
-      "alertas": ["margem"],
+      "alertas": [
+        "margem",
+        "guerra"
+      ],
       "historico": [
-        {"data": "04/06", "medio": 102.10},
-        {"data": "06/06", "medio": 91.67},
-        {"data": "08/06", "medio": 89.03},
-        {"data": "11/06", "medio": 94.27},
-        {"data": "12/06", "medio": 98.40}
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Hortensia PVC",
-      "pmv": 95.00,
-      "minimo": 21.00,
-      "medio": 104.60,
-      "maximo": 478.00,
-      "anuncios": 30,
-      "alertas": [],
-      "historico": [
-        {"data": "04/06", "medio": 106.03},
-        {"data": "06/06", "medio": 106.47},
-        {"data": "08/06", "medio": 110.50},
-        {"data": "11/06", "medio": 99.60},
-        {"data": "12/06", "medio": 104.60}
+        {
+          "data": "04/06",
+          "medio": 102.1
+        },
+        {
+          "data": "06/06",
+          "medio": 91.67
+        },
+        {
+          "data": "08/06",
+          "medio": 89.03
+        },
+        {
+          "data": "11/06",
+          "medio": 94.27
+        },
+        {
+          "data": "11/06",
+          "medio": 94.5
+        },
+        {
+          "data": "12/06",
+          "medio": 98.4
+        },
+        {
+          "data": "15/06",
+          "medio": 69.0
+        }
       ]
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
-      "pmv": 162.00,
-      "minimo": 26.00,
-      "medio": 81.90,
-      "maximo": 478.00,
+      "pmv": 107.92,
+      "custo_nac": 56.12,
+      "minimo": 26.0,
+      "medio": 70.63,
+      "maximo": 406.0,
       "anuncios": 30,
-      "alertas": ["margem"],
+      "alertas": [
+        "margem"
+      ],
       "historico": [
-        {"data": "04/06", "medio": 160.47},
-        {"data": "06/06", "medio": 94.60},
-        {"data": "08/06", "medio": 84.27},
-        {"data": "11/06", "medio": 89.13},
-        {"data": "12/06", "medio": 81.90}
+        {
+          "data": "04/06",
+          "medio": 160.47
+        },
+        {
+          "data": "06/06",
+          "medio": 94.6
+        },
+        {
+          "data": "08/06",
+          "medio": 84.27
+        },
+        {
+          "data": "11/06",
+          "medio": 89.13
+        },
+        {
+          "data": "11/06",
+          "medio": 80.63
+        },
+        {
+          "data": "12/06",
+          "medio": 81.9
+        },
+        {
+          "data": "15/06",
+          "medio": 70.63
+        }
+      ]
+    },
+    {
+      "nome": "Cortador de Alimentos 16 em 1",
+      "pmv": 45.61,
+      "custo_nac": 23.72,
+      "minimo": 34.0,
+      "medio": 49.7,
+      "maximo": 129.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 44.77
+        },
+        {
+          "data": "06/06",
+          "medio": 41.4
+        },
+        {
+          "data": "08/06",
+          "medio": 42.43
+        },
+        {
+          "data": "11/06",
+          "medio": 39.77
+        },
+        {
+          "data": "11/06",
+          "medio": 42.17
+        },
+        {
+          "data": "12/06",
+          "medio": 46.6
+        },
+        {
+          "data": "15/06",
+          "medio": 49.7
+        }
+      ]
+    },
+    {
+      "nome": "Fatiador Rotativo de Legumes",
+      "pmv": 28.51,
+      "custo_nac": 14.82,
+      "minimo": 19.0,
+      "medio": 53.23,
+      "maximo": 159.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 56.83
+        },
+        {
+          "data": "06/06",
+          "medio": 52.73
+        },
+        {
+          "data": "08/06",
+          "medio": 52.07
+        },
+        {
+          "data": "11/06",
+          "medio": 49.83
+        },
+        {
+          "data": "11/06",
+          "medio": 50.77
+        },
+        {
+          "data": "12/06",
+          "medio": 49.8
+        },
+        {
+          "data": "15/06",
+          "medio": 53.23
+        }
+      ]
+    },
+    {
+      "nome": "Kit 7 Potes Hermeticos",
+      "pmv": 68.57,
+      "custo_nac": 35.66,
+      "minimo": 34.0,
+      "medio": 107.17,
+      "maximo": 296.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 117.4
+        },
+        {
+          "data": "06/06",
+          "medio": 110.33
+        },
+        {
+          "data": "08/06",
+          "medio": 93.13
+        },
+        {
+          "data": "11/06",
+          "medio": 107.0
+        },
+        {
+          "data": "11/06",
+          "medio": 103.3
+        },
+        {
+          "data": "12/06",
+          "medio": 85.4
+        },
+        {
+          "data": "15/06",
+          "medio": 107.17
+        }
+      ]
+    },
+    {
+      "nome": "Conjunto Potes Organizadores",
+      "pmv": 36.37,
+      "custo_nac": 18.91,
+      "minimo": 24.0,
+      "medio": 57.03,
+      "maximo": 103.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 60.2
+        },
+        {
+          "data": "06/06",
+          "medio": 55.17
+        },
+        {
+          "data": "08/06",
+          "medio": 74.17
+        },
+        {
+          "data": "11/06",
+          "medio": 59.93
+        },
+        {
+          "data": "11/06",
+          "medio": 56.37
+        },
+        {
+          "data": "12/06",
+          "medio": 57.83
+        },
+        {
+          "data": "15/06",
+          "medio": 57.03
+        }
+      ]
+    },
+    {
+      "nome": "Tapete de Silicone para Cozinha",
+      "pmv": 8.23,
+      "custo_nac": 4.28,
+      "minimo": 11.0,
+      "medio": 58.93,
+      "maximo": 496.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 60.77
+        },
+        {
+          "data": "06/06",
+          "medio": 55.63
+        },
+        {
+          "data": "08/06",
+          "medio": 53.73
+        },
+        {
+          "data": "11/06",
+          "medio": 49.67
+        },
+        {
+          "data": "11/06",
+          "medio": 55.67
+        },
+        {
+          "data": "12/06",
+          "medio": 51.63
+        },
+        {
+          "data": "15/06",
+          "medio": 58.93
+        }
+      ]
+    },
+    {
+      "nome": "Spray de Oleo Cozinha",
+      "pmv": 11.53,
+      "custo_nac": 6.0,
+      "minimo": 8.0,
+      "medio": 23.93,
+      "maximo": 75.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 29.27
+        },
+        {
+          "data": "06/06",
+          "medio": 23.5
+        },
+        {
+          "data": "08/06",
+          "medio": 23.97
+        },
+        {
+          "data": "11/06",
+          "medio": 23.0
+        },
+        {
+          "data": "11/06",
+          "medio": 24.43
+        },
+        {
+          "data": "12/06",
+          "medio": 27.1
+        },
+        {
+          "data": "15/06",
+          "medio": 23.93
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo 2 un.",
+      "pmv": 54.92,
+      "custo_nac": 28.56,
+      "minimo": 26.0,
+      "medio": 92.07,
+      "maximo": 219.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 84.9
+        },
+        {
+          "data": "06/06",
+          "medio": 90.53
+        },
+        {
+          "data": "08/06",
+          "medio": 87.23
+        },
+        {
+          "data": "11/06",
+          "medio": 85.1
+        },
+        {
+          "data": "11/06",
+          "medio": 85.73
+        },
+        {
+          "data": "12/06",
+          "medio": 88.27
+        },
+        {
+          "data": "15/06",
+          "medio": 92.07
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo 3 un.",
+      "pmv": 52.05,
+      "custo_nac": 27.06,
+      "minimo": 33.0,
+      "medio": 87.93,
+      "maximo": 244.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 78.9
+        },
+        {
+          "data": "06/06",
+          "medio": 115.63
+        },
+        {
+          "data": "08/06",
+          "medio": 95.4
+        },
+        {
+          "data": "11/06",
+          "medio": 100.0
+        },
+        {
+          "data": "11/06",
+          "medio": 100.03
+        },
+        {
+          "data": "12/06",
+          "medio": 84.1
+        },
+        {
+          "data": "15/06",
+          "medio": 87.93
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia PVC",
+      "pmv": 52.75,
+      "custo_nac": 27.43,
+      "minimo": 21.0,
+      "medio": 112.77,
+      "maximo": 406.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 106.03
+        },
+        {
+          "data": "06/06",
+          "medio": 106.47
+        },
+        {
+          "data": "08/06",
+          "medio": 110.5
+        },
+        {
+          "data": "11/06",
+          "medio": 99.6
+        },
+        {
+          "data": "11/06",
+          "medio": 110.67
+        },
+        {
+          "data": "12/06",
+          "medio": 104.6
+        },
+        {
+          "data": "15/06",
+          "medio": 112.77
+        }
       ]
     }
   ]
