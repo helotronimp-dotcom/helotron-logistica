@@ -24,6 +24,7 @@
   "produtos": [
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
+      "ncm": "9405.40.90",
       "pmv": 71.76,
       "custo_nac": 37.31,
       "minimo": 22.0,
@@ -67,6 +68,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
+      "ncm": "9405.40.90",
       "pmv": 107.92,
       "custo_nac": 56.12,
       "minimo": 26.0,
@@ -109,6 +111,7 @@
     },
     {
       "nome": "Cortador de Alimentos 16 em 1",
+      "ncm": "8210.00.00",
       "pmv": 45.61,
       "custo_nac": 23.72,
       "minimo": 34.0,
@@ -149,6 +152,7 @@
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
+      "ncm": "8210.00.00",
       "pmv": 28.51,
       "custo_nac": 14.82,
       "minimo": 19.0,
@@ -189,6 +193,7 @@
     },
     {
       "nome": "Kit 7 Potes Hermeticos",
+      "ncm": "3924.10.00",
       "pmv": 68.57,
       "custo_nac": 35.66,
       "minimo": 34.0,
@@ -229,6 +234,7 @@
     },
     {
       "nome": "Conjunto Potes Organizadores",
+      "ncm": "3924.10.00",
       "pmv": 36.37,
       "custo_nac": 18.91,
       "minimo": 24.0,
@@ -269,6 +275,7 @@
     },
     {
       "nome": "Tapete de Silicone para Cozinha",
+      "ncm": "3926.90.90",
       "pmv": 8.23,
       "custo_nac": 4.28,
       "minimo": 11.0,
@@ -309,6 +316,7 @@
     },
     {
       "nome": "Spray de Oleo Cozinha",
+      "ncm": "8424.20.00",
       "pmv": 11.53,
       "custo_nac": 6.0,
       "minimo": 8.0,
@@ -349,6 +357,7 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 2 un.",
+      "ncm": "9405.40.90",
       "pmv": 54.92,
       "custo_nac": 28.56,
       "minimo": 26.0,
@@ -389,6 +398,7 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 3 un.",
+      "ncm": "9405.40.90",
       "pmv": 52.05,
       "custo_nac": 27.06,
       "minimo": 33.0,
@@ -429,6 +439,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia PVC",
+      "ncm": "9405.40.90",
       "pmv": 52.75,
       "custo_nac": 27.43,
       "minimo": 21.0,
