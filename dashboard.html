@@ -134,7 +134,12 @@
     <h1>HELOTRON — Dashboard de Produtos</h1>
     <p>CNPJ 63.403.148/0001-97 · Curitiba – PR · helotron.imp@gmail.com</p>
   </div>
-  <div class="header-right">
+  <div class="header-right" style="display:flex;gap:12px;align-items:center;">
+    <div class="taxa-box" style="text-align:center;min-width:130px;">
+      <label>Dólar Hoje (PTAX)</label>
+      <div id="ptax-valor" style="font-size:18px;font-weight:700;color:#3fb950;margin-top:2px;">—</div>
+      <div id="ptax-data" style="font-size:9px;color:#7d8590;margin-top:2px;">carregando...</div>
+    </div>
     <div class="taxa-box">
       <label>Cotação USD → BRL</label>
       <input type="number" id="taxa" value="5.75" step="0.01" oninput="recalcular()"> R$
@@ -146,12 +151,12 @@
   <h3>⚙️ Parâmetros de Importação e Impostos</h3>
   <div class="params-grid">
     <div class="param-item">
-      <label>Frete Internacional (USD)</label>
-      <input type="number" id="p-frete-int" value="5300" step="100" oninput="recalcular()">
+      <label>Frete Internacional (USD) · ST260001</label>
+      <input type="number" id="p-frete-int" value="5325" step="100" oninput="recalcular()">
     </div>
     <div class="param-item">
-      <label>Frete Rodoviário Paranaguá→CWB (BRL)</label>
-      <input type="number" id="p-frete-rod" value="5000" step="100" oninput="recalcular()">
+      <label>Frete Rodoviário PNG→CWB (BRL) · 00111/26</label>
+      <input type="number" id="p-frete-rod" value="4488.20" step="100" oninput="recalcular()">
     </div>
     <div class="param-sep"></div>
     <div class="param-item">
@@ -266,6 +271,24 @@
 </div>
 
 <script>
+// Busca dólar PTAX do Banco Central
+async function carregarPTAX() {
+  try {
+    const r = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL');
+    const d = await r.json();
+    const usd = d['USDBRL'];
+    const val = parseFloat(usd.bid).toFixed(4);
+    const ts  = new Date(parseInt(usd.timestamp) * 1000);
+    const hora = ts.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('ptax-valor').textContent = 'R$ ' + val.replace('.', ',');
+    document.getElementById('ptax-data').textContent  = 'Atualizado ' + hora;
+  } catch(e) {
+    document.getElementById('ptax-data').textContent = 'indisponível';
+  }
+}
+carregarPTAX();
+setInterval(carregarPTAX, 300000); // atualiza a cada 5 min
+
 // taxaReal = câmbio efetivo pago via SWIFT/Wise (custo FOB em BRL já fixado)
 // GreenEarth: R$33.445,99 ÷ USD 6.223,70 = 5,3754 | YuNan: R$13.274,01 ÷ USD 2.469,42 = 5,3756
 // TeMeiHui: R$105.235,61 ÷ USD 20.850,36 = 5,0474
