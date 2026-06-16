@@ -8,7 +8,8 @@
     "frete_rod_brl": 4488.2,
     "despacho_brl": 4800.0,
     "margem_alvo": 0.3,
-    "comissao_ml": 0.18
+    "plataforma": "mercadolivre",
+    "comissao_plataforma": 0.18
   },
   "container": {
     "referencia": "ST260001",
