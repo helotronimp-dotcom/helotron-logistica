@@ -216,10 +216,10 @@ tbody tr { cursor: pointer; }
     <div class="card-valor" id="c-verd">—</div>
     <div class="card-sub">médio &gt; PMV</div>
   </div>
-  <div class="card azul" id="card-azul" style="cursor:default">
+  <div class="card azul" id="card-azul" onclick="window.parent.show('logistica')" title="Clique para ver a aba Logística" style="cursor:pointer">
     <div class="card-label">📦 Container ETA</div>
     <div class="card-valor" id="c-eta" style="font-size:17px;margin-top:6px">—</div>
-    <div class="card-sub">ST260001 · Paranaguá</div>
+    <div class="card-sub">ST260001 · Paranaguá · <span style="color:#42a5f5">ver logística →</span></div>
   </div>
   <div class="card roxo" id="card-roxo" onclick="filtrar('amar')" title="Clique para filtrar">
     <div class="card-label">🟡 Outros Alertas</div>
@@ -393,11 +393,17 @@ async function init() {
           return `<span class="badge ${cls}">${lbl}</span>`;
         }).join('<br>');
 
+    const mlSlug = p.nome.toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9\s]/g, '').trim()
+      .replace(/\s+/g, '-');
+    const mlUrl = `https://lista.mercadolivre.com.br/${mlSlug}`;
+
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
-      <td>${p.nome}</td>
+      <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#1a1a2e;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#1565c0'" onmouseout="this.style.color='#1a1a2e'">${p.nome} <span style="font-size:10px;color:#42a5f5">↗</span></a></td>
       <td class="pmv-col">${BRL(p.pmv)}</td>
       <td>${BRL(p.minimo)}</td>
       <td>${BRL(p.medio)}</td>
