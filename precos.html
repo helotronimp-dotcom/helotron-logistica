@@ -361,19 +361,7 @@ async function init() {
 
   document.getElementById('ultima-at').textContent = d.meta.atualizado_em;
 
-  // Container
   const c = d.container;
-  document.getElementById('cont-navio').textContent =
-    c.navio + ' (IMO ' + c.imo + ')  ·  ' + c.rota;
-  document.getElementById('cont-eta').textContent = 'ETA: ' + c.eta_paranagua;
-  document.getElementById('cont-body').innerHTML = `
-    <div class="cont-item"><label>Referência</label><span>${c.referencia}</span></div>
-    <div class="cont-item"><label>Container</label><span>${c.numero}</span></div>
-    <div class="cont-item"><label>ETA Paranaguá</label><span>${c.eta_paranagua}</span></div>
-    <div class="cont-item"><label>Status</label><span>${c.status}</span></div>
-    <div class="cont-item"><label>Navio</label><span>${c.navio}</span></div>
-    <div class="cont-item"><label>Última confirmação</label><span>${c.ultima_atualizacao} — ${c.fonte}</span></div>
-  `;
 
   // Tabela
   const tbody = document.getElementById('tbody');
