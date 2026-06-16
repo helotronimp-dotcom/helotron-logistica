@@ -45,6 +45,15 @@ header p  { font-size: 11px; opacity: 0.55; margin-top: 3px; }
 .card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
 .card-valor { font-size: 26px; font-weight: 700; margin: 4px 0 2px; }
 .card-sub   { font-size: 10px; color: #aaa; }
+.card { cursor: pointer; transition: transform 0.1s, box-shadow 0.1s; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+.card.ativo { outline: 3px solid currentColor; outline-offset: 2px; }
+.card.ativo.verm { outline-color: #ef5350; }
+.card.ativo.verd { outline-color: #4caf50; }
+.card.ativo.azul { outline-color: #42a5f5; }
+.card.ativo.roxo { outline-color: #7e57c2; }
+.filtro-label { font-size: 11px; color: #888; padding: 4px 28px 0; font-style: italic; }
+tr.oculto { display: none; }
 
 .section {
   background: white; margin: 10px 28px;
@@ -197,27 +206,28 @@ tbody tr { cursor: pointer; }
 <div class="banner" id="banner"></div>
 
 <div class="cards">
-  <div class="card verm">
+  <div class="card verm" id="card-verm" onclick="filtrar('verm')" title="Clique para filtrar">
     <div class="card-label">🔴 Margem em Risco</div>
     <div class="card-valor" id="c-verm">—</div>
     <div class="card-sub">produtos com médio &lt; PMV</div>
   </div>
-  <div class="card verd">
+  <div class="card verd" id="card-verd" onclick="filtrar('verd')" title="Clique para filtrar">
     <div class="card-label">✅ Margem Viável</div>
     <div class="card-valor" id="c-verd">—</div>
     <div class="card-sub">médio &gt; PMV</div>
   </div>
-  <div class="card azul">
+  <div class="card azul" id="card-azul" style="cursor:default">
     <div class="card-label">📦 Container ETA</div>
     <div class="card-valor" id="c-eta" style="font-size:17px;margin-top:6px">—</div>
     <div class="card-sub">ST260001 · Paranaguá</div>
   </div>
-  <div class="card roxo">
+  <div class="card roxo" id="card-roxo" onclick="filtrar('amar')" title="Clique para filtrar">
     <div class="card-label">🟡 Outros Alertas</div>
     <div class="card-valor" id="c-amar">—</div>
     <div class="card-sub">guerra / mín. histórico</div>
   </div>
 </div>
+<div class="filtro-label" id="filtro-label" style="display:none"></div>
 
 <div class="section">
   <div class="sec-header">
@@ -384,6 +394,7 @@ async function init() {
         }).join('<br>');
 
     const tr = document.createElement('tr');
+    tr.dataset.alertas = al.join(',');
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
       <td>${p.nome}</td>
@@ -421,6 +432,40 @@ async function init() {
 }
 
 init();
+
+// ── FILTRO POR CARD ────────────────────────────────────────
+let filtroAtivo = null;
+
+function filtrar(tipo) {
+  // Toggle: clicou no mesmo card já ativo → limpa filtro
+  if (filtroAtivo === tipo) {
+    filtroAtivo = null;
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('ativo'));
+    document.querySelectorAll('#tbody tr').forEach(tr => tr.classList.remove('oculto'));
+    document.getElementById('filtro-label').style.display = 'none';
+    return;
+  }
+
+  filtroAtivo = tipo;
+  ['verm','verd','amar'].forEach(t => {
+    const el = document.getElementById('card-' + (t === 'amar' ? 'roxo' : t));
+    if (el) el.classList.toggle('ativo', t === tipo);
+  });
+
+  document.querySelectorAll('#tbody tr').forEach(tr => {
+    const alertas = tr.dataset.alertas ? tr.dataset.alertas.split(',') : [];
+    let mostrar = false;
+    if (tipo === 'verm') mostrar = alertas.includes('margem');
+    if (tipo === 'verd') mostrar = !alertas.includes('margem') && alertas.filter(a => a).length === 0;
+    if (tipo === 'amar') mostrar = alertas.some(a => a !== 'margem' && a !== '');
+    tr.classList.toggle('oculto', !mostrar);
+  });
+
+  const labels = { verm: '🔴 Mostrando: Margem em Risco', verd: '✅ Mostrando: Margem Viável', amar: '🟡 Mostrando: Outros Alertas' };
+  const lbl = document.getElementById('filtro-label');
+  lbl.textContent = labels[tipo] + ' — clique no card novamente para limpar';
+  lbl.style.display = 'block';
+}
 
 // ── MODAL ──────────────────────────────────────────────────
 function abrirModal(p) {
