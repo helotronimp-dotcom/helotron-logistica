@@ -203,10 +203,22 @@ tbody tr { cursor: pointer; }
 <header>
   <div>
     <h1>📊 HELOTRON — Monitor de Vendas</h1>
-    <p>Preços Mercado Livre · PMV · Container ST260001</p>
+    <p>Preços Mercado Livre · PMV dinâmico · Container ST260001</p>
   </div>
-  <div class="badge-update">
-    Atualizado: <span id="ultima-at">—</span>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div style="background:#0f2a1a;border:1px solid #3fb95044;border-radius:10px;padding:8px 16px;text-align:center;">
+      <div style="font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Margem Alvo</div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <input type="number" id="margem-input" value="30" min="1" max="80" step="1"
+          oninput="recalcularTabela()"
+          style="width:52px;background:transparent;border:none;border-bottom:1px solid #3fb95088;color:#3fb950;font-size:20px;font-weight:700;text-align:center;outline:none;">
+        <span style="font-size:16px;color:#3fb950;font-weight:700;">%</span>
+      </div>
+      <div style="font-size:9px;color:#7d8590;margin-top:3px;">após 18% ML</div>
+    </div>
+    <div class="badge-update">
+      Atualizado: <span id="ultima-at">—</span>
+    </div>
   </div>
 </header>
 
@@ -365,27 +377,53 @@ const ALERTA_LABEL = {
   concorrencia: ['🟡 Concorr.', 'amar']
 };
 
+let DADOS_GLOBAIS = null;
+
 async function init() {
-  let d;
   try {
     const r = await fetch('./dados.json?v=' + Date.now());
-    d = await r.json();
+    DADOS_GLOBAIS = await r.json();
   } catch(e) {
     document.getElementById('banner').className = 'banner verm';
     document.getElementById('banner').textContent = '❌ Erro ao carregar dados.json — verifique o repositório';
     return;
   }
+  document.getElementById('ultima-at').textContent = DADOS_GLOBAIS.meta.atualizado_em;
+  document.getElementById('c-eta').textContent = DADOS_GLOBAIS.container.eta_paranagua;
+  recalcularTabela();
+}
 
-  document.getElementById('ultima-at').textContent = d.meta.atualizado_em;
+function getMargem() {
+  const v = parseFloat(document.getElementById('margem-input').value);
+  return isNaN(v) ? 0.30 : Math.max(0.01, Math.min(0.80, v / 100));
+}
 
-  const c = d.container;
+function pmvDinamico(pmvBase) {
+  // custo = pmvBase * 0.52 (inverso de custo/0.52 com 18%ML+30%margem original)
+  // novo PMV = custo / (1 - 0.18 - margem_alvo)
+  if (!pmvBase) return null;
+  const custo = pmvBase * 0.52;
+  const margem = getMargem();
+  const divisor = 1 - 0.18 - margem;
+  return divisor > 0 ? custo / divisor : null;
+}
 
-  // Tabela
+function recalcularTabela() {
+  if (!DADOS_GLOBAIS) return;
   const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
   let nV = 0, nVerd = 0, nA = 0;
+  const margem = getMargem();
 
-  d.produtos.forEach(p => {
-    const al = p.alertas || [];
+  DADOS_GLOBAIS.produtos.forEach(p => {
+    const pmv = pmvDinamico(p.pmv);
+
+    // Recalcula alertas com PMV dinâmico
+    const al = [];
+    if (pmv && p.medio && p.medio < pmv) al.push('margem');
+    // mantém alertas que não dependem do PMV (guerra, mínimo)
+    if (p.alertas) p.alertas.filter(a => a !== 'margem').forEach(a => al.push(a));
+
     const hasMargem = al.includes('margem');
     const hasExtra  = al.some(a => a !== 'margem');
     if (hasMargem) nV++;
@@ -411,13 +449,13 @@ async function init() {
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
-      <td class="pmv-col">${BRL(p.pmv)}</td>
+      <td class="pmv-col">${BRL(pmv)}</td>
       <td>${BRL(p.minimo)}</td>
       <td>${BRL(p.medio)}</td>
       <td>${BRL(p.maximo)}</td>
       <td>${p.anuncios ?? '—'}</td>
       <td class="${tend.cls}">${tend.icon}</td>
-      <td>${gapHtml(p.medio, p.pmv)}</td>
+      <td>${gapHtml(p.medio, pmv)}</td>
       <td style="text-align:left">${badges}</td>
     `;
     tr.addEventListener('click', () => abrirModal(p));
@@ -425,22 +463,25 @@ async function init() {
   });
 
   // Cards
-  document.getElementById('c-verm').textContent  = nV;
-  document.getElementById('c-verd').textContent  = nVerd;
-  document.getElementById('c-amar').textContent  = nA;
-  document.getElementById('c-eta').textContent   = c.eta_paranagua;
+  document.getElementById('c-verm').textContent = nV;
+  document.getElementById('c-verd').textContent = nVerd;
+  document.getElementById('c-amar').textContent = nA;
+
+  // Header da tabela
+  const secSmall = document.querySelector('.sec-header small');
+  if (secSmall) secSmall.textContent = `PMV = custo ÷ (1 − 18% ML − ${Math.round(margem*100)}% margem)`;
 
   // Banner
   const b = document.getElementById('banner');
   if (nV > 0) {
     b.className = 'banner verm';
-    b.textContent = `🔴 ${nV} produto${nV > 1 ? 's' : ''} com margem em risco — preço médio do mercado abaixo do PMV`;
+    b.textContent = `🔴 ${nV} produto${nV > 1 ? 's' : ''} com margem em risco para ${Math.round(margem*100)}% alvo — preço médio abaixo do PMV`;
   } else if (nA > 0) {
     b.className = 'banner amar';
     b.textContent = `🟡 ${nA} alerta${nA > 1 ? 's' : ''} de atenção — sem risco crítico de margem`;
   } else {
     b.className = 'banner verd';
-    b.textContent = '✅ Tudo estável — nenhum produto com margem em risco';
+    b.textContent = `✅ Tudo viável com margem de ${Math.round(margem*100)}% — nenhum produto em risco`;
   }
 }
 
