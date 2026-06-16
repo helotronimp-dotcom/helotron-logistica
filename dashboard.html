@@ -6,22 +6,22 @@
 <title>Helotron — Dashboard de Produtos</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; }
 
   header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: white; padding: 24px 32px;
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    color: #e6edf3; padding: 24px 32px;
     display: flex; justify-content: space-between; align-items: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
   }
   header h1 { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
-  header p { font-size: 12px; opacity: 0.6; margin-top: 4px; }
+  header p { font-size: 12px; color: #7d8590; margin-top: 4px; }
   .header-right { text-align: right; }
-  .taxa-box { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 16px; }
-  .taxa-box label { font-size: 11px; opacity: 0.7; display: block; margin-bottom: 4px; }
+  .taxa-box { background: #21262d; border-radius: 8px; padding: 10px 16px; border: 1px solid #30363d; }
+  .taxa-box label { font-size: 11px; color: #7d8590; display: block; margin-bottom: 4px; }
   .taxa-box input {
-    background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.4);
-    color: white; font-size: 18px; font-weight: 700; width: 90px; text-align: center;
+    background: transparent; border: none; border-bottom: 1px solid #484f58;
+    color: #e6edf3; font-size: 18px; font-weight: 700; width: 90px; text-align: center;
     outline: none;
   }
 
@@ -30,95 +30,96 @@
     gap: 16px; padding: 24px 32px 8px;
   }
   .card {
-    background: white; border-radius: 12px; padding: 20px 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border-left: 4px solid #e0e0e0;
+    background: #161b22; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #30363d; border-left: 4px solid #30363d;
   }
-  .card.azul { border-color: #3b82f6; }
-  .card.verde { border-color: #10b981; }
-  .card.roxo { border-color: #8b5cf6; }
-  .card.laranja { border-color: #f59e0b; }
-  .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
-  .card-valor { font-size: 26px; font-weight: 700; margin-top: 6px; color: #1a1a2e; }
-  .card-sub { font-size: 12px; color: #aaa; margin-top: 4px; }
+  .card.azul { border-left-color: #58a6ff; }
+  .card.verde { border-left-color: #3fb950; }
+  .card.roxo { border-left-color: #bc8cff; }
+  .card.laranja { border-left-color: #f0883e; }
+  .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7d8590; }
+  .card-valor { font-size: 26px; font-weight: 700; margin-top: 6px; color: #e6edf3; }
+  .card-sub { font-size: 12px; color: #7d8590; margin-top: 4px; }
 
   .filtros {
     padding: 16px 32px; display: flex; gap: 12px; align-items: center;
   }
   .filtros select, .filtros input {
-    padding: 8px 14px; border: 1px solid #ddd; border-radius: 8px;
-    font-size: 13px; background: white; outline: none;
+    padding: 8px 14px; border: 1px solid #30363d; border-radius: 8px;
+    font-size: 13px; background: #21262d; color: #e6edf3; outline: none;
   }
   .filtros input { width: 240px; }
 
   .tabela-wrap { padding: 0 32px 40px; overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; background: white;
+  table { width: 100%; border-collapse: collapse; background: #161b22;
     border-radius: 12px; overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06); font-size: 13px; }
-  thead tr { background: #1a1a2e; color: white; }
-  thead th { padding: 13px 14px; text-align: left; font-weight: 600;
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-  tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.15s; }
-  tbody tr:hover { background: #f8f9ff; }
+    border: 1px solid #30363d; font-size: 13px; }
+  thead tr { background: #21262d; }
+  thead th { padding: 13px 14px; text-align: left; font-weight: 600; color: #8b949e;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
+    border-bottom: 1px solid #30363d; }
+  tbody tr { border-bottom: 1px solid #21262d; transition: background 0.15s; }
+  tbody tr:hover { background: #1c2128; }
   tbody tr:last-child { border-bottom: none; }
-  td { padding: 12px 14px; vertical-align: middle; }
+  td { padding: 12px 14px; vertical-align: middle; color: #e6edf3; }
 
   .badge {
     display: inline-block; padding: 3px 10px; border-radius: 20px;
     font-size: 11px; font-weight: 600;
   }
-  .badge-cozinha { background: #dbeafe; color: #1d4ed8; }
-  .badge-jardim  { background: #dcfce7; color: #15803d; }
+  .badge-cozinha { background: #1f3a5c; color: #58a6ff; }
+  .badge-jardim  { background: #0f2a1a; color: #3fb950; }
 
   .fornecedor-tag {
     display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-size: 10px; font-weight: 600; background: #f3f4f6; color: #555;
+    font-size: 10px; font-weight: 600; background: #21262d; color: #8b949e;
+    border: 1px solid #30363d;
   }
 
   .preco-ml { display: flex; flex-direction: column; gap: 2px; }
   .preco-ml span { font-size: 11px; }
-  .preco-min { color: #10b981; font-weight: 600; }
-  .preco-med { color: #3b82f6; font-weight: 700; font-size: 13px !important; }
-  .preco-max { color: #ef4444; font-weight: 600; }
+  .preco-min { color: #3fb950; font-weight: 600; }
+  .preco-med { color: #58a6ff; font-weight: 700; font-size: 13px !important; }
+  .preco-max { color: #f85149; font-weight: 600; }
 
   .margem {
     font-weight: 700; font-size: 13px;
   }
-  .margem-alta { color: #10b981; }
-  .margem-media { color: #f59e0b; }
-  .margem-baixa { color: #ef4444; }
+  .margem-alta { color: #3fb950; }
+  .margem-media { color: #f0883e; }
+  .margem-baixa { color: #f85149; }
 
   .num { text-align: right; }
-  .custo-usd { color: #555; font-size: 12px; }
-  .custo-brl { font-weight: 700; color: #1a1a2e; }
+  .custo-usd { color: #7d8590; font-size: 12px; }
+  .custo-brl { font-weight: 700; color: #e6edf3; }
 
-  tfoot tr { background: #1a1a2e; color: white; font-weight: 700; }
+  tfoot tr { background: #21262d; color: #e6edf3; font-weight: 700; border-top: 2px solid #30363d; }
   tfoot td { padding: 13px 14px; }
 
-  .sem-resultado { display: none; text-align: center; padding: 40px; color: #aaa; }
+  .sem-resultado { display: none; text-align: center; padding: 40px; color: #7d8590; }
 
   .params {
-    background: white; margin: 0 32px 8px;
+    background: #161b22; margin: 0 32px 8px;
     border-radius: 12px; padding: 18px 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #30363d;
   }
   .params h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
-    color: #888; margin-bottom: 14px; }
+    color: #7d8590; margin-bottom: 14px; }
   .params-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
   .param-item { display: flex; flex-direction: column; gap: 4px; }
-  .param-item label { font-size: 11px; color: #888; }
+  .param-item label { font-size: 11px; color: #7d8590; }
   .param-item input {
-    width: 110px; padding: 6px 10px; border: 1px solid #ddd;
+    width: 110px; padding: 6px 10px; border: 1px solid #30363d;
     border-radius: 6px; font-size: 13px; font-weight: 600; outline: none;
-    text-align: right;
+    text-align: right; background: #21262d; color: #e6edf3;
   }
-  .param-item input:focus { border-color: #3b82f6; }
-  .param-sep { width: 1px; height: 40px; background: #eee; align-self: flex-end; margin-bottom: 4px; }
-  .param-note { font-size: 11px; color: #aaa; align-self: flex-end; padding-bottom: 6px; }
+  .param-item input:focus { border-color: #58a6ff; }
+  .param-sep { width: 1px; height: 40px; background: #30363d; align-self: flex-end; margin-bottom: 4px; }
+  .param-note { font-size: 11px; color: #7d8590; align-self: flex-end; padding-bottom: 6px; }
 
-  td.nac { background: #f0fdf4; font-weight: 700; color: #15803d; }
-  td.nac-total { background: #dcfce7; font-weight: 700; color: #15803d; font-size: 13px; }
-  th.nac-th { background: #166534 !important; }
+  td.nac { background: #0f2a1a; font-weight: 700; color: #3fb950; }
+  td.nac-total { background: #0f3320; font-weight: 700; color: #3fb950; font-size: 13px; }
+  th.nac-th { background: #0f2a1a !important; color: #3fb950 !important; }
 
   @media (max-width: 900px) {
     .resumo { grid-template-columns: repeat(2,1fr); }
