@@ -249,10 +249,6 @@
       <th class="nac-th">Impostos Unit.</th>
       <th class="nac-th">Custo Nac. Unit.</th>
       <th class="nac-th">Custo Nac. Total</th>
-      <th>ML Mínimo</th>
-      <th>ML Médio</th>
-      <th>ML Máximo</th>
-      <th>Margem s/ Médio</th>
     </tr>
   </thead>
   <tbody id="corpo"></tbody>
@@ -539,10 +535,6 @@ function renderizar(lista) {
         <td class="num nac">${fmt(nac.impostos)}</td>
         <td class="num nac" style="font-size:14px">${fmt(nac.nacUnit)}</td>
         <td class="num nac-total">${fmt(nac.nacTotal)}</td>
-        <td class="num preco-min">${fmt(p.mlMin)}</td>
-        <td class="num preco-med">${fmt(p.mlMed)}</td>
-        <td class="num preco-max">${fmt(p.mlMax)}</td>
-        <td class="num margem ${mClass}">${margemPct.toFixed(0)}%</td>
       </tr>`;
   });
 
