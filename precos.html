@@ -262,15 +262,15 @@ tbody tr { cursor: pointer; }
     <table>
       <thead>
         <tr>
-          <th>Produto</th>
-          <th style="background:#2d3748">PMV</th>
+          <th onclick="ordenar('nome')"      style="cursor:pointer" title="Ordenar">Produto <span id="ord-nome"></span></th>
+          <th onclick="ordenar('pmv')"       style="cursor:pointer;background:#2d3748" title="Ordenar">PMV <span id="ord-pmv"></span></th>
           <th style="background:#1a2a1a">Margem %</th>
-          <th>Mínimo</th>
-          <th>Médio</th>
-          <th>Máximo</th>
-          <th>An.</th>
+          <th onclick="ordenar('minimo')"    style="cursor:pointer" title="Ordenar">Mínimo <span id="ord-minimo"></span></th>
+          <th onclick="ordenar('medio')"     style="cursor:pointer" title="Ordenar">Médio <span id="ord-medio"></span></th>
+          <th onclick="ordenar('maximo')"    style="cursor:pointer" title="Ordenar">Máximo <span id="ord-maximo"></span></th>
+          <th onclick="ordenar('anuncios')"  style="cursor:pointer" title="Ordenar">An. <span id="ord-anuncios"></span></th>
           <th>Tend.</th>
-          <th>GAP méd/PMV</th>
+          <th onclick="ordenar('gap')"       style="cursor:pointer" title="Ordenar">GAP méd/PMV <span id="ord-gap"></span></th>
           <th>Alertas</th>
         </tr>
       </thead>
@@ -433,6 +433,39 @@ function pmvDinamico(produto) {
   return divisor > 0 ? custo / divisor : null;
 }
 
+// Ordenação da tabela
+let SORT_COL = null, SORT_ASC = true;
+
+function ordenar(col) {
+  if (SORT_COL === col) SORT_ASC = !SORT_ASC;
+  else { SORT_COL = col; SORT_ASC = col === 'nome'; }
+  recalcularTabela();
+}
+
+function sortVal(p, col) {
+  const pmv = pmvDinamico(p);
+  switch(col) {
+    case 'nome':     return p.nome?.toLowerCase() ?? '';
+    case 'pmv':      return pmv ?? -Infinity;
+    case 'minimo':   return p.minimo ?? -Infinity;
+    case 'medio':    return p.medio  ?? -Infinity;
+    case 'maximo':   return p.maximo ?? -Infinity;
+    case 'anuncios': return p.anuncios ?? -Infinity;
+    case 'gap':      return (pmv && p.medio) ? (p.medio - pmv) / pmv : -Infinity;
+    default:         return 0;
+  }
+}
+
+function atualizarIndicadores() {
+  ['nome','pmv','minimo','medio','maximo','anuncios','gap'].forEach(col => {
+    const el = document.getElementById('ord-' + col);
+    if (!el) return;
+    if (SORT_COL !== col) { el.textContent = ''; return; }
+    el.textContent = SORT_ASC ? ' ▲' : ' ▼';
+    el.style.color = '#58a6ff';
+  });
+}
+
 function alterarMargemProduto(input) {
   const nome   = input.dataset.nome;
   const valor  = parseFloat(input.value);
@@ -457,7 +490,19 @@ function recalcularTabela() {
   let nV = 0, nVerd = 0, nA = 0;
   const margem = getMargem();
 
-  DADOS_GLOBAIS.produtos.forEach(p => {
+  // Ordenação
+  let lista = [...DADOS_GLOBAIS.produtos];
+  if (SORT_COL) {
+    lista.sort((a, b) => {
+      const va = sortVal(a, SORT_COL), vb = sortVal(b, SORT_COL);
+      if (va < vb) return SORT_ASC ? -1 : 1;
+      if (va > vb) return SORT_ASC ? 1 : -1;
+      return 0;
+    });
+  }
+  atualizarIndicadores();
+
+  lista.forEach(p => {
     const pmv = pmvDinamico(p);
 
     // Recalcula alertas com PMV dinâmico
