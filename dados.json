@@ -1,6 +1,6 @@
 {
   "meta": {
-    "atualizado_em": "15/06/2026 19:46",
+    "atualizado_em": "20/06/2026 17:11",
     "total_produtos": 11,
     "fonte": "monitor_precos.py (local) + CSVs",
     "cambio": 5.75,
@@ -24,60 +24,17 @@
   },
   "produtos": [
     {
-      "nome": "Luminaria Solar Hortensia 3 Hastes",
-      "ncm": "9405.40.90",
-      "pmv": 72.54,
-      "custo_nac": 37.72,
-      "minimo": 22.0,
-      "medio": 69.0,
-      "maximo": 219.0,
-      "anuncios": 30,
-      "alertas": [
-        "margem",
-        "guerra"
-      ],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 102.1
-        },
-        {
-          "data": "06/06",
-          "medio": 91.67
-        },
-        {
-          "data": "08/06",
-          "medio": 89.03
-        },
-        {
-          "data": "11/06",
-          "medio": 94.27
-        },
-        {
-          "data": "11/06",
-          "medio": 94.5
-        },
-        {
-          "data": "12/06",
-          "medio": 98.4
-        },
-        {
-          "data": "15/06",
-          "medio": 69.0
-        }
-      ]
-    },
-    {
       "nome": "Luminaria Solar Hortensia Ferro",
       "ncm": "9405.40.90",
       "pmv": 109.04,
       "custo_nac": 56.7,
-      "minimo": 26.0,
-      "medio": 70.63,
+      "minimo": 15.0,
+      "medio": 81.73,
       "maximo": 406.0,
       "anuncios": 30,
       "alertas": [
-        "margem"
+        "margem",
+        "minimo"
       ],
       "historico": [
         {
@@ -107,6 +64,151 @@
         {
           "data": "15/06",
           "medio": 70.63
+        },
+        {
+          "data": "20/06",
+          "medio": 81.73
+        }
+      ]
+    },
+    {
+      "nome": "Fatiador Rotativo de Legumes",
+      "ncm": "8210.00.00",
+      "pmv": 28.83,
+      "custo_nac": 14.99,
+      "minimo": 17.0,
+      "medio": 53.93,
+      "maximo": 159.0,
+      "anuncios": 30,
+      "alertas": [
+        "minimo"
+      ],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 56.83
+        },
+        {
+          "data": "06/06",
+          "medio": 52.73
+        },
+        {
+          "data": "08/06",
+          "medio": 52.07
+        },
+        {
+          "data": "11/06",
+          "medio": 49.83
+        },
+        {
+          "data": "11/06",
+          "medio": 50.77
+        },
+        {
+          "data": "12/06",
+          "medio": 49.8
+        },
+        {
+          "data": "15/06",
+          "medio": 53.23
+        },
+        {
+          "data": "20/06",
+          "medio": 53.93
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo 2 un.",
+      "ncm": "9405.40.90",
+      "pmv": 55.52,
+      "custo_nac": 28.87,
+      "minimo": 21.0,
+      "medio": 97.37,
+      "maximo": 286.0,
+      "anuncios": 30,
+      "alertas": [
+        "minimo"
+      ],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 84.9
+        },
+        {
+          "data": "06/06",
+          "medio": 90.53
+        },
+        {
+          "data": "08/06",
+          "medio": 87.23
+        },
+        {
+          "data": "11/06",
+          "medio": 85.1
+        },
+        {
+          "data": "11/06",
+          "medio": 85.73
+        },
+        {
+          "data": "12/06",
+          "medio": 88.27
+        },
+        {
+          "data": "15/06",
+          "medio": 92.07
+        },
+        {
+          "data": "20/06",
+          "medio": 97.37
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia PVC",
+      "ncm": "9405.40.90",
+      "pmv": 53.3,
+      "custo_nac": 27.72,
+      "minimo": 21.0,
+      "medio": 92.77,
+      "maximo": 406.0,
+      "anuncios": 30,
+      "alertas": [
+        "guerra"
+      ],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 106.03
+        },
+        {
+          "data": "06/06",
+          "medio": 106.47
+        },
+        {
+          "data": "08/06",
+          "medio": 110.5
+        },
+        {
+          "data": "11/06",
+          "medio": 99.6
+        },
+        {
+          "data": "11/06",
+          "medio": 110.67
+        },
+        {
+          "data": "12/06",
+          "medio": 104.6
+        },
+        {
+          "data": "15/06",
+          "medio": 112.77
+        },
+        {
+          "data": "20/06",
+          "medio": 92.77
         }
       ]
     },
@@ -116,8 +218,8 @@
       "pmv": 46.09,
       "custo_nac": 23.97,
       "minimo": 34.0,
-      "medio": 49.7,
-      "maximo": 129.0,
+      "medio": 49.43,
+      "maximo": 154.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -148,47 +250,10 @@
         {
           "data": "15/06",
           "medio": 49.7
-        }
-      ]
-    },
-    {
-      "nome": "Fatiador Rotativo de Legumes",
-      "ncm": "8210.00.00",
-      "pmv": 28.83,
-      "custo_nac": 14.99,
-      "minimo": 19.0,
-      "medio": 53.23,
-      "maximo": 159.0,
-      "anuncios": 30,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 56.83
         },
         {
-          "data": "06/06",
-          "medio": 52.73
-        },
-        {
-          "data": "08/06",
-          "medio": 52.07
-        },
-        {
-          "data": "11/06",
-          "medio": 49.83
-        },
-        {
-          "data": "11/06",
-          "medio": 50.77
-        },
-        {
-          "data": "12/06",
-          "medio": 49.8
-        },
-        {
-          "data": "15/06",
-          "medio": 53.23
+          "data": "20/06",
+          "medio": 49.43
         }
       ]
     },
@@ -198,8 +263,8 @@
       "pmv": 69.34,
       "custo_nac": 36.05,
       "minimo": 34.0,
-      "medio": 107.17,
-      "maximo": 296.0,
+      "medio": 97.4,
+      "maximo": 251.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -230,6 +295,10 @@
         {
           "data": "15/06",
           "medio": 107.17
+        },
+        {
+          "data": "20/06",
+          "medio": 97.4
         }
       ]
     },
@@ -238,9 +307,9 @@
       "ncm": "3924.10.00",
       "pmv": 36.75,
       "custo_nac": 19.11,
-      "minimo": 24.0,
-      "medio": 57.03,
-      "maximo": 103.0,
+      "minimo": 17.0,
+      "medio": 64.57,
+      "maximo": 239.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -271,6 +340,10 @@
         {
           "data": "15/06",
           "medio": 57.03
+        },
+        {
+          "data": "20/06",
+          "medio": 64.57
         }
       ]
     },
@@ -279,9 +352,9 @@
       "ncm": "3926.90.90",
       "pmv": 8.32,
       "custo_nac": 4.33,
-      "minimo": 11.0,
-      "medio": 58.93,
-      "maximo": 496.0,
+      "minimo": 13.0,
+      "medio": 70.73,
+      "maximo": 539.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -312,6 +385,10 @@
         {
           "data": "15/06",
           "medio": 58.93
+        },
+        {
+          "data": "20/06",
+          "medio": 70.73
         }
       ]
     },
@@ -320,9 +397,9 @@
       "ncm": "8424.20.00",
       "pmv": 11.65,
       "custo_nac": 6.06,
-      "minimo": 8.0,
-      "medio": 23.93,
-      "maximo": 75.0,
+      "minimo": 13.0,
+      "medio": 36.73,
+      "maximo": 243.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -353,47 +430,10 @@
         {
           "data": "15/06",
           "medio": 23.93
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo 2 un.",
-      "ncm": "9405.40.90",
-      "pmv": 55.52,
-      "custo_nac": 28.87,
-      "minimo": 26.0,
-      "medio": 92.07,
-      "maximo": 219.0,
-      "anuncios": 30,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 84.9
         },
         {
-          "data": "06/06",
-          "medio": 90.53
-        },
-        {
-          "data": "08/06",
-          "medio": 87.23
-        },
-        {
-          "data": "11/06",
-          "medio": 85.1
-        },
-        {
-          "data": "11/06",
-          "medio": 85.73
-        },
-        {
-          "data": "12/06",
-          "medio": 88.27
-        },
-        {
-          "data": "15/06",
-          "medio": 92.07
+          "data": "20/06",
+          "medio": 36.73
         }
       ]
     },
@@ -402,9 +442,9 @@
       "ncm": "9405.40.90",
       "pmv": 52.61,
       "custo_nac": 27.36,
-      "minimo": 33.0,
-      "medio": 87.93,
-      "maximo": 244.0,
+      "minimo": 35.0,
+      "medio": 121.53,
+      "maximo": 483.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -435,47 +475,55 @@
         {
           "data": "15/06",
           "medio": 87.93
+        },
+        {
+          "data": "20/06",
+          "medio": 121.53
         }
       ]
     },
     {
-      "nome": "Luminaria Solar Hortensia PVC",
+      "nome": "Luminaria Solar Hortensia 3 Hastes",
       "ncm": "9405.40.90",
-      "pmv": 53.3,
-      "custo_nac": 27.72,
-      "minimo": 21.0,
-      "medio": 112.77,
-      "maximo": 406.0,
+      "pmv": 72.54,
+      "custo_nac": 37.72,
+      "minimo": 27.0,
+      "medio": 110.6,
+      "maximo": 257.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
         {
           "data": "04/06",
-          "medio": 106.03
+          "medio": 102.1
         },
         {
           "data": "06/06",
-          "medio": 106.47
+          "medio": 91.67
         },
         {
           "data": "08/06",
-          "medio": 110.5
+          "medio": 89.03
         },
         {
           "data": "11/06",
-          "medio": 99.6
+          "medio": 94.27
         },
         {
           "data": "11/06",
-          "medio": 110.67
+          "medio": 94.5
         },
         {
           "data": "12/06",
-          "medio": 104.6
+          "medio": 98.4
         },
         {
           "data": "15/06",
-          "medio": 112.77
+          "medio": 69.0
+        },
+        {
+          "data": "20/06",
+          "medio": 110.6
         }
       ]
     }
