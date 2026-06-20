@@ -264,6 +264,7 @@ tbody tr { cursor: pointer; }
         <tr>
           <th>Produto</th>
           <th style="background:#2d3748">PMV</th>
+          <th style="background:#1a2a1a">Margem %</th>
           <th>Mínimo</th>
           <th>Médio</th>
           <th>Máximo</th>
@@ -416,12 +417,37 @@ function getComissao() {
   return DADOS_GLOBAIS?.meta?.comissao_plataforma ?? 0.18;
 }
 
+// Margens individuais por produto: { nome: valor_decimal }
+const MARGENS_PRODUTO = {};
+
+function getMargemProduto(nome) {
+  if (MARGENS_PRODUTO[nome] != null) return MARGENS_PRODUTO[nome];
+  return getMargem(); // fallback para margem global
+}
+
 function pmvDinamico(produto) {
-  // usa custo_nac real do dados.json — única fonte de verdade
   const custo = produto.custo_nac;
   if (!custo) return null;
-  const divisor = 1 - getComissao() - getMargem();
+  const margem  = getMargemProduto(produto.nome);
+  const divisor = 1 - getComissao() - margem;
   return divisor > 0 ? custo / divisor : null;
+}
+
+function alterarMargemProduto(input) {
+  const nome   = input.dataset.nome;
+  const valor  = parseFloat(input.value);
+  const global = Math.round(getMargem() * 100);
+  if (!isNaN(valor) && valor !== global) {
+    MARGENS_PRODUTO[nome] = Math.max(1, Math.min(80, valor)) / 100;
+  } else {
+    delete MARGENS_PRODUTO[nome];
+  }
+  recalcularTabela();
+}
+
+function resetarMargem(nome) {
+  delete MARGENS_PRODUTO[nome];
+  recalcularTabela();
 }
 
 function recalcularTabela() {
@@ -460,12 +486,26 @@ function recalcularTabela() {
       .replace(/\s+/g, '-');
     const mlUrl = `https://lista.mercadolivre.com.br/${mlSlug}`;
 
+    const margemAtual = Math.round(getMargemProduto(p.nome) * 100);
+    const temCustom   = MARGENS_PRODUTO[p.nome] != null;
+
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
+      <td style="background:#0f2a1a;padding:4px 6px;">
+        <div style="display:flex;align-items:center;gap:3px;" onclick="event.stopPropagation()">
+          <input type="number" min="1" max="80" step="1"
+            value="${margemAtual}"
+            data-nome="${p.nome.replace(/"/g,'&quot;')}"
+            onchange="alterarMargemProduto(this)"
+            style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
+          <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
+          ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
+        </div>
+      </td>
       <td>${BRL(p.minimo)}</td>
       <td>${BRL(p.medio)}</td>
       <td>${BRL(p.maximo)}</td>
