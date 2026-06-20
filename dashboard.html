@@ -548,7 +548,6 @@ function renderizar(lista) {
   document.getElementById("total-usd").textContent     = fmtUSD(totalUSD);
   document.getElementById("total-brl").textContent     = fmt(totalBRL);
   document.getElementById("total-unidades").textContent = fmtInt(totalQtd);
-  document.getElementById("custo-medio").textContent   = totalQtd ? fmt(totalBRL / totalQtd) : "—";
   document.getElementById("total-nac").textContent     = fmt(totalNac);
   document.getElementById("custo-nac-unit").textContent = totalQtd ? fmt(totalNac / totalQtd) + " / un." : "";
 
