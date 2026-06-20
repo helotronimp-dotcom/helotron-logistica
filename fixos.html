@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helotron — Custos Fixos</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #e6edf3; }
+
+header {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 18px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+header h1 { font-size: 19px; font-weight: 700; }
+header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
+
+.section {
+  background: #161b22;
+  margin: 16px 28px;
+  border-radius: 10px;
+  border: 1px solid #30363d;
+  overflow: hidden;
+}
+.section.laranja { border-color: #f0883e44; }
+.section.verde   { border-color: #3fb95044; }
+.section.azul    { border-color: #58a6ff44; }
+
+.sec-header {
+  background: #21262d;
+  padding: 11px 16px;
+  font-size: 13px; font-weight: 600;
+  border-bottom: 1px solid #30363d;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.sec-header.laranja { border-left: 3px solid #f0883e; }
+.sec-header.verde   { border-left: 3px solid #3fb950; }
+.sec-header.azul    { border-left: 3px solid #58a6ff; }
+.sec-header small { color: #7d8590; font-size: 10px; font-weight: 400; }
+
+.params-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+.param-item label {
+  display: block;
+  font-size: 10px; color: #7d8590;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+.param-item input {
+  width: 100%;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 15px; font-weight: 600;
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.param-item input:focus { border-color: #f0883e; }
+.param-sep { grid-column: 1 / -1; border-top: 1px solid #30363d; margin: 2px 0; }
+.param-note {
+  grid-column: 1 / -1;
+  font-size: 11px; color: #7d8590; font-style: italic;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 16px 28px;
+}
+@media (max-width: 800px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+
+.card {
+  background: #161b22;
+  border-radius: 10px;
+  padding: 16px 18px;
+  border: 1px solid #30363d;
+  border-left: 4px solid #f0883e;
+}
+.card.verde { border-left-color: #3fb950; }
+.card.azul  { border-left-color: #58a6ff; }
+.card.verm  { border-left-color: #f85149; }
+.card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #7d8590; }
+.card-valor { font-size: 24px; font-weight: 700; margin: 6px 0 3px; color: #f0883e; }
+.card.verde .card-valor { color: #3fb950; }
+.card.azul  .card-valor { color: #58a6ff; }
+.card.verm  .card-valor { color: #f85149; }
+.card-sub   { font-size: 10px; color: #7d8590; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th {
+  background: #21262d; color: #8b949e;
+  padding: 8px 12px; text-align: left;
+  font-weight: 600; font-size: 11px;
+  border-bottom: 1px solid #30363d;
+}
+th.num { text-align: right; }
+td { padding: 8px 12px; border-bottom: 1px solid #21262d; color: #e6edf3; }
+td.num { text-align: right; font-weight: 600; color: #f0883e; }
+td.pct { text-align: right; color: #7d8590; }
+tr:last-child td { border-bottom: none; }
+tr.total td { background: #21262d; font-weight: 700; border-top: 1px solid #30363d; }
+tr.total td.num { color: #e6edf3; font-size: 14px; }
+
+.cenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 16px;
+}
+@media (max-width: 900px) { .cenarios-grid { grid-template-columns: repeat(3, 1fr); } }
+.cenario {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.cenario.destaque { border-color: #3fb950; background: #0f2a1a; }
+.cenario-vol  { font-size: 13px; font-weight: 700; color: #58a6ff; margin-bottom: 6px; }
+.cenario-unit { font-size: 18px; font-weight: 700; color: #f0883e; }
+.cenario-meses { font-size: 10px; color: #7d8590; margin-top: 4px; }
+.cenario-label { font-size: 9px; color: #7d8590; text-transform: uppercase; margin-top: 2px; }
+.cenario.destaque .cenario-unit { color: #3fb950; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>📦 Custos Fixos Operacionais — Helotron</h1>
+    <p>Storage · Bling · Outros fixos mensais · Simulador de volume e break-even</p>
+  </div>
+</header>
+
+<!-- PARÂMETROS -->
+<div class="section laranja">
+  <div class="sec-header laranja">
+    ⚙️ Parâmetros de Custos Fixos
+    <small>Altere os valores para recalcular</small>
+  </div>
+  <div class="params-grid">
+    <div class="param-item">
+      <label>Storage Mensal (BRL)</label>
+      <input type="number" id="cf-storage" value="3300" step="100" oninput="recalcular()">
+    </div>
+    <div class="param-item">
+      <label>Bling Mensal (BRL)</label>
+      <input type="number" id="cf-bling" value="55" step="5" oninput="recalcular()">
+    </div>
+    <div class="param-item">
+      <label>Outros Fixos Mensais (BRL)</label>
+      <input type="number" id="cf-outros" value="0" step="50" oninput="recalcular()">
+    </div>
+    <div class="param-sep"></div>
+    <div class="param-item">
+      <label>Volume de Vendas (unidades/mês)</label>
+      <input type="number" id="cf-volume" value="500" step="100" oninput="recalcular()">
+    </div>
+    <div class="param-sep"></div>
+    <div class="param-note" id="resumo-texto">—</div>
+  </div>
+</div>
+
+<!-- CARDS RESUMO -->
+<div class="cards">
+  <div class="card">
+    <div class="card-label">Total Fixos / Mês</div>
+    <div class="card-valor" id="card-total-mes">—</div>
+    <div class="card-sub">Storage + Bling + Outros</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Fixo por Unidade</div>
+    <div class="card-valor" id="card-fixo-unit">—</div>
+    <div class="card-sub">ao volume atual</div>
+  </div>
+  <div class="card verde">
+    <div class="card-label">Break-even Mensal</div>
+    <div class="card-valor" id="card-breakeven">—</div>
+    <div class="card-sub">un/mês para cobrir os fixos</div>
+  </div>
+  <div class="card azul">
+    <div class="card-label">Meses p/ Zerar Estoque</div>
+    <div class="card-valor" id="card-meses-giro">—</div>
+    <div class="card-sub">18.157 unidades no estoque</div>
+  </div>
+</div>
+
+<!-- TABELA DE CUSTOS FIXOS -->
+<div class="section laranja">
+  <div class="sec-header laranja">
+    📋 Composição dos Custos Fixos Mensais
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Descrição</th>
+        <th class="num">Valor Mensal</th>
+        <th class="num">% do Total</th>
+        <th class="num">Custo / Unidade*</th>
+      </tr>
+    </thead>
+    <tbody id="tbody-fixos"></tbody>
+  </table>
+  <div style="padding:8px 12px;font-size:10px;color:#7d8590;">* Baseado no volume de unidades/mês configurado acima</div>
+</div>
+
+<!-- SIMULADOR DE CENÁRIOS -->
+<div class="section verde">
+  <div class="sec-header verde">
+    📈 Simulador de Cenários — Impacto do Volume no Custo Fixo por Unidade
+    <small>meta: zerar estoque em 3 a 6 meses</small>
+  </div>
+  <div class="cenarios-grid" id="cenarios-grid"></div>
+</div>
+
+<script>
+const TOTAL_ESTOQUE = 18157;
+
+const ITENS_FIXOS_BASE = [
+  { nome: 'Storage',        descricao: 'Armazenagem mensal do estoque', campo: 'cf-storage' },
+  { nome: 'Bling',          descricao: 'Plataforma de gestão (ERP)', campo: 'cf-bling' },
+  { nome: 'Outros Fixos',   descricao: 'Outros custos fixos mensais', campo: 'cf-outros' },
+];
+
+const fmt = v => 'R$ ' + (v || 0).toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+const fmtInt = v => Math.round(v).toLocaleString('pt-BR');
+
+function recalcular() {
+  const storage = parseFloat(document.getElementById('cf-storage').value) || 0;
+  const bling   = parseFloat(document.getElementById('cf-bling').value)   || 0;
+  const outros  = parseFloat(document.getElementById('cf-outros').value)  || 0;
+  const volume  = parseFloat(document.getElementById('cf-volume').value)  || 1;
+
+  const totalMes  = storage + bling + outros;
+  const fixoUnit  = totalMes / volume;
+  const mesesGiro = TOTAL_ESTOQUE / volume;
+  const breakeven = volume; // volume já é o break-even em unidades para cobrir os fixos
+
+  // Cards
+  document.getElementById('card-total-mes').textContent  = fmt(totalMes);
+  document.getElementById('card-fixo-unit').textContent  = fmt(fixoUnit);
+  document.getElementById('card-breakeven').textContent  = fmtInt(volume) + ' un';
+  document.getElementById('card-meses-giro').textContent = mesesGiro.toFixed(1) + ' meses';
+
+  // Resumo
+  document.getElementById('resumo-texto').textContent =
+    `Total fixos: ${fmt(totalMes)}/mês · ${fmt(fixoUnit)}/unidade com ${fmtInt(volume)} un/mês · Estoque zeraria em ${mesesGiro.toFixed(1)} meses`;
+
+  // Tabela
+  const itens = [
+    { nome: 'Storage',      descricao: 'Armazenagem mensal do estoque', valor: storage },
+    { nome: 'Bling',        descricao: 'Plataforma de gestão (ERP)',     valor: bling  },
+    { nome: 'Outros Fixos', descricao: 'Outros custos fixos mensais',    valor: outros },
+  ];
+  const tbody = document.getElementById('tbody-fixos');
+  tbody.innerHTML = itens.filter(i => i.valor > 0).map(i => `
+    <tr>
+      <td><strong>${i.nome}</strong></td>
+      <td style="color:#7d8590">${i.descricao}</td>
+      <td class="num">${fmt(i.valor)}</td>
+      <td class="pct">${totalMes > 0 ? (i.valor/totalMes*100).toFixed(1) : 0}%</td>
+      <td class="num">${fmt(i.valor / volume)}</td>
+    </tr>
+  `).join('') + `
+    <tr class="total">
+      <td colspan="2"><strong>TOTAL FIXOS / MÊS</strong></td>
+      <td class="num">${fmt(totalMes)}</td>
+      <td class="pct">100%</td>
+      <td class="num">${fmt(fixoUnit)}</td>
+    </tr>
+  `;
+
+  // Cenários
+  const vols = [150, 500, 1000, 2000, 3026, 6052];
+  const labels = ['Lançamento', 'Conservador', 'Crescimento', 'Acelerado', '6 meses*', '3 meses*'];
+  const grid = document.getElementById('cenarios-grid');
+  grid.innerHTML = vols.map((v, i) => {
+    const unit  = totalMes / v;
+    const meses = (TOTAL_ESTOQUE / v).toFixed(1);
+    const dest  = v === 3026 || v === 6052 ? 'destaque' : '';
+    return `
+      <div class="cenario ${dest}">
+        <div class="cenario-vol">${fmtInt(v)} un/mês</div>
+        <div class="cenario-label">${labels[i]}</div>
+        <div class="cenario-unit">${fmt(unit)}</div>
+        <div class="cenario-label">por unidade</div>
+        <div class="cenario-meses">Zera em ${meses} meses</div>
+      </div>
+    `;
+  }).join('');
+}
+
+recalcular();
+</script>
+</body>
+</html>

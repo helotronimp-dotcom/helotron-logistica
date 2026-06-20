@@ -108,6 +108,9 @@
     <button class="tab" id="btn-invoice" onclick="show('invoice')">
       <span class="tab-icon">🧾</span> Produtos &amp; Invoice
     </button>
+    <button class="tab" id="btn-fixos" onclick="show('fixos')">
+      <span class="tab-icon">📦</span> Custos Fixos
+    </button>
   </div>
 </nav>
 
@@ -121,11 +124,14 @@
   <div class="pane" id="pane-invoice">
     <iframe src="./dashboard.html" title="Produtos e Invoice"></iframe>
   </div>
+  <div class="pane" id="pane-fixos">
+    <iframe src="./fixos.html" title="Custos Fixos Operacionais"></iframe>
+  </div>
 </div>
 
 <script>
   function show(id) {
-    ['vendas', 'logistica', 'invoice'].forEach(t => {
+    ['vendas', 'logistica', 'invoice', 'fixos'].forEach(t => {
       document.getElementById('btn-' + t).classList.toggle('active', t === id);
       document.getElementById('pane-' + t).classList.toggle('active', t === id);
     });

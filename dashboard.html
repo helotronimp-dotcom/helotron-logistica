@@ -184,53 +184,6 @@
   </div>
 </div>
 
-<div class="params" style="border-color:#f0883e44;">
-  <h3 style="color:#f0883e;">📦 Custos Fixos Operacionais</h3>
-  <div class="params-grid">
-    <div class="param-item">
-      <label>Storage Mensal (BRL)</label>
-      <input type="number" id="cf-storage" value="3300" step="100" oninput="recalcularFixos()">
-    </div>
-    <div class="param-item">
-      <label>Bling Mensal (BRL)</label>
-      <input type="number" id="cf-bling" value="55" step="5" oninput="recalcularFixos()">
-    </div>
-    <div class="param-item">
-      <label>Outros Fixos Mensais (BRL)</label>
-      <input type="number" id="cf-outros" value="0" step="50" oninput="recalcularFixos()">
-    </div>
-    <div class="param-sep"></div>
-    <div class="param-item">
-      <label>Volume de Vendas (unidades/mês)</label>
-      <input type="number" id="cf-volume" value="500" step="100" oninput="recalcularFixos()">
-    </div>
-    <div class="param-sep"></div>
-    <div class="param-note" id="fixos-resumo">—</div>
-  </div>
-</div>
-
-<div class="resumo" id="resumo-fixos" style="margin-top:0; padding-top:0;">
-  <div class="card laranja">
-    <div class="card-label">Total Fixos / Mês</div>
-    <div class="card-valor" id="cf-total-mes">—</div>
-    <div class="card-sub">Storage + Bling + Outros</div>
-  </div>
-  <div class="card laranja">
-    <div class="card-label">Fixo por Unidade</div>
-    <div class="card-valor" id="cf-unit">—</div>
-    <div class="card-sub">com <span id="cf-volume-label">500</span> un/mês</div>
-  </div>
-  <div class="card laranja">
-    <div class="card-label">Break-even Mensal</div>
-    <div class="card-valor" id="cf-breakeven">—</div>
-    <div class="card-sub">un/mês para cobrir os fixos</div>
-  </div>
-  <div class="card laranja">
-    <div class="card-label">Meses p/ Zerar Estoque</div>
-    <div class="card-valor" id="cf-meses-giro">—</div>
-    <div class="card-sub">ao volume atual estimado</div>
-  </div>
-</div>
 
 <div class="resumo">
   <div class="card azul">
@@ -618,34 +571,7 @@ function filtrar() {
 
 function recalcular() { filtrar(); }
 
-function recalcularFixos() {
-  const storage = parseFloat(document.getElementById('cf-storage').value) || 0;
-  const bling   = parseFloat(document.getElementById('cf-bling').value)   || 0;
-  const outros  = parseFloat(document.getElementById('cf-outros').value)  || 0;
-  const volume  = parseFloat(document.getElementById('cf-volume').value)  || 1;
-
-  const totalMes   = storage + bling + outros;
-  const fixoUnit   = totalMes / volume;
-  const totalUnid  = PRODUTOS.reduce((s, p) => s + p.qtd, 0);
-  const mesesGiro  = totalUnid / volume;
-  const breakeven  = totalMes / (fixoUnit > 0 ? fixoUnit : 1); // unidades para cobrir fixos
-
-  // Ponto de equilíbrio real: unidades que geram receita suficiente para cobrir fixos
-  // Usamos PMV médio ponderado como proxy de receita por unidade
-  const totalFOB = PRODUTOS.reduce((s, p) => s + p.custoUSD * p.qtd, 0);
-  const totalQtd = PRODUTOS.reduce((s, p) => s + p.qtd, 0);
-
-  document.getElementById('cf-total-mes').textContent   = 'R$ ' + totalMes.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
-  document.getElementById('cf-unit').textContent        = 'R$ ' + fixoUnit.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
-  document.getElementById('cf-volume-label').textContent = volume.toLocaleString('pt-BR');
-  document.getElementById('cf-breakeven').textContent   = Math.ceil(totalMes / fixoUnit).toLocaleString('pt-BR');
-  document.getElementById('cf-meses-giro').textContent  = mesesGiro.toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1});
-  document.getElementById('fixos-resumo').textContent   =
-    `Total fixos: R$ ${totalMes.toLocaleString('pt-BR', {minimumFractionDigits:2})} / mês · Custo fixo por unidade: R$ ${fixoUnit.toLocaleString('pt-BR', {minimumFractionDigits:2})} com ${volume.toLocaleString('pt-BR')} un/mês · Estoque de ${totalUnid.toLocaleString('pt-BR')} unidades zeraria em ${mesesGiro.toFixed(1)} meses`;
-}
-
 renderizar(PRODUTOS);
-recalcularFixos();
 </script>
 </body>
 </html>
