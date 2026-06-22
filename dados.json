@@ -1,6 +1,6 @@
 {
   "meta": {
-    "atualizado_em": "20/06/2026 17:15",
+    "atualizado_em": "21/06/2026 21:00",
     "total_produtos": 11,
     "fonte": "monitor_precos.py (local) + CSVs",
     "cambio": 5.75,
@@ -28,8 +28,8 @@
       "ncm": "9405.40.90",
       "pmv": 109.04,
       "custo_nac": 56.7,
-      "minimo": 15.0,
-      "medio": 81.73,
+      "minimo": 29.0,
+      "medio": 85.4,
       "maximo": 406.0,
       "anuncios": 30,
       "alertas": [
@@ -71,6 +71,10 @@
         {
           "data": "20/06",
           "medio": 81.73
+        },
+        {
+          "data": "21/06",
+          "medio": 85.4
         }
       ]
     },
@@ -79,11 +83,13 @@
       "ncm": "8210.00.00",
       "pmv": 46.09,
       "custo_nac": 23.97,
-      "minimo": 34.0,
-      "medio": 49.43,
+      "minimo": 29.0,
+      "medio": 46.9,
       "maximo": 154.0,
       "anuncios": 30,
-      "alertas": [],
+      "alertas": [
+        "minimo"
+      ],
       "historico": [
         {
           "data": "04/06",
@@ -120,6 +126,10 @@
         {
           "data": "20/06",
           "medio": 49.43
+        },
+        {
+          "data": "21/06",
+          "medio": 46.9
         }
       ]
     },
@@ -128,11 +138,13 @@
       "ncm": "8210.00.00",
       "pmv": 28.83,
       "custo_nac": 14.99,
-      "minimo": 17.0,
-      "medio": 53.93,
+      "minimo": 15.0,
+      "medio": 53.27,
       "maximo": 159.0,
       "anuncios": 30,
-      "alertas": [],
+      "alertas": [
+        "minimo"
+      ],
       "historico": [
         {
           "data": "04/06",
@@ -169,6 +181,65 @@
         {
           "data": "20/06",
           "medio": 53.93
+        },
+        {
+          "data": "21/06",
+          "medio": 53.27
+        }
+      ]
+    },
+    {
+      "nome": "Spray de Oleo Cozinha",
+      "ncm": "8424.20.00",
+      "pmv": 11.65,
+      "custo_nac": 6.06,
+      "minimo": 13.0,
+      "medio": 30.37,
+      "maximo": 243.0,
+      "anuncios": 30,
+      "alertas": [
+        "guerra"
+      ],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 29.27
+        },
+        {
+          "data": "06/06",
+          "medio": 23.5
+        },
+        {
+          "data": "08/06",
+          "medio": 23.97
+        },
+        {
+          "data": "11/06",
+          "medio": 23.0
+        },
+        {
+          "data": "11/06",
+          "medio": 24.43
+        },
+        {
+          "data": "12/06",
+          "medio": 27.1
+        },
+        {
+          "data": "15/06",
+          "medio": 23.93
+        },
+        {
+          "data": "20/06",
+          "medio": 36.73
+        },
+        {
+          "data": "20/06",
+          "medio": 37.2
+        },
+        {
+          "data": "21/06",
+          "medio": 30.37
         }
       ]
     },
@@ -178,7 +249,7 @@
       "pmv": 69.34,
       "custo_nac": 36.05,
       "minimo": 34.0,
-      "medio": 97.4,
+      "medio": 100.83,
       "maximo": 251.0,
       "anuncios": 30,
       "alertas": [],
@@ -218,6 +289,10 @@
         {
           "data": "20/06",
           "medio": 97.4
+        },
+        {
+          "data": "21/06",
+          "medio": 100.83
         }
       ]
     },
@@ -227,7 +302,7 @@
       "pmv": 36.75,
       "custo_nac": 19.11,
       "minimo": 17.0,
-      "medio": 64.57,
+      "medio": 59.5,
       "maximo": 239.0,
       "anuncios": 30,
       "alertas": [],
@@ -267,6 +342,10 @@
         {
           "data": "20/06",
           "medio": 64.57
+        },
+        {
+          "data": "21/06",
+          "medio": 59.5
         }
       ]
     },
@@ -276,7 +355,7 @@
       "pmv": 8.32,
       "custo_nac": 4.33,
       "minimo": 13.0,
-      "medio": 70.73,
+      "medio": 70.6,
       "maximo": 539.0,
       "anuncios": 30,
       "alertas": [],
@@ -316,55 +395,10 @@
         {
           "data": "20/06",
           "medio": 70.73
-        }
-      ]
-    },
-    {
-      "nome": "Spray de Oleo Cozinha",
-      "ncm": "8424.20.00",
-      "pmv": 11.65,
-      "custo_nac": 6.06,
-      "minimo": 13.0,
-      "medio": 37.2,
-      "maximo": 243.0,
-      "anuncios": 30,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 29.27
         },
         {
-          "data": "06/06",
-          "medio": 23.5
-        },
-        {
-          "data": "08/06",
-          "medio": 23.97
-        },
-        {
-          "data": "11/06",
-          "medio": 23.0
-        },
-        {
-          "data": "11/06",
-          "medio": 24.43
-        },
-        {
-          "data": "12/06",
-          "medio": 27.1
-        },
-        {
-          "data": "15/06",
-          "medio": 23.93
-        },
-        {
-          "data": "20/06",
-          "medio": 36.73
-        },
-        {
-          "data": "20/06",
-          "medio": 37.2
+          "data": "21/06",
+          "medio": 70.6
         }
       ]
     },
@@ -374,7 +408,7 @@
       "pmv": 55.52,
       "custo_nac": 28.87,
       "minimo": 21.0,
-      "medio": 97.37,
+      "medio": 99.47,
       "maximo": 286.0,
       "anuncios": 30,
       "alertas": [],
@@ -414,6 +448,10 @@
         {
           "data": "20/06",
           "medio": 97.37
+        },
+        {
+          "data": "21/06",
+          "medio": 99.47
         }
       ]
     },
@@ -423,7 +461,7 @@
       "pmv": 52.61,
       "custo_nac": 27.36,
       "minimo": 35.0,
-      "medio": 121.53,
+      "medio": 125.1,
       "maximo": 483.0,
       "anuncios": 30,
       "alertas": [],
@@ -463,6 +501,10 @@
         {
           "data": "20/06",
           "medio": 121.53
+        },
+        {
+          "data": "21/06",
+          "medio": 125.1
         }
       ]
     },
@@ -472,7 +514,7 @@
       "pmv": 72.54,
       "custo_nac": 37.72,
       "minimo": 27.0,
-      "medio": 110.6,
+      "medio": 106.73,
       "maximo": 257.0,
       "anuncios": 30,
       "alertas": [],
@@ -512,6 +554,10 @@
         {
           "data": "20/06",
           "medio": 110.6
+        },
+        {
+          "data": "21/06",
+          "medio": 106.73
         }
       ]
     },
@@ -521,7 +567,7 @@
       "pmv": 53.3,
       "custo_nac": 27.72,
       "minimo": 21.0,
-      "medio": 103.33,
+      "medio": 103.43,
       "maximo": 406.0,
       "anuncios": 30,
       "alertas": [],
@@ -561,6 +607,10 @@
         {
           "data": "20/06",
           "medio": 103.33
+        },
+        {
+          "data": "21/06",
+          "medio": 103.43
         }
       ]
     }
