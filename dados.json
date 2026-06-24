@@ -1,6 +1,6 @@
 {
   "meta": {
-    "atualizado_em": "21/06/2026 21:00",
+    "atualizado_em": "24/06/2026 09:16",
     "total_produtos": 11,
     "fonte": "monitor_precos.py (local) + CSVs",
     "cambio": 5.75,
@@ -24,167 +24,120 @@
   },
   "produtos": [
     {
-      "nome": "Luminaria Solar Hortensia Ferro",
-      "ncm": "9405.40.90",
-      "pmv": 109.04,
-      "custo_nac": 56.7,
-      "minimo": 29.0,
-      "medio": 85.4,
-      "maximo": 406.0,
+      "nome": "Kit 7 Potes Hermeticos",
+      "ncm": "3924.10.00",
+      "pmv": 69.34,
+      "custo_nac": 36.05,
+      "minimo": 24.0,
+      "medio": 81.87,
+      "maximo": 299.0,
       "anuncios": 30,
       "alertas": [
-        "margem"
+        "guerra"
       ],
       "historico": [
         {
           "data": "04/06",
-          "medio": 160.47
+          "medio": 117.4
         },
         {
           "data": "06/06",
-          "medio": 94.6
+          "medio": 110.33
         },
         {
           "data": "08/06",
-          "medio": 84.27
+          "medio": 93.13
         },
         {
           "data": "11/06",
-          "medio": 89.13
+          "medio": 107.0
         },
         {
           "data": "11/06",
-          "medio": 80.63
+          "medio": 103.3
         },
         {
           "data": "12/06",
-          "medio": 81.9
-        },
-        {
-          "data": "15/06",
-          "medio": 70.63
-        },
-        {
-          "data": "20/06",
-          "medio": 81.73
-        },
-        {
-          "data": "20/06",
-          "medio": 81.73
-        },
-        {
-          "data": "21/06",
           "medio": 85.4
+        },
+        {
+          "data": "15/06",
+          "medio": 107.17
+        },
+        {
+          "data": "20/06",
+          "medio": 97.4
+        },
+        {
+          "data": "20/06",
+          "medio": 97.4
+        },
+        {
+          "data": "21/06",
+          "medio": 100.83
+        },
+        {
+          "data": "24/06",
+          "medio": 81.87
         }
       ]
     },
     {
-      "nome": "Cortador de Alimentos 16 em 1",
-      "ncm": "8210.00.00",
-      "pmv": 46.09,
-      "custo_nac": 23.97,
-      "minimo": 29.0,
-      "medio": 46.9,
-      "maximo": 154.0,
+      "nome": "Tapete de Silicone para Cozinha",
+      "ncm": "3926.90.90",
+      "pmv": 8.32,
+      "custo_nac": 4.33,
+      "minimo": 13.0,
+      "medio": 49.1,
+      "maximo": 174.0,
       "anuncios": 30,
       "alertas": [
-        "minimo"
+        "guerra"
       ],
       "historico": [
         {
           "data": "04/06",
-          "medio": 44.77
+          "medio": 60.77
         },
         {
           "data": "06/06",
-          "medio": 41.4
+          "medio": 55.63
         },
         {
           "data": "08/06",
-          "medio": 42.43
+          "medio": 53.73
         },
         {
           "data": "11/06",
-          "medio": 39.77
+          "medio": 49.67
         },
         {
           "data": "11/06",
-          "medio": 42.17
+          "medio": 55.67
         },
         {
           "data": "12/06",
-          "medio": 46.6
+          "medio": 51.63
         },
         {
           "data": "15/06",
-          "medio": 49.7
+          "medio": 58.93
         },
         {
           "data": "20/06",
-          "medio": 49.43
+          "medio": 70.73
         },
         {
           "data": "20/06",
-          "medio": 49.43
+          "medio": 70.73
         },
         {
           "data": "21/06",
-          "medio": 46.9
-        }
-      ]
-    },
-    {
-      "nome": "Fatiador Rotativo de Legumes",
-      "ncm": "8210.00.00",
-      "pmv": 28.83,
-      "custo_nac": 14.99,
-      "minimo": 15.0,
-      "medio": 53.27,
-      "maximo": 159.0,
-      "anuncios": 30,
-      "alertas": [
-        "minimo"
-      ],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 56.83
+          "medio": 70.6
         },
         {
-          "data": "06/06",
-          "medio": 52.73
-        },
-        {
-          "data": "08/06",
-          "medio": 52.07
-        },
-        {
-          "data": "11/06",
-          "medio": 49.83
-        },
-        {
-          "data": "11/06",
-          "medio": 50.77
-        },
-        {
-          "data": "12/06",
-          "medio": 49.8
-        },
-        {
-          "data": "15/06",
-          "medio": 53.23
-        },
-        {
-          "data": "20/06",
-          "medio": 53.93
-        },
-        {
-          "data": "20/06",
-          "medio": 53.93
-        },
-        {
-          "data": "21/06",
-          "medio": 53.27
+          "data": "24/06",
+          "medio": 49.1
         }
       ]
     },
@@ -193,9 +146,9 @@
       "ncm": "8424.20.00",
       "pmv": 11.65,
       "custo_nac": 6.06,
-      "minimo": 13.0,
-      "medio": 30.37,
-      "maximo": 243.0,
+      "minimo": 15.0,
+      "medio": 23.87,
+      "maximo": 49.0,
       "anuncios": 30,
       "alertas": [
         "guerra"
@@ -240,59 +193,124 @@
         {
           "data": "21/06",
           "medio": 30.37
+        },
+        {
+          "data": "24/06",
+          "medio": 23.87
         }
       ]
     },
     {
-      "nome": "Kit 7 Potes Hermeticos",
-      "ncm": "3924.10.00",
-      "pmv": 69.34,
-      "custo_nac": 36.05,
-      "minimo": 34.0,
-      "medio": 100.83,
-      "maximo": 251.0,
+      "nome": "Cortador de Alimentos 16 em 1",
+      "ncm": "8210.00.00",
+      "pmv": 46.09,
+      "custo_nac": 23.97,
+      "minimo": 29.0,
+      "medio": 54.43,
+      "maximo": 161.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
         {
           "data": "04/06",
-          "medio": 117.4
+          "medio": 44.77
         },
         {
           "data": "06/06",
-          "medio": 110.33
+          "medio": 41.4
         },
         {
           "data": "08/06",
-          "medio": 93.13
+          "medio": 42.43
         },
         {
           "data": "11/06",
-          "medio": 107.0
+          "medio": 39.77
         },
         {
           "data": "11/06",
-          "medio": 103.3
+          "medio": 42.17
         },
         {
           "data": "12/06",
-          "medio": 85.4
+          "medio": 46.6
         },
         {
           "data": "15/06",
-          "medio": 107.17
+          "medio": 49.7
         },
         {
           "data": "20/06",
-          "medio": 97.4
+          "medio": 49.43
         },
         {
           "data": "20/06",
-          "medio": 97.4
+          "medio": 49.43
         },
         {
           "data": "21/06",
-          "medio": 100.83
+          "medio": 46.9
+        },
+        {
+          "data": "24/06",
+          "medio": 54.43
+        }
+      ]
+    },
+    {
+      "nome": "Fatiador Rotativo de Legumes",
+      "ncm": "8210.00.00",
+      "pmv": 28.83,
+      "custo_nac": 14.99,
+      "minimo": 16.0,
+      "medio": 61.27,
+      "maximo": 153.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 56.83
+        },
+        {
+          "data": "06/06",
+          "medio": 52.73
+        },
+        {
+          "data": "08/06",
+          "medio": 52.07
+        },
+        {
+          "data": "11/06",
+          "medio": 49.83
+        },
+        {
+          "data": "11/06",
+          "medio": 50.77
+        },
+        {
+          "data": "12/06",
+          "medio": 49.8
+        },
+        {
+          "data": "15/06",
+          "medio": 53.23
+        },
+        {
+          "data": "20/06",
+          "medio": 53.93
+        },
+        {
+          "data": "20/06",
+          "medio": 53.93
+        },
+        {
+          "data": "21/06",
+          "medio": 53.27
+        },
+        {
+          "data": "24/06",
+          "medio": 61.27
         }
       ]
     },
@@ -302,8 +320,8 @@
       "pmv": 36.75,
       "custo_nac": 19.11,
       "minimo": 17.0,
-      "medio": 59.5,
-      "maximo": 239.0,
+      "medio": 52.73,
+      "maximo": 109.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -346,59 +364,10 @@
         {
           "data": "21/06",
           "medio": 59.5
-        }
-      ]
-    },
-    {
-      "nome": "Tapete de Silicone para Cozinha",
-      "ncm": "3926.90.90",
-      "pmv": 8.32,
-      "custo_nac": 4.33,
-      "minimo": 13.0,
-      "medio": 70.6,
-      "maximo": 539.0,
-      "anuncios": 30,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 60.77
         },
         {
-          "data": "06/06",
-          "medio": 55.63
-        },
-        {
-          "data": "08/06",
-          "medio": 53.73
-        },
-        {
-          "data": "11/06",
-          "medio": 49.67
-        },
-        {
-          "data": "11/06",
-          "medio": 55.67
-        },
-        {
-          "data": "12/06",
-          "medio": 51.63
-        },
-        {
-          "data": "15/06",
-          "medio": 58.93
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "21/06",
-          "medio": 70.6
+          "data": "24/06",
+          "medio": 52.73
         }
       ]
     },
@@ -407,9 +376,9 @@
       "ncm": "9405.40.90",
       "pmv": 55.52,
       "custo_nac": 28.87,
-      "minimo": 21.0,
-      "medio": 99.47,
-      "maximo": 286.0,
+      "minimo": 27.0,
+      "medio": 108.3,
+      "maximo": 241.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -452,6 +421,10 @@
         {
           "data": "21/06",
           "medio": 99.47
+        },
+        {
+          "data": "24/06",
+          "medio": 108.3
         }
       ]
     },
@@ -460,9 +433,9 @@
       "ncm": "9405.40.90",
       "pmv": 52.61,
       "custo_nac": 27.36,
-      "minimo": 35.0,
-      "medio": 125.1,
-      "maximo": 483.0,
+      "minimo": 34.0,
+      "medio": 115.87,
+      "maximo": 510.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -505,6 +478,10 @@
         {
           "data": "21/06",
           "medio": 125.1
+        },
+        {
+          "data": "24/06",
+          "medio": 115.87
         }
       ]
     },
@@ -514,8 +491,8 @@
       "pmv": 72.54,
       "custo_nac": 37.72,
       "minimo": 27.0,
-      "medio": 106.73,
-      "maximo": 257.0,
+      "medio": 133.43,
+      "maximo": 288.0,
       "anuncios": 30,
       "alertas": [],
       "historico": [
@@ -558,6 +535,10 @@
         {
           "data": "21/06",
           "medio": 106.73
+        },
+        {
+          "data": "24/06",
+          "medio": 133.43
         }
       ]
     },
@@ -567,7 +548,7 @@
       "pmv": 53.3,
       "custo_nac": 27.72,
       "minimo": 21.0,
-      "medio": 103.43,
+      "medio": 125.7,
       "maximo": 406.0,
       "anuncios": 30,
       "alertas": [],
@@ -611,6 +592,67 @@
         {
           "data": "21/06",
           "medio": 103.43
+        },
+        {
+          "data": "24/06",
+          "medio": 125.7
+        }
+      ]
+    },
+    {
+      "nome": "Luminaria Solar Hortensia Ferro",
+      "ncm": "9405.40.90",
+      "pmv": 109.04,
+      "custo_nac": 56.7,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 160.47
+        },
+        {
+          "data": "06/06",
+          "medio": 94.6
+        },
+        {
+          "data": "08/06",
+          "medio": 84.27
+        },
+        {
+          "data": "11/06",
+          "medio": 89.13
+        },
+        {
+          "data": "11/06",
+          "medio": 80.63
+        },
+        {
+          "data": "12/06",
+          "medio": 81.9
+        },
+        {
+          "data": "15/06",
+          "medio": 70.63
+        },
+        {
+          "data": "20/06",
+          "medio": 81.73
+        },
+        {
+          "data": "20/06",
+          "medio": 81.73
+        },
+        {
+          "data": "21/06",
+          "medio": 85.4
+        },
+        {
+          "data": "24/06",
+          "medio": null
         }
       ]
     }
