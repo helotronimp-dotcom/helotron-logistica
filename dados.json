@@ -1,6 +1,6 @@
 {
   "meta": {
-    "atualizado_em": "24/06/2026 09:16",
+    "atualizado_em": "06/07/2026 21:16",
     "total_produtos": 11,
     "fonte": "monitor_precos.py (local) + CSVs",
     "cambio": 5.75,
@@ -24,191 +24,14 @@
   },
   "produtos": [
     {
-      "nome": "Kit 7 Potes Hermeticos",
-      "ncm": "3924.10.00",
-      "pmv": 69.34,
-      "custo_nac": 36.05,
-      "minimo": 24.0,
-      "medio": 81.87,
-      "maximo": 299.0,
-      "anuncios": 30,
-      "alertas": [
-        "guerra"
-      ],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 117.4
-        },
-        {
-          "data": "06/06",
-          "medio": 110.33
-        },
-        {
-          "data": "08/06",
-          "medio": 93.13
-        },
-        {
-          "data": "11/06",
-          "medio": 107.0
-        },
-        {
-          "data": "11/06",
-          "medio": 103.3
-        },
-        {
-          "data": "12/06",
-          "medio": 85.4
-        },
-        {
-          "data": "15/06",
-          "medio": 107.17
-        },
-        {
-          "data": "20/06",
-          "medio": 97.4
-        },
-        {
-          "data": "20/06",
-          "medio": 97.4
-        },
-        {
-          "data": "21/06",
-          "medio": 100.83
-        },
-        {
-          "data": "24/06",
-          "medio": 81.87
-        }
-      ]
-    },
-    {
-      "nome": "Tapete de Silicone para Cozinha",
-      "ncm": "3926.90.90",
-      "pmv": 8.32,
-      "custo_nac": 4.33,
-      "minimo": 13.0,
-      "medio": 49.1,
-      "maximo": 174.0,
-      "anuncios": 30,
-      "alertas": [
-        "guerra"
-      ],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 60.77
-        },
-        {
-          "data": "06/06",
-          "medio": 55.63
-        },
-        {
-          "data": "08/06",
-          "medio": 53.73
-        },
-        {
-          "data": "11/06",
-          "medio": 49.67
-        },
-        {
-          "data": "11/06",
-          "medio": 55.67
-        },
-        {
-          "data": "12/06",
-          "medio": 51.63
-        },
-        {
-          "data": "15/06",
-          "medio": 58.93
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "21/06",
-          "medio": 70.6
-        },
-        {
-          "data": "24/06",
-          "medio": 49.1
-        }
-      ]
-    },
-    {
-      "nome": "Spray de Oleo Cozinha",
-      "ncm": "8424.20.00",
-      "pmv": 11.65,
-      "custo_nac": 6.06,
-      "minimo": 15.0,
-      "medio": 23.87,
-      "maximo": 49.0,
-      "anuncios": 30,
-      "alertas": [
-        "guerra"
-      ],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 29.27
-        },
-        {
-          "data": "06/06",
-          "medio": 23.5
-        },
-        {
-          "data": "08/06",
-          "medio": 23.97
-        },
-        {
-          "data": "11/06",
-          "medio": 23.0
-        },
-        {
-          "data": "11/06",
-          "medio": 24.43
-        },
-        {
-          "data": "12/06",
-          "medio": 27.1
-        },
-        {
-          "data": "15/06",
-          "medio": 23.93
-        },
-        {
-          "data": "20/06",
-          "medio": 36.73
-        },
-        {
-          "data": "20/06",
-          "medio": 37.2
-        },
-        {
-          "data": "21/06",
-          "medio": 30.37
-        },
-        {
-          "data": "24/06",
-          "medio": 23.87
-        }
-      ]
-    },
-    {
       "nome": "Cortador de Alimentos 16 em 1",
       "ncm": "8210.00.00",
       "pmv": 46.09,
       "custo_nac": 23.97,
-      "minimo": 29.0,
-      "medio": 54.43,
-      "maximo": 161.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -254,6 +77,10 @@
         {
           "data": "24/06",
           "medio": 54.43
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -262,10 +89,10 @@
       "ncm": "8210.00.00",
       "pmv": 28.83,
       "custo_nac": 14.99,
-      "minimo": 16.0,
-      "medio": 61.27,
-      "maximo": 153.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -311,6 +138,71 @@
         {
           "data": "24/06",
           "medio": 61.27
+        },
+        {
+          "data": "06/07",
+          "medio": null
+        }
+      ]
+    },
+    {
+      "nome": "Kit 7 Potes Hermeticos",
+      "ncm": "3924.10.00",
+      "pmv": 69.34,
+      "custo_nac": 36.05,
+      "minimo": 36.0,
+      "medio": 88.4,
+      "maximo": 255.0,
+      "anuncios": 30,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 117.4
+        },
+        {
+          "data": "06/06",
+          "medio": 110.33
+        },
+        {
+          "data": "08/06",
+          "medio": 93.13
+        },
+        {
+          "data": "11/06",
+          "medio": 107.0
+        },
+        {
+          "data": "11/06",
+          "medio": 103.3
+        },
+        {
+          "data": "12/06",
+          "medio": 85.4
+        },
+        {
+          "data": "15/06",
+          "medio": 107.17
+        },
+        {
+          "data": "20/06",
+          "medio": 97.4
+        },
+        {
+          "data": "20/06",
+          "medio": 97.4
+        },
+        {
+          "data": "21/06",
+          "medio": 100.83
+        },
+        {
+          "data": "24/06",
+          "medio": 81.87
+        },
+        {
+          "data": "06/07",
+          "medio": 88.4
         }
       ]
     },
@@ -319,10 +211,10 @@
       "ncm": "3924.10.00",
       "pmv": 36.75,
       "custo_nac": 19.11,
-      "minimo": 17.0,
-      "medio": 52.73,
-      "maximo": 109.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -368,6 +260,132 @@
         {
           "data": "24/06",
           "medio": 52.73
+        },
+        {
+          "data": "06/07",
+          "medio": null
+        }
+      ]
+    },
+    {
+      "nome": "Tapete de Silicone para Cozinha",
+      "ncm": "3926.90.90",
+      "pmv": 8.32,
+      "custo_nac": 4.33,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 60.77
+        },
+        {
+          "data": "06/06",
+          "medio": 55.63
+        },
+        {
+          "data": "08/06",
+          "medio": 53.73
+        },
+        {
+          "data": "11/06",
+          "medio": 49.67
+        },
+        {
+          "data": "11/06",
+          "medio": 55.67
+        },
+        {
+          "data": "12/06",
+          "medio": 51.63
+        },
+        {
+          "data": "15/06",
+          "medio": 58.93
+        },
+        {
+          "data": "20/06",
+          "medio": 70.73
+        },
+        {
+          "data": "20/06",
+          "medio": 70.73
+        },
+        {
+          "data": "21/06",
+          "medio": 70.6
+        },
+        {
+          "data": "24/06",
+          "medio": 49.1
+        },
+        {
+          "data": "06/07",
+          "medio": null
+        }
+      ]
+    },
+    {
+      "nome": "Spray de Oleo Cozinha",
+      "ncm": "8424.20.00",
+      "pmv": 11.65,
+      "custo_nac": 6.06,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": [
+        {
+          "data": "04/06",
+          "medio": 29.27
+        },
+        {
+          "data": "06/06",
+          "medio": 23.5
+        },
+        {
+          "data": "08/06",
+          "medio": 23.97
+        },
+        {
+          "data": "11/06",
+          "medio": 23.0
+        },
+        {
+          "data": "11/06",
+          "medio": 24.43
+        },
+        {
+          "data": "12/06",
+          "medio": 27.1
+        },
+        {
+          "data": "15/06",
+          "medio": 23.93
+        },
+        {
+          "data": "20/06",
+          "medio": 36.73
+        },
+        {
+          "data": "20/06",
+          "medio": 37.2
+        },
+        {
+          "data": "21/06",
+          "medio": 30.37
+        },
+        {
+          "data": "24/06",
+          "medio": 23.87
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -376,10 +394,10 @@
       "ncm": "9405.40.90",
       "pmv": 55.52,
       "custo_nac": 28.87,
-      "minimo": 27.0,
-      "medio": 108.3,
-      "maximo": 241.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -425,6 +443,10 @@
         {
           "data": "24/06",
           "medio": 108.3
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -433,10 +455,10 @@
       "ncm": "9405.40.90",
       "pmv": 52.61,
       "custo_nac": 27.36,
-      "minimo": 34.0,
-      "medio": 115.87,
-      "maximo": 510.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -482,6 +504,10 @@
         {
           "data": "24/06",
           "medio": 115.87
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -490,10 +516,10 @@
       "ncm": "9405.40.90",
       "pmv": 72.54,
       "custo_nac": 37.72,
-      "minimo": 27.0,
-      "medio": 133.43,
-      "maximo": 288.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -539,6 +565,10 @@
         {
           "data": "24/06",
           "medio": 133.43
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -547,10 +577,10 @@
       "ncm": "9405.40.90",
       "pmv": 53.3,
       "custo_nac": 27.72,
-      "minimo": 21.0,
-      "medio": 125.7,
-      "maximo": 406.0,
-      "anuncios": 30,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
       "alertas": [],
       "historico": [
         {
@@ -596,6 +626,10 @@
         {
           "data": "24/06",
           "medio": 125.7
+        },
+        {
+          "data": "06/07",
+          "medio": null
         }
       ]
     },
@@ -652,6 +686,10 @@
         },
         {
           "data": "24/06",
+          "medio": null
+        },
+        {
+          "data": "06/07",
           "medio": null
         }
       ]
