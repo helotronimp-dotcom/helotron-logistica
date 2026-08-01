@@ -299,14 +299,16 @@ const TAXA_REAL = { GreenEarth: 5.3754, YuNan: 5.3756, TeMeiHui: 5.0474 };
 
 const PRODUTOS = [
   // ── GREENEARTH — NF-003 · Total NF R$ 57.507,40 ─────────────
-  // custoNF = custo efetivo conforme NF de entrada (proporcional ao valor do item / total NF)
+  // custoNF = custo completo por unidade: NF de entrada + rateio proporcional de
+  //   frete rodoviário (R$4.488,20) + despachante BRA-K (R$2.431,50) + armazenagem (R$7.000,00)
+  //   Fator de rateio: R$13.919,70 / R$282.454,52 = +4,928% sobre custoNF puro da NF
   {
     id:1, nome:"Cortador de Alimentos 16 em 1", cat:"Cozinha", fornecedor:"GreenEarth",
     invoice:"J-PI2026032110",
     descricao:"ABS+PET+PP, lâminas inox 201/402, 5 peças, peso líq. 601,8g — cód. VC-STY002",
     hscode:"8214.90.00", qtd:1488, cxSize:"70,5×34×47,5 cm", cbm:0.114, pcsPerCtn:24,
     custoUSD:2.3263, ii:0.162, ipi:0.065,
-    custoNF:21.7517,
+    custoNF:22.8237,
     mlMin:32, mlMed:44.77, mlMax:110
   },
   {
@@ -315,7 +317,7 @@ const PRODUTOS = [
     descricao:"PP + gaxeta silicone FDA, capacidades 850ml / 1.750ml / 3.300ml, peso 453,7g",
     hscode:"3924.10.00", qtd:1000, cxSize:"70×46×55 cm", cbm:0.177, pcsPerCtn:40,
     custoUSD:1.855, ii:0.162, ipi:0.065,
-    custoNF:17.2079,
+    custoNF:18.0559,
     mlMin:19, mlMed:60.20, mlMax:164
   },
   {
@@ -324,7 +326,7 @@ const PRODUTOS = [
     descricao:"Silicone FDA, 17,8×17,8cm, espessura 6mm, 60g, cor vermelha — anunciado kit c/4 no ML",
     hscode:"3924.10.00", qtd:2160, cxSize:"53×30×30 cm", cbm:0.048, pcsPerCtn:240,
     custoUSD:0.42, ii:0.162, ipi:0.065,
-    custoNF:3.6733,
+    custoNF:3.8543,
     mlMin:11, mlMed:60.77, mlMax:496
   },
   // ── YUNAN LIGHTING — NF-002 · Total NF R$ 22.289,86 ─────────
@@ -334,7 +336,7 @@ const PRODUTOS = [
     descricao:"PVC+LED, solar, cor rosa, 53cm×3 hastes, emb. Kraft",
     hscode:"9405.41.90", qtd:216, cxSize:"60×55×52 cm", cbm:0.171, pcsPerCtn:6,
     custoUSD:3.78, ii:0.162, ipi:0.0975,
-    custoNF:34.3652,
+    custoNF:36.0588,
     mlMin:26, mlMed:84.90, mlMax:269
   },
   {
@@ -343,7 +345,7 @@ const PRODUTOS = [
     descricao:"PVC+LED, solar, cor azul, haste PVC, comprimento 70cm, emb. caixa colorida",
     hscode:"9405.41.90", qtd:189, cxSize:"91×46×44 cm", cbm:0.185, pcsPerCtn:4,
     custoUSD:2.62, ii:0.162, ipi:0.0975,
-    custoNF:23.5778,
+    custoNF:24.7397,
     mlMin:21, mlMed:106.03, mlMax:478
   },
   {
@@ -352,7 +354,7 @@ const PRODUTOS = [
     descricao:"Ferro+LED, solar, cor azul, haste ferro, comprimento 62cm, emb. Kraft",
     hscode:"9405.41.90", qtd:216, cxSize:"53×35×53 cm", cbm:0.098, pcsPerCtn:18,
     custoUSD:5.36, ii:0.162, ipi:0.0975,
-    custoNF:48.1982,
+    custoNF:50.5735,
     mlMin:33, mlMed:160.47, mlMax:1376
   },
   // ── TEMEIHUI — NF-001 · Total NF R$ 202.657,26 ──────────────
@@ -362,7 +364,7 @@ const PRODUTOS = [
     descricao:"16 peças, material ABS, lâminas aço inox",
     hscode:"8210.00.00", qtd:960, cxSize:"70,5×34×47,5 cm", cbm:0.113, pcsPerCtn:24,
     custoUSD:1.85, ii:0.162, ipi:0.065,
-    custoNF:18.6411,
+    custoNF:19.5598,
     mlMin:32, mlMed:44.77, mlMax:110
   },
   {
@@ -371,7 +373,7 @@ const PRODUTOS = [
     descricao:"Garrafa vidro 470ml, 2 modos de spray, somente cor preta, peso 300g",
     hscode:"7013.49.00", qtd:3000, cxSize:"58×48×41 cm", cbm:0.114, pcsPerCtn:60,
     custoUSD:0.58, ii:0.25, ipi:0.065,
-    custoNF:6.8812,
+    custoNF:7.2203,
     mlMin:8, mlMed:29.27, mlMax:100
   },
   {
@@ -380,7 +382,7 @@ const PRODUTOS = [
     descricao:"HIPS+PS+PP+TPU — 1×1,9L / 2×1,2L / 2×0,8L / 2×0,5L, cores branco e preto",
     hscode:"3924.10.00", qtd:420, cxSize:"66,5×41,5×64,5 cm", cbm:0.178, pcsPerCtn:12,
     custoUSD:3.68, ii:0.162, ipi:0.065,
-    custoNF:38.4185,
+    custoNF:40.3118,
     mlMin:30, mlMed:117.40, mlMax:352
   },
   {
@@ -389,7 +391,7 @@ const PRODUTOS = [
     descricao:"Fatiador manual rotativo, somente cor verde",
     hscode:"8210.00.00", qtd:1680, cxSize:"60×30×73 cm", cbm:0.130, pcsPerCtn:30,
     custoUSD:1.53, ii:0.162, ipi:0.065,
-    custoNF:14.4408,
+    custoNF:15.1525,
     mlMin:19, mlMed:56.83, mlMax:154
   },
   {
@@ -398,7 +400,7 @@ const PRODUTOS = [
     descricao:"Cortador manual de legumes, maior volume de compra",
     hscode:"8210.00.00", qtd:4800, cxSize:"71×43×50 cm", cbm:0.153, pcsPerCtn:48,
     custoUSD:1.37, ii:0.162, ipi:0.065,
-    custoNF:13.8939,
+    custoNF:14.5786,
     mlMin:32, mlMed:44.77, mlMax:110
   },
   {
@@ -407,7 +409,7 @@ const PRODUTOS = [
     descricao:"PVC+LED, solar, luz branca, 2 flamingos por caixa",
     hscode:"9405.41.00", qtd:504, cxSize:"60×53×55,5 cm", cbm:0.176, pcsPerCtn:36,
     custoUSD:2.87, ii:0.162, ipi:0.0975,
-    custoNF:24.6230,
+    custoNF:25.8365,
     mlMin:26, mlMed:84.90, mlMax:269
   },
   {
@@ -416,7 +418,7 @@ const PRODUTOS = [
     descricao:"PVC+LED, solar, luz branca, 1 painel solar + 3 flamingos por caixa",
     hscode:"9405.41.00", qtd:504, cxSize:"60×53×55,5 cm", cbm:0.176, pcsPerCtn:36,
     custoUSD:2.72, ii:0.162, ipi:0.0975,
-    custoNF:23.8313,
+    custoNF:25.0057,
     mlMin:19, mlMed:78.90, mlMax:183
   },
   {
@@ -425,7 +427,7 @@ const PRODUTOS = [
     descricao:"LED solar, 3 hastes, cores branco/rosa/azul/roxo, 2 unidades por caixa",
     hscode:"9405.41.00", qtd:1020, cxSize:"62×57×44,5 cm", cbm:0.157, pcsPerCtn:30,
     custoUSD:3.75, ii:0.162, ipi:0.0975,
-    custoNF:31.9876,
+    custoNF:33.5640,
     mlMin:29, mlMed:102.10, mlMax:269
   },
 ];
