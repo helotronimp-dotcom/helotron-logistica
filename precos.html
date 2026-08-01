@@ -266,9 +266,9 @@ tbody tr { cursor: pointer; }
           <th onclick="ordenar('pmv')"       style="cursor:pointer;background:#2d3748" title="Ordenar">PMV <span id="ord-pmv"></span></th>
           <th onclick="ordenar('custo_nac')" style="cursor:pointer;background:#1e2d3d" title="Ordenar">Custo <span id="ord-custo_nac"></span></th>
           <th style="background:#1a2a1a">Margem %</th>
-          <th onclick="ordenar('minimo')"    style="cursor:pointer" title="Ordenar">Mínimo <span id="ord-minimo"></span></th>
-          <th onclick="ordenar('medio')"     style="cursor:pointer" title="Ordenar">Médio <span id="ord-medio"></span></th>
-          <th onclick="ordenar('maximo')"    style="cursor:pointer" title="Ordenar">Máximo <span id="ord-maximo"></span></th>
+          <th style="background:#1a1f2e" title="Custo do frete ML por unidade (editável)">Frete ML</th>
+          <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro Líq. <span id="ord-lucro"></span></th>
+          <th onclick="ordenar('qtd')"       style="cursor:pointer;background:#1a1a2a" title="Ordenar">Estoque <span id="ord-qtd"></span></th>
           <th onclick="ordenar('anuncios')"  style="cursor:pointer" title="Ordenar">An. <span id="ord-anuncios"></span></th>
           <th>Tend.</th>
           <th onclick="ordenar('gap')"       style="cursor:pointer" title="Ordenar">GAP méd/PMV <span id="ord-gap"></span></th>
@@ -421,6 +421,29 @@ function getComissao() {
 // Margens individuais por produto: { nome: valor_decimal }
 const MARGENS_PRODUTO = {};
 
+// Frete ML por produto (editável): { nome: valor_brl }
+const FRETE_ML = {};
+const FRETE_ML_PADRAO = 20.00;
+
+function getFreteML(nome) {
+  return FRETE_ML[nome] != null ? FRETE_ML[nome] : FRETE_ML_PADRAO;
+}
+
+function alterarFreteML(input) {
+  const nome  = input.dataset.nome;
+  const valor = parseFloat(input.value);
+  if (!isNaN(valor) && valor >= 0) FRETE_ML[nome] = valor;
+  else delete FRETE_ML[nome];
+  recalcularTabela();
+}
+
+// Lucro líquido = PMV × (1 - comissao) - custo_nac - frete_ml
+function getLucroLiq(p, pmv) {
+  if (!pmv || !p.custo_nac) return null;
+  const comissao = getComissao();
+  return pmv * (1 - comissao) - p.custo_nac - getFreteML(p.nome);
+}
+
 function getMargemProduto(nome) {
   if (MARGENS_PRODUTO[nome] != null) return MARGENS_PRODUTO[nome];
   return getMargem(); // fallback para margem global
@@ -448,9 +471,9 @@ function sortVal(p, col) {
   switch(col) {
     case 'nome':     return p.nome?.toLowerCase() ?? '';
     case 'pmv':      return pmv ?? -Infinity;
-    case 'minimo':   return p.minimo ?? -Infinity;
-    case 'medio':    return p.medio  ?? -Infinity;
-    case 'maximo':   return p.maximo ?? -Infinity;
+    case 'custo_nac': return p.custo_nac ?? -Infinity;
+    case 'lucro':    return getLucroLiq(p, pmv) ?? -Infinity;
+    case 'qtd':      return p.qtd ?? -Infinity;
     case 'anuncios': return p.anuncios ?? -Infinity;
     case 'gap':      return (pmv && p.medio) ? (p.medio - pmv) / pmv : -Infinity;
     default:         return 0;
@@ -458,7 +481,7 @@ function sortVal(p, col) {
 }
 
 function atualizarIndicadores() {
-  ['nome','pmv','minimo','medio','maximo','anuncios','gap'].forEach(col => {
+  ['nome','pmv','custo_nac','lucro','qtd','anuncios','gap'].forEach(col => {
     const el = document.getElementById('ord-' + col);
     if (!el) return;
     if (SORT_COL !== col) { el.textContent = ''; return; }
@@ -553,9 +576,15 @@ function recalcularTabela() {
           ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
         </div>
       </td>
-      <td>${BRL(p.minimo)}</td>
-      <td>${BRL(p.medio)}</td>
-      <td>${BRL(p.maximo)}</td>
+      <td style="padding:3px 6px;" onclick="event.stopPropagation()">
+        <input type="number" min="0" max="100" step="0.5"
+          value="${(getFreteML(p.nome)).toFixed(2)}"
+          data-nome="${p.nome.replace(/"/g,'&quot;')}"
+          onchange="alterarFreteML(this)"
+          style="width:52px;background:transparent;border:none;border-bottom:1px solid #58a6ff55;color:#58a6ff;font-size:12px;text-align:center;outline:none;padding:2px 0;">
+      </td>
+      <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
+      <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
       <td>${p.anuncios ?? '—'}</td>
       <td class="${tend.cls}">${tend.icon}</td>
       <td>${gapHtml(p.medio, pmv)}</td>
@@ -632,15 +661,16 @@ function abrirModal(p) {
   document.getElementById('modal-nome').textContent = p.nome;
 
   // Cards de resumo
-  const margem = p.pmv && p.medio
-    ? ((p.medio - p.pmv) / p.pmv * 100).toFixed(1)
-    : null;
-  const margemCls = margem === null ? '' : margem >= 0 ? 'ok-s' : 'risco-s';
+  const pmv = pmvDinamico(p);
+  const fml = getFreteML(p.nome);
+  const lucro = getLucroLiq(p, pmv);
+  const lucroCls = lucro >= 0 ? 'ok-s' : 'risco-s';
   document.getElementById('modal-stats').innerHTML = `
-    <div class="mstat pmv-s"><label>PMV</label><span>${BRL(p.pmv)}</span></div>
-    <div class="mstat"><label>Mínimo</label><span>${BRL(p.minimo)}</span></div>
-    <div class="mstat"><label>Médio</label><span>${BRL(p.medio)}</span></div>
-    <div class="mstat ${margemCls}"><label>GAP méd/PMV</label><span>${margem !== null ? (margem >= 0 ? '+' : '') + margem + '%' : '—'}</span></div>
+    <div class="mstat pmv-s"><label>PMV</label><span>${BRL(pmv)}</span></div>
+    <div class="mstat"><label>Custo</label><span>${BRL(p.custo_nac)}</span></div>
+    <div class="mstat"><label>Frete ML</label><span>${BRL(fml)}</span></div>
+    <div class="mstat ${lucroCls}"><label>Lucro Líq.</label><span>${BRL(lucro)}</span></div>
+    <div class="mstat"><label>Estoque</label><span>${p.qtd != null ? p.qtd.toLocaleString('pt-BR') + ' un.' : '—'}</span></div>
   `;
 
   // Gráfico grande
