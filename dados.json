@@ -1,778 +1,840 @@
-{
-  "meta": {
-    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.)",
-    "total_produtos": 14,
-    "fonte": "NF de entrada + rateio frete rod R$4.488,20 + despachante R$2.431,50 + armaz. R$7.000,00",
-    "cambio": 5.75,
-    "frete_int_usd": 5325,
-    "frete_rod_brl": 4488.2,
-    "despacho_brl": 4800.0,
-    "margem_alvo": 0.3,
-    "plataforma": "mercadolivre",
-    "comissao_plataforma": 0.18
-  },
-  "container": {
-    "referencia": "ST260001",
-    "numero": "KOCU4189250",
-    "navio": "HYUNDAI GRACE",
-    "imo": "9330721",
-    "rota": "China → Busan → Pacífico → Paranaguá (PR)",
-    "eta_paranagua": "12/Jul/2026",
-    "status": "Em trânsito",
-    "ultima_atualizacao": "09/Jun/2026",
-    "fonte": "Daniel Gardini — SITI Logistics"
-  },
-  "produtos": [
-    {
-      "nome": "Cortador de Alimentos 16 em 1",
-      "ncm": "8210.00.00",
-      "pmv": 46.04,
-      "custo_nac": 23.94,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 44.77
-        },
-        {
-          "data": "06/06",
-          "medio": 41.4
-        },
-        {
-          "data": "08/06",
-          "medio": 42.43
-        },
-        {
-          "data": "11/06",
-          "medio": 39.77
-        },
-        {
-          "data": "11/06",
-          "medio": 42.17
-        },
-        {
-          "data": "12/06",
-          "medio": 46.6
-        },
-        {
-          "data": "15/06",
-          "medio": 49.7
-        },
-        {
-          "data": "20/06",
-          "medio": 49.43
-        },
-        {
-          "data": "20/06",
-          "medio": 49.43
-        },
-        {
-          "data": "21/06",
-          "medio": 46.9
-        },
-        {
-          "data": "24/06",
-          "medio": 54.43
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Fatiador Rotativo de Legumes",
-      "ncm": "8210.00.00",
-      "pmv": 30.58,
-      "custo_nac": 15.9,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 56.83
-        },
-        {
-          "data": "06/06",
-          "medio": 52.73
-        },
-        {
-          "data": "08/06",
-          "medio": 52.07
-        },
-        {
-          "data": "11/06",
-          "medio": 49.83
-        },
-        {
-          "data": "11/06",
-          "medio": 50.77
-        },
-        {
-          "data": "12/06",
-          "medio": 49.8
-        },
-        {
-          "data": "15/06",
-          "medio": 53.23
-        },
-        {
-          "data": "20/06",
-          "medio": 53.93
-        },
-        {
-          "data": "20/06",
-          "medio": 53.93
-        },
-        {
-          "data": "21/06",
-          "medio": 53.27
-        },
-        {
-          "data": "24/06",
-          "medio": 61.27
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Kit 7 Potes Hermeticos",
-      "ncm": "3924.10.00",
-      "pmv": 81.33,
-      "custo_nac": 42.29,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 117.4
-        },
-        {
-          "data": "06/06",
-          "medio": 110.33
-        },
-        {
-          "data": "08/06",
-          "medio": 93.13
-        },
-        {
-          "data": "11/06",
-          "medio": 107.0
-        },
-        {
-          "data": "11/06",
-          "medio": 103.3
-        },
-        {
-          "data": "12/06",
-          "medio": 85.4
-        },
-        {
-          "data": "15/06",
-          "medio": 107.17
-        },
-        {
-          "data": "20/06",
-          "medio": 97.4
-        },
-        {
-          "data": "20/06",
-          "medio": 97.4
-        },
-        {
-          "data": "21/06",
-          "medio": 100.83
-        },
-        {
-          "data": "24/06",
-          "medio": 81.87
-        },
-        {
-          "data": "06/07",
-          "medio": 88.4
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Conjunto Potes Organizadores",
-      "ncm": "3924.10.00",
-      "pmv": 36.42,
-      "custo_nac": 18.94,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 60.2
-        },
-        {
-          "data": "06/06",
-          "medio": 55.17
-        },
-        {
-          "data": "08/06",
-          "medio": 74.17
-        },
-        {
-          "data": "11/06",
-          "medio": 59.93
-        },
-        {
-          "data": "11/06",
-          "medio": 56.37
-        },
-        {
-          "data": "12/06",
-          "medio": 57.83
-        },
-        {
-          "data": "15/06",
-          "medio": 57.03
-        },
-        {
-          "data": "20/06",
-          "medio": 64.57
-        },
-        {
-          "data": "20/06",
-          "medio": 64.57
-        },
-        {
-          "data": "21/06",
-          "medio": 59.5
-        },
-        {
-          "data": "24/06",
-          "medio": 52.73
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Tapete de Silicone para Cozinha",
-      "ncm": "3926.90.90",
-      "pmv": 7.77,
-      "custo_nac": 4.04,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 60.77
-        },
-        {
-          "data": "06/06",
-          "medio": 55.63
-        },
-        {
-          "data": "08/06",
-          "medio": 53.73
-        },
-        {
-          "data": "11/06",
-          "medio": 49.67
-        },
-        {
-          "data": "11/06",
-          "medio": 55.67
-        },
-        {
-          "data": "12/06",
-          "medio": 51.63
-        },
-        {
-          "data": "15/06",
-          "medio": 58.93
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "20/06",
-          "medio": 70.73
-        },
-        {
-          "data": "21/06",
-          "medio": 70.6
-        },
-        {
-          "data": "24/06",
-          "medio": 49.1
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Spray de Oleo Cozinha",
-      "ncm": "8424.20.00",
-      "pmv": 14.56,
-      "custo_nac": 7.57,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 29.27
-        },
-        {
-          "data": "06/06",
-          "medio": 23.5
-        },
-        {
-          "data": "08/06",
-          "medio": 23.97
-        },
-        {
-          "data": "11/06",
-          "medio": 23.0
-        },
-        {
-          "data": "11/06",
-          "medio": 24.43
-        },
-        {
-          "data": "12/06",
-          "medio": 27.1
-        },
-        {
-          "data": "15/06",
-          "medio": 23.93
-        },
-        {
-          "data": "20/06",
-          "medio": 36.73
-        },
-        {
-          "data": "20/06",
-          "medio": 37.2
-        },
-        {
-          "data": "21/06",
-          "medio": 30.37
-        },
-        {
-          "data": "24/06",
-          "medio": 23.87
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo 2 un.",
-      "ncm": "9405.40.90",
-      "pmv": 52.13,
-      "custo_nac": 27.11,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 84.9
-        },
-        {
-          "data": "06/06",
-          "medio": 90.53
-        },
-        {
-          "data": "08/06",
-          "medio": 87.23
-        },
-        {
-          "data": "11/06",
-          "medio": 85.1
-        },
-        {
-          "data": "11/06",
-          "medio": 85.73
-        },
-        {
-          "data": "12/06",
-          "medio": 88.27
-        },
-        {
-          "data": "15/06",
-          "medio": 92.07
-        },
-        {
-          "data": "20/06",
-          "medio": 97.37
-        },
-        {
-          "data": "20/06",
-          "medio": 97.37
-        },
-        {
-          "data": "21/06",
-          "medio": 99.47
-        },
-        {
-          "data": "24/06",
-          "medio": 108.3
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo 3 un.",
-      "ncm": "9405.40.90",
-      "pmv": 50.44,
-      "custo_nac": 26.23,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 78.9
-        },
-        {
-          "data": "06/06",
-          "medio": 115.63
-        },
-        {
-          "data": "08/06",
-          "medio": 95.4
-        },
-        {
-          "data": "11/06",
-          "medio": 100.0
-        },
-        {
-          "data": "11/06",
-          "medio": 100.03
-        },
-        {
-          "data": "12/06",
-          "medio": 84.1
-        },
-        {
-          "data": "15/06",
-          "medio": 87.93
-        },
-        {
-          "data": "20/06",
-          "medio": 121.53
-        },
-        {
-          "data": "20/06",
-          "medio": 121.53
-        },
-        {
-          "data": "21/06",
-          "medio": 125.1
-        },
-        {
-          "data": "24/06",
-          "medio": 115.87
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Hortensia 3 Hastes",
-      "ncm": "9405.40.90",
-      "pmv": 67.71,
-      "custo_nac": 35.21,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 102.1
-        },
-        {
-          "data": "06/06",
-          "medio": 91.67
-        },
-        {
-          "data": "08/06",
-          "medio": 89.03
-        },
-        {
-          "data": "11/06",
-          "medio": 94.27
-        },
-        {
-          "data": "11/06",
-          "medio": 94.5
-        },
-        {
-          "data": "12/06",
-          "medio": 98.4
-        },
-        {
-          "data": "15/06",
-          "medio": 69.0
-        },
-        {
-          "data": "20/06",
-          "medio": 110.6
-        },
-        {
-          "data": "20/06",
-          "medio": 110.6
-        },
-        {
-          "data": "21/06",
-          "medio": 106.73
-        },
-        {
-          "data": "24/06",
-          "medio": 133.43
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Hortensia PVC",
-      "ncm": "9405.40.90",
-      "pmv": 49.9,
-      "custo_nac": 25.95,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 106.03
-        },
-        {
-          "data": "06/06",
-          "medio": 106.47
-        },
-        {
-          "data": "08/06",
-          "medio": 110.5
-        },
-        {
-          "data": "11/06",
-          "medio": 99.6
-        },
-        {
-          "data": "11/06",
-          "medio": 110.67
-        },
-        {
-          "data": "12/06",
-          "medio": 104.6
-        },
-        {
-          "data": "15/06",
-          "medio": 112.77
-        },
-        {
-          "data": "20/06",
-          "medio": 92.77
-        },
-        {
-          "data": "20/06",
-          "medio": 103.33
-        },
-        {
-          "data": "21/06",
-          "medio": 103.43
-        },
-        {
-          "data": "24/06",
-          "medio": 125.7
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Hortensia Ferro",
-      "ncm": "9405.40.90",
-      "pmv": 102.04,
-      "custo_nac": 53.06,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [
-        {
-          "data": "04/06",
-          "medio": 160.47
-        },
-        {
-          "data": "06/06",
-          "medio": 94.6
-        },
-        {
-          "data": "08/06",
-          "medio": 84.27
-        },
-        {
-          "data": "11/06",
-          "medio": 89.13
-        },
-        {
-          "data": "11/06",
-          "medio": 80.63
-        },
-        {
-          "data": "12/06",
-          "medio": 81.9
-        },
-        {
-          "data": "15/06",
-          "medio": 70.63
-        },
-        {
-          "data": "20/06",
-          "medio": 81.73
-        },
-        {
-          "data": "20/06",
-          "medio": 81.73
-        },
-        {
-          "data": "21/06",
-          "medio": 85.4
-        },
-        {
-          "data": "24/06",
-          "medio": null
-        },
-        {
-          "data": "06/07",
-          "medio": null
-        },
-        {
-          "data": "09/07",
-          "medio": null
-        }
-      ]
-    },
-    {
-      "nome": "Luminaria Solar Flamingo Rosa",
-      "ncm": "9405.40.90",
-      "pmv": 72.75,
-      "custo_nac": 37.83,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": []
-    },
-    {
-      "nome": "Cortador de Alimentos 16 Pecas",
-      "ncm": "8210.00.00",
-      "pmv": 39.46,
-      "custo_nac": 20.52,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": []
-    },
-    {
-      "nome": "Cortador de Legumes Manual",
-      "ncm": "8210.00.00",
-      "pmv": 29.4,
-      "custo_nac": 15.29,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": []
-    }
-  ]
+﻿{
+    "meta":  {
+                 "atualizado_em":  "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.)",
+                 "total_produtos":  14,
+                 "fonte":  "NF de entrada + rateio frete rod R$4.488,20 + despachante R$2.431,50 + armaz. R$7.000,00",
+                 "cambio":  5.75,
+                 "frete_int_usd":  5325,
+                 "frete_rod_brl":  4488.2,
+                 "despacho_brl":  4800.0,
+                 "margem_alvo":  0.3,
+                 "plataforma":  "mercadolivre",
+                 "comissao_plataforma":  0.18
+             },
+    "container":  {
+                      "referencia":  "ST260001",
+                      "numero":  "KOCU4189250",
+                      "navio":  "HYUNDAI GRACE",
+                      "imo":  "9330721",
+                      "rota":  "China → Busan → Pacífico → Paranaguá (PR)",
+                      "eta_paranagua":  "12/Jul/2026",
+                      "status":  "Em trânsito",
+                      "ultima_atualizacao":  "09/Jun/2026",
+                      "fonte":  "Daniel Gardini — SITI Logistics"
+                  },
+    "produtos":  [
+                     {
+                         "nome":  "Cortador de Alimentos 16 em 1",
+                         "ncm":  "8210.00.00",
+                         "pmv":  46.04,
+                         "custo_nac":  23.94,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  44.77
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  41.4
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  42.43
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  39.77
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  42.17
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  46.6
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  49.7
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  49.43
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  49.43
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  46.9
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  54.43
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  1488,
+                         "frete_ml":  20
+                     },
+                     {
+                         "nome":  "Fatiador Rotativo de Legumes",
+                         "ncm":  "8210.00.00",
+                         "pmv":  30.58,
+                         "custo_nac":  15.9,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  56.83
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  52.73
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  52.07
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  49.83
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  50.77
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  49.8
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  53.23
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  53.93
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  53.93
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  53.27
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  61.27
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  1680,
+                         "frete_ml":  18
+                     },
+                     {
+                         "nome":  "Kit 7 Potes Hermeticos",
+                         "ncm":  "3924.10.00",
+                         "pmv":  81.33,
+                         "custo_nac":  42.29,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  117.4
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  110.33
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  93.13
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  107.0
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  103.3
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  85.4
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  107.17
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  97.4
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  97.4
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  100.83
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  81.87
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  88.4
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  420,
+                         "frete_ml":  25
+                     },
+                     {
+                         "nome":  "Conjunto Potes Organizadores",
+                         "ncm":  "3924.10.00",
+                         "pmv":  36.42,
+                         "custo_nac":  18.94,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  60.2
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  55.17
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  74.17
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  59.93
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  56.37
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  57.83
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  57.03
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  64.57
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  64.57
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  59.5
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  52.73
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  1000,
+                         "frete_ml":  20
+                     },
+                     {
+                         "nome":  "Tapete de Silicone para Cozinha",
+                         "ncm":  "3926.90.90",
+                         "pmv":  7.77,
+                         "custo_nac":  4.04,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  60.77
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  55.63
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  53.73
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  49.67
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  55.67
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  51.63
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  58.93
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  70.73
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  70.73
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  70.6
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  49.1
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  2160,
+                         "frete_ml":  15
+                     },
+                     {
+                         "nome":  "Spray de Oleo Cozinha",
+                         "ncm":  "8424.20.00",
+                         "pmv":  14.56,
+                         "custo_nac":  7.57,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  29.27
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  23.5
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  23.97
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  23.0
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  24.43
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  27.1
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  23.93
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  36.73
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  37.2
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  30.37
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  23.87
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  3000,
+                         "frete_ml":  15
+                     },
+                     {
+                         "nome":  "Luminaria Solar Flamingo 2 un.",
+                         "ncm":  "9405.40.90",
+                         "pmv":  52.13,
+                         "custo_nac":  27.11,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  84.9
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  90.53
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  87.23
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  85.1
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  85.73
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  88.27
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  92.07
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  97.37
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  97.37
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  99.47
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  108.3
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  504,
+                         "frete_ml":  20
+                     },
+                     {
+                         "nome":  "Luminaria Solar Flamingo 3 un.",
+                         "ncm":  "9405.40.90",
+                         "pmv":  50.44,
+                         "custo_nac":  26.23,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  78.9
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  115.63
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  95.4
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  100.0
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  100.03
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  84.1
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  87.93
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  121.53
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  121.53
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  125.1
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  115.87
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  504,
+                         "frete_ml":  22
+                     },
+                     {
+                         "nome":  "Luminaria Solar Hortensia 3 Hastes",
+                         "ncm":  "9405.40.90",
+                         "pmv":  67.71,
+                         "custo_nac":  35.21,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  102.1
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  91.67
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  89.03
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  94.27
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  94.5
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  98.4
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  69.0
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  110.6
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  110.6
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  106.73
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  133.43
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  1020,
+                         "frete_ml":  25
+                     },
+                     {
+                         "nome":  "Luminaria Solar Hortensia PVC",
+                         "ncm":  "9405.40.90",
+                         "pmv":  49.9,
+                         "custo_nac":  25.95,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  106.03
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  106.47
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  110.5
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  99.6
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  110.67
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  104.6
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  112.77
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  92.77
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  103.33
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  103.43
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  125.7
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  189,
+                         "frete_ml":  22
+                     },
+                     {
+                         "nome":  "Luminaria Solar Hortensia Ferro",
+                         "ncm":  "9405.40.90",
+                         "pmv":  102.04,
+                         "custo_nac":  53.06,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+                                           {
+                                               "data":  "04/06",
+                                               "medio":  160.47
+                                           },
+                                           {
+                                               "data":  "06/06",
+                                               "medio":  94.6
+                                           },
+                                           {
+                                               "data":  "08/06",
+                                               "medio":  84.27
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  89.13
+                                           },
+                                           {
+                                               "data":  "11/06",
+                                               "medio":  80.63
+                                           },
+                                           {
+                                               "data":  "12/06",
+                                               "medio":  81.9
+                                           },
+                                           {
+                                               "data":  "15/06",
+                                               "medio":  70.63
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  81.73
+                                           },
+                                           {
+                                               "data":  "20/06",
+                                               "medio":  81.73
+                                           },
+                                           {
+                                               "data":  "21/06",
+                                               "medio":  85.4
+                                           },
+                                           {
+                                               "data":  "24/06",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "06/07",
+                                               "medio":  null
+                                           },
+                                           {
+                                               "data":  "09/07",
+                                               "medio":  null
+                                           }
+                                       ],
+                         "qtd":  216,
+                         "frete_ml":  25
+                     },
+                     {
+                         "nome":  "Luminaria Solar Flamingo Rosa",
+                         "ncm":  "9405.40.90",
+                         "pmv":  72.75,
+                         "custo_nac":  37.83,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+
+                                       ],
+                         "qtd":  216,
+                         "frete_ml":  22
+                     },
+                     {
+                         "nome":  "Cortador de Alimentos 16 Pecas",
+                         "ncm":  "8210.00.00",
+                         "pmv":  39.46,
+                         "custo_nac":  20.52,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+
+                                       ],
+                         "qtd":  960,
+                         "frete_ml":  18
+                     },
+                     {
+                         "nome":  "Cortador de Legumes Manual",
+                         "ncm":  "8210.00.00",
+                         "pmv":  29.4,
+                         "custo_nac":  15.29,
+                         "minimo":  null,
+                         "medio":  null,
+                         "maximo":  null,
+                         "anuncios":  0,
+                         "alertas":  [
+
+                                     ],
+                         "historico":  [
+
+                                       ],
+                         "qtd":  4800,
+                         "frete_ml":  15
+                     }
+                 ]
 }
