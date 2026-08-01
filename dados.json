@@ -1,7 +1,7 @@
 {
   "meta": {
-    "atualizado_em": "01/08/2026 (custo NF real)",
-    "total_produtos": 11,
+    "atualizado_em": "01/08/2026 (custo NF real - container completo)",
+    "total_produtos": 14,
     "fonte": "NF de entrada (NF-001 TeMeiHui / NF-002 YuNan / NF-003 GreenEarth) + ICMS 17,5%",
     "cambio": 5.75,
     "frete_int_usd": 5325,
@@ -737,6 +737,42 @@
           "medio": null
         }
       ]
+    },
+    {
+      "nome": "Luminaria Solar Flamingo Rosa",
+      "ncm": "9405.40.90",
+      "pmv": 69.33,
+      "custo_nac": 36.05,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": []
+    },
+    {
+      "nome": "Cortador de Alimentos 16 Pecas",
+      "ncm": "8210.00.00",
+      "pmv": 37.62,
+      "custo_nac": 19.56,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": []
+    },
+    {
+      "nome": "Cortador de Legumes Manual",
+      "ncm": "8210.00.00",
+      "pmv": 28.04,
+      "custo_nac": 14.58,
+      "minimo": null,
+      "medio": null,
+      "maximo": null,
+      "anuncios": 0,
+      "alertas": [],
+      "historico": []
     }
   ]
 }
