@@ -264,6 +264,7 @@ tbody tr { cursor: pointer; }
         <tr>
           <th onclick="ordenar('nome')"      style="cursor:pointer" title="Ordenar">Produto <span id="ord-nome"></span></th>
           <th onclick="ordenar('pmv')"       style="cursor:pointer;background:#2d3748" title="Ordenar">PMV <span id="ord-pmv"></span></th>
+          <th onclick="ordenar('custo_nac')" style="cursor:pointer;background:#1e2d3d" title="Ordenar">Custo <span id="ord-custo_nac"></span></th>
           <th style="background:#1a2a1a">Margem %</th>
           <th onclick="ordenar('minimo')"    style="cursor:pointer" title="Ordenar">Mínimo <span id="ord-minimo"></span></th>
           <th onclick="ordenar('medio')"     style="cursor:pointer" title="Ordenar">Médio <span id="ord-medio"></span></th>
@@ -540,6 +541,7 @@ function recalcularTabela() {
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
+      <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
       <td style="background:#0f2a1a;padding:4px 6px;">
         <div style="display:flex;align-items:center;gap:3px;" onclick="event.stopPropagation()">
           <input type="number" min="1" max="80" step="1"
