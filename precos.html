@@ -263,6 +263,7 @@ tbody tr { cursor: pointer; }
       <thead>
         <tr>
           <th onclick="ordenar('nome')"      style="cursor:pointer" title="Ordenar">Produto <span id="ord-nome"></span></th>
+          <th style="background:#1a1f2e;cursor:pointer" title="Clique na célula para alternar Clássico/Premium">Modalidade</th>
           <th onclick="ordenar('pmv')"       style="cursor:pointer;background:#2d3748" title="Ordenar">PMV <span id="ord-pmv"></span></th>
           <th onclick="ordenar('custo_nac')" style="cursor:pointer;background:#1e2d3d" title="Ordenar">Custo <span id="ord-custo_nac"></span></th>
           <th style="background:#1a2a1a">Margem %</th>
@@ -415,7 +416,25 @@ function getMargem() {
 }
 
 function getComissao() {
-  return DADOS_GLOBAIS?.meta?.comissao_plataforma ?? 0.18;
+  return DADOS_GLOBAIS?.meta?.comissao_plataforma ?? 0.165;
+}
+
+// Modalidade por produto: 'classico' (11,5%) ou 'premium' (16,5%)
+const MODALIDADE_PRODUTO = {};
+const COMISSAO_CLASSICO = 0.115;
+const COMISSAO_PREMIUM  = 0.165;
+
+function getModalidade(nome) {
+  return MODALIDADE_PRODUTO[nome] || 'classico';
+}
+
+function getComissaoProduto(nome) {
+  return getModalidade(nome) === 'premium' ? COMISSAO_PREMIUM : COMISSAO_CLASSICO;
+}
+
+function alterarModalidade(nome) {
+  MODALIDADE_PRODUTO[nome] = getModalidade(nome) === 'classico' ? 'premium' : 'classico';
+  recalcularTabela();
 }
 
 // Margens individuais por produto: { nome: valor_decimal }
@@ -437,10 +456,10 @@ function alterarFreteML(input) {
   recalcularTabela();
 }
 
-// Lucro líquido = PMV × (1 - comissao) - custo_nac - frete_ml
+// Lucro líquido = PMV × (1 - comissao_modalidade) - custo_nac - frete_ml
 function getLucroLiq(p, pmv) {
   if (!pmv || !p.custo_nac) return null;
-  const comissao = getComissao();
+  const comissao = getComissaoProduto(p.nome);
   return pmv * (1 - comissao) - p.custo_nac - getFreteML(p.nome);
 }
 
@@ -453,7 +472,7 @@ function pmvDinamico(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
-  const divisor = 1 - getComissao() - margem;
+  const divisor = 1 - getComissaoProduto(produto.nome) - margem;
   return divisor > 0 ? custo / divisor : null;
 }
 
@@ -562,6 +581,11 @@ function recalcularTabela() {
     tr.dataset.alertas = al.join(',');
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
+      <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
+        ${getModalidade(p.nome) === 'premium'
+          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5%</span></span>'
+          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5%</span></span>'}
+      </td>
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
       <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
@@ -604,7 +628,7 @@ function recalcularTabela() {
   const comissaoPct = DADOS_GLOBAIS?.meta?.comissao_plataforma != null
     ? Math.round(DADOS_GLOBAIS.meta.comissao_plataforma * 100) : 18;
   const platLabel = { mercadolivre: 'ML', shopee: 'Shopee', amazon: 'Amazon' }[DADOS_GLOBAIS?.meta?.plataforma] || 'plataforma';
-  if (secSmall) secSmall.textContent = `PMV = custo ÷ (1 − ${comissaoPct}% ${platLabel} − ${Math.round(margem*100)}% margem)`;
+  if (secSmall) secSmall.textContent = `PMV = custo ÷ (1 − comissão modalidade − ${Math.round(margem*100)}% margem) · Clássico 11,5% · Premium 16,5%`;
 
   // Banner
   const b = document.getElementById('banner');
@@ -665,8 +689,12 @@ function abrirModal(p) {
   const fml = getFreteML(p.nome);
   const lucro = getLucroLiq(p, pmv);
   const lucroCls = lucro >= 0 ? 'ok-s' : 'risco-s';
+  const modal = getModalidade(p.nome);
+  const comissaoPct = modal === 'premium' ? '16,5%' : '11,5%';
+  const modalLabel = modal === 'premium' ? 'Premium' : 'Clássico';
   document.getElementById('modal-stats').innerHTML = `
     <div class="mstat pmv-s"><label>PMV</label><span>${BRL(pmv)}</span></div>
+    <div class="mstat"><label>Modalidade</label><span style="font-size:12px">${modalLabel} · ${comissaoPct}</span></div>
     <div class="mstat"><label>Custo</label><span>${BRL(p.custo_nac)}</span></div>
     <div class="mstat"><label>Frete ML</label><span>${BRL(fml)}</span></div>
     <div class="mstat ${lucroCls}"><label>Lucro Líq.</label><span>${BRL(lucro)}</span></div>
