@@ -219,7 +219,7 @@ tbody tr { cursor: pointer; }
     <div style="background:#111827;border:1px solid #30363d;border-radius:10px;padding:8px 16px;text-align:center;min-width:120px;">
       <div style="font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Plataforma</div>
       <div id="plataforma-nome" style="font-size:14px;font-weight:700;color:#58a6ff;">—</div>
-      <div style="font-size:9px;color:#7d8590;margin-top:3px;">Comissão: <span id="plataforma-comissao" style="color:#f0883e;font-weight:700;">—</span></div>
+      <div style="font-size:9px;color:#7d8590;margin-top:3px;"><span style="color:#21395a;background:#21395a;border-radius:3px;padding:1px 5px;margin-right:3px;">Clássico</span><span style="color:#58a6ff">11,5%</span> &nbsp;·&nbsp; <span style="color:#6e40c9;background:#2a1f4a;border-radius:3px;padding:1px 5px;margin-right:3px;">Premium</span><span style="color:#bc8cff">16,5%</span></div>
     </div>
     <div class="badge-update">
       Atualizado: <span id="ultima-at">—</span>
@@ -402,10 +402,7 @@ async function init() {
   // Plataforma ativa e comissão
   const plat = DADOS_GLOBAIS.meta.plataforma || 'mercadolivre';
   const platNomes = { mercadolivre: 'Mercado Livre', shopee: 'Shopee', amazon: 'Amazon' };
-  const comissao = DADOS_GLOBAIS.meta.comissao_plataforma;
   document.getElementById('plataforma-nome').textContent = platNomes[plat] || plat;
-  if (comissao != null)
-    document.getElementById('plataforma-comissao').textContent = (comissao * 100).toFixed(0) + '%';
 
   recalcularTabela();
 }
