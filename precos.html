@@ -417,9 +417,11 @@ function getComissao() {
 }
 
 // Modalidade por produto: 'classico' (11,5%) ou 'premium' (16,5%)
+// Taxa de parcelamento 3x sem juros: 6,75% (sempre cobrada pelo ML)
 const MODALIDADE_PRODUTO = {};
-const COMISSAO_CLASSICO = 0.115;
-const COMISSAO_PREMIUM  = 0.165;
+const COMISSAO_CLASSICO   = 0.115;
+const COMISSAO_PREMIUM    = 0.165;
+const TAXA_PARCELAMENTO   = 0.0675;
 
 function getModalidade(nome) {
   return MODALIDADE_PRODUTO[nome] || 'classico';
@@ -427,6 +429,11 @@ function getModalidade(nome) {
 
 function getComissaoProduto(nome) {
   return getModalidade(nome) === 'premium' ? COMISSAO_PREMIUM : COMISSAO_CLASSICO;
+}
+
+// Custo total ML = comissão modalidade + taxa parcelamento
+function getCustoML(nome) {
+  return getComissaoProduto(nome) + TAXA_PARCELAMENTO;
 }
 
 function alterarModalidade(nome) {
@@ -453,11 +460,10 @@ function alterarFreteML(input) {
   recalcularTabela();
 }
 
-// Lucro líquido = PMV × (1 - comissao_modalidade) - custo_nac - frete_ml
+// Lucro líquido = PMV × (1 - comissão - 6,75% parcelamento) - custo_nac
 function getLucroLiq(p, pmv) {
   if (!pmv || !p.custo_nac) return null;
-  const comissao = getComissaoProduto(p.nome);
-  return pmv * (1 - comissao) - p.custo_nac - getFreteML(p.nome);
+  return pmv * (1 - getCustoML(p.nome)) - p.custo_nac;
 }
 
 function getMargemProduto(nome) {
@@ -469,7 +475,7 @@ function pmvDinamico(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
-  const divisor = 1 - getComissaoProduto(produto.nome) - margem;
+  const divisor = 1 - getCustoML(produto.nome) - margem;
   return divisor > 0 ? custo / divisor : null;
 }
 
@@ -580,8 +586,8 @@ function recalcularTabela() {
     tr.innerHTML = `
       <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
         ${getModalidade(p.nome) === 'premium'
-          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5%</span></span>'
-          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5%</span></span>'}
+          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5% + 6,75%</span></span>'
+          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5% + 6,75%</span></span>'}
       </td>
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
@@ -687,7 +693,7 @@ function abrirModal(p) {
   const lucro = getLucroLiq(p, pmv);
   const lucroCls = lucro >= 0 ? 'ok-s' : 'risco-s';
   const modal = getModalidade(p.nome);
-  const comissaoPct = modal === 'premium' ? '16,5%' : '11,5%';
+  const comissaoPct = modal === 'premium' ? '16,5% + 6,75% parc.' : '11,5% + 6,75% parc.';
   const modalLabel = modal === 'premium' ? 'Premium' : 'Clássico';
   document.getElementById('modal-stats').innerHTML = `
     <div class="mstat pmv-s"><label>PMV</label><span>${BRL(pmv)}</span></div>
