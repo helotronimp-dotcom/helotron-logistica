@@ -263,24 +263,21 @@ tbody tr { cursor: pointer; }
       <thead>
         <tr>
           <th onclick="ordenar('nome')"      style="cursor:pointer" title="Ordenar">Produto <span id="ord-nome"></span></th>
-          <th style="background:#1a1f2e;cursor:pointer" title="Clique na célula para alternar Clássico/Premium">Modalidade</th>
           <th onclick="ordenar('pmv')"       style="cursor:pointer;background:#2d3748" title="Ordenar">PMV <span id="ord-pmv"></span></th>
           <th onclick="ordenar('custo_nac')" style="cursor:pointer;background:#1e2d3d" title="Ordenar">Custo <span id="ord-custo_nac"></span></th>
-          <th style="background:#1a2a1a">Margem %</th>
+          <th style="background:#1a1f2e;cursor:pointer" title="Clique na célula para alternar Clássico/Premium">Modalidade</th>
           <th style="background:#1a1f2e" title="Custo do frete ML por unidade (editável)">Frete ML</th>
-          <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro Líq. <span id="ord-lucro"></span></th>
+          <th style="background:#0d2233" title="PMV × (1 − comissão) − frete = o que o ML deposita por venda">Vl. Líquido ML</th>
+          <th style="background:#1a2a1a">Margem %</th>
+          <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro <span id="ord-lucro"></span></th>
           <th onclick="ordenar('qtd')"       style="cursor:pointer;background:#1a1a2a" title="Ordenar">Estoque <span id="ord-qtd"></span></th>
-          <th onclick="ordenar('anuncios')"  style="cursor:pointer" title="Ordenar">An. <span id="ord-anuncios"></span></th>
-          <th>Tend.</th>
-          <th onclick="ordenar('gap')"       style="cursor:pointer" title="Ordenar">GAP méd/PMV <span id="ord-gap"></span></th>
-          <th>Alertas</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
     </table>
   </div>
   <p class="note">
-    💡 <strong>GAP méd/PMV:</strong> saúde real da margem — verde = médio &gt; PMV ✅ · vermelho = mercado não comporta o PMV 🔴 · linha vermelha no gráfico = PMV
+    💡 <strong>Vl. Líquido ML</strong> = PMV − comissão − frete (o que o ML deposita) · <strong>Lucro</strong> = Vl. Líquido − Custo · Clique na linha para ver o gráfico de preços do mercado
   </p>
 </div>
 
@@ -491,6 +488,12 @@ function getLucroLiq(p, pmv) {
   return pmv * getMargemProduto(p.nome);
 }
 
+// O que o ML efetivamente deposita: preço − comissão − frete
+function getLiquidoML(p, pmv) {
+  if (!pmv) return null;
+  return pmv * (1 - getComissaoProduto(p.nome)) - getCustoFrete(p.nome);
+}
+
 function getMargemProduto(nome) {
   if (MARGENS_PRODUTO[nome] != null) return MARGENS_PRODUTO[nome];
   return getMargem(); // fallback para margem global
@@ -609,24 +612,13 @@ function recalcularTabela() {
     tr.dataset.alertas = al.join(',');
     tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
-      <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
-        ${getModalidade(p.nome) === 'premium'
-          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5% + 6,75%</span></span>'
-          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5% + 6,75%</span></span>'}
-      </td>
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
       <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
-      <td style="background:#0f2a1a;padding:4px 6px;">
-        <div style="display:flex;align-items:center;gap:3px;" onclick="event.stopPropagation()">
-          <input type="number" min="1" max="80" step="1"
-            value="${margemAtual}"
-            data-nome="${p.nome.replace(/"/g,'&quot;')}"
-            onchange="alterarMargemProduto(this)"
-            style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
-          <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
-          ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
-        </div>
+      <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
+        ${getModalidade(p.nome) === 'premium'
+          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5%</span></span>'
+          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5%</span></span>'}
       </td>
       <td style="padding:3px 6px;text-align:center;" onclick="event.stopPropagation()">
         ${(() => {
@@ -645,12 +637,20 @@ function recalcularTabela() {
           </div>`;
         })()}
       </td>
+      <td style="background:#0d2233;color:#79c0ff;font-weight:600;font-size:12px">${BRL(getLiquidoML(p, pmv))}</td>
+      <td style="background:#0f2a1a;padding:4px 6px;">
+        <div style="display:flex;align-items:center;gap:3px;" onclick="event.stopPropagation()">
+          <input type="number" min="0" max="80" step="1"
+            value="${margemAtual}"
+            data-nome="${p.nome.replace(/"/g,'&quot;')}"
+            onchange="alterarMargemProduto(this)"
+            style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
+          <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
+          ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
+        </div>
+      </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
-      <td>${p.anuncios ?? '—'}</td>
-      <td class="${tend.cls}">${tend.icon}</td>
-      <td>${gapHtml(p.medio, pmv)}</td>
-      <td style="text-align:left">${badges}</td>
     `;
     tr.addEventListener('click', () => abrirModal(p));
     tbody.appendChild(tr);
