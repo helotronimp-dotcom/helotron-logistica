@@ -90,7 +90,8 @@
                                            }
                                        ],
                          "qtd":  1488,
-                         "frete_ml":  20
+                         "frete_ml":  20,
+                         "sku":  "HEL-COZ-001"
                      },
                      {
                          "nome":  "Fatiador Rotativo de Legumes",
@@ -159,7 +160,8 @@
                                            }
                                        ],
                          "qtd":  1680,
-                         "frete_ml":  18
+                         "frete_ml":  18,
+                         "sku":  "HEL-COZ-007"
                      },
                      {
                          "nome":  "Kit 7 Potes Hermeticos",
@@ -228,7 +230,8 @@
                                            }
                                        ],
                          "qtd":  420,
-                         "frete_ml":  25
+                         "frete_ml":  25,
+                         "sku":  "HEL-COZ-006"
                      },
                      {
                          "nome":  "Conjunto Potes Organizadores",
@@ -297,7 +300,8 @@
                                            }
                                        ],
                          "qtd":  1000,
-                         "frete_ml":  20
+                         "frete_ml":  20,
+                         "sku":  "HEL-COZ-002"
                      },
                      {
                          "nome":  "Tapete de Silicone para Cozinha",
@@ -366,7 +370,8 @@
                                            }
                                        ],
                          "qtd":  2160,
-                         "frete_ml":  15
+                         "frete_ml":  15,
+                         "sku":  "HEL-COZ-003"
                      },
                      {
                          "nome":  "Spray de Oleo Cozinha",
@@ -435,7 +440,8 @@
                                            }
                                        ],
                          "qtd":  3000,
-                         "frete_ml":  15
+                         "frete_ml":  15,
+                         "sku":  "HEL-COZ-005"
                      },
                      {
                          "nome":  "Luminaria Solar Flamingo 2 un.",
@@ -504,7 +510,8 @@
                                            }
                                        ],
                          "qtd":  504,
-                         "frete_ml":  20
+                         "frete_ml":  20,
+                         "sku":  "HEL-JAR-004"
                      },
                      {
                          "nome":  "Luminaria Solar Flamingo 3 un.",
@@ -573,7 +580,8 @@
                                            }
                                        ],
                          "qtd":  504,
-                         "frete_ml":  22
+                         "frete_ml":  22,
+                         "sku":  "HEL-JAR-005"
                      },
                      {
                          "nome":  "Luminaria Solar Hortensia 3 Hastes",
@@ -642,7 +650,8 @@
                                            }
                                        ],
                          "qtd":  1020,
-                         "frete_ml":  25
+                         "frete_ml":  25,
+                         "sku":  "HEL-JAR-006"
                      },
                      {
                          "nome":  "Luminaria Solar Hortensia PVC",
@@ -711,7 +720,8 @@
                                            }
                                        ],
                          "qtd":  189,
-                         "frete_ml":  22
+                         "frete_ml":  22,
+                         "sku":  "HEL-JAR-002"
                      },
                      {
                          "nome":  "Luminaria Solar Hortensia Ferro",
@@ -780,7 +790,8 @@
                                            }
                                        ],
                          "qtd":  216,
-                         "frete_ml":  25
+                         "frete_ml":  25,
+                         "sku":  "HEL-JAR-003"
                      },
                      {
                          "nome":  "Luminaria Solar Flamingo Rosa",
@@ -798,7 +809,8 @@
 
                                        ],
                          "qtd":  216,
-                         "frete_ml":  22
+                         "frete_ml":  22,
+                         "sku":  "HEL-JAR-001"
                      },
                      {
                          "nome":  "Cortador de Alimentos 16 Pecas",
@@ -816,7 +828,8 @@
 
                                        ],
                          "qtd":  960,
-                         "frete_ml":  18
+                         "frete_ml":  18,
+                         "sku":  "HEL-COZ-004"
                      },
                      {
                          "nome":  "Cortador de Legumes Manual",
@@ -834,7 +847,8 @@
 
                                        ],
                          "qtd":  4800,
-                         "frete_ml":  15
+                         "frete_ml":  15,
+                         "sku":  "HEL-COZ-008"
                      }
                  ]
 }
