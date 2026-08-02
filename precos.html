@@ -255,7 +255,7 @@ tbody tr { cursor: pointer; }
 
 <div class="section">
   <div class="sec-header">
-    📋 Preços do Mercado Livre — Todos os Produtos
+    <span>📋 Preços do Mercado Livre — Todos os Produtos &nbsp;<span id="save-status" style="font-size:10px;font-weight:400"></span></span>
     <small>PMV = custo total ÷ 0,52 · 18% ML + 30% margem</small>
   </div>
   <div class="overflow-x">
@@ -403,12 +403,71 @@ async function init() {
   const platNomes = { mercadolivre: 'Mercado Livre', shopee: 'Shopee', amazon: 'Amazon' };
   document.getElementById('plataforma-nome').textContent = platNomes[plat] || plat;
 
+  carregarAjustes();
   recalcularTabela();
 }
 
 function getMargem() {
   const v = parseFloat(document.getElementById('margem-input').value);
   return isNaN(v) ? 0.30 : Math.max(0.01, Math.min(0.80, v / 100));
+}
+
+// ── PERSISTÊNCIA ────────────────────────────────────────────
+// Salva os ajustes manuais no navegador para não perder ao atualizar a página
+const STORAGE_KEY = 'helotron_precificacao_v1';
+
+function salvarAjustes() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      margemGlobal: document.getElementById('margem-input')?.value,
+      margens:      MARGENS_PRODUTO,
+      modalidades:  MODALIDADE_PRODUTO,
+      tipoFrete:    TIPO_FRETE,
+      freteValor:   FRETE_OVERRIDE,
+      precos:       PRECO_OVERRIDE
+    }));
+    marcarSalvo();
+  } catch(e) { /* modo privado / storage cheio — segue sem salvar */ }
+}
+
+function carregarAjustes() {
+  let s;
+  try { s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch(e) { return; }
+  if (!s) return;
+  const copiar = (destino, origem) => {
+    if (!origem) return;
+    Object.keys(destino).forEach(k => delete destino[k]);
+    Object.assign(destino, origem);
+  };
+  copiar(MARGENS_PRODUTO,    s.margens);
+  copiar(MODALIDADE_PRODUTO, s.modalidades);
+  copiar(TIPO_FRETE,         s.tipoFrete);
+  copiar(FRETE_OVERRIDE,     s.freteValor);
+  copiar(PRECO_OVERRIDE,     s.precos);
+  const mi = document.getElementById('margem-input');
+  if (mi && s.margemGlobal) mi.value = s.margemGlobal;
+}
+
+function limparAjustes() {
+  if (!confirm('Descartar todos os ajustes manuais (margens, modalidades, fretes e preços travados) e voltar ao padrão?')) return;
+  [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE]
+    .forEach(o => Object.keys(o).forEach(k => delete o[k]));
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+  const mi = document.getElementById('margem-input');
+  if (mi) mi.value = 30;
+  recalcularTabela();
+}
+
+let _salvoTimer = null;
+function marcarSalvo() {
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  const n = [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE]
+    .reduce((s, o) => s + Object.keys(o).length, 0);
+  el.innerHTML = n === 0
+    ? '<span style="color:#7d8590">sem ajustes manuais</span>'
+    : `<span style="color:#3fb950">✓ ${n} ajuste${n>1?'s':''} salvo${n>1?'s':''}</span> · <span onclick="limparAjustes()" style="cursor:pointer;color:#7d8590;text-decoration:underline">limpar</span>`;
+  clearTimeout(_salvoTimer);
 }
 
 function getComissao() {
@@ -718,6 +777,8 @@ function recalcularTabela() {
     b.className = 'banner verd';
     b.textContent = `✅ Todos os ${lista.length} produtos com PMV viável a ${Math.round(margem*100)}% de margem`;
   }
+
+  salvarAjustes();
 }
 
 init();
