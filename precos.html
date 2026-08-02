@@ -389,7 +389,8 @@ let DADOS_GLOBAIS = null;
 
 async function init() {
   try {
-    const r = await fetch('./dados.json?v=' + Date.now());
+    const base = location.hostname === 'localhost' || location.protocol === 'file:' ? 'https://helotronimp-dotcom.github.io/helotron-logistica/' : './';
+    const r = await fetch(base + 'dados.json?v=' + Date.now());
     DADOS_GLOBAIS = await r.json();
   } catch(e) {
     document.getElementById('banner').className = 'banner verm';
@@ -436,7 +437,7 @@ function alterarModalidade(nome) {
 
 // Frete ML: custo fixo em R$ por venda
 // Frete grátis (seller paga): ~R$13,50 | Frete por conta do comprador: R$6,75 (taxa Mercado Envios)
-const FRETE_GRATIS_PADRAO   = 13.50;
+const FRETE_GRATIS_PADRAO   = 13.85;
 const FRETE_COMPRADOR_PADRAO = 6.75;
 const TIPO_FRETE = {}; // 'gratis' ou 'comprador' por produto
 
@@ -454,7 +455,7 @@ const MARGENS_PRODUTO = {};
 
 // Custo fixo do frete por venda
 // Frete grátis (seller absorve): ~R$13,50 | Frete comprador (taxa Mercado Envios): R$6,75
-const FRETE_GRATIS_PADRAO    = 13.50;
+const FRETE_GRATIS_PADRAO    = 13.85;
 const FRETE_COMPRADOR_PADRAO = 6.75;
 const TIPO_FRETE   = {}; // 'gratis' ou 'comprador' por produto
 const FRETE_OVERRIDE = {}; // valor customizado em R$
