@@ -417,11 +417,9 @@ function getComissao() {
 }
 
 // Modalidade por produto: 'classico' (11,5%) ou 'premium' (16,5%)
-// Taxa de parcelamento 3x sem juros: 6,75% (sempre cobrada pelo ML)
 const MODALIDADE_PRODUTO = {};
 const COMISSAO_CLASSICO   = 0.115;
 const COMISSAO_PREMIUM    = 0.165;
-const TAXA_MERCADO_ENVIOS = 0.0675;
 
 function getModalidade(nome) {
   return MODALIDADE_PRODUTO[nome] || 'classico';
@@ -431,39 +429,65 @@ function getComissaoProduto(nome) {
   return getModalidade(nome) === 'premium' ? COMISSAO_PREMIUM : COMISSAO_CLASSICO;
 }
 
-// Custo total ML = comissão modalidade + taxa parcelamento
-function getCustoML(nome) {
-  return getComissaoProduto(nome) + TAXA_MERCADO_ENVIOS;
-}
-
 function alterarModalidade(nome) {
   MODALIDADE_PRODUTO[nome] = getModalidade(nome) === 'classico' ? 'premium' : 'classico';
+  recalcularTabela();
+}
+
+// Frete ML: custo fixo em R$ por venda
+// Frete grátis (seller paga): ~R$13,50 | Frete por conta do comprador: R$6,75 (taxa Mercado Envios)
+const FRETE_GRATIS_PADRAO   = 13.50;
+const FRETE_COMPRADOR_PADRAO = 6.75;
+const TIPO_FRETE = {}; // 'gratis' ou 'comprador' por produto
+
+function getTipoFrete(nome) {
+  return TIPO_FRETE[nome] || 'comprador';
+}
+
+function alterarTipoFrete(nome) {
+  TIPO_FRETE[nome] = getTipoFrete(nome) === 'comprador' ? 'gratis' : 'comprador';
   recalcularTabela();
 }
 
 // Margens individuais por produto: { nome: valor_decimal }
 const MARGENS_PRODUTO = {};
 
-// Frete ML por produto (editável): { nome: valor_brl }
-const FRETE_ML = {};
-const FRETE_ML_PADRAO = 20.00;
+// Custo fixo do frete por venda
+// Frete grátis (seller absorve): ~R$13,50 | Frete comprador (taxa Mercado Envios): R$6,75
+const FRETE_GRATIS_PADRAO    = 13.50;
+const FRETE_COMPRADOR_PADRAO = 6.75;
+const TIPO_FRETE   = {}; // 'gratis' ou 'comprador' por produto
+const FRETE_OVERRIDE = {}; // valor customizado em R$
 
-function getFreteML(nome) {
-  return FRETE_ML[nome] != null ? FRETE_ML[nome] : FRETE_ML_PADRAO;
+function getTipoFrete(nome) {
+  return TIPO_FRETE[nome] || 'comprador';
+}
+
+function getCustoFrete(nome) {
+  if (FRETE_OVERRIDE[nome] != null) return FRETE_OVERRIDE[nome];
+  return getTipoFrete(nome) === 'gratis' ? FRETE_GRATIS_PADRAO : FRETE_COMPRADOR_PADRAO;
+}
+
+function alterarTipoFrete(nome) {
+  TIPO_FRETE[nome] = getTipoFrete(nome) === 'comprador' ? 'gratis' : 'comprador';
+  delete FRETE_OVERRIDE[nome];
+  recalcularTabela();
 }
 
 function alterarFreteML(input) {
   const nome  = input.dataset.nome;
   const valor = parseFloat(input.value);
-  if (!isNaN(valor) && valor >= 0) FRETE_ML[nome] = valor;
-  else delete FRETE_ML[nome];
+  if (!isNaN(valor) && valor >= 0) FRETE_OVERRIDE[nome] = valor;
+  else delete FRETE_OVERRIDE[nome];
   recalcularTabela();
 }
 
-// Lucro líquido = PMV × (1 - comissão - 6,75% parcelamento) - custo_nac
+// PMV inclui custo do frete → margem sempre real
+// PMV = (custo_nac + custo_frete) / (1 - comissao - margem)
+// Lucro = PMV × margem  ✓ (quando margem=0 → lucro=0)
 function getLucroLiq(p, pmv) {
   if (!pmv || !p.custo_nac) return null;
-  return pmv * (1 - getCustoML(p.nome)) - p.custo_nac;
+  return pmv * getMargemProduto(p.nome);
 }
 
 function getMargemProduto(nome) {
@@ -475,8 +499,8 @@ function pmvDinamico(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
-  const divisor = 1 - getCustoML(produto.nome) - margem;
-  return divisor > 0 ? custo / divisor : null;
+  const divisor = 1 - getComissaoProduto(produto.nome) - margem;
+  return divisor > 0 ? (custo + getCustoFrete(produto.nome)) / divisor : null;
 }
 
 // Ordenação da tabela
@@ -603,12 +627,22 @@ function recalcularTabela() {
           ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
         </div>
       </td>
-      <td style="padding:3px 6px;" onclick="event.stopPropagation()">
-        <input type="number" min="0" max="100" step="0.5"
-          value="${(getFreteML(p.nome)).toFixed(2)}"
-          data-nome="${p.nome.replace(/"/g,'&quot;')}"
-          onchange="alterarFreteML(this)"
-          style="width:52px;background:transparent;border:none;border-bottom:1px solid #58a6ff55;color:#58a6ff;font-size:12px;text-align:center;outline:none;padding:2px 0;">
+      <td style="padding:3px 6px;text-align:center;" onclick="event.stopPropagation()">
+        ${(() => {
+          const tipo = getTipoFrete(p.nome);
+          const custo = getCustoFrete(p.nome);
+          const nomeEsc = p.nome.replace(/"/g,'&quot;').replace(/'/g,"\\'");
+          const cor = tipo === 'gratis' ? '#3fb950' : '#58a6ff';
+          const label = tipo === 'gratis' ? 'Grátis' : 'Comprador';
+          return `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+            <span onclick="alterarTipoFrete('${nomeEsc}')" style="cursor:pointer;font-size:10px;font-weight:600;color:${cor};border:1px solid ${cor}55;border-radius:3px;padding:1px 5px;">${label}</span>
+            <input type="number" min="0" max="99" step="0.5"
+              value="${custo.toFixed(2)}"
+              data-nome="${p.nome.replace(/"/g,'&quot;')}"
+              onchange="alterarFreteML(this)"
+              style="width:46px;background:transparent;border:none;border-bottom:1px solid ${cor}55;color:${cor};font-size:11px;text-align:center;outline:none;padding:1px 0;">
+          </div>`;
+        })()}
       </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
@@ -689,17 +723,19 @@ function abrirModal(p) {
 
   // Cards de resumo
   const pmv = pmvDinamico(p);
-  const fml = getFreteML(p.nome);
   const lucro = getLucroLiq(p, pmv);
   const lucroCls = lucro >= 0 ? 'ok-s' : 'risco-s';
   const modal = getModalidade(p.nome);
-  const comissaoPct = modal === 'premium' ? '16,5% + 6,75% envios' : '11,5% + 6,75% envios';
+  const comissaoPct = modal === 'premium' ? '16,5%' : '11,5%';
   const modalLabel = modal === 'premium' ? 'Premium' : 'Clássico';
+  const tipoFrete = getTipoFrete(p.nome);
+  const custoFrete = getCustoFrete(p.nome);
+  const freteLabel = tipoFrete === 'gratis' ? 'Frete Grátis' : 'Frete Comprador';
   document.getElementById('modal-stats').innerHTML = `
     <div class="mstat pmv-s"><label>PMV</label><span>${BRL(pmv)}</span></div>
     <div class="mstat"><label>Modalidade</label><span style="font-size:12px">${modalLabel} · ${comissaoPct}</span></div>
-    <div class="mstat"><label>Custo</label><span>${BRL(p.custo_nac)}</span></div>
-    <div class="mstat"><label>Frete ML</label><span>${BRL(fml)}</span></div>
+    <div class="mstat"><label>${freteLabel}</label><span>${BRL(custoFrete)}</span></div>
+    <div class="mstat"><label>Custo produto</label><span>${BRL(p.custo_nac)}</span></div>
     <div class="mstat ${lucroCls}"><label>Lucro Líq.</label><span>${BRL(lucro)}</span></div>
     <div class="mstat"><label>Estoque</label><span>${p.qtd != null ? p.qtd.toLocaleString('pt-BR') + ' un.' : '—'}</span></div>
   `;
