@@ -271,6 +271,7 @@ tbody tr { cursor: pointer; }
           <th style="background:#1a2a1a">Margem %</th>
           <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro <span id="ord-lucro"></span></th>
           <th onclick="ordenar('qtd')"       style="cursor:pointer;background:#1a1a2a" title="Ordenar">Estoque <span id="ord-qtd"></span></th>
+          <th onclick="ordenar('projetado')" style="cursor:pointer;background:#12331f" title="Lucro × estoque — retorno se vender todo o estoque neste preço">Lucro Projetado <span id="ord-projetado"></span></th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -538,6 +539,7 @@ function sortVal(p, col) {
     case 'custo_nac': return p.custo_nac ?? -Infinity;
     case 'lucro':    return getLucroLiq(p, pmv) ?? -Infinity;
     case 'qtd':      return p.qtd ?? -Infinity;
+    case 'projetado': return (p.qtd != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * p.qtd : -Infinity;
     case 'anuncios': return p.anuncios ?? -Infinity;
     case 'gap':      return (pmv && p.medio) ? (p.medio - pmv) / pmv : -Infinity;
     default:         return 0;
@@ -545,7 +547,7 @@ function sortVal(p, col) {
 }
 
 function atualizarIndicadores() {
-  ['nome','pmv','custo_nac','lucro','qtd','anuncios','gap'].forEach(col => {
+  ['nome','pmv','custo_nac','lucro','qtd','projetado','anuncios','gap'].forEach(col => {
     const el = document.getElementById('ord-' + col);
     if (!el) return;
     if (SORT_COL !== col) { el.textContent = ''; return; }
@@ -625,6 +627,7 @@ function recalcularTabela() {
     const temCustom     = MARGENS_PRODUTO[p.nome] != null;
     const precoTravado  = PRECO_OVERRIDE[p.nome] != null;
     const margemReal    = getMargemReal(p, pmv) ?? 0;
+    const projetado     = (p.qtd != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * p.qtd : null;
 
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
@@ -685,6 +688,7 @@ function recalcularTabela() {
       </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
+      <td style="background:#12331f;color:${projetado == null ? '#7d8590' : (projetado >= 0 ? '#3fb950' : '#f85149')};font-weight:700;font-size:12px">${projetado == null ? '—' : BRL(projetado)}</td>
     `;
     tbody.appendChild(tr);
   });
