@@ -421,7 +421,7 @@ function getComissao() {
 const MODALIDADE_PRODUTO = {};
 const COMISSAO_CLASSICO   = 0.115;
 const COMISSAO_PREMIUM    = 0.165;
-const TAXA_PARCELAMENTO   = 0.0675;
+const TAXA_MERCADO_ENVIOS = 0.0675;
 
 function getModalidade(nome) {
   return MODALIDADE_PRODUTO[nome] || 'classico';
@@ -433,7 +433,7 @@ function getComissaoProduto(nome) {
 
 // Custo total ML = comissão modalidade + taxa parcelamento
 function getCustoML(nome) {
-  return getComissaoProduto(nome) + TAXA_PARCELAMENTO;
+  return getComissaoProduto(nome) + TAXA_MERCADO_ENVIOS;
 }
 
 function alterarModalidade(nome) {
@@ -693,7 +693,7 @@ function abrirModal(p) {
   const lucro = getLucroLiq(p, pmv);
   const lucroCls = lucro >= 0 ? 'ok-s' : 'risco-s';
   const modal = getModalidade(p.nome);
-  const comissaoPct = modal === 'premium' ? '16,5% + 6,75% parc.' : '11,5% + 6,75% parc.';
+  const comissaoPct = modal === 'premium' ? '16,5% + 6,75% envios' : '11,5% + 6,75% envios';
   const modalLabel = modal === 'premium' ? 'Premium' : 'Clássico';
   document.getElementById('modal-stats').innerHTML = `
     <div class="mstat pmv-s"><label>PMV</label><span>${BRL(pmv)}</span></div>
