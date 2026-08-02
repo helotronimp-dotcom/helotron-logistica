@@ -245,10 +245,10 @@ tbody tr { cursor: pointer; }
     <div class="card-valor" id="c-lucro" style="font-size:22px">—</div>
     <div class="card-sub"><span id="c-roi">—</span> sobre o capital investido</div>
   </div>
-  <div class="card verm" id="card-verm" onclick="filtrar('verm')" title="Clique para filtrar — PMV acima do preço médio do mercado">
-    <div class="card-label">🔴 PMV Acima do Mercado</div>
-    <div class="card-valor" id="c-verm">—</div>
-    <div class="card-sub">preço inviável vs. concorrência</div>
+  <div class="card verd" id="card-margem" onclick="filtrar('fraco')" title="Lucro ÷ Receita, ponderado pelo estoque — clique para ver os produtos mais fracos">
+    <div class="card-label">📊 Margem Média Real</div>
+    <div class="card-valor" id="c-margem" style="font-size:22px">—</div>
+    <div class="card-sub" id="c-margem-sub">ponderada pelo estoque</div>
   </div>
 </div>
 <div class="filtro-label" id="filtro-label" style="display:none"></div>
@@ -640,7 +640,9 @@ function recalcularTabela() {
   tbody.innerHTML = '';
   let nV = 0, nVerd = 0, nA = 0;
   let totCapital = 0, totReceita = 0, totLucro = 0;
+  let nFracos = 0, pior = null;
   const margem = getMargem();
+  const LIMITE_FRACO = 0.15; // abaixo disso a margem não paga o risco da operação
 
   // Ordenação
   let lista = [...DADOS_GLOBAIS.produtos];
@@ -687,9 +689,13 @@ function recalcularTabela() {
     const precoTravado  = PRECO_OVERRIDE[p.nome] != null;
     const margemReal    = getMargemReal(p, pmv) ?? 0;
     const projetado     = (p.qtd != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * p.qtd : null;
+    const ehFraco       = pmv != null && margemReal < LIMITE_FRACO;
+    if (ehFraco) nFracos++;
+    if (pmv != null && (pior == null || margemReal < pior.m)) pior = { nome: p.nome, m: margemReal };
 
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
+    tr.dataset.fraco   = ehFraco ? '1' : '0';
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col" style="padding:4px 6px;" onclick="event.stopPropagation()">
@@ -759,7 +765,17 @@ function recalcularTabela() {
   document.getElementById('c-lucro').textContent   = K(totLucro);
   document.getElementById('c-roi').textContent =
     totCapital > 0 ? '+' + Math.round(totLucro / totCapital * 100) + '% de retorno' : '—';
-  document.getElementById('c-verm').textContent = nV;
+
+  // Margem média real = lucro total ÷ receita total (pondera pelo peso de cada produto)
+  const margemMedia = totReceita > 0 ? totLucro / totReceita : null;
+  const cardMargem  = document.getElementById('card-margem');
+  document.getElementById('c-margem').textContent =
+    margemMedia == null ? '—' : (margemMedia * 100).toFixed(1) + '%';
+  cardMargem.className = 'card ' + (margemMedia == null ? '' :
+    margemMedia >= 0.25 ? 'verd' : margemMedia >= 0.15 ? 'roxo' : 'verm');
+  document.getElementById('c-margem-sub').innerHTML = nFracos > 0
+    ? `<span style="color:#f85149">🔴 ${nFracos} produto${nFracos>1?'s':''} abaixo de 15%</span> — ver`
+    : (pior ? `pior: ${pior.nome.slice(0,22)} (${(pior.m*100).toFixed(0)}%)` : 'ponderada pelo estoque');
 
   // Header da tabela
   const secSmall = document.querySelector('.sec-header small');
@@ -796,16 +812,22 @@ function filtrar(tipo) {
     return;
   }
 
-  filtroAtivo = tipo;
-  document.getElementById('card-verm').classList.toggle('ativo', tipo === 'verm');
-
-  document.querySelectorAll('#tbody tr').forEach(tr => {
-    const alertas = tr.dataset.alertas ? tr.dataset.alertas.split(',') : [];
-    tr.classList.toggle('oculto', !alertas.includes('margem'));
-  });
-
+  const n = [...document.querySelectorAll('#tbody tr')].filter(tr => tr.dataset.fraco === '1').length;
   const lbl = document.getElementById('filtro-label');
-  lbl.textContent = '🔴 Mostrando: PMV acima do preço médio do mercado — clique no card novamente para limpar';
+
+  if (n === 0) { // nada para filtrar — não deixa a tabela vazia
+    lbl.textContent = '✅ Nenhum produto abaixo de 15% de margem';
+    lbl.style.display = 'block';
+    setTimeout(() => { lbl.style.display = 'none'; }, 2500);
+    return;
+  }
+
+  filtroAtivo = tipo;
+  document.getElementById('card-margem').classList.add('ativo');
+  document.querySelectorAll('#tbody tr').forEach(tr => {
+    tr.classList.toggle('oculto', tr.dataset.fraco !== '1');
+  });
+  lbl.textContent = `🔴 Mostrando ${n} produto${n>1?'s':''} com margem abaixo de 15% — clique no card novamente para limpar`;
   lbl.style.display = 'block';
 }
 
