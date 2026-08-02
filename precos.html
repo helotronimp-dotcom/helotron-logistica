@@ -230,25 +230,25 @@ tbody tr { cursor: pointer; }
 <div class="banner" id="banner"></div>
 
 <div class="cards">
-  <div class="card verm" id="card-verm" onclick="filtrar('verm')" title="Clique para filtrar">
-    <div class="card-label">🔴 Margem em Risco</div>
+  <div class="card azul" id="card-azul" title="Custo nacionalizado × estoque — capital já investido">
+    <div class="card-label">📦 Capital em Estoque</div>
+    <div class="card-valor" id="c-capital" style="font-size:22px">—</div>
+    <div class="card-sub">custo nac. × qtd em estoque</div>
+  </div>
+  <div class="card roxo" id="card-roxo" title="PMV × estoque — faturamento se vender tudo no PMV">
+    <div class="card-label">💵 Receita Potencial</div>
+    <div class="card-valor" id="c-receita" style="font-size:22px">—</div>
+    <div class="card-sub">PMV × qtd · vendendo todo o estoque</div>
+  </div>
+  <div class="card verd" id="card-verd" title="Lucro × estoque — retorno se vender tudo no PMV">
+    <div class="card-label">💰 Lucro Potencial</div>
+    <div class="card-valor" id="c-lucro" style="font-size:22px">—</div>
+    <div class="card-sub"><span id="c-roi">—</span> sobre o capital investido</div>
+  </div>
+  <div class="card verm" id="card-verm" onclick="filtrar('verm')" title="Clique para filtrar — PMV acima do preço médio do mercado">
+    <div class="card-label">🔴 PMV Acima do Mercado</div>
     <div class="card-valor" id="c-verm">—</div>
-    <div class="card-sub">produtos com médio &lt; PMV</div>
-  </div>
-  <div class="card verd" id="card-verd" onclick="filtrar('verd')" title="Clique para filtrar">
-    <div class="card-label">✅ Margem Viável</div>
-    <div class="card-valor" id="c-verd">—</div>
-    <div class="card-sub">médio &gt; PMV</div>
-  </div>
-  <div class="card azul" id="card-azul" onclick="window.parent.show('logistica')" title="Clique para ver a aba Logística" style="cursor:pointer">
-    <div class="card-label">📦 Container ETA</div>
-    <div class="card-valor" id="c-eta" style="font-size:17px;margin-top:6px">—</div>
-    <div class="card-sub">ST260001 · Paranaguá · <span style="color:#42a5f5">ver logística →</span></div>
-  </div>
-  <div class="card roxo" id="card-roxo" onclick="filtrar('amar')" title="Clique para filtrar">
-    <div class="card-label">🟡 Outros Alertas</div>
-    <div class="card-valor" id="c-amar">—</div>
-    <div class="card-sub">guerra / mín. histórico</div>
+    <div class="card-sub">preço inviável vs. concorrência</div>
   </div>
 </div>
 <div class="filtro-label" id="filtro-label" style="display:none"></div>
@@ -432,21 +432,6 @@ function alterarModalidade(nome) {
   recalcularTabela();
 }
 
-// Frete ML: custo fixo em R$ por venda
-// Frete grátis (seller paga): ~R$13,50 | Frete por conta do comprador: R$6,75 (taxa Mercado Envios)
-const FRETE_GRATIS_PADRAO   = 13.85;
-const FRETE_COMPRADOR_PADRAO = 6.75;
-const TIPO_FRETE = {}; // 'gratis' ou 'comprador' por produto
-
-function getTipoFrete(nome) {
-  return TIPO_FRETE[nome] || 'comprador';
-}
-
-function alterarTipoFrete(nome) {
-  TIPO_FRETE[nome] = getTipoFrete(nome) === 'comprador' ? 'gratis' : 'comprador';
-  recalcularTabela();
-}
-
 // Margens individuais por produto: { nome: valor_decimal }
 const MARGENS_PRODUTO = {};
 
@@ -562,6 +547,7 @@ function recalcularTabela() {
   const tbody = document.getElementById('tbody');
   tbody.innerHTML = '';
   let nV = 0, nVerd = 0, nA = 0;
+  let totCapital = 0, totReceita = 0, totLucro = 0;
   const margem = getMargem();
 
   // Ordenação
@@ -591,13 +577,12 @@ function recalcularTabela() {
     else           nVerd++;
     if (hasExtra)  nA++;
 
-    const tend = tendencia(p.historico);
-    const badges = al.length === 0
-      ? '<span class="badge verd">✅ OK</span>'
-      : al.map(a => {
-          const [lbl, cls] = ALERTA_LABEL[a] || [a, 'amar'];
-          return `<span class="badge ${cls}">${lbl}</span>`;
-        }).join('<br>');
+    // Totais de estoque para os cards
+    if (p.qtd && pmv && p.custo_nac) {
+      totCapital += p.custo_nac * p.qtd;
+      totReceita += pmv * p.qtd;
+      totLucro   += getLucroLiq(p, pmv) * p.qtd;
+    }
 
     const mlSlug = p.nome.toLowerCase()
       .normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -610,7 +595,6 @@ function recalcularTabela() {
 
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
-    tr.title = 'Clique para ver o gráfico completo';
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
       <td class="pmv-col">${BRL(pmv)}</td>
@@ -652,14 +636,17 @@ function recalcularTabela() {
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
     `;
-    tr.addEventListener('click', () => abrirModal(p));
     tbody.appendChild(tr);
   });
 
-  // Cards
+  // Cards de precificação
+  const K = v => 'R$ ' + (v/1000).toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1}) + ' mil';
+  document.getElementById('c-capital').textContent = K(totCapital);
+  document.getElementById('c-receita').textContent = K(totReceita);
+  document.getElementById('c-lucro').textContent   = K(totLucro);
+  document.getElementById('c-roi').textContent =
+    totCapital > 0 ? '+' + Math.round(totLucro / totCapital * 100) + '% de retorno' : '—';
   document.getElementById('c-verm').textContent = nV;
-  document.getElementById('c-verd').textContent = nVerd;
-  document.getElementById('c-amar').textContent = nA;
 
   // Header da tabela
   const secSmall = document.querySelector('.sec-header small');
@@ -672,13 +659,10 @@ function recalcularTabela() {
   const b = document.getElementById('banner');
   if (nV > 0) {
     b.className = 'banner verm';
-    b.textContent = `🔴 ${nV} produto${nV > 1 ? 's' : ''} com margem em risco para ${Math.round(margem*100)}% alvo — preço médio abaixo do PMV`;
-  } else if (nA > 0) {
-    b.className = 'banner amar';
-    b.textContent = `🟡 ${nA} alerta${nA > 1 ? 's' : ''} de atenção — sem risco crítico de margem`;
+    b.textContent = `🔴 ${nV} produto${nV > 1 ? 's' : ''} com PMV acima do preço médio do mercado a ${Math.round(margem*100)}% de margem — reduzir margem ou rever frete/modalidade`;
   } else {
     b.className = 'banner verd';
-    b.textContent = `✅ Tudo viável com margem de ${Math.round(margem*100)}% — nenhum produto em risco`;
+    b.textContent = `✅ Todos os ${lista.length} produtos com PMV viável a ${Math.round(margem*100)}% de margem`;
   }
 }
 
@@ -698,23 +682,15 @@ function filtrar(tipo) {
   }
 
   filtroAtivo = tipo;
-  ['verm','verd','amar'].forEach(t => {
-    const el = document.getElementById('card-' + (t === 'amar' ? 'roxo' : t));
-    if (el) el.classList.toggle('ativo', t === tipo);
-  });
+  document.getElementById('card-verm').classList.toggle('ativo', tipo === 'verm');
 
   document.querySelectorAll('#tbody tr').forEach(tr => {
     const alertas = tr.dataset.alertas ? tr.dataset.alertas.split(',') : [];
-    let mostrar = false;
-    if (tipo === 'verm') mostrar = alertas.includes('margem');
-    if (tipo === 'verd') mostrar = !alertas.includes('margem') && alertas.filter(a => a).length === 0;
-    if (tipo === 'amar') mostrar = alertas.some(a => a !== 'margem' && a !== '');
-    tr.classList.toggle('oculto', !mostrar);
+    tr.classList.toggle('oculto', !alertas.includes('margem'));
   });
 
-  const labels = { verm: '🔴 Mostrando: Margem em Risco', verd: '✅ Mostrando: Margem Viável', amar: '🟡 Mostrando: Outros Alertas' };
   const lbl = document.getElementById('filtro-label');
-  lbl.textContent = labels[tipo] + ' — clique no card novamente para limpar';
+  lbl.textContent = '🔴 Mostrando: PMV acima do preço médio do mercado — clique no card novamente para limpar';
   lbl.style.display = 'block';
 }
 
