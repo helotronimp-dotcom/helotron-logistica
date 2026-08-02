@@ -230,10 +230,10 @@ tbody tr { cursor: pointer; }
 <div class="banner" id="banner"></div>
 
 <div class="cards">
-  <div class="card azul" id="card-azul" title="Custo nacionalizado × estoque — capital já investido">
-    <div class="card-label">📦 Capital em Estoque</div>
+  <div class="card azul" id="card-azul" title="Custo nacionalizado × estoque — já inclui o colchão de ICMS 17,5%, não é caixa desembolsado">
+    <div class="card-label">📦 Base de Custo</div>
     <div class="card-valor" id="c-capital" style="font-size:22px">—</div>
-    <div class="card-sub">custo nac. × qtd em estoque</div>
+    <div class="card-sub">custo nac. × estoque · c/ colchão ICMS 17,5%</div>
   </div>
   <div class="card roxo" id="card-roxo" title="PMV × estoque — faturamento se vender tudo no PMV">
     <div class="card-label">💵 Receita Potencial</div>
@@ -277,7 +277,8 @@ tbody tr { cursor: pointer; }
     </table>
   </div>
   <p class="note">
-    💡 <strong>Vl. Líquido ML</strong> = PMV − comissão − frete (o que o ML deposita) · <strong>Lucro</strong> = Vl. Líquido − Custo · Clique na linha para ver o gráfico de preços do mercado
+    💡 <strong>Vl. Líquido ML</strong> = PMV − comissão − frete &nbsp;·&nbsp; <strong>Lucro</strong> = Vl. Líquido − Custo &nbsp;·&nbsp; <strong>Margem</strong> = Lucro ÷ PMV<br>
+    ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
   </p>
 </div>
 
@@ -464,13 +465,28 @@ function alterarFreteML(input) {
   recalcularTabela();
 }
 
-// PMV inclui custo do frete → margem sempre real
-// PMV = (custo_nac + custo_frete) / (1 - comissao - margem)
-// Lucro = PMV × margem  ✓ (quando margem=0 → lucro=0)
-function getLucroLiq(p, pmv) {
-  if (!pmv || !p.custo_nac) return null;
-  return pmv * getMargemProduto(p.nome);
+// Preço de venda travado manualmente por produto: { nome: valor }
+const PRECO_OVERRIDE = {};
+
+function alterarPMV(input) {
+  const nome  = input.dataset.nome;
+  const valor = parseFloat(input.value);
+  if (!isNaN(valor) && valor > 0) PRECO_OVERRIDE[nome] = valor;
+  else delete PRECO_OVERRIDE[nome];
+  recalcularTabela();
 }
+
+function resetarPMV(nome) {
+  delete PRECO_OVERRIDE[nome];
+  recalcularTabela();
+}
+
+// ── FLUXO ÚNICO DE CÁLCULO ───────────────────────────────────
+// Tudo parte do PREÇO. O lucro nunca é derivado da margem alvo:
+//   Vl. Líquido = PMV × (1 − comissão) − frete
+//   Lucro       = Vl. Líquido − custo_nac
+//   Margem real = Lucro ÷ PMV
+// Assim, subir comissão (Premium) ou frete (Grátis) SEMPRE reduz o lucro.
 
 // O que o ML efetivamente deposita: preço − comissão − frete
 function getLiquidoML(p, pmv) {
@@ -478,12 +494,26 @@ function getLiquidoML(p, pmv) {
   return pmv * (1 - getComissaoProduto(p.nome)) - getCustoFrete(p.nome);
 }
 
+function getLucroLiq(p, pmv) {
+  if (!pmv || p.custo_nac == null) return null;
+  return getLiquidoML(p, pmv) - p.custo_nac;
+}
+
+// Margem efetiva: se o preço foi travado, deriva do preço; senão é a margem alvo
+function getMargemReal(p, pmv) {
+  const lucro = getLucroLiq(p, pmv);
+  if (lucro == null || !pmv) return null;
+  return lucro / pmv;
+}
+
 function getMargemProduto(nome) {
   if (MARGENS_PRODUTO[nome] != null) return MARGENS_PRODUTO[nome];
   return getMargem(); // fallback para margem global
 }
 
+// Preço travado manualmente vence; senão sugere o preço que atinge a margem alvo
 function pmvDinamico(produto) {
+  if (PRECO_OVERRIDE[produto.nome] != null) return PRECO_OVERRIDE[produto.nome];
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
@@ -528,8 +558,9 @@ function alterarMargemProduto(input) {
   const nome   = input.dataset.nome;
   const valor  = parseFloat(input.value);
   const global = Math.round(getMargem() * 100);
+  delete PRECO_OVERRIDE[nome]; // mexer na margem volta a ditar o preço
   if (!isNaN(valor) && valor !== global) {
-    MARGENS_PRODUTO[nome] = Math.max(1, Math.min(80, valor)) / 100;
+    MARGENS_PRODUTO[nome] = Math.max(0, Math.min(80, valor)) / 100;
   } else {
     delete MARGENS_PRODUTO[nome];
   }
@@ -538,6 +569,7 @@ function alterarMargemProduto(input) {
 
 function resetarMargem(nome) {
   delete MARGENS_PRODUTO[nome];
+  delete PRECO_OVERRIDE[nome];
   recalcularTabela();
 }
 
@@ -589,14 +621,27 @@ function recalcularTabela() {
       .replace(/\s+/g, '-');
     const mlUrl = `https://lista.mercadolivre.com.br/${mlSlug}`;
 
-    const margemAtual = Math.round(getMargemProduto(p.nome) * 100);
-    const temCustom   = MARGENS_PRODUTO[p.nome] != null;
+    const margemAtual   = Math.round(getMargemProduto(p.nome) * 100);
+    const temCustom     = MARGENS_PRODUTO[p.nome] != null;
+    const precoTravado  = PRECO_OVERRIDE[p.nome] != null;
+    const margemReal    = getMargemReal(p, pmv) ?? 0;
 
     const tr = document.createElement('tr');
     tr.dataset.alertas = al.join(',');
     tr.innerHTML = `
       <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
-      <td class="pmv-col">${BRL(pmv)}</td>
+      <td class="pmv-col" style="padding:4px 6px;" onclick="event.stopPropagation()">
+        <div style="display:flex;align-items:center;justify-content:center;gap:3px;">
+          <span style="font-size:11px;color:${precoTravado ? '#f0883e' : '#8b949e'}">R$</span>
+          <input type="number" min="0" step="0.5"
+            value="${pmv != null ? pmv.toFixed(2) : ''}"
+            data-nome="${p.nome.replace(/"/g,'&quot;')}"
+            onchange="alterarPMV(this)"
+            title="${precoTravado ? 'Preço travado — a margem é calculada a partir dele' : 'Preço sugerido pela margem alvo — edite para travar'}"
+            style="width:62px;background:transparent;border:none;border-bottom:1px solid ${precoTravado ? '#f0883e' : '#8b949e55'};color:${precoTravado ? '#f0883e' : '#e6edf3'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
+          ${precoTravado ? `<span title="Voltar ao preço sugerido pela margem alvo" onclick="resetarPMV('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;font-size:10px;color:#7d8590;">↺</span>` : ''}
+        </div>
+      </td>
       <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
       <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
         ${getModalidade(p.nome) === 'premium'
@@ -622,15 +667,21 @@ function recalcularTabela() {
       </td>
       <td style="background:#0d2233;color:#79c0ff;font-weight:600;font-size:12px">${BRL(getLiquidoML(p, pmv))}</td>
       <td style="background:#0f2a1a;padding:4px 6px;">
-        <div style="display:flex;align-items:center;gap:3px;" onclick="event.stopPropagation()">
-          <input type="number" min="0" max="80" step="1"
-            value="${margemAtual}"
-            data-nome="${p.nome.replace(/"/g,'&quot;')}"
-            onchange="alterarMargemProduto(this)"
-            style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
-          <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
-          ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
-        </div>
+        ${precoTravado ? `
+          <div style="text-align:center;color:${margemReal >= 0 ? '#3fb950' : '#f85149'};font-size:13px;font-weight:700;" title="Margem calculada a partir do preço travado">
+            ${(margemReal*100).toFixed(1)}%
+            <div style="font-size:9px;color:#7d8590;font-weight:400;">calculada</div>
+          </div>` : `
+          <div style="display:flex;align-items:center;justify-content:center;gap:3px;" onclick="event.stopPropagation()">
+            <input type="number" min="0" max="80" step="1"
+              value="${margemAtual}"
+              data-nome="${p.nome.replace(/"/g,'&quot;')}"
+              onchange="alterarMargemProduto(this)"
+              title="Margem alvo — define o preço sugerido"
+              style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
+            <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
+            ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
+          </div>`}
       </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
