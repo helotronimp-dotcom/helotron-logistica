@@ -99,7 +99,9 @@
         "GreenEarth",
         "TeMeiHui"
       ],
-      "obs_unificacao": "HEL-COZ-001 (GreenEarth, 1488 un) e HEL-COZ-004 (TeMeiHui, 960 un) sao o mesmo produto. Confirmado: caixa master identica (70,5x34x47,5 cm), 24 un/caixa nos dois, peso por unidade 0,727 vs 0,750 kg. Estoque unificado em 2.448 un. custo_nac usa o MAIOR custo (R$ 23,94 da GreenEarth); custo medio real R$ 22,60."
+      "obs_unificacao": "HEL-COZ-001 (GreenEarth, 1488 un) e HEL-COZ-004 (TeMeiHui, 960 un) sao o mesmo produto. Confirmado: caixa master identica (70,5x34x47,5 cm), 24 un/caixa nos dois, peso por unidade 0,727 vs 0,750 kg. Estoque unificado em 2.448 un. custo_nac usa o MAIOR custo (R$ 23,94 da GreenEarth); custo medio real R$ 22,60.",
+      "custo_menor": 20.52,
+      "custo_menor_fornecedor": "TeMeiHui"
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
@@ -585,7 +587,9 @@
         "TeMeiHui",
         "YuNan"
       ],
-      "obs_unificacao": "HEL-JAR-001 (YuNan, 216 un) e HEL-JAR-005 (TeMeiHui, 504 un) sao o mesmo produto, confirmado fisicamente. Estoque unificado em 720 un. custo_nac usa o MAIOR custo (R$ 37,83 da YuNan) por prudencia na precificacao; o custo medio real e R$ 29,71."
+      "obs_unificacao": "HEL-JAR-001 (YuNan, 216 un) e HEL-JAR-005 (TeMeiHui, 504 un) sao o mesmo produto, confirmado fisicamente. Estoque unificado em 720 un. custo_nac usa o MAIOR custo (R$ 37,83 da YuNan) por prudencia na precificacao; o custo medio real e R$ 29,71.",
+      "custo_menor": 26.23,
+      "custo_menor_fornecedor": "TeMeiHui"
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
