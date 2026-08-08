@@ -279,6 +279,7 @@ tbody tr { cursor: pointer; }
   </div>
   <p class="note">
     💡 <strong>Vl. Líquido ML</strong> = PMV − comissão − frete &nbsp;·&nbsp; <strong>Lucro</strong> = Vl. Líquido − Custo &nbsp;·&nbsp; <strong>Margem</strong> = Lucro ÷ PMV<br>
+    ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
     ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
   </p>
 </div>
@@ -697,7 +698,19 @@ function recalcularTabela() {
     tr.dataset.alertas = al.join(',');
     tr.dataset.fraco   = ehFraco ? '1' : '0';
     tr.innerHTML = `
-      <td><a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a></td>
+      <td>
+        <a href="${mlUrl}" target="_blank" onclick="event.stopPropagation()" style="color:#e6edf3;text-decoration:none;font-weight:500;" onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#e6edf3'">${p.nome} <span style="font-size:10px;color:#58a6ff">↗</span></a>
+        ${p.skus_unificados ? `
+          <span title="${(p.obs_unificacao || '').replace(/"/g,'&quot;')}"
+                style="background:#3d2a5c;color:#bc8cff;border:1px solid #6e40c9;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700;margin-left:6px;cursor:help;white-space:nowrap;">
+            ⇄ UNIFICADO
+          </span>
+          <div style="font-size:10px;color:#7d8590;margin-top:3px;line-height:1.4;">
+            Produtos idênticos de ${(p.fornecedores || []).join(' + ')} — estoque somado em um único anúncio no ML.<br>
+            SKUs: ${p.skus_unificados.join(' + ')}
+            ${p.custo_medio_ponderado ? ` · custo real médio R$ ${p.custo_medio_ponderado.toFixed(2).replace('.',',')} (precificado pelo maior)` : ''}
+          </div>` : ''}
+      </td>
       <td class="pmv-col" style="padding:4px 6px;" onclick="event.stopPropagation()">
         <div style="display:flex;align-items:center;justify-content:center;gap:3px;">
           <span style="font-size:11px;color:${precoTravado ? '#f0883e' : '#8b949e'}">R$</span>
