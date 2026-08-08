@@ -311,7 +311,7 @@
       "nome": "Tapete de Silicone para Cozinha",
       "ncm": "3926.90.90",
       "pmv": 7.77,
-      "custo_nac": 4.04,
+      "custo_nac": 16.16,
       "minimo": null,
       "medio": null,
       "maximo": null,
@@ -371,9 +371,13 @@
           "medio": null
         }
       ],
-      "qtd": 2160,
+      "qtd": 540,
       "frete_ml": 15,
-      "sku": "HEL-COZ-003"
+      "sku": "HEL-COZ-003",
+      "unidade_venda": "kit com 4 pecas",
+      "pecas_por_kit": 4,
+      "pecas_totais": 2160,
+      "obs_kit": "Vendido em kit de 4 pecas. Estoque no ML = 540 kits (2.160 pecas / 4). custo_nac representa o custo do KIT, nao da peca avulsa (R$ 4,04 x 4)."
     },
     {
       "nome": "Spray de Oleo Cozinha",
