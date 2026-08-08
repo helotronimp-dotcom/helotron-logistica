@@ -1,7 +1,7 @@
 {
   "meta": {
-    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.)",
-    "total_produtos": 14,
+    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.) | 08/08/2026: unificacao HEL-JAR-001 + HEL-JAR-005",
+    "total_produtos": 13,
     "fonte": "NF de entrada + rateio frete rod R$4.488,20 + despachante R$2.431,50 + armaz. R$7.000,00",
     "cambio": 5.75,
     "frete_int_usd": 5325,
@@ -503,7 +503,7 @@
       "nome": "Luminaria Solar Flamingo 3 un.",
       "ncm": "9405.40.90",
       "pmv": 50.44,
-      "custo_nac": 26.23,
+      "custo_nac": 37.83,
       "minimo": null,
       "medio": null,
       "maximo": null,
@@ -563,9 +563,19 @@
           "medio": null
         }
       ],
-      "qtd": 504,
+      "qtd": 720,
       "frete_ml": 22,
-      "sku": "HEL-JAR-005"
+      "sku": "HEL-JAR-005",
+      "custo_medio_ponderado": 29.71,
+      "skus_unificados": [
+        "HEL-JAR-005",
+        "HEL-JAR-001"
+      ],
+      "fornecedores": [
+        "TeMeiHui",
+        "YuNan"
+      ],
+      "obs_unificacao": "HEL-JAR-001 (YuNan, 216 un) e HEL-JAR-005 (TeMeiHui, 504 un) sao o mesmo produto, confirmado fisicamente. Estoque unificado em 720 un. custo_nac usa o MAIOR custo (R$ 37,83 da YuNan) por prudencia na precificacao; o custo medio real e R$ 29,71."
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
@@ -770,21 +780,6 @@
       "qtd": 216,
       "frete_ml": 25,
       "sku": "HEL-JAR-003"
-    },
-    {
-      "nome": "Luminaria Solar Flamingo Rosa",
-      "ncm": "9405.40.90",
-      "pmv": 72.75,
-      "custo_nac": 37.83,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [],
-      "qtd": 216,
-      "frete_ml": 22,
-      "sku": "HEL-JAR-001"
     },
     {
       "nome": "Cortador de Alimentos 16 Pecas",
