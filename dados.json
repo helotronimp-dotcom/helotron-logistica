@@ -1,7 +1,7 @@
 {
   "meta": {
-    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.) | 08/08/2026: unificacao HEL-JAR-001 + HEL-JAR-005",
-    "total_produtos": 13,
+    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.) | 08/08/2026: unificacao HEL-JAR-001 + HEL-JAR-005 | 08/08: unificacao HEL-COZ-001 + HEL-COZ-004",
+    "total_produtos": 12,
     "fonte": "NF de entrada + rateio frete rod R$4.488,20 + despachante R$2.431,50 + armaz. R$7.000,00",
     "cambio": 5.75,
     "frete_int_usd": 5325,
@@ -87,9 +87,19 @@
           "medio": null
         }
       ],
-      "qtd": 1488,
+      "qtd": 2448,
       "frete_ml": 20,
-      "sku": "HEL-COZ-001"
+      "sku": "HEL-COZ-001",
+      "custo_medio_ponderado": 22.6,
+      "skus_unificados": [
+        "HEL-COZ-001",
+        "HEL-COZ-004"
+      ],
+      "fornecedores": [
+        "GreenEarth",
+        "TeMeiHui"
+      ],
+      "obs_unificacao": "HEL-COZ-001 (GreenEarth, 1488 un) e HEL-COZ-004 (TeMeiHui, 960 un) sao o mesmo produto. Confirmado: caixa master identica (70,5x34x47,5 cm), 24 un/caixa nos dois, peso por unidade 0,727 vs 0,750 kg. Estoque unificado em 2.448 un. custo_nac usa o MAIOR custo (R$ 23,94 da GreenEarth); custo medio real R$ 22,60."
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
@@ -780,21 +790,6 @@
       "qtd": 216,
       "frete_ml": 25,
       "sku": "HEL-JAR-003"
-    },
-    {
-      "nome": "Cortador de Alimentos 16 Pecas",
-      "ncm": "8210.00.00",
-      "pmv": 39.46,
-      "custo_nac": 20.52,
-      "minimo": null,
-      "medio": null,
-      "maximo": null,
-      "anuncios": 0,
-      "alertas": [],
-      "historico": [],
-      "qtd": 960,
-      "frete_ml": 18,
-      "sku": "HEL-COZ-004"
     },
     {
       "nome": "Cortador de Legumes Manual",
