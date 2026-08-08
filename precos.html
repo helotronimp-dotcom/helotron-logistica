@@ -708,7 +708,7 @@ function recalcularTabela() {
           <div style="font-size:10px;color:#7d8590;margin-top:3px;line-height:1.4;">
             Produtos idênticos de ${(p.fornecedores || []).join(' + ')} — estoque somado em um único anúncio no ML.<br>
             SKUs: ${p.skus_unificados.join(' + ')}
-            ${p.custo_medio_ponderado ? ` · custo real médio R$ ${p.custo_medio_ponderado.toFixed(2).replace('.',',')} (precificado pelo maior)` : ''}
+            ${p.custo_menor ? `<br>Custo real: <span style="color:#3fb950">menor R$ ${p.custo_menor.toFixed(2).replace('.',',')}${p.custo_menor_fornecedor ? ' (' + p.custo_menor_fornecedor + ')' : ''}</span> · precificado pelo maior R$ ${p.custo_nac.toFixed(2).replace('.',',')}` : ''}
           </div>` : ''}
       </td>
       <td class="pmv-col" style="padding:4px 6px;" onclick="event.stopPropagation()">
