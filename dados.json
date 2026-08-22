@@ -309,8 +309,8 @@
     },
     {
       "nome": "Tapete de Silicone para Cozinha",
-      "ncm": "3926.90.90",
-      "pmv": 7.77,
+      "ncm": "3924.10.00",
+      "pmv": 31.08,
       "custo_nac": 16.16,
       "minimo": null,
       "medio": null,
@@ -381,7 +381,7 @@
     },
     {
       "nome": "Spray de Oleo Cozinha",
-      "ncm": "8424.20.00",
+      "ncm": "3924.10.00",
       "pmv": 14.56,
       "custo_nac": 7.57,
       "minimo": null,
@@ -449,7 +449,7 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 2 un.",
-      "ncm": "9405.40.90",
+      "ncm": "9405.41.90",
       "pmv": 52.13,
       "custo_nac": 27.11,
       "minimo": null,
@@ -517,8 +517,8 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 3 un.",
-      "ncm": "9405.40.90",
-      "pmv": 50.44,
+      "ncm": "9405.41.90",
+      "pmv": 72.75,
       "custo_nac": 37.83,
       "minimo": null,
       "medio": null,
@@ -597,7 +597,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
-      "ncm": "9405.40.90",
+      "ncm": "9405.41.90",
       "pmv": 67.71,
       "custo_nac": 35.21,
       "minimo": null,
@@ -665,7 +665,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia PVC",
-      "ncm": "9405.40.90",
+      "ncm": "9405.41.90",
       "pmv": 49.9,
       "custo_nac": 25.95,
       "minimo": null,
@@ -733,7 +733,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
-      "ncm": "9405.40.90",
+      "ncm": "9405.41.90",
       "pmv": 102.04,
       "custo_nac": 53.06,
       "minimo": null,
