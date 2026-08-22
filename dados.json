@@ -25,7 +25,7 @@
   "produtos": [
     {
       "nome": "Cortador de Alimentos 16 em 1",
-      "ncm": "8210.00.00",
+      "ncm": "8210.00.90",
       "pmv": 46.04,
       "custo_nac": 23.94,
       "minimo": null,
@@ -105,7 +105,7 @@
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
-      "ncm": "8210.00.00",
+      "ncm": "8210.00.90",
       "pmv": 30.58,
       "custo_nac": 15.9,
       "minimo": null,
@@ -449,7 +449,7 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 2 un.",
-      "ncm": "9405.41.90",
+      "ncm": "9405.41.00",
       "pmv": 52.13,
       "custo_nac": 27.11,
       "minimo": null,
@@ -517,7 +517,7 @@
     },
     {
       "nome": "Luminaria Solar Flamingo 3 un.",
-      "ncm": "9405.41.90",
+      "ncm": "9405.41.00",
       "pmv": 72.75,
       "custo_nac": 37.83,
       "minimo": null,
@@ -597,7 +597,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
-      "ncm": "9405.41.90",
+      "ncm": "9405.41.00",
       "pmv": 67.71,
       "custo_nac": 35.21,
       "minimo": null,
@@ -665,7 +665,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia PVC",
-      "ncm": "9405.41.90",
+      "ncm": "9405.41.00",
       "pmv": 49.9,
       "custo_nac": 25.95,
       "minimo": null,
@@ -733,7 +733,7 @@
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
-      "ncm": "9405.41.90",
+      "ncm": "9405.41.00",
       "pmv": 102.04,
       "custo_nac": 53.06,
       "minimo": null,
@@ -801,7 +801,7 @@
     },
     {
       "nome": "Cortador de Legumes Manual",
-      "ncm": "8210.00.00",
+      "ncm": "8210.00.90",
       "pmv": 29.4,
       "custo_nac": 15.29,
       "minimo": null,
