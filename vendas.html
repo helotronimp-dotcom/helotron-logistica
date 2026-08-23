@@ -44,16 +44,44 @@ header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
 .sec-header small { color: #7d8590; font-size: 10px; font-weight: 400; }
 .overflow-x { overflow-x: auto; }
 
+/* ---- barra de filtros ---- */
+.filtros {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  padding: 11px 16px; background: #1a1f27; border-bottom: 1px solid #30363d;
+}
+.filtros label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: #7d8590; }
+.filtros input, .filtros select {
+  background: #0d1117; color: #e6edf3; border: 1px solid #30363d;
+  border-radius: 6px; padding: 6px 9px; font-size: 12px;
+  font-family: inherit; outline: none;
+}
+.filtros input:focus, .filtros select:focus { border-color: #58a6ff; }
+.filtros input[type=search] { min-width: 190px; }
+.grupo { display: flex; gap: 6px; align-items: center; }
+.btn-limpar {
+  background: #21262d; color: #8b949e; border: 1px solid #30363d;
+  border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-family: inherit;
+}
+.btn-limpar:hover { color: #e6edf3; border-color: #58a6ff55; }
+.contagem { font-size: 11px; color: #7d8590; margin-left: auto; white-space: nowrap; }
+.contagem b { color: #e6edf3; }
+
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
 th {
   background: #21262d; color: #8b949e; padding: 8px 10px; text-align: center;
   font-weight: 600; font-size: 11px; white-space: nowrap; border-bottom: 1px solid #30363d;
 }
+th.ord { cursor: pointer; user-select: none; }
+th.ord:hover { color: #e6edf3; background: #2a3038; }
+th.ord::after { content: ' ⇅'; opacity: 0.3; font-size: 10px; }
+th.ord.asc::after  { content: ' ▲'; opacity: 1; color: #58a6ff; }
+th.ord.desc::after { content: ' ▼'; opacity: 1; color: #58a6ff; }
 th:first-child, td:first-child { text-align: left; }
 td { padding: 8px 10px; text-align: center; border-bottom: 1px solid #21262d; font-variant-numeric: tabular-nums; }
 tbody tr:hover { background: #1c2129; }
 tbody tr:last-child td { border-bottom: none; }
 tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d; }
+.vazio { padding: 26px; text-align: center; color: #7d8590; font-size: 12px; }
 
 .sku { font-size: 10px; color: #7d8590; display: block; margin-top: 2px; }
 .pos { color: #3fb950; } .neg { color: #f85149; } .mut { color: #7d8590; }
@@ -66,6 +94,17 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 .pill.ok   { background: #0f2a1a; color: #3fb950; border: 1px solid #3fb95055; }
 .pill.canc { background: #2a1215; color: #f85149; border: 1px solid #f8514955; }
 .pill.dev  { background: #271d0a; color: #f0883e; border: 1px solid #f0883e55; }
+
+.paginacao {
+  display: flex; gap: 8px; align-items: center; justify-content: center;
+  padding: 11px 16px; border-top: 1px solid #21262d; font-size: 11px; color: #7d8590;
+}
+.paginacao button {
+  background: #21262d; color: #e6edf3; border: 1px solid #30363d;
+  border-radius: 6px; padding: 5px 11px; font-size: 11px; cursor: pointer; font-family: inherit;
+}
+.paginacao button:hover:not(:disabled) { border-color: #58a6ff; }
+.paginacao button:disabled { opacity: 0.35; cursor: default; }
 
 .nota {
   margin: 12px 28px 22px; padding: 12px 16px; background: #161b22;
@@ -93,6 +132,22 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
     <span>GIRO POR PRODUTO</span>
     <small id="sub-giro"></small>
   </div>
+  <div class="filtros">
+    <div class="grupo">
+      <label for="f-prod">Buscar</label>
+      <input type="search" id="f-prod" placeholder="nome ou SKU…">
+    </div>
+    <div class="grupo">
+      <label for="f-giro">Mostrar</label>
+      <select id="f-giro">
+        <option value="todos">Todos os produtos</option>
+        <option value="com">Somente com venda</option>
+        <option value="sem">Somente sem giro</option>
+      </select>
+    </div>
+    <button class="btn-limpar" id="limpar-giro">Limpar</button>
+    <span class="contagem" id="cont-giro"></span>
+  </div>
   <div class="overflow-x"><table id="tbl-giro"></table></div>
 </div>
 
@@ -101,7 +156,42 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
     <span>NOTAS EMITIDAS</span>
     <small id="sub-notas"></small>
   </div>
+  <div class="filtros">
+    <div class="grupo">
+      <label for="f-busca">Buscar</label>
+      <input type="search" id="f-busca" placeholder="cliente, NF ou SKU…">
+    </div>
+    <div class="grupo">
+      <label for="f-status">Status</label>
+      <select id="f-status">
+        <option value="">Todos</option>
+        <option value="valida">Válidas</option>
+        <option value="cancelada">Canceladas</option>
+        <option value="devolucao">Devoluções</option>
+      </select>
+    </div>
+    <div class="grupo">
+      <label for="f-sku">Produto</label>
+      <select id="f-sku"><option value="">Todos</option></select>
+    </div>
+    <div class="grupo">
+      <label for="f-uf">UF</label>
+      <select id="f-uf"><option value="">Todas</option></select>
+    </div>
+    <div class="grupo">
+      <label for="f-periodo">Período</label>
+      <select id="f-periodo">
+        <option value="">Tudo</option>
+        <option value="7">Últimos 7 dias</option>
+        <option value="30">Últimos 30 dias</option>
+        <option value="90">Últimos 90 dias</option>
+      </select>
+    </div>
+    <button class="btn-limpar" id="limpar-notas">Limpar</button>
+    <span class="contagem" id="cont-notas"></span>
+  </div>
   <div class="overflow-x"><table id="tbl-notas"></table></div>
+  <div class="paginacao" id="pag-notas"></div>
 </div>
 
 <div class="nota" id="rodape"></div>
@@ -110,7 +200,185 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 const BRL = v => 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 const PCT = v => (v * 100).toFixed(1).replace('.', ',') + '%';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const dataBR = d => d.split('-').reverse().join('/');
 
+const PAG_TAM = 25;
+let LINHAS = [], NOTAS = [], META = {};
+let ordGiro  = {col: 'vendido', dir: -1};
+let ordNotas = {col: 'data', dir: -1};
+let pagina = 1;
+
+/* ordena por coluna; texto usa localeCompare, o resto e numerico */
+function ordenar(arr, col, dir) {
+  return [...arr].sort((a, b) => {
+    const x = a[col], y = b[col];
+    if (typeof x === 'string' || typeof y === 'string')
+      return String(x ?? '').localeCompare(String(y ?? ''), 'pt-BR') * dir;
+    return ((x ?? 0) - (y ?? 0)) * dir;
+  });
+}
+
+function cabecalho(cols, estado) {
+  return '<thead><tr>' + cols.map(c =>
+    `<th class="ord ${estado.col === c.k ? (estado.dir === 1 ? 'asc' : 'desc') : ''}"
+         data-col="${c.k}">${c.t}</th>`).join('') + '</tr></thead>';
+}
+
+/* ================= GIRO ================= */
+const COLS_GIRO = [
+  {k: 'nome', t: 'Produto'}, {k: 'inicial', t: 'Estoque inicial'},
+  {k: 'vendido', t: 'Vendido'}, {k: 'atual', t: 'Estoque atual'},
+  {k: 'faturado', t: 'Faturado'}, {k: 'lucro', t: 'Lucro estimado'},
+  {k: 'giro', t: 'Giro'},
+];
+
+function renderGiro() {
+  const busca = norm(document.getElementById('f-prod').value.trim());
+  const modo = document.getElementById('f-giro').value;
+
+  let vis = LINHAS.filter(l => {
+    if (busca && !norm(l.nome).includes(busca) && !norm(l.sku).includes(busca)) return false;
+    if (modo === 'com' && l.vendido <= 0) return false;
+    if (modo === 'sem' && l.vendido > 0) return false;
+    return true;
+  });
+  vis = ordenar(vis, ordGiro.col, ordGiro.dir);
+
+  const sInicial = vis.reduce((s, l) => s + l.inicial, 0);
+  const sVend = vis.reduce((s, l) => s + l.vendido, 0);
+  const sFat  = vis.reduce((s, l) => s + l.faturado, 0);
+  const sLuc  = vis.reduce((s, l) => s + l.lucro, 0);
+
+  document.getElementById('tbl-giro').innerHTML =
+    cabecalho(COLS_GIRO, ordGiro) +
+    (vis.length ? `<tbody>${vis.map(l => `
+      <tr>
+        <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
+        <td class="mut">${l.inicial.toLocaleString('pt-BR')}</td>
+        <td>${l.vendido ? '<b>' + l.vendido + '</b>' : '<span class="mut">—</span>'}</td>
+        <td><b>${l.atual.toLocaleString('pt-BR')}</b></td>
+        <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
+        <td class="${l.lucro > 0 ? 'pos' : l.lucro < 0 ? 'neg' : 'mut'}">${l.lucro ? BRL(l.lucro) : '—'}</td>
+        <td>
+          <div class="barra ${l.giro >= 0.02 ? 'q' : ''}"><i style="width:${Math.min(100, l.giro * 100).toFixed(2)}%"></i></div>
+          <span class="sku">${l.giro ? PCT(l.giro) : '0%'}</span>
+        </td>
+      </tr>`).join('')}</tbody>
+      <tfoot><tr>
+        <td>${vis.length === LINHAS.length ? 'TOTAL' : 'TOTAL (filtrado)'}</td>
+        <td>${sInicial.toLocaleString('pt-BR')}</td>
+        <td>${sVend}</td>
+        <td>${(sInicial - sVend).toLocaleString('pt-BR')}</td>
+        <td>${BRL(sFat)}</td>
+        <td class="${sLuc >= 0 ? 'pos' : 'neg'}">${BRL(sLuc)}</td>
+        <td>${sInicial ? PCT(sVend / sInicial) : '—'}</td>
+      </tr></tfoot>`
+    : '<tbody><tr><td colspan="7" class="vazio">Nenhum produto encontrado com esses filtros.</td></tr></tbody>');
+
+  document.getElementById('cont-giro').innerHTML =
+    `<b>${vis.length}</b> de ${LINHAS.length} produtos`;
+
+  document.querySelectorAll('#tbl-giro th.ord').forEach(th =>
+    th.onclick = () => {
+      const c = th.dataset.col;
+      ordGiro = {col: c, dir: ordGiro.col === c ? -ordGiro.dir : (c === 'nome' ? 1 : -1)};
+      renderGiro();
+    });
+}
+
+/* ================= NOTAS ================= */
+const COLS_NOTAS = [
+  {k: 'nf', t: 'NF'}, {k: 'data', t: 'Data'}, {k: 'cliente', t: 'Cliente'},
+  {k: 'uf', t: 'UF'}, {k: 'itensTxt', t: 'Itens'}, {k: 'vProdutos', t: 'Valor'},
+  {k: 'lucroNota', t: 'Lucro estimado'}, {k: 'status', t: 'Status'},
+];
+
+function filtrarNotas() {
+  const busca = norm(document.getElementById('f-busca').value.trim());
+  const st = document.getElementById('f-status').value;
+  const sku = document.getElementById('f-sku').value;
+  const uf = document.getElementById('f-uf').value;
+  const dias = document.getElementById('f-periodo').value;
+
+  let corte = null;
+  if (dias) {
+    const base = NOTAS.reduce((m, n) => n.data > m ? n.data : m, '0000-00-00');
+    const d = new Date(base + 'T00:00:00');
+    d.setDate(d.getDate() - Number(dias));
+    corte = d.toISOString().slice(0, 10);
+  }
+
+  return NOTAS.filter(n => {
+    if (st && n.status !== st) return false;
+    if (uf && n.uf !== uf) return false;
+    if (sku && !n.itens.some(i => i.sku === sku)) return false;
+    if (corte && n.data < corte) return false;
+    if (busca) {
+      const alvo = norm(n.cliente) + ' ' + n.nf + ' ' + norm(n.itensTxt);
+      if (!alvo.includes(busca)) return false;
+    }
+    return true;
+  });
+}
+
+function renderNotas() {
+  let vis = ordenar(filtrarNotas(), ordNotas.col, ordNotas.dir);
+  const totPag = Math.max(1, Math.ceil(vis.length / PAG_TAM));
+  pagina = Math.min(pagina, totPag);
+  const fatia = vis.slice((pagina - 1) * PAG_TAM, pagina * PAG_TAM);
+
+  const somaVal = vis.filter(n => n.status !== 'cancelada').reduce((s, n) => s + n.vProdutos, 0);
+  const somaLuc = vis.filter(n => n.status !== 'cancelada').reduce((s, n) => s + n.lucroNota, 0);
+
+  document.getElementById('tbl-notas').innerHTML =
+    cabecalho(COLS_NOTAS, ordNotas) +
+    (fatia.length ? `<tbody>${fatia.map(n => {
+      const pill = n.status === 'cancelada' ? '<span class="pill canc">cancelada</span>'
+                 : n.status === 'devolucao' ? '<span class="pill dev">devolucao</span>'
+                 : '<span class="pill ok">valida</span>';
+      const canc = n.status === 'cancelada';
+      return `<tr>
+        <td><b>${n.nf}</b><span class="sku">serie ${esc(n.serie)}</span></td>
+        <td>${dataBR(n.data)}</td>
+        <td>${esc(n.cliente)}${n.motivo ? `<span class="sku">${esc(n.motivo)}</span>` : ''}</td>
+        <td>${esc(n.uf)}</td>
+        <td style="text-align:left">${esc(n.itensTxt)}</td>
+        <td class="${canc ? 'mut' : ''}">${BRL(n.vProdutos)}</td>
+        <td class="${canc ? 'mut' : n.lucroNota >= 0 ? 'pos' : 'neg'}">${canc ? '—' : BRL(n.lucroNota)}</td>
+        <td>${pill}</td>
+      </tr>`;
+    }).join('')}</tbody>
+      <tfoot><tr>
+        <td colspan="5">${vis.length === NOTAS.length ? 'TOTAL' : 'TOTAL (filtrado)'} — sem canceladas</td>
+        <td>${BRL(somaVal)}</td>
+        <td class="${somaLuc >= 0 ? 'pos' : 'neg'}">${BRL(somaLuc)}</td>
+        <td></td>
+      </tr></tfoot>`
+    : '<tbody><tr><td colspan="8" class="vazio">Nenhuma nota encontrada com esses filtros.</td></tr></tbody>');
+
+  document.getElementById('cont-notas').innerHTML = `<b>${vis.length}</b> de ${NOTAS.length} notas`;
+
+  document.getElementById('pag-notas').innerHTML = vis.length > PAG_TAM
+    ? `<button id="ant" ${pagina === 1 ? 'disabled' : ''}>← anterior</button>
+       <span>página <b style="color:#e6edf3">${pagina}</b> de ${totPag}</span>
+       <button id="prox" ${pagina === totPag ? 'disabled' : ''}>próxima →</button>`
+    : '';
+  const ant = document.getElementById('ant'), prox = document.getElementById('prox');
+  if (ant)  ant.onclick  = () => { pagina--; renderNotas(); };
+  if (prox) prox.onclick = () => { pagina++; renderNotas(); };
+
+  document.querySelectorAll('#tbl-notas th.ord').forEach(th =>
+    th.onclick = () => {
+      const c = th.dataset.col;
+      const textual = ['cliente', 'uf', 'itensTxt', 'status'].includes(c);
+      ordNotas = {col: c, dir: ordNotas.col === c ? -ordNotas.dir : (textual ? 1 : -1)};
+      pagina = 1;
+      renderNotas();
+    });
+}
+
+/* ================= INIT ================= */
 async function init() {
   let prod, vendas;
   try {
@@ -123,6 +391,7 @@ async function init() {
       '<div class="erro">Nao foi possivel carregar dados.json ou vendas.json.</div>');
     return;
   }
+  META = vendas.meta || {};
 
   const cat = {};
   (prod.produtos || []).forEach(p => { if (p.sku) cat[p.sku] = p; });
@@ -130,42 +399,42 @@ async function init() {
   const comissaoDe = sku => (par[sku]?.comissao ?? 0.115);
   const freteDe    = sku => (par[sku]?.frete ?? 13.25);
 
-  // ---- agrega por SKU. O frete e cobrado uma vez por nota (maior frete
-  //      entre os itens) e rateado entre os itens pelo valor de cada um.
+  /* o frete e cobrado uma vez por nota (o maior entre os itens do pedido)
+     e rateado entre os produtos pelo valor de cada um */
   const agg = {};
-  const linhasNota = [];
-  const pega = sku => (agg[sku] ??= {vendido: 0, faturado: 0, lucro: 0, freteTotal: 0});
+  const pega = sku => (agg[sku] ??= {vendido: 0, faturado: 0, lucro: 0});
 
-  (vendas.notas || []).forEach(n => {
-    const valida = n.status === 'valida';
-    const dev = n.status === 'devolucao';
+  NOTAS = (vendas.notas || []).map(n => {
+    const valida = n.status === 'valida', dev = n.status === 'devolucao';
     const freteNota = valida ? Math.max(...n.itens.map(i => freteDe(i.sku))) : 0;
     let lucroNota = 0;
-
     n.itens.forEach(i => {
+      if (!valida && !dev) return;
       const sinal = dev ? -1 : 1;
-      if (!valida && !dev) return;                    // cancelada: ignora
       const a = pega(i.sku);
       const rateio = n.vProdutos > 0 ? (i.vTotal / n.vProdutos) * freteNota : 0;
       const custo = (cat[i.sku]?.custo_nac ?? 0) * i.qtd;
-      const liquido = i.vTotal * (1 - comissaoDe(i.sku)) - rateio;
-      const lucro = liquido - custo;
-      a.vendido  += sinal * i.qtd;
+      const lucro = i.vTotal * (1 - comissaoDe(i.sku)) - rateio - custo;
+      a.vendido += sinal * i.qtd;
       a.faturado += sinal * i.vTotal;
-      a.lucro    += sinal * lucro;
-      a.freteTotal += sinal * rateio;
-      lucroNota  += sinal * lucro;
+      a.lucro += sinal * lucro;
+      lucroNota += sinal * lucro;
     });
-    linhasNota.push({...n, freteNota, lucroNota});
+    return {...n, lucroNota, itensTxt: n.itens.map(i => `${i.qtd}x ${i.sku}`).join(' · ')};
   });
 
-  // ---- cards
-  const totFat = Object.values(agg).reduce((s, a) => s + a.faturado, 0);
-  const totUn  = Object.values(agg).reduce((s, a) => s + a.vendido, 0);
-  const totLuc = Object.values(agg).reduce((s, a) => s + a.lucro, 0);
-  const estoqueInicial = (prod.produtos || []).reduce((s, p) => s + (p.qtd || 0), 0);
-  const escoado = estoqueInicial ? totUn / estoqueInicial : 0;
-  const skusComVenda = Object.values(agg).filter(a => a.vendido > 0).length;
+  LINHAS = (prod.produtos || []).map(p => {
+    const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
+    const ini = p.qtd || 0;
+    return {...p, ...a, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
+  });
+
+  /* ---- cards (sempre sobre o total, nao sobre o filtro) ---- */
+  const totFat = LINHAS.reduce((s, l) => s + l.faturado, 0);
+  const totUn  = LINHAS.reduce((s, l) => s + l.vendido, 0);
+  const totLuc = LINHAS.reduce((s, l) => s + l.lucro, 0);
+  const estIni = LINHAS.reduce((s, l) => s + l.inicial, 0);
+  const comVenda = LINHAS.filter(l => l.vendido > 0).length;
 
   document.getElementById('cards').innerHTML = `
     <div class="card verd">
@@ -176,7 +445,7 @@ async function init() {
     <div class="card azul">
       <div class="card-label">Unidades vendidas</div>
       <div class="card-valor">${totUn.toLocaleString('pt-BR')}</div>
-      <div class="card-sub">${skusComVenda} de ${(prod.produtos||[]).length} produtos com venda</div>
+      <div class="card-sub">${comVenda} de ${LINHAS.length} produtos com venda</div>
     </div>
     <div class="card ${totLuc >= 0 ? 'roxo' : 'amar'}">
       <div class="card-label">Lucro estimado</div>
@@ -185,80 +454,45 @@ async function init() {
     </div>
     <div class="card amar">
       <div class="card-label">Estoque escoado</div>
-      <div class="card-valor">${PCT(escoado)}</div>
-      <div class="card-sub">${totUn} de ${estoqueInicial.toLocaleString('pt-BR')} unidades</div>
+      <div class="card-valor">${PCT(estIni ? totUn / estIni : 0)}</div>
+      <div class="card-sub">${totUn} de ${estIni.toLocaleString('pt-BR')} unidades</div>
     </div>`;
 
-  // ---- tabela de giro
-  const linhas = (prod.produtos || []).map(p => {
-    const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
-    const ini = p.qtd || 0;
-    return {...p, ...a, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
-  }).sort((x, y) => y.vendido - x.vendido || y.faturado - x.faturado);
+  /* ---- popula selects ---- */
+  const selSku = document.getElementById('f-sku');
+  [...new Set(NOTAS.flatMap(n => n.itens.map(i => i.sku)))].sort().forEach(s => {
+    selSku.insertAdjacentHTML('beforeend', `<option value="${esc(s)}">${esc(s)}</option>`);
+  });
+  const selUf = document.getElementById('f-uf');
+  [...new Set(NOTAS.map(n => n.uf).filter(Boolean))].sort().forEach(u => {
+    selUf.insertAdjacentHTML('beforeend', `<option value="${esc(u)}">${esc(u)}</option>`);
+  });
 
-  document.getElementById('tbl-giro').innerHTML = `
-    <thead><tr>
-      <th>Produto</th><th>Estoque inicial</th><th>Vendido</th><th>Estoque atual</th>
-      <th>Faturado</th><th>Lucro estimado</th><th>Giro</th>
-    </tr></thead>
-    <tbody>${linhas.map(l => `
-      <tr>
-        <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
-        <td class="mut">${l.inicial.toLocaleString('pt-BR')}</td>
-        <td>${l.vendido ? '<b>' + l.vendido + '</b>' : '<span class="mut">—</span>'}</td>
-        <td><b>${l.atual.toLocaleString('pt-BR')}</b></td>
-        <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
-        <td class="${l.lucro > 0 ? 'pos' : l.lucro < 0 ? 'neg' : 'mut'}">${l.lucro ? BRL(l.lucro) : '—'}</td>
-        <td>
-          <div class="barra ${l.giro >= 0.02 ? 'q' : ''}"><i style="width:${Math.min(100, l.giro * 100).toFixed(2)}%"></i></div>
-          <span class="sku">${l.giro ? PCT(l.giro) : '0%'}</span>
-        </td>
-      </tr>`).join('')}
-    </tbody>
-    <tfoot><tr>
-      <td>TOTAL</td>
-      <td>${estoqueInicial.toLocaleString('pt-BR')}</td>
-      <td>${totUn}</td>
-      <td>${(estoqueInicial - totUn).toLocaleString('pt-BR')}</td>
-      <td>${BRL(totFat)}</td>
-      <td class="${totLuc >= 0 ? 'pos' : 'neg'}">${BRL(totLuc)}</td>
-      <td>${PCT(escoado)}</td>
-    </tr></tfoot>`;
+  /* ---- listeners ---- */
+  ['f-prod', 'f-giro'].forEach(id =>
+    document.getElementById(id).addEventListener('input', renderGiro));
+  ['f-busca', 'f-status', 'f-sku', 'f-uf', 'f-periodo'].forEach(id =>
+    document.getElementById(id).addEventListener('input', () => { pagina = 1; renderNotas(); }));
+  document.getElementById('limpar-giro').onclick = () => {
+    document.getElementById('f-prod').value = '';
+    document.getElementById('f-giro').value = 'todos';
+    renderGiro();
+  };
+  document.getElementById('limpar-notas').onclick = () => {
+    ['f-busca', 'f-status', 'f-sku', 'f-uf', 'f-periodo'].forEach(id =>
+      document.getElementById(id).value = '');
+    pagina = 1; renderNotas();
+  };
 
   document.getElementById('sub-giro').textContent =
-    `${skusComVenda} produtos com venda · ${(prod.produtos||[]).length - skusComVenda} ainda sem giro`;
-
-  // ---- tabela de notas
-  const ord = [...linhasNota].sort((a, b) => b.data.localeCompare(a.data) || b.nf - a.nf);
-  document.getElementById('tbl-notas').innerHTML = `
-    <thead><tr>
-      <th>NF</th><th>Data</th><th>Cliente</th><th>UF</th><th>Itens</th>
-      <th>Valor</th><th>Lucro estimado</th><th>Status</th>
-    </tr></thead>
-    <tbody>${ord.map(n => {
-      const pill = n.status === 'cancelada' ? '<span class="pill canc">cancelada</span>'
-                 : n.status === 'devolucao' ? '<span class="pill dev">devolucao</span>'
-                 : '<span class="pill ok">valida</span>';
-      const itens = n.itens.map(i => `${i.qtd}x ${esc(i.sku)}`).join(' · ');
-      const canc = n.status === 'cancelada';
-      return `<tr>
-        <td><b>${n.nf}</b><span class="sku">serie ${esc(n.serie)}</span></td>
-        <td>${n.data.split('-').reverse().join('/')}</td>
-        <td>${esc(n.cliente)}${n.motivo ? `<span class="sku">${esc(n.motivo)}</span>` : ''}</td>
-        <td>${esc(n.uf)}</td>
-        <td style="text-align:left">${itens}</td>
-        <td class="${canc ? 'mut' : ''}">${BRL(n.vProdutos)}</td>
-        <td class="${canc ? 'mut' : n.lucroNota >= 0 ? 'pos' : 'neg'}">${canc ? '—' : BRL(n.lucroNota)}</td>
-        <td>${pill}</td>
-      </tr>`;
-    }).join('')}</tbody>`;
-
-  const m = vendas.meta || {};
+    `${comVenda} com venda · ${LINHAS.length - comVenda} ainda sem giro`;
   document.getElementById('sub-notas').textContent =
-    `${m.total_notas} notas · ${(m.canceladas||[]).length} cancelada(s) · ${(m.devolucoes||[]).length} devolucao(oes)`;
-  document.getElementById('badge').innerHTML = `atualizado em <span>${esc(m.gerado_em)}</span>`;
+    `${META.total_notas} notas · ${(META.canceladas || []).length} cancelada(s) · ${(META.devolucoes || []).length} devolucao(oes)`;
+  document.getElementById('badge').innerHTML = `atualizado em <span>${esc(META.gerado_em)}</span>`;
 
-  // ---- rodape com as premissas
+  renderGiro();
+  renderNotas();
+
   const est = Object.entries(par).filter(([, v]) => v.frete_estimado).map(([k]) => k);
   document.getElementById('rodape').innerHTML = `
     <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado.
@@ -267,11 +501,13 @@ async function init() {
     <b>Comissao:</b> Classico 11,5% · Premium 16,5%, conforme a modalidade de cada anuncio.<br>
     <b>E estimativa, nao repasse.</b> O valor exato so aparece no relatorio de repasse do
     Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
-    abatidas do vendido e devolvem a unidade ao estoque.
+    abatidas do vendido e devolvem a unidade ao estoque.<br>
+    <b>Os cartoes do topo mostram sempre o total</b>, independente dos filtros. Quem responde
+    ao filtro e a linha TOTAL no rodape de cada tabela.
     ${est.length ? `<br><b>Frete ainda nao confirmado</b> em venda real para: ${est.join(', ')}.` : ''}
-    ${Object.keys(m.lacunas_numeracao || {}).length
+    ${Object.keys(META.lacunas_numeracao || {}).length
       ? `<br><b style="color:#f0883e">Atencao:</b> ha lacuna na numeracao das notas —
-         ${JSON.stringify(m.lacunas_numeracao)}. Confirme se foram canceladas.` : ''}`;
+         ${JSON.stringify(META.lacunas_numeracao)}. Confirme se foram canceladas.` : ''}`;
 }
 init();
 </script>
