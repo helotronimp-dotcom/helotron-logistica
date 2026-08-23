@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "gerado_em": "23/08/2026",
+    "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
+    "total_notas": 12,
+    "canceladas": [
+      14
+    ],
+    "devolucoes": [],
+    "lacunas_numeracao": {},
+    "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac. Comissao e frete sao parametros, nao valores do repasse do ML."
+  },
+  "parametros": {
+    "HEL-COZ-001": {
+      "frete": 13.25,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-COZ-002": {
+      "frete": 15.75,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-COZ-003": {
+      "frete": 13.25,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-COZ-005": {
+      "frete": 13.25,
+      "frete_estimado": true,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-COZ-006": {
+      "frete": 15.75,
+      "frete_estimado": true,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-COZ-007": {
+      "frete": 15.75,
+      "frete_estimado": true,
+      "modalidade": "premium",
+      "comissao": 0.165
+    },
+    "HEL-COZ-008": {
+      "frete": 13.85,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-JAR-002": {
+      "frete": 13.25,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-JAR-003": {
+      "frete": 18.45,
+      "frete_estimado": false,
+      "modalidade": "premium",
+      "comissao": 0.165
+    },
+    "HEL-JAR-004": {
+      "frete": 13.25,
+      "frete_estimado": false,
+      "modalidade": "classico",
+      "comissao": 0.115
+    },
+    "HEL-JAR-005": {
+      "frete": 13.85,
+      "frete_estimado": false,
+      "modalidade": "premium",
+      "comissao": 0.165
+    },
+    "HEL-JAR-006": {
+      "frete": 15.75,
+      "frete_estimado": true,
+      "modalidade": "classico",
+      "comissao": 0.115
+    }
+  },
+  "notas": [
+    {
+      "chave": "41260863403148000197550010000000041568468523",
+      "nf": 4,
+      "serie": "1",
+      "data": "2026-08-09",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 34.9,
+      "vNF": 34.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "SUPORTE DE SILICONE PARA PANELAS",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 34.9,
+          "vTotal": 34.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000051568538901",
+      "nf": 5,
+      "serie": "1",
+      "data": "2026-08-09",
+      "tipo": "saida",
+      "cliente": "Aurely Carlos Antonio",
+      "uf": "PR",
+      "vProdutos": 27.9,
+      "vNF": 27.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 27.9,
+          "vTotal": 27.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000061397210114",
+      "nf": 6,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Renan Dagnoni Pocahy",
+      "uf": "SC",
+      "vProdutos": 72.8,
+      "vNF": 72.8,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 27.9,
+          "vTotal": 27.9
+        },
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000071397291189",
+      "nf": 7,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Maina Alves Candro",
+      "uf": "SP",
+      "vProdutos": 220.7,
+      "vNF": 220.7,
+      "itens": [
+        {
+          "sku": "HEL-COZ-006",
+          "produto": "CONJUNTO COM 7 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PLSTICO PP CAPACIDADES 1X19L /",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        },
+        {
+          "sku": "HEL-JAR-002",
+          "produto": "HORTENSIA DECORATIVA COR AZUL COMPRIMENTO 70CM MATERIAL PVC LED PAINEL SOLAR INCLUSO BATERIA RECARREG",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 74.9,
+          "vTotal": 74.9
+        },
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 45.9,
+          "vTotal": 45.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000081397331498",
+      "nf": 8,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Renan Dagnoni Pocahy",
+      "uf": "SC",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-006",
+          "produto": "CONJUNTO COM 7 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PLSTICO PP CAPACIDADES 1X19L /",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000091397384874",
+      "nf": 9,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Lohara Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 90.8,
+      "vNF": 90.8,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 45.9,
+          "vTotal": 45.9
+        },
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000101397468904",
+      "nf": 10,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Natally Augusto Lopes",
+      "uf": "SP",
+      "vProdutos": 45.9,
+      "vNF": 58.89,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 45.9,
+          "vTotal": 45.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000111404453226",
+      "nf": 11,
+      "serie": "1",
+      "data": "2026-08-18",
+      "tipo": "saida",
+      "cliente": "Carlos Alberto Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 27.9,
+      "vNF": 27.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 27.9,
+          "vTotal": 27.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000121446936710",
+      "nf": 12,
+      "serie": "1",
+      "data": "2026-08-19",
+      "tipo": "saida",
+      "cliente": "Aurely Carlos Antonio",
+      "uf": "PR",
+      "vProdutos": 74.9,
+      "vNF": 74.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-002",
+          "produto": "HORTENSIA DECORATIVA COR AZUL COMPRIMENTO 70CM MATERIAL PVC LED PAINEL SOLAR INCLUSO BATERIA RECARREG",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 74.9,
+          "vTotal": 74.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000131638159388",
+      "nf": 13,
+      "serie": "1",
+      "data": "2026-08-21",
+      "tipo": "saida",
+      "cliente": "Adriana V.",
+      "uf": "SP",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000141730168450",
+      "nf": 14,
+      "serie": "1",
+      "data": "2026-08-22",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 44.9,
+      "vNF": 51.89,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "cancelada",
+      "motivo": "CLIENTE CANCELOU A COMPRA"
+    },
+    {
+      "chave": "41260863403148000197550010000000151756315163",
+      "nf": 15,
+      "serie": "1",
+      "data": "2026-08-23",
+      "tipo": "saida",
+      "cliente": "Jefferson Henrico Pinheiro",
+      "uf": "SC",
+      "vProdutos": 79.9,
+      "vNF": 84.89,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida"
+    }
+  ]
+}
