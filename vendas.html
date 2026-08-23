@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helotron — Vendas &amp; Estoque</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #e6edf3; }
+
+header {
+  background: #161b22; border-bottom: 1px solid #30363d;
+  padding: 18px 28px; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px; flex-wrap: wrap;
+}
+header h1 { font-size: 19px; font-weight: 700; letter-spacing: 0.5px; }
+header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
+.badge-update {
+  background: #21262d; border-radius: 20px; padding: 6px 14px;
+  font-size: 11px; border: 1px solid #30363d; color: #8b949e; white-space: nowrap;
+}
+.badge-update span { font-weight: 700; color: #e6edf3; }
+
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 18px 28px 6px; }
+@media (max-width: 760px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+.card {
+  background: #161b22; border-radius: 10px; padding: 15px 18px;
+  border: 1px solid #30363d; border-left: 4px solid #30363d;
+}
+.card.verd { border-left-color: #3fb950; }
+.card.azul { border-left-color: #58a6ff; }
+.card.roxo { border-left-color: #bc8cff; }
+.card.amar { border-left-color: #d29922; }
+.card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #7d8590; }
+.card-valor { font-size: 26px; font-weight: 700; margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
+.card-sub   { font-size: 10px; color: #7d8590; }
+
+.section { background: #161b22; margin: 12px 28px; border-radius: 10px; overflow: hidden; border: 1px solid #30363d; }
+.sec-header {
+  background: #21262d; padding: 11px 16px; font-size: 13px; font-weight: 600;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid #30363d; gap: 12px; flex-wrap: wrap;
+}
+.sec-header small { color: #7d8590; font-size: 10px; font-weight: 400; }
+.overflow-x { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th {
+  background: #21262d; color: #8b949e; padding: 8px 10px; text-align: center;
+  font-weight: 600; font-size: 11px; white-space: nowrap; border-bottom: 1px solid #30363d;
+}
+th:first-child, td:first-child { text-align: left; }
+td { padding: 8px 10px; text-align: center; border-bottom: 1px solid #21262d; font-variant-numeric: tabular-nums; }
+tbody tr:hover { background: #1c2129; }
+tbody tr:last-child td { border-bottom: none; }
+tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d; }
+
+.sku { font-size: 10px; color: #7d8590; display: block; margin-top: 2px; }
+.pos { color: #3fb950; } .neg { color: #f85149; } .mut { color: #7d8590; }
+
+.barra { background: #21262d; border-radius: 4px; height: 7px; width: 92px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.barra i { display: block; height: 100%; background: #58a6ff; border-radius: 4px; }
+.barra.q i { background: #3fb950; }
+
+.pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 10px; font-weight: 600; }
+.pill.ok   { background: #0f2a1a; color: #3fb950; border: 1px solid #3fb95055; }
+.pill.canc { background: #2a1215; color: #f85149; border: 1px solid #f8514955; }
+.pill.dev  { background: #271d0a; color: #f0883e; border: 1px solid #f0883e55; }
+
+.nota {
+  margin: 12px 28px 22px; padding: 12px 16px; background: #161b22;
+  border: 1px solid #30363d; border-left: 3px solid #d29922;
+  border-radius: 8px; font-size: 11px; color: #8b949e; line-height: 1.7;
+}
+.nota b { color: #e6edf3; }
+.erro { padding: 40px 28px; color: #f85149; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>VENDAS &amp; ESTOQUE</h1>
+    <p>Giro realizado por produto e saldo remanescente do container ST260001</p>
+  </div>
+  <div class="badge-update" id="badge">carregando…</div>
+</header>
+
+<div class="cards" id="cards"></div>
+
+<div class="section">
+  <div class="sec-header">
+    <span>GIRO POR PRODUTO</span>
+    <small id="sub-giro"></small>
+  </div>
+  <div class="overflow-x"><table id="tbl-giro"></table></div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <span>NOTAS EMITIDAS</span>
+    <small id="sub-notas"></small>
+  </div>
+  <div class="overflow-x"><table id="tbl-notas"></table></div>
+</div>
+
+<div class="nota" id="rodape"></div>
+
+<script>
+const BRL = v => 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const PCT = v => (v * 100).toFixed(1).replace('.', ',') + '%';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function init() {
+  let prod, vendas;
+  try {
+    [prod, vendas] = await Promise.all([
+      fetch('./dados.json?' + Date.now()).then(r => r.json()),
+      fetch('./vendas.json?' + Date.now()).then(r => r.json()),
+    ]);
+  } catch (e) {
+    document.body.insertAdjacentHTML('beforeend',
+      '<div class="erro">Nao foi possivel carregar dados.json ou vendas.json.</div>');
+    return;
+  }
+
+  const cat = {};
+  (prod.produtos || []).forEach(p => { if (p.sku) cat[p.sku] = p; });
+  const par = vendas.parametros || {};
+  const comissaoDe = sku => (par[sku]?.comissao ?? 0.115);
+  const freteDe    = sku => (par[sku]?.frete ?? 13.25);
+
+  // ---- agrega por SKU. O frete e cobrado uma vez por nota (maior frete
+  //      entre os itens) e rateado entre os itens pelo valor de cada um.
+  const agg = {};
+  const linhasNota = [];
+  const pega = sku => (agg[sku] ??= {vendido: 0, faturado: 0, lucro: 0, freteTotal: 0});
+
+  (vendas.notas || []).forEach(n => {
+    const valida = n.status === 'valida';
+    const dev = n.status === 'devolucao';
+    const freteNota = valida ? Math.max(...n.itens.map(i => freteDe(i.sku))) : 0;
+    let lucroNota = 0;
+
+    n.itens.forEach(i => {
+      const sinal = dev ? -1 : 1;
+      if (!valida && !dev) return;                    // cancelada: ignora
+      const a = pega(i.sku);
+      const rateio = n.vProdutos > 0 ? (i.vTotal / n.vProdutos) * freteNota : 0;
+      const custo = (cat[i.sku]?.custo_nac ?? 0) * i.qtd;
+      const liquido = i.vTotal * (1 - comissaoDe(i.sku)) - rateio;
+      const lucro = liquido - custo;
+      a.vendido  += sinal * i.qtd;
+      a.faturado += sinal * i.vTotal;
+      a.lucro    += sinal * lucro;
+      a.freteTotal += sinal * rateio;
+      lucroNota  += sinal * lucro;
+    });
+    linhasNota.push({...n, freteNota, lucroNota});
+  });
+
+  // ---- cards
+  const totFat = Object.values(agg).reduce((s, a) => s + a.faturado, 0);
+  const totUn  = Object.values(agg).reduce((s, a) => s + a.vendido, 0);
+  const totLuc = Object.values(agg).reduce((s, a) => s + a.lucro, 0);
+  const estoqueInicial = (prod.produtos || []).reduce((s, p) => s + (p.qtd || 0), 0);
+  const escoado = estoqueInicial ? totUn / estoqueInicial : 0;
+  const skusComVenda = Object.values(agg).filter(a => a.vendido > 0).length;
+
+  document.getElementById('cards').innerHTML = `
+    <div class="card verd">
+      <div class="card-label">Faturamento</div>
+      <div class="card-valor">${BRL(totFat)}</div>
+      <div class="card-sub">somente produtos, sem frete cobrado do cliente</div>
+    </div>
+    <div class="card azul">
+      <div class="card-label">Unidades vendidas</div>
+      <div class="card-valor">${totUn.toLocaleString('pt-BR')}</div>
+      <div class="card-sub">${skusComVenda} de ${(prod.produtos||[]).length} produtos com venda</div>
+    </div>
+    <div class="card ${totLuc >= 0 ? 'roxo' : 'amar'}">
+      <div class="card-label">Lucro estimado</div>
+      <div class="card-valor ${totLuc >= 0 ? 'pos' : 'neg'}">${BRL(totLuc)}</div>
+      <div class="card-sub">${totFat ? PCT(totLuc / totFat) : '—'} sobre o faturamento</div>
+    </div>
+    <div class="card amar">
+      <div class="card-label">Estoque escoado</div>
+      <div class="card-valor">${PCT(escoado)}</div>
+      <div class="card-sub">${totUn} de ${estoqueInicial.toLocaleString('pt-BR')} unidades</div>
+    </div>`;
+
+  // ---- tabela de giro
+  const linhas = (prod.produtos || []).map(p => {
+    const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
+    const ini = p.qtd || 0;
+    return {...p, ...a, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
+  }).sort((x, y) => y.vendido - x.vendido || y.faturado - x.faturado);
+
+  document.getElementById('tbl-giro').innerHTML = `
+    <thead><tr>
+      <th>Produto</th><th>Estoque inicial</th><th>Vendido</th><th>Estoque atual</th>
+      <th>Faturado</th><th>Lucro estimado</th><th>Giro</th>
+    </tr></thead>
+    <tbody>${linhas.map(l => `
+      <tr>
+        <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
+        <td class="mut">${l.inicial.toLocaleString('pt-BR')}</td>
+        <td>${l.vendido ? '<b>' + l.vendido + '</b>' : '<span class="mut">—</span>'}</td>
+        <td><b>${l.atual.toLocaleString('pt-BR')}</b></td>
+        <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
+        <td class="${l.lucro > 0 ? 'pos' : l.lucro < 0 ? 'neg' : 'mut'}">${l.lucro ? BRL(l.lucro) : '—'}</td>
+        <td>
+          <div class="barra ${l.giro >= 0.02 ? 'q' : ''}"><i style="width:${Math.min(100, l.giro * 100).toFixed(2)}%"></i></div>
+          <span class="sku">${l.giro ? PCT(l.giro) : '0%'}</span>
+        </td>
+      </tr>`).join('')}
+    </tbody>
+    <tfoot><tr>
+      <td>TOTAL</td>
+      <td>${estoqueInicial.toLocaleString('pt-BR')}</td>
+      <td>${totUn}</td>
+      <td>${(estoqueInicial - totUn).toLocaleString('pt-BR')}</td>
+      <td>${BRL(totFat)}</td>
+      <td class="${totLuc >= 0 ? 'pos' : 'neg'}">${BRL(totLuc)}</td>
+      <td>${PCT(escoado)}</td>
+    </tr></tfoot>`;
+
+  document.getElementById('sub-giro').textContent =
+    `${skusComVenda} produtos com venda · ${(prod.produtos||[]).length - skusComVenda} ainda sem giro`;
+
+  // ---- tabela de notas
+  const ord = [...linhasNota].sort((a, b) => b.data.localeCompare(a.data) || b.nf - a.nf);
+  document.getElementById('tbl-notas').innerHTML = `
+    <thead><tr>
+      <th>NF</th><th>Data</th><th>Cliente</th><th>UF</th><th>Itens</th>
+      <th>Valor</th><th>Lucro estimado</th><th>Status</th>
+    </tr></thead>
+    <tbody>${ord.map(n => {
+      const pill = n.status === 'cancelada' ? '<span class="pill canc">cancelada</span>'
+                 : n.status === 'devolucao' ? '<span class="pill dev">devolucao</span>'
+                 : '<span class="pill ok">valida</span>';
+      const itens = n.itens.map(i => `${i.qtd}x ${esc(i.sku)}`).join(' · ');
+      const canc = n.status === 'cancelada';
+      return `<tr>
+        <td><b>${n.nf}</b><span class="sku">serie ${esc(n.serie)}</span></td>
+        <td>${n.data.split('-').reverse().join('/')}</td>
+        <td>${esc(n.cliente)}${n.motivo ? `<span class="sku">${esc(n.motivo)}</span>` : ''}</td>
+        <td>${esc(n.uf)}</td>
+        <td style="text-align:left">${itens}</td>
+        <td class="${canc ? 'mut' : ''}">${BRL(n.vProdutos)}</td>
+        <td class="${canc ? 'mut' : n.lucroNota >= 0 ? 'pos' : 'neg'}">${canc ? '—' : BRL(n.lucroNota)}</td>
+        <td>${pill}</td>
+      </tr>`;
+    }).join('')}</tbody>`;
+
+  const m = vendas.meta || {};
+  document.getElementById('sub-notas').textContent =
+    `${m.total_notas} notas · ${(m.canceladas||[]).length} cancelada(s) · ${(m.devolucoes||[]).length} devolucao(oes)`;
+  document.getElementById('badge').innerHTML = `atualizado em <span>${esc(m.gerado_em)}</span>`;
+
+  // ---- rodape com as premissas
+  const est = Object.entries(par).filter(([, v]) => v.frete_estimado).map(([k]) => k);
+  document.getElementById('rodape').innerHTML = `
+    <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado.
+    O frete e contado <b>uma vez por nota</b> (o maior entre os itens do pedido) e rateado
+    entre os produtos pelo valor de cada um.<br>
+    <b>Comissao:</b> Classico 11,5% · Premium 16,5%, conforme a modalidade de cada anuncio.<br>
+    <b>E estimativa, nao repasse.</b> O valor exato so aparece no relatorio de repasse do
+    Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
+    abatidas do vendido e devolvem a unidade ao estoque.
+    ${est.length ? `<br><b>Frete ainda nao confirmado</b> em venda real para: ${est.join(', ')}.` : ''}
+    ${Object.keys(m.lacunas_numeracao || {}).length
+      ? `<br><b style="color:#f0883e">Atencao:</b> ha lacuna na numeracao das notas —
+         ${JSON.stringify(m.lacunas_numeracao)}. Confirme se foram canceladas.` : ''}`;
+}
+init();
+</script>
+</body>
+</html>
