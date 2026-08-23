@@ -102,6 +102,9 @@
     <button class="tab active" id="btn-vendas" onclick="show('vendas')">
       <span class="tab-icon">📊</span> Monitor de Vendas
     </button>
+    <button class="tab" id="btn-giro" onclick="show('giro')">
+      <span class="tab-icon">💰</span> Vendas &amp; Estoque
+    </button>
     <button class="tab" id="btn-logistica" onclick="show('logistica')">
       <span class="tab-icon">🚢</span> Logística
     </button>
@@ -118,6 +121,9 @@
   <div class="pane active" id="pane-vendas">
     <iframe src="./precos.html" title="Monitor de Vendas"></iframe>
   </div>
+  <div class="pane" id="pane-giro">
+    <iframe src="./vendas.html" title="Vendas e Estoque"></iframe>
+  </div>
   <div class="pane" id="pane-logistica">
     <iframe src="./logistica.html" title="Monitor de Logística"></iframe>
   </div>
@@ -131,7 +137,7 @@
 
 <script>
   function show(id) {
-    ['vendas', 'logistica', 'invoice', 'fixos'].forEach(t => {
+    ['vendas', 'giro', 'logistica', 'invoice', 'fixos'].forEach(t => {
       document.getElementById('btn-' + t).classList.toggle('active', t === id);
       document.getElementById('pane-' + t).classList.toggle('active', t === id);
     });
