@@ -478,6 +478,9 @@ function getComissao() {
 // Modalidade por produto: 'classico' (11,5%) ou 'premium' (16,5%)
 const MODALIDADE_PRODUTO = {};
 const COMISSAO_CLASSICO   = 0.115;
+// DAS do Simples Nacional, Anexo I (comercio). 1a faixa = 4%.
+// Sobe para ~5,65% ao passar de R$ 180 mil de faturamento em 12 meses.
+const ALIQUOTA_SIMPLES = 0.04;
 const COMISSAO_PREMIUM    = 0.165;
 
 function getModalidade(nome) {
@@ -555,9 +558,13 @@ function getLiquidoML(p, pmv) {
   return pmv * (1 - getComissaoProduto(p.nome)) - getCustoFrete(p.nome);
 }
 
+function getDAS(pmv) {
+  return pmv ? pmv * ALIQUOTA_SIMPLES : 0;
+}
+
 function getLucroLiq(p, pmv) {
   if (!pmv || p.custo_nac == null) return null;
-  return getLiquidoML(p, pmv) - p.custo_nac;
+  return getLiquidoML(p, pmv) - p.custo_nac - getDAS(pmv);
 }
 
 // Margem efetiva: se o preço foi travado, deriva do preço; senão é a margem alvo
@@ -578,7 +585,7 @@ function pmvDinamico(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
-  const divisor = 1 - getComissaoProduto(produto.nome) - margem;
+  const divisor = 1 - getComissaoProduto(produto.nome) - ALIQUOTA_SIMPLES - margem;
   return divisor > 0 ? (custo + getCustoFrete(produto.nome)) / divisor : null;
 }
 
