@@ -204,6 +204,9 @@ const norm = s => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ
 const dataBR = d => d.split('-').reverse().join('/');
 
 const PAG_TAM = 25;
+// DAS do Simples Nacional, Anexo I (comercio), 1a faixa.
+// Sobe para ~5,65% ao passar de R$ 180 mil de faturamento em 12 meses.
+const ALIQUOTA_SIMPLES = 0.04;
 let LINHAS = [], NOTAS = [], META = {};
 let ordGiro  = {col: 'vendido', dir: -1};
 let ordNotas = {col: 'data', dir: -1};
@@ -414,7 +417,8 @@ async function init() {
       const a = pega(i.sku);
       const rateio = n.vProdutos > 0 ? (i.vTotal / n.vProdutos) * freteNota : 0;
       const custo = (cat[i.sku]?.custo_nac ?? 0) * i.qtd;
-      const lucro = i.vTotal * (1 - comissaoDe(i.sku)) - rateio - custo;
+      const das = i.vTotal * ALIQUOTA_SIMPLES;
+      const lucro = i.vTotal * (1 - comissaoDe(i.sku)) - rateio - custo - das;
       a.vendido += sinal * i.qtd;
       a.faturado += sinal * i.vTotal;
       a.lucro += sinal * lucro;
@@ -495,9 +499,12 @@ async function init() {
 
   const est = Object.entries(par).filter(([, v]) => v.frete_estimado).map(([k]) => k);
   document.getElementById('rodape').innerHTML = `
-    <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado.
-    O frete e contado <b>uma vez por nota</b> (o maior entre os itens do pedido) e rateado
-    entre os produtos pelo valor de cada um.<br>
+    <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado
+    - DAS. O frete e contado <b>uma vez por nota</b> (o maior entre os itens do pedido) e
+    rateado entre os produtos pelo valor de cada um.<br>
+    <b>Imposto:</b> DAS do Simples Nacional, Anexo I, 1a faixa — <b>4% sobre a receita
+    bruta</b>, sem credito do ICMS pago na importacao (CSOSN 102). A aliquota sobe para
+    cerca de 5,65% quando o faturamento passar de R$ 180 mil em 12 meses.<br>
     <b>Comissao:</b> Classico 11,5% · Premium 16,5%, conforme a modalidade de cada anuncio.<br>
     <b>E estimativa, nao repasse.</b> O valor exato so aparece no relatorio de repasse do
     Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
