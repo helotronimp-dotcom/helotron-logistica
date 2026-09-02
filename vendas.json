@@ -1,14 +1,15 @@
 {
   "meta": {
-    "gerado_em": "23/08/2026",
+    "gerado_em": "01/09/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 12,
+    "total_notas": 26,
     "canceladas": [
-      14
+      14,
+      23
     ],
     "devolucoes": [],
     "lacunas_numeracao": {},
-    "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac. Comissao e frete sao parametros, nao valores do repasse do ML."
+    "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace."
   },
   "parametros": {
     "HEL-COZ-001": {
@@ -42,8 +43,8 @@
       "comissao": 0.115
     },
     "HEL-COZ-007": {
-      "frete": 15.75,
-      "frete_estimado": true,
+      "frete": 14.15,
+      "frete_estimado": false,
       "modalidade": "premium",
       "comissao": 0.165
     },
@@ -370,6 +371,331 @@
       "uf": "SC",
       "vProdutos": 79.9,
       "vNF": 84.89,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000161845487129",
+      "nf": 16,
+      "serie": "1",
+      "data": "2026-08-24",
+      "tipo": "saida",
+      "cliente": "Gilberto Batistella",
+      "uf": "PR",
+      "vProdutos": 74.9,
+      "vNF": 97.36,
+      "itens": [
+        {
+          "sku": "HEL-JAR-002",
+          "produto": "HORTENSIA DECORATIVA COR AZUL COMPRIMENTO 70CM MATERIAL PVC LED PAINEL SOLAR INCLUSO BATERIA RECARREG",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 74.9,
+          "vTotal": 74.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000171907296787",
+      "nf": 17,
+      "serie": "1",
+      "data": "2026-08-25",
+      "tipo": "saida",
+      "cliente": "Marcia Araujo Bastos Freitas",
+      "uf": "BA",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000181979406489",
+      "nf": 18,
+      "serie": "1",
+      "data": "2026-08-25",
+      "tipo": "saida",
+      "cliente": "Hernani Prado Vasconcelos",
+      "uf": "SP",
+      "vProdutos": 27.9,
+      "vNF": 27.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 27.9,
+          "vTotal": 27.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000191176219826",
+      "nf": 19,
+      "serie": "1",
+      "data": "2026-08-27",
+      "tipo": "saida",
+      "cliente": "Cristiane Priscila De Oliveira",
+      "uf": "PR",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000201312049452",
+      "nf": 20,
+      "serie": "1",
+      "data": "2026-08-29",
+      "tipo": "saida",
+      "cliente": "Carlos Eduardo Guerra",
+      "uf": "SP",
+      "vProdutos": 159.8,
+      "vNF": 159.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 2.0,
+          "vUnit": 79.9,
+          "vTotal": 159.8
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000211312171603",
+      "nf": 21,
+      "serie": "1",
+      "data": "2026-08-29",
+      "tipo": "saida",
+      "cliente": "Carlos Alberto Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 24.9,
+      "vNF": 24.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 24.9,
+          "vTotal": 24.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000221340876940",
+      "nf": 22,
+      "serie": "1",
+      "data": "2026-08-30",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 39.9,
+      "vNF": 39.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 39.9,
+          "vTotal": 39.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000231340902972",
+      "nf": 23,
+      "serie": "1",
+      "data": "2026-08-30",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 284.2,
+      "vNF": 284.2,
+      "itens": [
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "SUPORTE DE SILICONE PARA PANELAS",
+          "cfop": "5102",
+          "qtd": 7.0,
+          "vUnit": 34.9,
+          "vTotal": 244.3
+        },
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 39.9,
+          "vTotal": 39.9
+        }
+      ],
+      "status": "cancelada",
+      "motivo": "QUANTIDADE ERRADA"
+    },
+    {
+      "chave": "41260863403148000197550010000000241340950206",
+      "nf": 24,
+      "serie": "1",
+      "data": "2026-08-30",
+      "tipo": "saida",
+      "cliente": "Carlos Alberto Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-006",
+          "produto": "CONJUNTO COM 7 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PLSTICO PP CAPACIDADES 1X19L /",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000251341292978",
+      "nf": 25,
+      "serie": "1",
+      "data": "2026-08-30",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 74.8,
+      "vNF": 74.8,
+      "itens": [
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "SUPORTE DE SILICONE PARA PANELAS",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 34.9,
+          "vTotal": 34.9
+        },
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 39.9,
+          "vTotal": 39.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000261438751613",
+      "nf": 26,
+      "serie": "1",
+      "data": "2026-08-31",
+      "tipo": "saida",
+      "cliente": "Mateus Cabral Rodrigues",
+      "uf": "SP",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000271438908293",
+      "nf": 27,
+      "serie": "1",
+      "data": "2026-08-31",
+      "tipo": "saida",
+      "cliente": "Aurely Carlos Antonio",
+      "uf": "PR",
+      "vProdutos": 24.9,
+      "vNF": 24.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 24.9,
+          "vTotal": 24.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260863403148000197550010000000281439558552",
+      "nf": 28,
+      "serie": "1",
+      "data": "2026-08-31",
+      "tipo": "saida",
+      "cliente": "Aurely Carlos Antonio",
+      "uf": "PR",
+      "vProdutos": 33.9,
+      "vNF": 33.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-008",
+          "produto": "CORTADOR DE LEGUMES MANUAL MATERIAL PLASTICO E ACO INOXIDAVEL USO DOMESTICO.",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 33.9,
+          "vTotal": 33.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000291538207953",
+      "nf": 29,
+      "serie": "1",
+      "data": "2026-09-01",
+      "tipo": "saida",
+      "cliente": "Leticia Ribeiro De Carvalho",
+      "uf": "GO",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
       "itens": [
         {
           "sku": "HEL-JAR-004",
