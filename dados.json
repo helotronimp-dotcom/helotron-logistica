@@ -9,7 +9,9 @@
     "despacho_brl": 4800.0,
     "margem_alvo": 0.3,
     "plataforma": "mercadolivre",
-    "comissao_plataforma": 0.18
+    "comissao_plataforma": 0.18,
+    "ml_atualizado_em": "10/09/2026",
+    "ml_fonte": "vendas/anuncios_ml/Anuncios_ML_2026-09-10.pdf — preco promocional, comissao e frete reais por anuncio"
   },
   "container": {
     "referencia": "ST260001",
@@ -101,7 +103,20 @@
       ],
       "obs_unificacao": "HEL-COZ-001 (GreenEarth, 1488 un) e HEL-COZ-004 (TeMeiHui, 960 un) sao o mesmo produto. Confirmado: caixa master identica (70,5x34x47,5 cm), 24 un/caixa nos dois, peso por unidade 0,727 vs 0,750 kg. Estoque unificado em 2.448 un. custo_nac usa o MAIOR custo (R$ 23,94 da GreenEarth); custo medio real R$ 22,60.",
       "custo_menor": 20.52,
-      "custo_menor_fornecedor": "TeMeiHui"
+      "custo_menor_fornecedor": "TeMeiHui",
+      "ml": {
+        "mlb": "7367020886",
+        "preco_cheio": 39.9,
+        "preco_promo": 39.9,
+        "modalidade": "classico",
+        "comissao_valor": 4.59,
+        "comissao_pct": 0.115,
+        "frete_valor": 13.85,
+        "voce_recebe": 21.46,
+        "estoque_anuncio": 1481,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
@@ -169,7 +184,20 @@
       ],
       "qtd": 1680,
       "frete_ml": 18,
-      "sku": "HEL-COZ-007"
+      "sku": "HEL-COZ-007",
+      "ml": {
+        "mlb": "7372187584",
+        "preco_cheio": 39.9,
+        "preco_promo": 35.91,
+        "modalidade": "classico",
+        "comissao_valor": 2.93,
+        "comissao_pct": 0.0816,
+        "frete_valor": 14.75,
+        "voce_recebe": 18.23,
+        "estoque_anuncio": 1676,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Kit 7 Potes Hermeticos",
@@ -237,7 +265,20 @@
       ],
       "qtd": 420,
       "frete_ml": 25,
-      "sku": "HEL-COZ-006"
+      "sku": "HEL-COZ-006",
+      "ml": {
+        "mlb": "5026932845",
+        "preco_cheio": 99.9,
+        "preco_promo": 87.21,
+        "modalidade": "premium",
+        "comissao_valor": 13.76,
+        "comissao_pct": 0.1578,
+        "frete_valor": 14.75,
+        "voce_recebe": 58.7,
+        "estoque_anuncio": 417,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Conjunto Potes Organizadores",
@@ -305,7 +346,20 @@
       ],
       "qtd": 1000,
       "frete_ml": 20,
-      "sku": "HEL-COZ-002"
+      "sku": "HEL-COZ-002",
+      "ml": {
+        "mlb": "7367225350",
+        "preco_cheio": 44.9,
+        "preco_promo": 40.41,
+        "modalidade": "classico",
+        "comissao_valor": 4.43,
+        "comissao_pct": 0.1096,
+        "frete_valor": 16.45,
+        "voce_recebe": 19.53,
+        "estoque_anuncio": 994,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Tapete de Silicone para Cozinha",
@@ -377,7 +431,20 @@
       "unidade_venda": "kit com 4 pecas",
       "pecas_por_kit": 4,
       "pecas_totais": 2160,
-      "obs_kit": "Vendido em kit de 4 pecas. Estoque no ML = 540 kits (2.160 pecas / 4). custo_nac representa o custo do KIT, nao da peca avulsa (R$ 4,04 x 4)."
+      "obs_kit": "Vendido em kit de 4 pecas. Estoque no ML = 540 kits (2.160 pecas / 4). custo_nac representa o custo do KIT, nao da peca avulsa (R$ 4,04 x 4).",
+      "ml": {
+        "mlb": "5022215055",
+        "preco_cheio": 34.9,
+        "preco_promo": 33.15,
+        "modalidade": "classico",
+        "comissao_valor": 2.76,
+        "comissao_pct": 0.0833,
+        "frete_valor": 12.95,
+        "voce_recebe": 17.44,
+        "estoque_anuncio": 2151,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Spray de Oleo Cozinha",
@@ -445,7 +512,20 @@
       ],
       "qtd": 3000,
       "frete_ml": 15,
-      "sku": "HEL-COZ-005"
+      "sku": "HEL-COZ-005",
+      "ml": {
+        "mlb": "5025211935",
+        "preco_cheio": 24.9,
+        "preco_promo": 24.15,
+        "modalidade": "classico",
+        "comissao_valor": 3.13,
+        "comissao_pct": 0.1296,
+        "frete_valor": 13.85,
+        "voce_recebe": 7.17,
+        "estoque_anuncio": 2992,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Luminaria Solar Flamingo 2 un.",
@@ -513,7 +593,20 @@
       ],
       "qtd": 504,
       "frete_ml": 20,
-      "sku": "HEL-JAR-004"
+      "sku": "HEL-JAR-004",
+      "ml": {
+        "mlb": "5016564863",
+        "preco_cheio": 79.9,
+        "preco_promo": 73.62,
+        "modalidade": "classico",
+        "comissao_valor": 7.79,
+        "comissao_pct": 0.1058,
+        "frete_valor": 8.25,
+        "voce_recebe": 57.58,
+        "estoque_anuncio": 497,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Luminaria Solar Flamingo 3 un.",
@@ -593,7 +686,20 @@
       ],
       "obs_unificacao": "HEL-JAR-001 (YuNan, 216 un) e HEL-JAR-005 (TeMeiHui, 504 un) sao o mesmo produto, confirmado fisicamente. Estoque unificado em 720 un. custo_nac usa o MAIOR custo (R$ 37,83 da YuNan) por prudencia na precificacao; o custo medio real e R$ 29,71.",
       "custo_menor": 26.23,
-      "custo_menor_fornecedor": "TeMeiHui"
+      "custo_menor_fornecedor": "TeMeiHui",
+      "ml": {
+        "mlb": "7366486786",
+        "preco_cheio": 99.9,
+        "preco_promo": 92.05,
+        "modalidade": "premium",
+        "comissao_valor": 14.58,
+        "comissao_pct": 0.1584,
+        "frete_valor": 14.45,
+        "voce_recebe": 63.02,
+        "estoque_anuncio": 502,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
@@ -661,7 +767,20 @@
       ],
       "qtd": 1020,
       "frete_ml": 25,
-      "sku": "HEL-JAR-006"
+      "sku": "HEL-JAR-006",
+      "ml": {
+        "mlb": "5114826509",
+        "preco_cheio": 89.9,
+        "preco_promo": 80.91,
+        "modalidade": "classico",
+        "comissao_valor": 9.15,
+        "comissao_pct": 0.1131,
+        "frete_valor": 14.45,
+        "voce_recebe": 57.31,
+        "estoque_anuncio": 1020,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Luminaria Solar Hortensia PVC",
@@ -729,7 +848,20 @@
       ],
       "qtd": 189,
       "frete_ml": 22,
-      "sku": "HEL-JAR-002"
+      "sku": "HEL-JAR-002",
+      "ml": {
+        "mlb": "5022123799",
+        "preco_cheio": 74.9,
+        "preco_promo": 69.02,
+        "modalidade": "classico",
+        "comissao_valor": 7.27,
+        "comissao_pct": 0.1053,
+        "frete_valor": 14.45,
+        "voce_recebe": 47.3,
+        "estoque_anuncio": 185,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
@@ -797,7 +929,20 @@
       ],
       "qtd": 216,
       "frete_ml": 25,
-      "sku": "HEL-JAR-003"
+      "sku": "HEL-JAR-003",
+      "ml": {
+        "mlb": "5022170793",
+        "preco_cheio": 129.9,
+        "preco_promo": 116.91,
+        "modalidade": "premium",
+        "comissao_valor": 19.29,
+        "comissao_pct": 0.165,
+        "frete_valor": 19.05,
+        "voce_recebe": 80.77,
+        "estoque_anuncio": 216,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     },
     {
       "nome": "Cortador de Legumes Manual",
@@ -812,7 +957,20 @@
       "historico": [],
       "qtd": 4800,
       "frete_ml": 15,
-      "sku": "HEL-COZ-008"
+      "sku": "HEL-COZ-008",
+      "ml": {
+        "mlb": "5022326823",
+        "preco_cheio": 33.9,
+        "preco_promo": 29.59,
+        "modalidade": "classico",
+        "comissao_valor": 2.25,
+        "comissao_pct": 0.076,
+        "frete_valor": 14.45,
+        "voce_recebe": 12.89,
+        "estoque_anuncio": 4798,
+        "fonte": "PDF Anuncios ML 10/09/2026",
+        "coletado_em": "10/09/2026"
+      }
     }
   ]
 }
