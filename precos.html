@@ -282,7 +282,7 @@ tbody tr { cursor: pointer; }
     💡 <strong>A cadeia completa:</strong> Preço de venda <span style="color:#7d8590">−</span> comissão do ML <span style="color:#7d8590">−</span> frete <span style="color:#7d8590">=</span> <strong style="color:#79c0ff">Vl. Líquido ML</strong> <span style="color:#7d8590">−</span> <strong style="color:#e3b341">imposto (DAS 4%)</strong> <span style="color:#7d8590">−</span> custo nacionalizado <span style="color:#7d8590">=</span> <strong style="color:#3fb950">Lucro</strong>. A <strong>Margem</strong> é o lucro ÷ preço de venda.<br>
     💰 <strong>PMV é o preço sugerido, não o que está no ar.</strong> Embaixo de cada PMV aparece <em>"no ML hoje"</em> com o preço real do anúncio (riscado = preço cheio, ao lado = promocional). Em <span style="color:#e3b341">amarelo</span> quer dizer que o sugerido e o praticado estão diferentes; <span style="color:#3fb950">verde</span> quer dizer que batem. <strong>Clique no preço do ML</strong> para recalcular a linha inteira com ele — aí comissão, frete e líquido reproduzem exatamente o que o Mercado Livre mostra na tela do anúncio.<br>
     📦 <strong>Estoque</strong> é o que ainda existe (inicial menos o vendido). Se o anúncio no ML estiver com outro número, aparece um aviso ⚠ embaixo — vale conferir, porque anúncio com estoque a mais gera venda que você não consegue entregar.<br>
-    🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> — que aparece também no frete — quer dizer que o valor foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais (fica laranja, ↺ solta). Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
+    🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> — que aparece também no frete — quer dizer que o valor foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais e <strong>o percentual acima passa a ser recalculado a partir do valor que você digitou</strong> — os dois ficam laranja e o • verde some, porque o número deixou de ser o do anúncio. O ↺ devolve tudo ao percentual. Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
     ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
     ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
   </p>
@@ -529,7 +529,16 @@ function getComissaoProduto(nome) {
 }
 
 function comissaoEhReal(nome) {
-  return prodPorNome(nome)?.ml?.comissao_pct != null && !MODALIDADE_PRODUTO[nome];
+  return prodPorNome(nome)?.ml?.comissao_pct != null
+      && !MODALIDADE_PRODUTO[nome]
+      && COMISSAO_OVERRIDE[nome] == null;
+}
+
+// Percentual que a tela deve mostrar: se o valor foi travado em R$, o percentual
+// e o que esse valor representa sobre o preco. Senao, o percentual da modalidade.
+function getComissaoPctExibido(nome, pmv) {
+  if (COMISSAO_OVERRIDE[nome] != null && pmv) return COMISSAO_OVERRIDE[nome] / pmv;
+  return getComissaoProduto(nome);
 }
 
 // Valor em R$ da comissao: override digitado vence; senao percentual x preco
@@ -839,10 +848,10 @@ function recalcularTabela() {
         ${(() => {
           const nomeEsc  = p.nome.replace(/'/g,"\\'");
           const premium  = getModalidade(p.nome) === 'premium';
-          const pct      = getComissaoProduto(p.nome);
-          const real     = comissaoEhReal(p.nome);
           const travada  = COMISSAO_OVERRIDE[p.nome] != null;
           const valor    = getComissaoValor(p.nome, pmv);
+          const pct      = getComissaoPctExibido(p.nome, pmv);
+          const real     = comissaoEhReal(p.nome);
           const cor      = travada ? '#f0883e' : (premium ? '#bc8cff' : '#58a6ff');
           const fundo    = premium ? '#6e40c9' : '#21395a';
           const corTexto = premium ? '#fff' : '#58a6ff';
@@ -851,7 +860,7 @@ function recalcularTabela() {
                   title="${real ? 'Percentual real deste anúncio, lido do Mercado Livre' : 'Percentual padrão da modalidade'} — clique para alternar Clássico/Premium"
                   style="cursor:pointer;background:${fundo};color:${corTexto};border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600;white-space:nowrap;">
               ${premium ? 'Premium' : 'Clássico'}<br>
-              <span style="font-weight:400;font-size:10px">${(pct*100).toFixed(2).replace('.',',')}%${real ? ' <span title="lido do anúncio no ML" style="color:#3fb950">•</span>' : ''}</span>
+              <span style="font-weight:400;font-size:10px;${travada ? 'color:#f0883e' : ''}" ${travada ? 'title="Percentual que o valor digitado representa sobre o preço"' : ''}>${(pct*100).toFixed(2).replace('.',',')}%${real ? ' <span title="lido do anúncio no ML" style="color:#3fb950">•</span>' : ''}</span>
             </span>
             <div style="display:flex;align-items:center;gap:2px;">
               <span style="font-size:9px;color:${cor}99">R$</span>
