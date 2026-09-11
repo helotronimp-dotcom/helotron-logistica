@@ -280,6 +280,8 @@ tbody tr { cursor: pointer; }
   </div>
   <p class="note">
     💡 <strong>A cadeia completa:</strong> Preço de venda <span style="color:#7d8590">−</span> comissão do ML <span style="color:#7d8590">−</span> frete <span style="color:#7d8590">=</span> <strong style="color:#79c0ff">Vl. Líquido ML</strong> <span style="color:#7d8590">−</span> <strong style="color:#e3b341">imposto (DAS 4%)</strong> <span style="color:#7d8590">−</span> custo nacionalizado <span style="color:#7d8590">=</span> <strong style="color:#3fb950">Lucro</strong>. A <strong>Margem</strong> é o lucro ÷ preço de venda.<br>
+    💰 <strong>PMV é o preço sugerido, não o que está no ar.</strong> Embaixo de cada PMV aparece <em>"no ML hoje"</em> com o preço real do anúncio (riscado = preço cheio, ao lado = promocional). Em <span style="color:#e3b341">amarelo</span> quer dizer que o sugerido e o praticado estão diferentes; <span style="color:#3fb950">verde</span> quer dizer que batem. <strong>Clique no preço do ML</strong> para recalcular a linha inteira com ele — aí comissão, frete e líquido reproduzem exatamente o que o Mercado Livre mostra na tela do anúncio.<br>
+    📦 <strong>Estoque</strong> é o que ainda existe (inicial menos o vendido). Se o anúncio no ML estiver com outro número, aparece um aviso ⚠ embaixo — vale conferir, porque anúncio com estoque a mais gera venda que você não consegue entregar.<br>
     🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> — que aparece também no frete — quer dizer que o valor foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais (fica laranja, ↺ solta). Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
     ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
     ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
@@ -388,12 +390,31 @@ const ALERTA_LABEL = {
 };
 
 let DADOS_GLOBAIS = null;
+const VENDIDO = {};   // unidades ja vendidas por SKU, lidas do vendas.json
+
+// Estoque que ainda existe: inicial menos o que saiu
+function getEstoque(p) {
+  if (p.qtd == null) return null;
+  return p.qtd - (VENDIDO[p.sku] || 0);
+}
 
 async function init() {
   try {
     const base = location.hostname === 'localhost' || location.protocol === 'file:' ? 'https://helotronimp-dotcom.github.io/helotron-logistica/' : './';
     const r = await fetch(base + 'dados.json?v=' + Date.now());
     DADOS_GLOBAIS = await r.json();
+    // vendas.json e opcional: serve so para descontar o que ja foi vendido
+    try {
+      const rv = await fetch(base + 'vendas.json?v=' + Date.now());
+      const vendas = await rv.json();
+      (vendas.notas || []).forEach(n => {
+        if (n.status === 'cancelada') return;
+        const sinal = n.status === 'devolucao' ? -1 : 1;
+        (n.itens || []).forEach(i => {
+          VENDIDO[i.sku] = (VENDIDO[i.sku] || 0) + sinal * (i.qtd || 0);
+        });
+      });
+    } catch(e) { /* sem vendas.json o painel segue com o estoque inicial */ }
   } catch(e) {
     document.getElementById('banner').className = 'banner verm';
     document.getElementById('banner').textContent = '❌ Erro ao carregar dados.json — verifique o repositório';
@@ -583,6 +604,13 @@ function alterarFreteML(input) {
 // Preço de venda travado manualmente por produto: { nome: valor }
 const PRECO_OVERRIDE = {};
 
+// Trava o PMV no preco que esta no anuncio, para a cadeia bater com o ML
+function usarPrecoDoML(nome, preco) {
+  PRECO_OVERRIDE[nome] = preco;
+  delete COMISSAO_OVERRIDE[nome];
+  recalcularTabela();
+}
+
 function alterarPMV(input) {
   const nome  = input.dataset.nome;
   const valor = parseFloat(input.value);
@@ -662,8 +690,8 @@ function sortVal(p, col) {
     case 'pmv':      return pmv ?? -Infinity;
     case 'custo_nac': return p.custo_nac ?? -Infinity;
     case 'lucro':    return getLucroLiq(p, pmv) ?? -Infinity;
-    case 'qtd':      return p.qtd ?? -Infinity;
-    case 'projetado': return (p.qtd != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * p.qtd : -Infinity;
+    case 'qtd':      return getEstoque(p) ?? -Infinity;
+    case 'projetado': return (getEstoque(p) != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * getEstoque(p) : -Infinity;
     case 'anuncios': return p.anuncios ?? -Infinity;
     case 'gap':      return (pmv && p.medio) ? (p.medio - pmv) / pmv : -Infinity;
     default:         return 0;
@@ -737,10 +765,11 @@ function recalcularTabela() {
     if (hasExtra)  nA++;
 
     // Totais de estoque para os cards
-    if (p.qtd && pmv && p.custo_nac) {
-      totCapital += p.custo_nac * p.qtd;
-      totReceita += pmv * p.qtd;
-      totLucro   += getLucroLiq(p, pmv) * p.qtd;
+    const estAtual = getEstoque(p);
+    if (estAtual && pmv && p.custo_nac) {
+      totCapital += p.custo_nac * estAtual;
+      totReceita += pmv * estAtual;
+      totLucro   += getLucroLiq(p, pmv) * estAtual;
     }
 
     const mlSlug = p.nome.toLowerCase()
@@ -753,7 +782,7 @@ function recalcularTabela() {
     const temCustom     = MARGENS_PRODUTO[p.nome] != null;
     const precoTravado  = PRECO_OVERRIDE[p.nome] != null;
     const margemReal    = getMargemReal(p, pmv) ?? 0;
-    const projetado     = (p.qtd != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * p.qtd : null;
+    const projetado     = (estAtual != null && getLucroLiq(p, pmv) != null) ? getLucroLiq(p, pmv) * estAtual : null;
     const ehFraco       = pmv != null && margemReal < LIMITE_FRACO;
     if (ehFraco) nFracos++;
     if (pmv != null && (pior == null || margemReal < pior.m)) pior = { nome: p.nome, m: margemReal };
@@ -786,6 +815,24 @@ function recalcularTabela() {
             style="width:62px;background:transparent;border:none;border-bottom:1px solid ${precoTravado ? '#f0883e' : '#8b949e55'};color:${precoTravado ? '#f0883e' : '#e6edf3'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
           ${precoTravado ? `<span title="Voltar ao preço sugerido pela margem alvo" onclick="resetarPMV('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;font-size:10px;color:#7d8590;">↺</span>` : ''}
         </div>
+        ${(() => {
+          const m = p.ml;
+          if (!m) return '';
+          const noAr   = m.preco_promo ?? m.preco_cheio;
+          const igual  = pmv != null && Math.abs(pmv - noAr) < 0.02;
+          const promo  = m.preco_promo != null && m.preco_cheio != null && m.preco_promo < m.preco_cheio;
+          const nomeEsc = p.nome.replace(/'/g,"\\'");
+          return `<div style="font-size:9px;color:#7d8590;margin-top:3px;line-height:1.5;text-align:center;">
+            no ML hoje:
+            ${promo ? `<span style="text-decoration:line-through">${BRL(m.preco_cheio)}</span> → ` : ''}
+            <span onclick="usarPrecoDoML('${nomeEsc}', ${noAr})"
+                  title="Clique para calcular a cadeia com o preço que está realmente no ar"
+                  style="cursor:pointer;color:${igual ? '#3fb950' : '#e3b341'};font-weight:700;border-bottom:1px dotted ${igual ? '#3fb950' : '#e3b341'};">
+              ${BRL(noAr)}
+            </span>
+            ${igual ? '' : `<br><span style="color:#f0883e">▲ sugerido está ${pmv != null && noAr ? ((pmv/noAr - 1) * 100).toFixed(0) : '?'}% acima</span>`}
+          </div>`;
+        })()}
       </td>
       <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
       <td style="padding:3px 6px;text-align:center;" onclick="event.stopPropagation()">
@@ -860,7 +907,18 @@ function recalcularTabela() {
           </div>`}
       </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
-      <td style="color:#8b949e;font-size:12px;text-align:center">${p.qtd != null ? p.qtd.toLocaleString('pt-BR') : '—'}</td>
+      <td style="color:#8b949e;font-size:12px;text-align:center">
+        ${(() => {
+          const est = getEstoque(p);
+          if (est == null) return '—';
+          const anun = p.ml?.estoque_anuncio;
+          const difere = anun != null && Math.abs(anun - est) > 5;
+          return `${est.toLocaleString('pt-BR')}
+            ${difere ? `<div style="font-size:9px;color:#f0883e;line-height:1.4;margin-top:2px;" title="O anúncio no Mercado Livre está com outro número — conferir">
+                ⚠ anúncio: ${anun.toLocaleString('pt-BR')}
+              </div>` : ''}`;
+        })()}
+      </td>
       <td style="background:#12331f;color:${projetado == null ? '#7d8590' : (projetado >= 0 ? '#3fb950' : '#f85149')};font-weight:700;font-size:12px">${projetado == null ? '—' : BRL(projetado)}</td>
     `;
     tbody.appendChild(tr);
@@ -959,7 +1017,7 @@ function abrirModal(p) {
     <div class="mstat"><label>${freteLabel}</label><span>${BRL(custoFrete)}</span></div>
     <div class="mstat"><label>Custo produto</label><span>${BRL(p.custo_nac)}</span></div>
     <div class="mstat ${lucroCls}"><label>Lucro Líq.</label><span>${BRL(lucro)}</span></div>
-    <div class="mstat"><label>Estoque</label><span>${p.qtd != null ? p.qtd.toLocaleString('pt-BR') + ' un.' : '—'}</span></div>
+    <div class="mstat"><label>Estoque</label><span>${getEstoque(p) != null ? getEstoque(p).toLocaleString('pt-BR') + ' un.' : '—'}</span></div>
   `;
 
   // Gráfico grande
