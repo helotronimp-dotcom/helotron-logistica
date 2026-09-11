@@ -548,10 +548,7 @@ const FRETE_OVERRIDE = {}; // valor customizado em R$
 
 function getTipoFrete(nome) {
   if (TIPO_FRETE[nome]) return TIPO_FRETE[nome];
-  // o anuncio real manda: se o vendedor paga mais que a taxa do comprador, e frete gratis
-  const f = prodPorNome(nome)?.ml?.frete_valor;
-  if (f != null) return f > FRETE_COMPRADOR_PADRAO ? 'gratis' : 'comprador';
-  return 'comprador';
+  return prodPorNome(nome)?.ml?.frete_tipo || 'comprador';
 }
 
 // Frete lido do anuncio real, quando conhecido e nada foi mexido na mao
