@@ -267,7 +267,8 @@ tbody tr { cursor: pointer; }
           <th onclick="ordenar('custo_nac')" style="cursor:pointer;background:#1e2d3d" title="Ordenar">Custo <span id="ord-custo_nac"></span></th>
           <th style="background:#1a1f2e;cursor:pointer" title="Clique na célula para alternar Clássico/Premium">Modalidade</th>
           <th style="background:#1a1f2e" title="Custo do frete ML por unidade (editável)">Frete ML</th>
-          <th style="background:#0d2233" title="PMV × (1 − comissão) − frete = o que o ML deposita por venda">Vl. Líquido ML</th>
+          <th style="background:#0d2233" title="PMV − comissão − frete = o que o ML deposita por venda">Vl. Líquido ML</th>
+          <th style="background:#2a1f10" title="DAS do Simples Nacional, Anexo I, 1ª faixa — 4% sobre o preço de venda">Imposto</th>
           <th style="background:#1a2a1a">Margem %</th>
           <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro <span id="ord-lucro"></span></th>
           <th onclick="ordenar('qtd')"       style="cursor:pointer;background:#1a1a2a" title="Ordenar">Estoque <span id="ord-qtd"></span></th>
@@ -278,7 +279,8 @@ tbody tr { cursor: pointer; }
     </table>
   </div>
   <p class="note">
-    💡 <strong>Vl. Líquido ML</strong> = PMV − comissão − frete &nbsp;·&nbsp; <strong>Lucro</strong> = Vl. Líquido − Custo &nbsp;·&nbsp; <strong>Margem</strong> = Lucro ÷ PMV<br>
+    💡 <strong>A cadeia completa:</strong> Preço de venda <span style="color:#7d8590">−</span> comissão do ML <span style="color:#7d8590">−</span> frete <span style="color:#7d8590">=</span> <strong style="color:#79c0ff">Vl. Líquido ML</strong> <span style="color:#7d8590">−</span> <strong style="color:#e3b341">imposto (DAS 4%)</strong> <span style="color:#7d8590">−</span> custo nacionalizado <span style="color:#7d8590">=</span> <strong style="color:#3fb950">Lucro</strong>. A <strong>Margem</strong> é o lucro ÷ preço de venda.<br>
+    🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> ao lado do percentual quer dizer que ele foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais (fica laranja, ↺ solta). Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
     ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
     ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
   </p>
@@ -425,6 +427,7 @@ function salvarAjustes() {
       modalidades:  MODALIDADE_PRODUTO,
       tipoFrete:    TIPO_FRETE,
       freteValor:   FRETE_OVERRIDE,
+      comissaoValor: COMISSAO_OVERRIDE,
       precos:       PRECO_OVERRIDE
     }));
     marcarSalvo();
@@ -444,14 +447,15 @@ function carregarAjustes() {
   copiar(MODALIDADE_PRODUTO, s.modalidades);
   copiar(TIPO_FRETE,         s.tipoFrete);
   copiar(FRETE_OVERRIDE,     s.freteValor);
+  copiar(COMISSAO_OVERRIDE,  s.comissaoValor);
   copiar(PRECO_OVERRIDE,     s.precos);
   const mi = document.getElementById('margem-input');
   if (mi && s.margemGlobal) mi.value = s.margemGlobal;
 }
 
 function limparAjustes() {
-  if (!confirm('Descartar todos os ajustes manuais (margens, modalidades, fretes e preços travados) e voltar ao padrão?')) return;
-  [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE]
+  if (!confirm('Descartar todos os ajustes manuais (margens, modalidades, comissões, fretes e preços travados) e voltar ao padrão?')) return;
+  [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE, COMISSAO_OVERRIDE]
     .forEach(o => Object.keys(o).forEach(k => delete o[k]));
   try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
   const mi = document.getElementById('margem-input');
@@ -463,7 +467,7 @@ let _salvoTimer = null;
 function marcarSalvo() {
   const el = document.getElementById('save-status');
   if (!el) return;
-  const n = [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE]
+  const n = [MARGENS_PRODUTO, MODALIDADE_PRODUTO, TIPO_FRETE, FRETE_OVERRIDE, PRECO_OVERRIDE, COMISSAO_OVERRIDE]
     .reduce((s, o) => s + Object.keys(o).length, 0);
   el.innerHTML = n === 0
     ? '<span style="color:#7d8590">sem ajustes manuais</span>'
@@ -483,16 +487,52 @@ const COMISSAO_CLASSICO   = 0.115;
 const ALIQUOTA_SIMPLES = 0.04;
 const COMISSAO_PREMIUM    = 0.165;
 
-function getModalidade(nome) {
-  return MODALIDADE_PRODUTO[nome] || 'classico';
+// Comissao observada no proprio ML, por anuncio (bloco "ml" do dados.json).
+// Preenchida a partir do PDF de anuncios; quando existe, vence o percentual padrao.
+const COMISSAO_OVERRIDE = {};   // valor em R$ digitado na tela, por produto
+
+function prodPorNome(nome) {
+  return (DADOS_GLOBAIS?.produtos || []).find(p => p.nome === nome);
 }
 
+function getModalidade(nome) {
+  if (MODALIDADE_PRODUTO[nome]) return MODALIDADE_PRODUTO[nome];
+  return prodPorNome(nome)?.ml?.modalidade || 'classico';
+}
+
+// Percentual efetivo: o real do anuncio quando conhecido, senao o padrao da modalidade
 function getComissaoProduto(nome) {
+  const real = prodPorNome(nome)?.ml?.comissao_pct;
+  if (real != null && !MODALIDADE_PRODUTO[nome]) return real;
   return getModalidade(nome) === 'premium' ? COMISSAO_PREMIUM : COMISSAO_CLASSICO;
+}
+
+function comissaoEhReal(nome) {
+  return prodPorNome(nome)?.ml?.comissao_pct != null && !MODALIDADE_PRODUTO[nome];
+}
+
+// Valor em R$ da comissao: override digitado vence; senao percentual x preco
+function getComissaoValor(nome, pmv) {
+  if (COMISSAO_OVERRIDE[nome] != null) return COMISSAO_OVERRIDE[nome];
+  return pmv ? pmv * getComissaoProduto(nome) : 0;
+}
+
+function alterarComissaoValor(input) {
+  const nome  = input.dataset.nome;
+  const valor = parseFloat(input.value);
+  if (!isNaN(valor) && valor >= 0) COMISSAO_OVERRIDE[nome] = valor;
+  else delete COMISSAO_OVERRIDE[nome];
+  recalcularTabela();
+}
+
+function resetarComissao(nome) {
+  delete COMISSAO_OVERRIDE[nome];
+  recalcularTabela();
 }
 
 function alterarModalidade(nome) {
   MODALIDADE_PRODUTO[nome] = getModalidade(nome) === 'classico' ? 'premium' : 'classico';
+  delete COMISSAO_OVERRIDE[nome];
   recalcularTabela();
 }
 
@@ -555,7 +595,7 @@ function resetarPMV(nome) {
 // O que o ML efetivamente deposita: preço − comissão − frete
 function getLiquidoML(p, pmv) {
   if (!pmv) return null;
-  return pmv * (1 - getComissaoProduto(p.nome)) - getCustoFrete(p.nome);
+  return pmv - getComissaoValor(p.nome, pmv) - getCustoFrete(p.nome);
 }
 
 function getDAS(pmv) {
@@ -585,8 +625,14 @@ function pmvDinamico(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
+  const fixos   = custo + getCustoFrete(produto.nome);
+  // comissao travada em R$ entra como custo fixo; senao entra como percentual
+  if (COMISSAO_OVERRIDE[produto.nome] != null) {
+    const div = 1 - ALIQUOTA_SIMPLES - margem;
+    return div > 0 ? (fixos + COMISSAO_OVERRIDE[produto.nome]) / div : null;
+  }
   const divisor = 1 - getComissaoProduto(produto.nome) - ALIQUOTA_SIMPLES - margem;
-  return divisor > 0 ? (custo + getCustoFrete(produto.nome)) / divisor : null;
+  return divisor > 0 ? fixos / divisor : null;
 }
 
 // Ordenação da tabela
@@ -731,10 +777,36 @@ function recalcularTabela() {
         </div>
       </td>
       <td style="color:#7d8590;font-size:12px;text-align:center">${BRL(p.custo_nac)}</td>
-      <td onclick="event.stopPropagation();alterarModalidade('${p.nome.replace(/'/g,"\\'")}')" style="cursor:pointer;text-align:center">
-        ${getModalidade(p.nome) === 'premium'
-          ? '<span style="background:#6e40c9;color:#fff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Premium<br><span style="font-weight:400;font-size:10px">16,5%</span></span>'
-          : '<span style="background:#21395a;color:#58a6ff;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">Clássico<br><span style="font-weight:400;font-size:10px">11,5%</span></span>'}
+      <td style="padding:3px 6px;text-align:center;" onclick="event.stopPropagation()">
+        ${(() => {
+          const nomeEsc  = p.nome.replace(/'/g,"\\'");
+          const premium  = getModalidade(p.nome) === 'premium';
+          const pct      = getComissaoProduto(p.nome);
+          const real     = comissaoEhReal(p.nome);
+          const travada  = COMISSAO_OVERRIDE[p.nome] != null;
+          const valor    = getComissaoValor(p.nome, pmv);
+          const cor      = travada ? '#f0883e' : (premium ? '#bc8cff' : '#58a6ff');
+          const fundo    = premium ? '#6e40c9' : '#21395a';
+          const corTexto = premium ? '#fff' : '#58a6ff';
+          return `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+            <span onclick="alterarModalidade('${nomeEsc}')"
+                  title="${real ? 'Percentual real deste anúncio, lido do Mercado Livre' : 'Percentual padrão da modalidade'} — clique para alternar Clássico/Premium"
+                  style="cursor:pointer;background:${fundo};color:${corTexto};border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600;white-space:nowrap;">
+              ${premium ? 'Premium' : 'Clássico'}<br>
+              <span style="font-weight:400;font-size:10px">${(pct*100).toFixed(2).replace('.',',')}%${real ? ' <span title="lido do anúncio no ML" style="color:#3fb950">•</span>' : ''}</span>
+            </span>
+            <div style="display:flex;align-items:center;gap:2px;">
+              <span style="font-size:9px;color:${cor}99">R$</span>
+              <input type="number" min="0" step="0.01"
+                value="${valor.toFixed(2)}"
+                data-nome="${p.nome.replace(/"/g,'&quot;')}"
+                onchange="alterarComissaoValor(this)"
+                title="${travada ? 'Valor travado em R$ — não acompanha mudança de preço' : 'Valor calculado pelo percentual — digite para travar em R$'}"
+                style="width:52px;background:transparent;border:none;border-bottom:1px solid ${cor}55;color:${cor};font-size:11px;text-align:center;outline:none;padding:1px 0;">
+              ${travada ? `<span title="Voltar ao percentual" onclick="resetarComissao('${nomeEsc}')" style="cursor:pointer;font-size:9px;color:#7d8590;">↺</span>` : ''}
+            </div>
+          </div>`;
+        })()}
       </td>
       <td style="padding:3px 6px;text-align:center;" onclick="event.stopPropagation()">
         ${(() => {
@@ -754,6 +826,10 @@ function recalcularTabela() {
         })()}
       </td>
       <td style="background:#0d2233;color:#79c0ff;font-weight:600;font-size:12px">${BRL(getLiquidoML(p, pmv))}</td>
+      <td style="background:#2a1f10;color:#e3b341;font-size:12px;text-align:center" title="DAS do Simples — 4% sobre o preço de venda">
+        ${pmv ? BRL(getDAS(pmv)) : '—'}
+        <div style="font-size:9px;color:#7d8590;font-weight:400;">4%</div>
+      </td>
       <td style="background:#0f2a1a;padding:4px 6px;">
         ${precoTravado ? `
           <div style="text-align:center;color:${margemReal >= 0 ? '#3fb950' : '#f85149'};font-size:13px;font-weight:700;" title="Margem calculada a partir do preço travado">
