@@ -11,7 +11,7 @@
     "plataforma": "mercadolivre",
     "comissao_plataforma": 0.18,
     "ml_atualizado_em": "10/09/2026",
-    "ml_fonte": "vendas/anuncios_ml/Anuncios_ML_2026-09-10.pdf — preco promocional, comissao e frete reais por anuncio"
+    "ml_fonte": "vendas/anuncios_ml/Anuncios_ML_2026-09-10.pdf"
   },
   "container": {
     "referencia": "ST260001",
@@ -112,11 +112,12 @@
         "comissao_valor": 4.59,
         "comissao_pct": 0.115,
         "frete_valor": 13.85,
+        "frete_tipo": "gratis",
         "voce_recebe": 21.46,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 1481,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -194,11 +195,12 @@
         "comissao_valor": 2.93,
         "comissao_pct": 0.0816,
         "frete_valor": 14.75,
+        "frete_tipo": "gratis",
         "voce_recebe": 18.23,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 1676,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -276,11 +278,12 @@
         "comissao_valor": 13.76,
         "comissao_pct": 0.1578,
         "frete_valor": 14.75,
+        "frete_tipo": "gratis",
         "voce_recebe": 58.7,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 417,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -358,11 +361,12 @@
         "comissao_valor": 4.43,
         "comissao_pct": 0.1096,
         "frete_valor": 16.45,
+        "frete_tipo": "gratis",
         "voce_recebe": 19.53,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 994,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -444,11 +448,12 @@
         "comissao_valor": 2.76,
         "comissao_pct": 0.0833,
         "frete_valor": 12.95,
+        "frete_tipo": "gratis",
         "voce_recebe": 17.44,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 2151,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -526,11 +531,12 @@
         "comissao_valor": 3.13,
         "comissao_pct": 0.1296,
         "frete_valor": 13.85,
+        "frete_tipo": "gratis",
         "voce_recebe": 7.17,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 2992,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -608,11 +614,12 @@
         "comissao_valor": 7.79,
         "comissao_pct": 0.1058,
         "frete_valor": 8.25,
+        "frete_tipo": "comprador",
         "voce_recebe": 57.58,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 497,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "comprador"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -702,11 +709,12 @@
         "comissao_valor": 14.58,
         "comissao_pct": 0.1584,
         "frete_valor": 14.45,
+        "frete_tipo": "gratis",
         "voce_recebe": 63.02,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 502,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -784,11 +792,12 @@
         "comissao_valor": 9.15,
         "comissao_pct": 0.1131,
         "frete_valor": 14.45,
+        "frete_tipo": "gratis",
         "voce_recebe": 57.31,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 1020,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -866,11 +875,12 @@
         "comissao_valor": 7.27,
         "comissao_pct": 0.1053,
         "frete_valor": 14.45,
+        "frete_tipo": "gratis",
         "voce_recebe": 47.3,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 185,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -948,11 +958,12 @@
         "comissao_valor": 19.29,
         "comissao_pct": 0.165,
         "frete_valor": 19.05,
+        "frete_tipo": "gratis",
         "voce_recebe": 80.77,
+        "voce_recebe_confere": false,
         "estoque_anuncio": 216,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     },
     {
@@ -977,11 +988,12 @@
         "comissao_valor": 2.25,
         "comissao_pct": 0.076,
         "frete_valor": 14.45,
+        "frete_tipo": "gratis",
         "voce_recebe": 12.89,
+        "voce_recebe_confere": true,
         "estoque_anuncio": 4798,
-        "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026",
-        "frete_tipo": "gratis"
+        "fonte": "Anuncios_ML_2026-09-10.pdf",
+        "coletado_em": "10/09/2026"
       }
     }
   ]
