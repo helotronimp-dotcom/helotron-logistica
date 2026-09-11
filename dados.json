@@ -115,7 +115,8 @@
         "voce_recebe": 21.46,
         "estoque_anuncio": 1481,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -196,7 +197,8 @@
         "voce_recebe": 18.23,
         "estoque_anuncio": 1676,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -277,7 +279,8 @@
         "voce_recebe": 58.7,
         "estoque_anuncio": 417,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -358,7 +361,8 @@
         "voce_recebe": 19.53,
         "estoque_anuncio": 994,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -443,7 +447,8 @@
         "voce_recebe": 17.44,
         "estoque_anuncio": 2151,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -524,7 +529,8 @@
         "voce_recebe": 7.17,
         "estoque_anuncio": 2992,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -605,7 +611,8 @@
         "voce_recebe": 57.58,
         "estoque_anuncio": 497,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "comprador"
       }
     },
     {
@@ -698,7 +705,8 @@
         "voce_recebe": 63.02,
         "estoque_anuncio": 502,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -779,7 +787,8 @@
         "voce_recebe": 57.31,
         "estoque_anuncio": 1020,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -860,7 +869,8 @@
         "voce_recebe": 47.3,
         "estoque_anuncio": 185,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -941,7 +951,8 @@
         "voce_recebe": 80.77,
         "estoque_anuncio": 216,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     },
     {
@@ -969,7 +980,8 @@
         "voce_recebe": 12.89,
         "estoque_anuncio": 4798,
         "fonte": "PDF Anuncios ML 10/09/2026",
-        "coletado_em": "10/09/2026"
+        "coletado_em": "10/09/2026",
+        "frete_tipo": "gratis"
       }
     }
   ]
