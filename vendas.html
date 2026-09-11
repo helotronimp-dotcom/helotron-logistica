@@ -84,6 +84,12 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 .vazio { padding: 26px; text-align: center; color: #7d8590; font-size: 12px; }
 
 .sku { font-size: 10px; color: #7d8590; display: block; margin-top: 2px; }
+.kit {
+  display: inline-block; margin-top: 4px; padding: 1px 6px; border-radius: 4px;
+  background: #3a2d12; border: 1px solid #6b4f16; color: #e3b341;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.3px;
+}
+.pecas { font-size: 10px; color: #7d8590; display: block; margin-top: 2px; }
 .pos { color: #3fb950; } .neg { color: #f85149; } .mut { color: #7d8590; }
 
 .barra { background: #21262d; border-radius: 4px; height: 7px; width: 92px; overflow: hidden; display: inline-block; vertical-align: middle; }
@@ -249,6 +255,9 @@ function renderGiro() {
   vis = ordenar(vis, ordGiro.col, ordGiro.dir);
 
   const sInicial = vis.reduce((s, l) => s + l.inicial, 0);
+  const sPecas = vis.reduce((s, l) => s + l.inicial * l.ppk, 0);
+  const sPecasAtual = vis.reduce((s, l) => s + l.atual * l.ppk, 0);
+  const temKit = vis.some(l => l.ppk > 1);
   const sVend = vis.reduce((s, l) => s + l.vendido, 0);
   const sFat  = vis.reduce((s, l) => s + l.faturado, 0);
   const sLuc  = vis.reduce((s, l) => s + l.lucro, 0);
@@ -257,10 +266,13 @@ function renderGiro() {
     cabecalho(COLS_GIRO, ordGiro) +
     (vis.length ? `<tbody>${vis.map(l => `
       <tr>
-        <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
-        <td class="mut">${l.inicial.toLocaleString('pt-BR')}</td>
+        <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span>${
+          l.ppk > 1 ? `<span class="kit" title="${esc(l.obs_kit || '')}">1 un. vendida = ${l.ppk} peças</span>` : ''}</td>
+        <td class="mut">${l.inicial.toLocaleString('pt-BR')}${
+          l.ppk > 1 ? `<span class="pecas">${(l.inicial * l.ppk).toLocaleString('pt-BR')} peças</span>` : ''}</td>
         <td>${l.vendido ? '<b>' + l.vendido + '</b>' : '<span class="mut">—</span>'}</td>
-        <td><b>${l.atual.toLocaleString('pt-BR')}</b></td>
+        <td><b>${l.atual.toLocaleString('pt-BR')}</b>${
+          l.ppk > 1 ? `<span class="pecas">${(l.atual * l.ppk).toLocaleString('pt-BR')} peças</span>` : ''}</td>
         <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
         <td class="${l.lucro > 0 ? 'pos' : l.lucro < 0 ? 'neg' : 'mut'}">${l.lucro ? BRL(l.lucro) : '—'}</td>
         <td>
@@ -270,9 +282,11 @@ function renderGiro() {
       </tr>`).join('')}</tbody>
       <tfoot><tr>
         <td>${vis.length === LINHAS.length ? 'TOTAL' : 'TOTAL (filtrado)'}</td>
-        <td>${sInicial.toLocaleString('pt-BR')}</td>
+        <td>${sInicial.toLocaleString('pt-BR')}${
+          temKit ? `<span class="pecas">${sPecas.toLocaleString('pt-BR')} peças</span>` : ''}</td>
         <td>${sVend}</td>
-        <td>${(sInicial - sVend).toLocaleString('pt-BR')}</td>
+        <td>${(sInicial - sVend).toLocaleString('pt-BR')}${
+          temKit ? `<span class="pecas">${sPecasAtual.toLocaleString('pt-BR')} peças</span>` : ''}</td>
         <td>${BRL(sFat)}</td>
         <td class="${sLuc >= 0 ? 'pos' : 'neg'}">${BRL(sLuc)}</td>
         <td>${sInicial ? PCT(sVend / sInicial) : '—'}</td>
@@ -430,7 +444,8 @@ async function init() {
   LINHAS = (prod.produtos || []).map(p => {
     const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
     const ini = p.qtd || 0;
-    return {...p, ...a, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
+    const ppk = p.pecas_por_kit || 1;
+    return {...p, ...a, ppk, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
   });
 
   /* ---- cards (sempre sobre o total, nao sobre o filtro) ---- */
@@ -438,6 +453,7 @@ async function init() {
   const totUn  = LINHAS.reduce((s, l) => s + l.vendido, 0);
   const totLuc = LINHAS.reduce((s, l) => s + l.lucro, 0);
   const estIni = LINHAS.reduce((s, l) => s + l.inicial, 0);
+  const pecasIni = LINHAS.reduce((s, l) => s + l.inicial * (l.pecas_por_kit || 1), 0);
   const comVenda = LINHAS.filter(l => l.vendido > 0).length;
 
   document.getElementById('cards').innerHTML = `
@@ -459,7 +475,8 @@ async function init() {
     <div class="card amar">
       <div class="card-label">Estoque escoado</div>
       <div class="card-valor">${PCT(estIni ? totUn / estIni : 0)}</div>
-      <div class="card-sub">${totUn} de ${estIni.toLocaleString('pt-BR')} unidades</div>
+      <div class="card-sub">${totUn} de ${estIni.toLocaleString('pt-BR')} unidades vendáveis${
+        pecasIni !== estIni ? ` &middot; ${pecasIni.toLocaleString('pt-BR')} peças físicas` : ''}</div>
     </div>`;
 
   /* ---- popula selects ---- */
@@ -510,7 +527,18 @@ async function init() {
     Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
     abatidas do vendido e devolvem a unidade ao estoque.<br>
     <b>Os cartoes do topo mostram sempre o total</b>, independente dos filtros. Quem responde
-    ao filtro e a linha TOTAL no rodape de cada tabela.
+    ao filtro e a linha TOTAL no rodape de cada tabela.<br>
+    <b style="color:#e3b341">Unidade vendavel nao e a mesma coisa que peca.</b> Todo o estoque
+    deste painel e contado em <b>unidades vendaveis</b> — o que vai num anuncio. Produtos
+    marcados com a etiqueta amarela sao vendidos em kit, entao uma unidade vendida tira
+    varias pecas da prateleira. O <b>Descanso de Panela de Silicone (HEL-COZ-003)</b> e o
+    unico caso hoje: a GreenEarth entregou <b>2.160 pecas avulsas</b>, embaladas uma por
+    saquinho, e o anuncio no ML e <b>Kit 4</b> — logo <b>540 unidades vendaveis</b>. Por isso
+    o total do painel e 16.537 unidades e nao 18.157 pecas: <b>os dois numeros estao certos</b>,
+    so contam coisas diferentes. Para inventario fisico, seguro e ocupacao de galpao use as
+    <b>pecas</b>; para giro, anuncio e reposicao use as <b>unidades</b>.<br>
+    <b>Atencao na preparacao:</b> as pecas do HEL-COZ-003 chegam soltas. Cada kit precisa ser
+    <b>montado com 4 pecas e uma embalagem que cubra o conjunto</b> antes de ir para o Full.
     ${est.length ? `<br><b>Frete ainda nao confirmado</b> em venda real para: ${est.join(', ')}.` : ''}
     ${Object.keys(META.lacunas_numeracao || {}).length
       ? `<br><b style="color:#f0883e">Atencao:</b> ha lacuna na numeracao das notas —
