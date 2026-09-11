@@ -413,8 +413,11 @@ async function init() {
   const cat = {};
   (prod.produtos || []).forEach(p => { if (p.sku) cat[p.sku] = p; });
   const par = vendas.parametros || {};
-  const comissaoDe = sku => (par[sku]?.comissao ?? 0.115);
-  const freteDe    = sku => (par[sku]?.frete ?? 13.25);
+  // O real lido do anuncio no ML (bloco "ml" do dados.json) vence o parametro generico.
+  const mlDe       = sku => cat[sku]?.ml;
+  const comissaoDe = sku => (mlDe(sku)?.comissao_pct ?? par[sku]?.comissao ?? 0.115);
+  const freteDe    = sku => (mlDe(sku)?.frete_valor  ?? par[sku]?.frete    ?? 13.25);
+  const ehReal     = sku => mlDe(sku)?.comissao_pct != null;
 
   /* o frete e cobrado uma vez por nota (o maior entre os itens do pedido)
      e rateado entre os produtos pelo valor de cada um */
@@ -522,7 +525,10 @@ async function init() {
     <b>Imposto:</b> DAS do Simples Nacional, Anexo I, 1a faixa — <b>4% sobre a receita
     bruta</b>, sem credito do ICMS pago na importacao (CSOSN 102). A aliquota sobe para
     cerca de 5,65% quando o faturamento passar de R$ 180 mil em 12 meses.<br>
-    <b>Comissao:</b> Classico 11,5% · Premium 16,5%, conforme a modalidade de cada anuncio.<br>
+    <b>Comissao e frete:</b> quando o anuncio ja foi lido no Mercado Livre, vale o
+    <b>percentual e o frete reais daquele anuncio</b> — varios tem desconto de comissao, de
+    7,6% a 16,5%. Sem essa leitura, cai no padrao Classico 11,5% · Premium 16,5%. A ultima
+    leitura dos anuncios esta no rodape abaixo.<br>
     <b>E estimativa, nao repasse.</b> O valor exato so aparece no relatorio de repasse do
     Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
     abatidas do vendido e devolvem a unidade ao estoque.<br>
