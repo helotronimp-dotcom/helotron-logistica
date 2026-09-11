@@ -280,7 +280,7 @@ tbody tr { cursor: pointer; }
   </div>
   <p class="note">
     💡 <strong>A cadeia completa:</strong> Preço de venda <span style="color:#7d8590">−</span> comissão do ML <span style="color:#7d8590">−</span> frete <span style="color:#7d8590">=</span> <strong style="color:#79c0ff">Vl. Líquido ML</strong> <span style="color:#7d8590">−</span> <strong style="color:#e3b341">imposto (DAS 4%)</strong> <span style="color:#7d8590">−</span> custo nacionalizado <span style="color:#7d8590">=</span> <strong style="color:#3fb950">Lucro</strong>. A <strong>Margem</strong> é o lucro ÷ preço de venda.<br>
-    🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> ao lado do percentual quer dizer que ele foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais (fica laranja, ↺ solta). Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
+    🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> — que aparece também no frete — quer dizer que o valor foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais (fica laranja, ↺ solta). Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
     ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
     ✏️ Edite o <strong>PMV</strong> para travar um preço — a margem passa a ser calculada a partir dele (fica laranja, ↺ destrava). Edite a <strong>Margem</strong> para voltar ao preço sugerido.
   </p>
@@ -547,11 +547,25 @@ const TIPO_FRETE   = {}; // 'gratis' ou 'comprador' por produto
 const FRETE_OVERRIDE = {}; // valor customizado em R$
 
 function getTipoFrete(nome) {
-  return TIPO_FRETE[nome] || 'comprador';
+  if (TIPO_FRETE[nome]) return TIPO_FRETE[nome];
+  // o anuncio real manda: se o vendedor paga mais que a taxa do comprador, e frete gratis
+  const f = prodPorNome(nome)?.ml?.frete_valor;
+  if (f != null) return f > FRETE_COMPRADOR_PADRAO ? 'gratis' : 'comprador';
+  return 'comprador';
+}
+
+// Frete lido do anuncio real, quando conhecido e nada foi mexido na mao
+function freteEhReal(nome) {
+  return prodPorNome(nome)?.ml?.frete_valor != null
+      && FRETE_OVERRIDE[nome] == null && !TIPO_FRETE[nome];
 }
 
 function getCustoFrete(nome) {
   if (FRETE_OVERRIDE[nome] != null) return FRETE_OVERRIDE[nome];
+  if (!TIPO_FRETE[nome]) {
+    const f = prodPorNome(nome)?.ml?.frete_valor;
+    if (f != null) return f;
+  }
   return getTipoFrete(nome) === 'gratis' ? FRETE_GRATIS_PADRAO : FRETE_COMPRADOR_PADRAO;
 }
 
@@ -815,8 +829,9 @@ function recalcularTabela() {
           const nomeEsc = p.nome.replace(/"/g,'&quot;').replace(/'/g,"\\'");
           const cor = tipo === 'gratis' ? '#3fb950' : '#58a6ff';
           const label = tipo === 'gratis' ? 'Grátis' : 'Comprador';
+          const realF = freteEhReal(p.nome);
           return `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-            <span onclick="alterarTipoFrete('${nomeEsc}')" style="cursor:pointer;font-size:10px;font-weight:600;color:${cor};border:1px solid ${cor}55;border-radius:3px;padding:1px 5px;">${label}</span>
+            <span onclick="alterarTipoFrete('${nomeEsc}')" title="${realF ? 'Frete real deste anúncio, lido do Mercado Livre' : 'Valor padrão'} — clique para alternar" style="cursor:pointer;font-size:10px;font-weight:600;color:${cor};border:1px solid ${cor}55;border-radius:3px;padding:1px 5px;white-space:nowrap;">${label}${realF ? ' <span style="color:#3fb950">•</span>' : ''}</span>
             <input type="number" min="0" max="99" step="0.5"
               value="${custo.toFixed(2)}"
               data-nome="${p.nome.replace(/"/g,'&quot;')}"
