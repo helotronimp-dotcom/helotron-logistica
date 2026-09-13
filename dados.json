@@ -745,7 +745,7 @@
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
       "ncm": "9405.41.00",
-      "pmv": 80.91,
+      "pmv": 76.53,
       "custo_nac": 35.21,
       "minimo": null,
       "medio": null,
@@ -807,7 +807,7 @@
         }
       ],
       "qtd": 1020,
-      "frete_ml": 14.45,
+      "frete_ml": 8.45,
       "sku": "HEL-JAR-006",
       "ml": {
         "mlb": "5114826509",
@@ -825,7 +825,7 @@
         "coletado_em": "10/09/2026"
       },
       "comissao_real": 0.115,
-      "lucro_real": 18.88,
+      "lucro_real": 21.14,
       "fonte_numeros": "Metrify 13/09/2026"
     },
     {
