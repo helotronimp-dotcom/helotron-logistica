@@ -280,7 +280,7 @@ tbody tr { cursor: pointer; }
   </div>
   <p class="note">
     💡 <strong>A cadeia completa:</strong> Preço de venda <span style="color:#7d8590">−</span> comissão do ML <span style="color:#7d8590">−</span> frete <span style="color:#7d8590">=</span> <strong style="color:#79c0ff">Vl. Líquido ML</strong> <span style="color:#7d8590">−</span> <strong style="color:#e3b341">imposto (DAS 4%)</strong> <span style="color:#7d8590">−</span> custo nacionalizado <span style="color:#7d8590">=</span> <strong style="color:#3fb950">Lucro</strong>. A <strong>Margem</strong> é o lucro ÷ preço de venda.<br>
-    💰 <strong>PMV é o preço sugerido, não o que está no ar.</strong> Embaixo de cada PMV aparece <em>"no ML hoje"</em> com o preço real do anúncio (riscado = preço cheio, ao lado = promocional). Em <span style="color:#e3b341">amarelo</span> quer dizer que o sugerido e o praticado estão diferentes; <span style="color:#3fb950">verde</span> quer dizer que batem. <strong>Clique no preço do ML</strong> para recalcular a linha inteira com ele — aí comissão, frete e líquido reproduzem exatamente o que o Mercado Livre mostra na tela do anúncio.<br>
+    💰 <strong>PMV começa no preço que está no ar hoje</strong>, então lucro e margem mostram o resultado real. Ao lado aparece o <em>sugerido</em> pela margem alvo. Embaixo de cada PMV aparece <em>"no ML hoje"</em> com o preço real do anúncio (riscado = preço cheio, ao lado = promocional). Em <span style="color:#e3b341">amarelo</span> quer dizer que o sugerido e o praticado estão diferentes; <span style="color:#3fb950">verde</span> quer dizer que batem. <strong>Clique no preço do ML</strong> para recalcular a linha inteira com ele — aí comissão, frete e líquido reproduzem exatamente o que o Mercado Livre mostra na tela do anúncio.<br>
     📦 <strong>Estoque</strong> é o que ainda existe (inicial menos o vendido). Se o anúncio no ML estiver com outro número, aparece um aviso ⚠ embaixo — vale conferir, porque anúncio com estoque a mais gera venda que você não consegue entregar.<br>
     🏷️ <strong>Comissão:</strong> o ponto verde <span style="color:#3fb950">•</span> — que aparece também no frete — quer dizer que o valor foi <strong>lido do anúncio real no Mercado Livre</strong>, e não é o padrão da modalidade — vários anúncios têm desconto de comissão. Abaixo vem o <strong>valor em R$</strong>: por padrão ele acompanha o preço; se você digitar por cima, trava em reais e <strong>o percentual acima passa a ser recalculado a partir do valor que você digitou</strong> — os dois ficam laranja e o • verde some, porque o número deixou de ser o do anúncio. O ↺ devolve tudo ao percentual. Clicar no selo Clássico/Premium volta ao percentual padrão.<br>
     ⇄ <strong>UNIFICADO</strong> = mesmo produto vindo de dois fornecedores. O estoque foi somado em um único anúncio no Mercado Livre e o PMV usa o <strong>maior</strong> custo entre eles (prudência) — passe o mouse no selo para ver os detalhes.<br>
@@ -668,8 +668,8 @@ function getMargemProduto(nome) {
 }
 
 // Preço travado manualmente vence; senão sugere o preço que atinge a margem alvo
-function pmvDinamico(produto) {
-  if (PRECO_OVERRIDE[produto.nome] != null) return PRECO_OVERRIDE[produto.nome];
+// Preco que a margem alvo pediria. Serve de referencia, nao de base do calculo.
+function pmvSugerido(produto) {
   const custo = produto.custo_nac;
   if (!custo) return null;
   const margem  = getMargemProduto(produto.nome);
@@ -681,6 +681,16 @@ function pmvDinamico(produto) {
   }
   const divisor = 1 - getComissaoProduto(produto.nome) - ALIQUOTA_SIMPLES - margem;
   return divisor > 0 ? fixos / divisor : null;
+}
+
+// Preco usado em toda a tabela. Por padrao e o que esta no ML hoje, para que
+// lucro e margem reflitam o resultado real. Edite o PMV para simular outro preco.
+function pmvDinamico(produto) {
+  if (PRECO_OVERRIDE[produto.nome] != null) return PRECO_OVERRIDE[produto.nome];
+  const noAr = produto.ml ? (produto.ml.preco_promo != null ? produto.ml.preco_promo
+                                                            : produto.ml.preco_cheio) : null;
+  if (noAr) return noAr;
+  return pmvSugerido(produto);
 }
 
 // Ordenação da tabela
@@ -839,7 +849,13 @@ function recalcularTabela() {
                   style="cursor:pointer;color:${igual ? '#3fb950' : '#e3b341'};font-weight:700;border-bottom:1px dotted ${igual ? '#3fb950' : '#e3b341'};">
               ${BRL(noAr)}
             </span>
-            ${igual ? '' : `<br><span style="color:#f0883e">▲ sugerido está ${pmv != null && noAr ? ((pmv/noAr - 1) * 100).toFixed(0) : '?'}% acima</span>`}
+            ${(() => {
+              const sug = pmvSugerido(p);
+              if (sug == null || !pmv) return '';
+              const d = (sug / pmv - 1) * 100;
+              if (Math.abs(d) < 1) return '';
+              return `<br><span style="color:#f0883e">sugerido ${BRL(sug)} (${d > 0 ? '+' : ''}${d.toFixed(0)}%)</span>`;
+            })()}
           </div>`;
         })()}
       </td>
