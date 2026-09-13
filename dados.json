@@ -1,6 +1,6 @@
 {
   "meta": {
-    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.) | 08/08/2026: unificacao HEL-JAR-001 + HEL-JAR-005 | 08/08: unificacao HEL-COZ-001 + HEL-COZ-004",
+    "atualizado_em": "01/08/2026 (custo completo: NF + frete rod + despachante + armaz.) | 08/08/2026: unificacao HEL-JAR-001 + HEL-JAR-005 | 08/08: unificacao HEL-COZ-001 + HEL-COZ-004 | 13/09/2026: frete, comissao e preco substituidos pelos valores reais do Metrify",
     "total_produtos": 12,
     "fonte": "NF de entrada + rateio frete rod R$4.488,20 + despachante R$2.431,50 + armaz. R$7.000,00",
     "cambio": 5.75,
@@ -11,7 +11,8 @@
     "plataforma": "mercadolivre",
     "comissao_plataforma": 0.18,
     "ml_atualizado_em": "10/09/2026",
-    "ml_fonte": "vendas/anuncios_ml/Anuncios_ML_2026-09-10.pdf"
+    "ml_fonte": "vendas/anuncios_ml/Anuncios_ML_2026-09-10.pdf",
+    "aliquota_simples": 0.04
   },
   "container": {
     "referencia": "ST260001",
@@ -28,7 +29,7 @@
     {
       "nome": "Cortador de Alimentos 16 em 1",
       "ncm": "8210.00.90",
-      "pmv": 46.04,
+      "pmv": 39.9,
       "custo_nac": 23.94,
       "minimo": null,
       "medio": null,
@@ -90,7 +91,7 @@
         }
       ],
       "qtd": 2448,
-      "frete_ml": 20,
+      "frete_ml": 6.95,
       "sku": "HEL-COZ-001",
       "custo_medio_ponderado": 22.6,
       "skus_unificados": [
@@ -118,12 +119,15 @@
         "estoque_anuncio": 1481,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 2.82,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Fatiador Rotativo de Legumes",
       "ncm": "8210.00.90",
-      "pmv": 30.58,
+      "pmv": 35.91,
       "custo_nac": 15.9,
       "minimo": null,
       "medio": null,
@@ -185,7 +189,7 @@
         }
       ],
       "qtd": 1680,
-      "frete_ml": 18,
+      "frete_ml": 7.45,
       "sku": "HEL-COZ-007",
       "ml": {
         "mlb": "7372187584",
@@ -201,12 +205,15 @@
         "estoque_anuncio": 1676,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 8.19,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Kit 7 Potes Hermeticos",
       "ncm": "3924.10.00",
-      "pmv": 81.33,
+      "pmv": 87.21,
       "custo_nac": 42.29,
       "minimo": null,
       "medio": null,
@@ -268,7 +275,7 @@
         }
       ],
       "qtd": 420,
-      "frete_ml": 25,
+      "frete_ml": 14.75,
       "sku": "HEL-COZ-006",
       "ml": {
         "mlb": "5026932845",
@@ -284,12 +291,15 @@
         "estoque_anuncio": 417,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.165,
+      "lucro_real": 12.89,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Conjunto Potes Organizadores",
       "ncm": "3924.10.00",
-      "pmv": 36.42,
+      "pmv": 40.41,
       "custo_nac": 18.94,
       "minimo": null,
       "medio": null,
@@ -351,7 +361,7 @@
         }
       ],
       "qtd": 1000,
-      "frete_ml": 20,
+      "frete_ml": 8.65,
       "sku": "HEL-COZ-002",
       "ml": {
         "mlb": "7367225350",
@@ -367,12 +377,15 @@
         "estoque_anuncio": 994,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 6.78,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Tapete de Silicone para Cozinha",
       "ncm": "3924.10.00",
-      "pmv": 31.08,
+      "pmv": 33.15,
       "custo_nac": 16.16,
       "minimo": null,
       "medio": null,
@@ -434,7 +447,7 @@
         }
       ],
       "qtd": 540,
-      "frete_ml": 15,
+      "frete_ml": 6.85,
       "sku": "HEL-COZ-003",
       "unidade_venda": "kit com 4 pecas",
       "pecas_por_kit": 4,
@@ -454,12 +467,15 @@
         "estoque_anuncio": 2151,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 6.05,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Spray de Oleo Cozinha",
       "ncm": "3924.10.00",
-      "pmv": 14.56,
+      "pmv": 24.15,
       "custo_nac": 7.57,
       "minimo": null,
       "medio": null,
@@ -521,7 +537,7 @@
         }
       ],
       "qtd": 3000,
-      "frete_ml": 15,
+      "frete_ml": 6.95,
       "sku": "HEL-COZ-005",
       "ml": {
         "mlb": "5025211935",
@@ -537,12 +553,15 @@
         "estoque_anuncio": 2992,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.14,
+      "lucro_real": 5.53,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Luminaria Solar Flamingo 2 un.",
       "ncm": "9405.41.00",
-      "pmv": 52.13,
+      "pmv": 73.62,
       "custo_nac": 27.11,
       "minimo": null,
       "medio": null,
@@ -604,7 +623,7 @@
         }
       ],
       "qtd": 504,
-      "frete_ml": 20,
+      "frete_ml": 8.25,
       "sku": "HEL-JAR-004",
       "ml": {
         "mlb": "5016564863",
@@ -620,12 +639,15 @@
         "estoque_anuncio": 497,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 27.58,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Luminaria Solar Flamingo 3 un.",
       "ncm": "9405.41.00",
-      "pmv": 72.75,
+      "pmv": 92.05,
       "custo_nac": 37.83,
       "minimo": null,
       "medio": null,
@@ -687,7 +709,7 @@
         }
       ],
       "qtd": 720,
-      "frete_ml": 22,
+      "frete_ml": 14.45,
       "sku": "HEL-JAR-005",
       "custo_medio_ponderado": 29.71,
       "skus_unificados": [
@@ -715,12 +737,15 @@
         "estoque_anuncio": 502,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.165,
+      "lucro_real": 21.5,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Luminaria Solar Hortensia 3 Hastes",
       "ncm": "9405.41.00",
-      "pmv": 67.71,
+      "pmv": 80.91,
       "custo_nac": 35.21,
       "minimo": null,
       "medio": null,
@@ -782,7 +807,7 @@
         }
       ],
       "qtd": 1020,
-      "frete_ml": 25,
+      "frete_ml": 14.45,
       "sku": "HEL-JAR-006",
       "ml": {
         "mlb": "5114826509",
@@ -798,12 +823,15 @@
         "estoque_anuncio": 1020,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 18.88,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Luminaria Solar Hortensia PVC",
       "ncm": "9405.41.00",
-      "pmv": 49.9,
+      "pmv": 69.02,
       "custo_nac": 25.95,
       "minimo": null,
       "medio": null,
@@ -865,7 +893,7 @@
         }
       ],
       "qtd": 189,
-      "frete_ml": 22,
+      "frete_ml": 8.45,
       "sku": "HEL-JAR-002",
       "ml": {
         "mlb": "5022123799",
@@ -881,12 +909,15 @@
         "estoque_anuncio": 185,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 24.6,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Luminaria Solar Hortensia Ferro",
       "ncm": "9405.41.00",
-      "pmv": 102.04,
+      "pmv": 116.91,
       "custo_nac": 53.06,
       "minimo": null,
       "medio": null,
@@ -948,7 +979,7 @@
         }
       ],
       "qtd": 216,
-      "frete_ml": 25,
+      "frete_ml": 19.05,
       "sku": "HEL-JAR-003",
       "ml": {
         "mlb": "5022170793",
@@ -964,12 +995,15 @@
         "estoque_anuncio": 216,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.165,
+      "lucro_real": 20.83,
+      "fonte_numeros": "Metrify 13/09/2026"
     },
     {
       "nome": "Cortador de Legumes Manual",
       "ncm": "8210.00.90",
-      "pmv": 29.4,
+      "pmv": 29.59,
       "custo_nac": 15.29,
       "minimo": null,
       "medio": null,
@@ -978,7 +1012,7 @@
       "alertas": [],
       "historico": [],
       "qtd": 4800,
-      "frete_ml": 15,
+      "frete_ml": 7.15,
       "sku": "HEL-COZ-008",
       "ml": {
         "mlb": "5022326823",
@@ -994,7 +1028,10 @@
         "estoque_anuncio": 4798,
         "fonte": "Anuncios_ML_2026-09-10.pdf",
         "coletado_em": "10/09/2026"
-      }
+      },
+      "comissao_real": 0.115,
+      "lucro_real": 3.72,
+      "fonte_numeros": "Metrify 13/09/2026"
     }
   ]
 }
