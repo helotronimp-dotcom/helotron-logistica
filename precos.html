@@ -206,6 +206,11 @@ tbody tr { cursor: pointer; }
     <p>Preços Mercado Livre · PMV dinâmico · Container ST260001</p>
   </div>
   <div style="display:flex;align-items:center;gap:14px;">
+    <button onclick="limparAjustes()"
+      title="Apaga os ajustes manuais salvos neste navegador e volta aos numeros do Mercado Livre"
+      style="background:#21262d;color:#8b949e;border:1px solid #30363d;border-radius:8px;padding:8px 14px;font-size:11px;font-family:inherit;cursor:pointer;white-space:nowrap;"
+      onmouseover="this.style.color='#e6edf3';this.style.borderColor='#f0883e'"
+      onmouseout="this.style.color='#8b949e';this.style.borderColor='#30363d'">↺ Limpar ajustes</button>
     <div style="background:#0f2a1a;border:1px solid #3fb95044;border-radius:10px;padding:8px 16px;text-align:center;">
       <div style="font-size:10px;color:#7d8590;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Margem Alvo</div>
       <div style="display:flex;align-items:center;gap:6px;">
@@ -439,6 +444,15 @@ function getMargem() {
 // ── PERSISTÊNCIA ────────────────────────────────────────────
 // Salva os ajustes manuais no navegador para não perder ao atualizar a página
 const STORAGE_KEY = 'helotron_precificacao_v1';
+
+// Apaga tudo o que foi ajustado a mao e volta aos numeros que vem do ML.
+// Ajustes antigos guardados no navegador sobrescrevem o frete e a comissao reais,
+// e foi o que fez o painel mostrar lucro negativo em 13/09/2026.
+function limparAjustes() {
+  if (!confirm('Isto apaga margens, fretes, comissoes e precos ajustados a mao neste navegador.\n\nOs numeros voltam aos que vem do Mercado Livre. Continuar?')) return;
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  location.reload();
+}
 
 function salvarAjustes() {
   try {
