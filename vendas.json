@@ -1,18 +1,17 @@
 {
   "meta": {
-    "gerado_em": "10/09/2026",
+    "gerado_em": "13/09/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 37,
+    "total_notas": 48,
     "canceladas": [
       14,
       23
     ],
     "devolucoes": [],
-    "lacunas_numeracao": {
-      "1": [
-        37
-      ]
-    },
+    "remessas": [
+      "2/2"
+    ],
+    "lacunas_numeracao": {},
     "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace."
   },
   "parametros": {
@@ -95,6 +94,7 @@
       "nf": 4,
       "serie": "1",
       "data": "2026-08-09",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Anderson Luiz Bigadeiro Dos Santos",
       "uf": "PR",
@@ -117,6 +117,7 @@
       "nf": 5,
       "serie": "1",
       "data": "2026-08-09",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Aurely Carlos Antonio",
       "uf": "PR",
@@ -139,6 +140,7 @@
       "nf": 6,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Renan Dagnoni Pocahy",
       "uf": "SC",
@@ -169,6 +171,7 @@
       "nf": 7,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Maina Alves Candro",
       "uf": "SP",
@@ -207,6 +210,7 @@
       "nf": 8,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Renan Dagnoni Pocahy",
       "uf": "SC",
@@ -229,6 +233,7 @@
       "nf": 9,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Lohara Bigadeiro Dos Santos",
       "uf": "PR",
@@ -259,6 +264,7 @@
       "nf": 10,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Natally Augusto Lopes",
       "uf": "SP",
@@ -281,6 +287,7 @@
       "nf": 11,
       "serie": "1",
       "data": "2026-08-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Carlos Alberto Bigadeiro Dos Santos",
       "uf": "PR",
@@ -303,6 +310,7 @@
       "nf": 12,
       "serie": "1",
       "data": "2026-08-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Aurely Carlos Antonio",
       "uf": "PR",
@@ -325,6 +333,7 @@
       "nf": 13,
       "serie": "1",
       "data": "2026-08-21",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Adriana V.",
       "uf": "SP",
@@ -347,6 +356,7 @@
       "nf": 14,
       "serie": "1",
       "data": "2026-08-22",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Anderson Luiz Bigadeiro Dos Santos",
       "uf": "PR",
@@ -370,6 +380,7 @@
       "nf": 15,
       "serie": "1",
       "data": "2026-08-23",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Jefferson Henrico Pinheiro",
       "uf": "SC",
@@ -392,6 +403,7 @@
       "nf": 16,
       "serie": "1",
       "data": "2026-08-24",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Gilberto Batistella",
       "uf": "PR",
@@ -414,6 +426,7 @@
       "nf": 17,
       "serie": "1",
       "data": "2026-08-25",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Marcia Araujo Bastos Freitas",
       "uf": "BA",
@@ -436,6 +449,7 @@
       "nf": 18,
       "serie": "1",
       "data": "2026-08-25",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Hernani Prado Vasconcelos",
       "uf": "SP",
@@ -458,6 +472,7 @@
       "nf": 19,
       "serie": "1",
       "data": "2026-08-27",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Cristiane Priscila De Oliveira",
       "uf": "PR",
@@ -480,6 +495,7 @@
       "nf": 20,
       "serie": "1",
       "data": "2026-08-29",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Carlos Eduardo Guerra",
       "uf": "SP",
@@ -502,6 +518,7 @@
       "nf": 21,
       "serie": "1",
       "data": "2026-08-29",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Carlos Alberto Bigadeiro Dos Santos",
       "uf": "PR",
@@ -524,6 +541,7 @@
       "nf": 22,
       "serie": "1",
       "data": "2026-08-30",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Anderson Luiz Bigadeiro Dos Santos",
       "uf": "PR",
@@ -546,6 +564,7 @@
       "nf": 23,
       "serie": "1",
       "data": "2026-08-30",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Anderson Luiz Bigadeiro Dos Santos",
       "uf": "PR",
@@ -577,6 +596,7 @@
       "nf": 24,
       "serie": "1",
       "data": "2026-08-30",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Carlos Alberto Bigadeiro Dos Santos",
       "uf": "PR",
@@ -599,6 +619,7 @@
       "nf": 25,
       "serie": "1",
       "data": "2026-08-30",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Anderson Luiz Bigadeiro Dos Santos",
       "uf": "PR",
@@ -629,6 +650,7 @@
       "nf": 26,
       "serie": "1",
       "data": "2026-08-31",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Mateus Cabral Rodrigues",
       "uf": "SP",
@@ -651,6 +673,7 @@
       "nf": 27,
       "serie": "1",
       "data": "2026-08-31",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Aurely Carlos Antonio",
       "uf": "PR",
@@ -673,6 +696,7 @@
       "nf": 28,
       "serie": "1",
       "data": "2026-08-31",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Aurely Carlos Antonio",
       "uf": "PR",
@@ -695,6 +719,7 @@
       "nf": 29,
       "serie": "1",
       "data": "2026-09-01",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Leticia Ribeiro De Carvalho",
       "uf": "GO",
@@ -717,6 +742,7 @@
       "nf": 30,
       "serie": "1",
       "data": "2026-09-06",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Gisele Bigadeiro Dos Santos",
       "uf": "PR",
@@ -747,6 +773,7 @@
       "nf": 31,
       "serie": "1",
       "data": "2026-09-06",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Luana Berdet Ayres",
       "uf": "SC",
@@ -777,6 +804,7 @@
       "nf": 32,
       "serie": "1",
       "data": "2026-09-06",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Luana Berdet Ayres",
       "uf": "SC",
@@ -807,6 +835,7 @@
       "nf": 33,
       "serie": "1",
       "data": "2026-09-08",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Izabel Cristina De Souza Silva",
       "uf": "PR",
@@ -837,6 +866,7 @@
       "nf": 34,
       "serie": "1",
       "data": "2026-09-08",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Jonny Coradini",
       "uf": "SP",
@@ -859,6 +889,7 @@
       "nf": 35,
       "serie": "1",
       "data": "2026-09-08",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Antonio Carlos De Medeiros",
       "uf": "SC",
@@ -881,6 +912,7 @@
       "nf": 36,
       "serie": "1",
       "data": "2026-09-09",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Marlon Roberto Helegda Prestes",
       "uf": "RS",
@@ -903,6 +935,7 @@
       "nf": 38,
       "serie": "1",
       "data": "2026-09-10",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Antonia Almeida",
       "uf": "SP",
@@ -925,6 +958,7 @@
       "nf": 39,
       "serie": "1",
       "data": "2026-09-10",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Alessandra De Melo Oliveira Pedroso",
       "uf": "SP",
@@ -947,6 +981,7 @@
       "nf": 40,
       "serie": "1",
       "data": "2026-09-10",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Denise Teles Silva De Jesus",
       "uf": "MG",
@@ -965,10 +1000,368 @@
       "status": "valida"
     },
     {
+      "chave": "41260963403148000197550010000000411452504962",
+      "nf": 41,
+      "serie": "1",
+      "data": "2026-09-11",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Fabiano Franca Da Silva",
+      "uf": "ES",
+      "vProdutos": 36.76,
+      "vNF": 36.76,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 36.76,
+          "vTotal": 36.76
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000421464777877",
+      "nf": 42,
+      "serie": "1",
+      "data": "2026-09-11",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Vanessa Tiodoro",
+      "uf": "MG",
+      "vProdutos": 36.76,
+      "vNF": 36.76,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 36.76,
+          "vTotal": 36.76
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000431465007630",
+      "nf": 43,
+      "serie": "1",
+      "data": "2026-09-11",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Joacir Pedro Bortoncello",
+      "uf": "RS",
+      "vProdutos": 35.91,
+      "vNF": 35.91,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 35.91,
+          "vTotal": 35.91
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000441508992764",
+      "nf": 44,
+      "serie": "1",
+      "data": "2026-09-11",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Henrique Weyne Duarte Weyne",
+      "uf": "PR",
+      "vProdutos": 73.62,
+      "vNF": 73.62,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000451517850346",
+      "nf": 45,
+      "serie": "1",
+      "data": "2026-09-11",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Gilberto Alves Faria",
+      "uf": "MG",
+      "vProdutos": 24.15,
+      "vNF": 24.15,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 24.15,
+          "vTotal": 24.15
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000461565651851",
+      "nf": 46,
+      "serie": "1",
+      "data": "2026-09-12",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Andre Malaquias Dos Santos",
+      "uf": "PR",
+      "vProdutos": 33.9,
+      "vNF": 33.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-008",
+          "produto": "CORTADOR DE LEGUMES MANUAL MATERIAL PLASTICO E ACO INOXIDAVEL USO DOMESTICO.",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 33.9,
+          "vTotal": 33.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000471575164829",
+      "nf": 47,
+      "serie": "1",
+      "data": "2026-09-12",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Tereza Cristina Portugal",
+      "uf": "MG",
+      "vProdutos": 35.91,
+      "vNF": 35.91,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 35.91,
+          "vTotal": 35.91
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000481587924081",
+      "nf": 48,
+      "serie": "1",
+      "data": "2026-09-13",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Sonia Beatriz Pradella Pereira",
+      "uf": "MS",
+      "vProdutos": 24.15,
+      "vNF": 24.15,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 24.15,
+          "vTotal": 24.15
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000491587956045",
+      "nf": 49,
+      "serie": "1",
+      "data": "2026-09-13",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Carmem Lucia De Souza",
+      "uf": "SC",
+      "vProdutos": 92.05,
+      "vNF": 92.05,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 92.05,
+          "vTotal": 92.05
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000501607997397",
+      "nf": 50,
+      "serie": "1",
+      "data": "2026-09-13",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Hernani Prado Vasconcelos",
+      "uf": "SP",
+      "vProdutos": 96.6,
+      "vNF": 96.6,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 4.0,
+          "vUnit": 24.15,
+          "vTotal": 96.6
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550020000000021235225346",
+      "nf": 2,
+      "serie": "2",
+      "data": "2026-09-13",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "cliente": "EBAZAR.COM.BR LTDA",
+      "uf": "SC",
+      "vProdutos": 27085.3,
+      "vNF": 27085.3,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 200.0,
+          "vUnit": 7.57,
+          "vTotal": 1514.0
+        },
+        {
+          "sku": "HEL-COZ-008",
+          "produto": "RALADOR FATIADOR MULTIFUNCIONAL MANUAL COM TIGELA E CESTO ESCORREDOR 11 PECAS PLASTICO E ACO INOXIDAVEL",
+          "cfop": "6949",
+          "qtd": 100.0,
+          "vUnit": 15.29,
+          "vTotal": 1529.0
+        },
+        {
+          "sku": "HEL-JAR-003",
+          "produto": "HORTENSIA DECORATIVA AZUL 62CM HASTE DE FERRO LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 30.0,
+          "vUnit": 53.06,
+          "vTotal": 1591.8
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 30.0,
+          "vUnit": 89.9,
+          "vTotal": 2697.0
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 30.0,
+          "vUnit": 89.9,
+          "vTotal": 2697.0
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 30.0,
+          "vUnit": 89.9,
+          "vTotal": 2697.0
+        },
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 50.0,
+          "vUnit": 23.94,
+          "vTotal": 1197.0
+        },
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 50.0,
+          "vUnit": 37.83,
+          "vTotal": 1891.5
+        },
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "KIT COM 4 SUPORTES DE SILICONE PARA PANELAS FORMATO REDONDO 17,5CM DE DIAMETRO COR VERMELHA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 200.0,
+          "vUnit": 16.16,
+          "vTotal": 3232.0
+        },
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "6949",
+          "qtd": 50.0,
+          "vUnit": 15.9,
+          "vTotal": 795.0
+        },
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 50.0,
+          "vUnit": 27.11,
+          "vTotal": 1355.5
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 30.0,
+          "vUnit": 89.9,
+          "vTotal": 2697.0
+        },
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6949",
+          "qtd": 100.0,
+          "vUnit": 18.94,
+          "vTotal": 1894.0
+        },
+        {
+          "sku": "HEL-JAR-002",
+          "produto": "HORTENSIA DECORATIVA AZUL 70CM PVC LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 50.0,
+          "vUnit": 25.95,
+          "vTotal": 1297.5
+        }
+      ],
+      "status": "remessa"
+    },
+    {
       "chave": "41260963403148000197550340000000371368209249",
       "nf": 37,
       "serie": "34",
       "data": "2026-09-10",
+      "natOp": "Venda de mercadoria a nao contribuinte",
       "tipo": "saida",
       "cliente": "Carlos Eduardo Morais Da Silva",
       "uf": "MS",
