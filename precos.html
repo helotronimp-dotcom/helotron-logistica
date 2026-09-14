@@ -276,7 +276,7 @@ tbody tr { cursor: pointer; }
           <th style="background:#1a1f2e" title="Custo do frete ML por unidade (editável)">Frete ML</th>
           <th style="background:#0d2233" title="PMV − comissão − frete = o que o ML deposita por venda">Vl. Líquido ML</th>
           <th style="background:#2a1f10" title="DAS do Simples Nacional, Anexo I, 1ª faixa — 4% sobre o preço de venda">Imposto</th>
-          <th style="background:#1a2a1a">Margem %</th>
+          <th style="background:#1a2a1a">Margem % real</th>
           <th onclick="ordenar('lucro')"     style="cursor:pointer;background:#0d2a1a" title="Ordenar">Lucro <span id="ord-lucro"></span></th>
           <th onclick="ordenar('qtd')"       style="cursor:pointer;background:#1a1a2a" title="Ordenar">Estoque <span id="ord-qtd"></span></th>
           <th onclick="ordenar('projetado')" style="cursor:pointer;background:#12331f" title="Lucro × estoque — retorno se vender todo o estoque neste preço">Lucro Projetado <span id="ord-projetado"></span></th>
@@ -931,21 +931,36 @@ function recalcularTabela() {
         <div style="font-size:9px;color:#7d8590;font-weight:400;">4%</div>
       </td>
       <td style="background:#0f2a1a;padding:4px 6px;">
-        ${precoTravado ? `
-          <div style="text-align:center;color:${margemReal >= 0 ? '#3fb950' : '#f85149'};font-size:13px;font-weight:700;" title="Margem calculada a partir do preço travado">
-            ${(margemReal*100).toFixed(1)}%
-            <div style="font-size:9px;color:#7d8590;font-weight:400;">calculada</div>
-          </div>` : `
-          <div style="display:flex;align-items:center;justify-content:center;gap:3px;" onclick="event.stopPropagation()">
-            <input type="number" min="0" max="80" step="1"
-              value="${margemAtual}"
-              data-nome="${p.nome.replace(/"/g,'&quot;')}"
-              onchange="alterarMargemProduto(this)"
-              title="Margem alvo — define o preço sugerido"
-              style="width:44px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#3fb95066'};color:${temCustom ? '#f0883e' : '#3fb950'};font-size:13px;font-weight:700;text-align:center;outline:none;padding:2px 0;">
-            <span style="font-size:11px;color:${temCustom ? '#f0883e' : '#3fb950'};">%</span>
-            ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:10px;color:#7d8590;margin-left:2px;">↺</span>` : ''}
-          </div>`}
+        ${(() => {
+          // numero principal: a margem que voce realmente tem no preco de hoje.
+          // e o mesmo criterio do Metrify — lucro dividido pelo preco de venda.
+          const markup = (margemReal != null && p.custo_nac)
+            ? margemReal * pmv / p.custo_nac : null;
+          const cor = margemReal == null ? '#7d8590'
+                    : margemReal < 0     ? '#f85149'
+                    : margemReal < 0.15  ? '#e3b341' : '#3fb950';
+          const dica = markup != null
+            ? `Margem real: lucro ÷ preço de venda. Markup (lucro ÷ custo): ${(markup*100).toFixed(0)}%`
+            : 'Margem real: lucro ÷ preço de venda';
+          return `
+          <div style="text-align:center;color:${cor};font-size:14px;font-weight:700;" title="${dica}">
+            ${margemReal != null ? (margemReal*100).toFixed(1) + '%' : '—'}
+          </div>
+          ${precoTravado ? `
+            <div style="font-size:9px;color:#7d8590;text-align:center;font-weight:400;">preço travado</div>`
+          : `
+            <div style="display:flex;align-items:center;justify-content:center;gap:2px;margin-top:2px;" onclick="event.stopPropagation()">
+              <span style="font-size:9px;color:#7d8590;">alvo</span>
+              <input type="number" min="0" max="80" step="1"
+                value="${margemAtual}"
+                data-nome="${p.nome.replace(/"/g,'&quot;')}"
+                onchange="alterarMargemProduto(this)"
+                title="Margem alvo — define o preço sugerido, não altera a margem real"
+                style="width:30px;background:transparent;border:none;border-bottom:1px solid ${temCustom ? '#f0883e' : '#30363d'};color:${temCustom ? '#f0883e' : '#7d8590'};font-size:10px;font-weight:600;text-align:center;outline:none;padding:0;">
+              <span style="font-size:9px;color:${temCustom ? '#f0883e' : '#7d8590'};">%</span>
+              ${temCustom ? `<span title="Resetar para margem global" onclick="resetarMargem('${p.nome.replace(/'/g,"\\'")}',this)" style="cursor:pointer;font-size:9px;color:#7d8590;">↺</span>` : ''}
+            </div>`}`;
+        })()}
       </td>
       <td style="color:${getLucroLiq(p,pmv)>=0?'#3fb950':'#f85149'};font-weight:600;font-size:12px">${BRL(getLucroLiq(p,pmv))}</td>
       <td style="color:#8b949e;font-size:12px;text-align:center">
