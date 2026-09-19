@@ -623,7 +623,7 @@
         }
       ],
       "qtd": 504,
-      "frete_ml": 8.25,
+      "frete_ml": 8.65,
       "sku": "HEL-JAR-004",
       "ml": {
         "mlb": "5016564863",
@@ -632,16 +632,16 @@
         "modalidade": "classico",
         "comissao_valor": 7.74,
         "comissao_pct": 0.1051,
-        "frete_valor": 8.25,
+        "frete_valor": 8.65,
         "frete_tipo": "comprador",
-        "voce_recebe": 57.63,
+        "voce_recebe": 57.23,
         "voce_recebe_confere": true,
         "estoque_anuncio": 497,
         "fonte": "Metrify",
-        "coletado_em": "13/09/2026"
+        "coletado_em": "18/09/2026"
       },
       "comissao_real": 0.1051,
-      "lucro_real": 27.58,
+      "lucro_real": 27.18,
       "fonte_numeros": "Metrify 13/09/2026"
     },
     {
