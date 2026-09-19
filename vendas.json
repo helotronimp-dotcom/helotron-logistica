@@ -2,21 +2,19 @@
   "meta": {
     "gerado_em": "18/09/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 61,
+    "total_notas": 63,
     "canceladas": [
       14,
       23
     ],
-    "devolucoes": [],
+    "devolucoes": [
+      63,
+      64
+    ],
     "remessas": [
       "2/2"
     ],
-    "lacunas_numeracao": {
-      "1": [
-        63,
-        64
-      ]
-    },
+    "lacunas_numeracao": {},
     "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace."
   },
   "parametros": {
@@ -1509,6 +1507,52 @@
         }
       ],
       "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000631109932208",
+      "nf": 63,
+      "serie": "1",
+      "data": "2026-09-18",
+      "natOp": "Devolucao de venda",
+      "tipo": "entrada",
+      "cliente": "Natally Augusto Lopes",
+      "uf": "SP",
+      "vProdutos": 45.9,
+      "vNF": 58.89,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 45.9,
+          "vTotal": 45.9
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "chave": "41260963403148000197550010000000641110042897",
+      "nf": 64,
+      "serie": "1",
+      "data": "2026-09-18",
+      "natOp": "Devolucao de venda",
+      "tipo": "entrada",
+      "cliente": "Carlos Alberto Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 27.9,
+      "vNF": 27.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "1202",
+          "qtd": 1.0,
+          "vUnit": 27.9,
+          "vTotal": 27.9
+        }
+      ],
+      "status": "devolucao"
     },
     {
       "chave": "41260963403148000197550010000000651111207978",
