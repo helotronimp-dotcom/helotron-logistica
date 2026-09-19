@@ -1,8 +1,8 @@
 {
   "meta": {
-    "gerado_em": "13/09/2026",
+    "gerado_em": "18/09/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 48,
+    "total_notas": 61,
     "canceladas": [
       14,
       23
@@ -11,7 +11,12 @@
     "remessas": [
       "2/2"
     ],
-    "lacunas_numeracao": {},
+    "lacunas_numeracao": {
+      "1": [
+        63,
+        64
+      ]
+    },
     "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace."
   },
   "parametros": {
@@ -1225,6 +1230,305 @@
           "qtd": 4.0,
           "vUnit": 24.15,
           "vTotal": 96.6
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000511653608494",
+      "nf": 51,
+      "serie": "1",
+      "data": "2026-09-14",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Ana Carla Freire Fernandes",
+      "uf": "SP",
+      "vProdutos": 40.41,
+      "vNF": 40.41,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 40.41,
+          "vTotal": 40.41
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000521736043599",
+      "nf": 52,
+      "serie": "1",
+      "data": "2026-09-14",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Neli Frota Albuquerque",
+      "uf": "RJ",
+      "vProdutos": 92.05,
+      "vNF": 92.05,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 92.05,
+          "vTotal": 92.05
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000531736102061",
+      "nf": 53,
+      "serie": "1",
+      "data": "2026-09-14",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Maria Betania Costa Barros",
+      "uf": "PE",
+      "vProdutos": 24.15,
+      "vNF": 24.15,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 24.15,
+          "vTotal": 24.15
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000541736139671",
+      "nf": 54,
+      "serie": "1",
+      "data": "2026-09-14",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Marciano De Moura Aguiar",
+      "uf": "RS",
+      "vProdutos": 35.91,
+      "vNF": 35.91,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 35.91,
+          "vTotal": 35.91
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000551771728162",
+      "nf": 55,
+      "serie": "1",
+      "data": "2026-09-15",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Tania Gomes Lima",
+      "uf": "SP",
+      "vProdutos": 35.91,
+      "vNF": 35.91,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 35.91,
+          "vTotal": 35.91
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000561833639106",
+      "nf": 56,
+      "serie": "1",
+      "data": "2026-09-15",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Francisca Alves Serafim",
+      "uf": "SP",
+      "vProdutos": 24.15,
+      "vNF": 27.01,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 24.15,
+          "vTotal": 24.15
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000571877923362",
+      "nf": 57,
+      "serie": "1",
+      "data": "2026-09-16",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Jacqueline Campos Viana",
+      "uf": "SP",
+      "vProdutos": 39.9,
+      "vNF": 39.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 39.9,
+          "vTotal": 39.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000581970195190",
+      "nf": 58,
+      "serie": "1",
+      "data": "2026-09-17",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Lopes & Diniz - Servicos Expressos Ltda",
+      "uf": "MG",
+      "vProdutos": 40.41,
+      "vNF": 40.41,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 40.41,
+          "vTotal": 40.41
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000591985411720",
+      "nf": 59,
+      "serie": "1",
+      "data": "2026-09-17",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Alessandro Vilela De Oliveira",
+      "uf": "MG",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000601997926895",
+      "nf": 60,
+      "serie": "1",
+      "data": "2026-09-17",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Juscelino De Souza",
+      "uf": "RJ",
+      "vProdutos": 35.91,
+      "vNF": 35.91,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 35.91,
+          "vTotal": 35.91
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000611059472476",
+      "nf": 61,
+      "serie": "1",
+      "data": "2026-09-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Angela Silvia",
+      "uf": "SP",
+      "vProdutos": 40.41,
+      "vNF": 40.41,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 40.41,
+          "vTotal": 40.41
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000621071683209",
+      "nf": 62,
+      "serie": "1",
+      "data": "2026-09-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Simone Aparecida Gomes",
+      "uf": "MG",
+      "vProdutos": 73.62,
+      "vNF": 73.62,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000651111207978",
+      "nf": 65,
+      "serie": "1",
+      "data": "2026-09-18",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Anderson Luiz Bigadeiro Dos Santos",
+      "uf": "PR",
+      "vProdutos": 24.15,
+      "vNF": 24.15,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR + SPRAY DE OLEO 2 EM 1 CAPACIDADE 470ML",
+          "cfop": "5102",
+          "qtd": 1.0,
+          "vUnit": 24.15,
+          "vTotal": 24.15
         }
       ],
       "status": "valida"
