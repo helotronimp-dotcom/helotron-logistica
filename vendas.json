@@ -1,8 +1,8 @@
 {
   "meta": {
-    "gerado_em": "18/09/2026",
+    "gerado_em": "20/09/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 63,
+    "total_notas": 70,
     "canceladas": [
       14,
       23
@@ -1573,6 +1573,175 @@
           "qtd": 1.0,
           "vUnit": 24.15,
           "vTotal": 24.15
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000661118679910",
+      "nf": 66,
+      "serie": "1",
+      "data": "2026-09-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Fernanda Pinto Marques",
+      "uf": "PI",
+      "vProdutos": 229.59,
+      "vNF": 229.59,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "HORTENSIA DECORATIVA COM 3 HASTES CONJUNTO COM 2 PECAS CORES BRANCO/ROSA/AZUL/ROXO MATERIAL PVC LED PA",
+          "cfop": "6108",
+          "qtd": 2.0,
+          "vUnit": 76.53,
+          "vTotal": 153.06
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "HORTENSIA DECORATIVA COM 3 HASTES CONJUNTO COM 2 PECAS CORES BRANCO/ROSA/AZUL/ROXO MATERIAL PVC LED PA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 76.53,
+          "vTotal": 76.53
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000671151498471",
+      "nf": 67,
+      "serie": "1",
+      "data": "2026-09-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Gabriel Gustavo Jabs Maciel",
+      "uf": "RS",
+      "vProdutos": 73.62,
+      "vNF": 73.62,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000681151517546",
+      "nf": 68,
+      "serie": "1",
+      "data": "2026-09-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Eni Teresinha Lehmkuhl",
+      "uf": "SC",
+      "vProdutos": 39.9,
+      "vNF": 39.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP AO INOXIDAVEL 201/402 CONJUNTO COM 5 PECAS INTERCA",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 39.9,
+          "vTotal": 39.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000691154868347",
+      "nf": 69,
+      "serie": "1",
+      "data": "2026-09-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Karolyne Tartaglione Silva",
+      "uf": "SP",
+      "vProdutos": 40.41,
+      "vNF": 46.25,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 40.41,
+          "vTotal": 40.41
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000701163320937",
+      "nf": 70,
+      "serie": "1",
+      "data": "2026-09-19",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Nedio Angelo Leite",
+      "uf": "RS",
+      "vProdutos": 92.05,
+      "vNF": 92.05,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 92.05,
+          "vTotal": 92.05
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000711177949988",
+      "nf": 71,
+      "serie": "1",
+      "data": "2026-09-20",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Ketuy Stephania Teodoro",
+      "uf": "SP",
+      "vProdutos": 40.41,
+      "vNF": 40.41,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 40.41,
+          "vTotal": 40.41
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "chave": "41260963403148000197550010000000721177953044",
+      "nf": 72,
+      "serie": "1",
+      "data": "2026-09-20",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "cliente": "Zaine Mendes Arruda Guia",
+      "uf": "SP",
+      "vProdutos": 73.62,
+      "vNF": 73.62,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
         }
       ],
       "status": "valida"
