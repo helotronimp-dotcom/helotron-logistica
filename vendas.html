@@ -21,7 +21,7 @@ header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
 }
 .badge-update span { font-weight: 700; color: #e6edf3; }
 
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 18px 28px 6px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; padding: 18px 28px 6px; }
 @media (max-width: 760px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 .card {
   background: #161b22; border-radius: 10px; padding: 15px 18px;
@@ -31,6 +31,7 @@ header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
 .card.azul { border-left-color: #58a6ff; }
 .card.roxo { border-left-color: #bc8cff; }
 .card.amar { border-left-color: #d29922; }
+.card.ciano { border-left-color: #39c5cf; }
 .card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #7d8590; }
 .card-valor { font-size: 26px; font-weight: 700; margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
 .card-sub   { font-size: 10px; color: #7d8590; }
@@ -111,6 +112,8 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 .pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 10px; font-weight: 600; }
 .pill.ok   { background: #0f2a1a; color: #3fb950; border: 1px solid #3fb95055; }
 .pill.canc { background: #2a1215; color: #f85149; border: 1px solid #f8514955; }
+.pill.dup { background: #3d2c00; color: #e3b341; }
+.pill.full { background: #0b2b2e; color: #39c5cf; }
 .pill.dev  { background: #271d0a; color: #f0883e; border: 1px solid #f0883e55; }
 
 .paginacao {
@@ -188,6 +191,8 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
         <option value="valida">Válidas</option>
         <option value="cancelada">Canceladas</option>
         <option value="devolucao">Devoluções</option>
+        <option value="duplicada">Duplicadas</option>
+        <option value="full">Vendas pelo Full</option>
       </select>
     </div>
     <div class="grupo">
@@ -449,6 +454,8 @@ function renderNotas() {
     cabecalho(COLS_NOTAS, ordNotas) +
     (fatia.length ? `<tbody>${fatia.map(n => {
       const pill = n.status === 'cancelada' ? '<span class="pill canc">cancelada</span>'
+                 : n.status === 'duplicada' ? '<span class="pill dup">duplicada</span>'
+                 : n.status === 'valida' && n.origem === 'full' ? '<span class="pill full">venda Full</span>'
                  : n.status === 'devolucao' ? '<span class="pill dev">devolucao</span>'
                  : '<span class="pill ok">valida</span>';
       const canc = n.status === 'cancelada';
@@ -556,6 +563,11 @@ async function init() {
   const pecasIni = LINHAS.reduce((s, l) => s + l.inicial * (l.pecas_por_kit || 1), 0);
   const comVenda = LINHAS.filter(l => l.vendido > 0).length;
 
+  /* quanto do giro ja sai do Fulfillment — as notas emitidas pelo proprio ML */
+  const notasFull = NOTAS.filter(n => n.status === 'valida' && n.origem === 'full');
+  const unFull  = notasFull.reduce((s, n) => s + n.itens.reduce((a, i) => a + i.qtd, 0), 0);
+  const fatFull = notasFull.reduce((s, n) => s + n.vProdutos, 0);
+
   document.getElementById('cards').innerHTML = `
     <div class="card verd">
       <div class="card-label">Faturamento</div>
@@ -571,6 +583,11 @@ async function init() {
       <div class="card-label">Lucro estimado</div>
       <div class="card-valor ${totLuc >= 0 ? 'pos' : 'neg'}">${BRL(totLuc)}</div>
       <div class="card-sub">${totFat ? PCT(totLuc / totFat) : '—'} sobre o faturamento</div>
+    </div>
+    <div class="card ciano">
+      <div class="card-label">Vendas pelo Full</div>
+      <div class="card-valor">${PCT(totUn ? unFull / totUn : 0)}</div>
+      <div class="card-sub">${unFull} de ${totUn} unidades · ${BRL(fatFull)} faturado</div>
     </div>
     <div class="card amar">
       <div class="card-label">Estoque escoado</div>
@@ -627,6 +644,13 @@ async function init() {
     <b>percentual e o frete reais daquele anuncio</b> — varios tem desconto de comissao, de
     7,6% a 16,5%. Sem essa leitura, cai no padrao Classico 11,5% · Premium 16,5%. A ultima
     leitura dos anuncios esta no rodape abaixo.<br>
+    <b>Vendas pelo Full.</b> Quando a venda sai do deposito do Mercado Livre, quem emite a
+    nota e o proprio ML, na serie 2. Essas notas nao passam pelo Bling e so entram aqui
+    quando voce exporta o pacote de notas do Mercado Livre.<br>
+    <b style="color:#e3b341">Notas duplicadas.</b> Entre 21/09 e 05/10/2026 o Bling tambem
+    faturou pedidos que o ML ja tinha faturado no Full — duas notas para a mesma venda.
+    A nota do Bling e marcada como <b>duplicada</b> e fica fora de todos os totais; vale a
+    do ML, que acompanha a mercadoria. A causa foi corrigida no Bling em 05/10/2026.<br>
     <b>E estimativa, nao repasse.</b> O valor exato so aparece no relatorio de repasse do
     Mercado Livre. Notas <b>canceladas nao entram</b> em nenhum total; devolucoes sao
     abatidas do vendido e devolvem a unidade ao estoque.<br>
