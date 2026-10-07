@@ -521,7 +521,12 @@ const MODALIDADE_PRODUTO = {};
 const COMISSAO_CLASSICO   = 0.115;
 // DAS do Simples Nacional, Anexo I (comercio). 1a faixa = 4%.
 // Sobe para ~5,65% ao passar de R$ 180 mil de faturamento em 12 meses.
-const ALIQUOTA_SIMPLES = 0.04;
+// Aliquota efetiva do Simples Nacional.
+// 3,06% e a aliquota real apurada em setembro/2026 pela contabilidade (R$ 359,95
+// sobre R$ 11.762,79): Anexo II, por sermos importadores equiparados a industrial,
+// com ICMS isento pelo beneficio do Parana. Antes usavamos 4% estimados.
+// >> Conferir todo mes na guia: ela sobe conforme o faturamento dos ultimos 12 meses.
+const ALIQUOTA_SIMPLES = 0.0306;
 const COMISSAO_PREMIUM    = 0.165;
 
 // Comissao observada no proprio ML, por anuncio (bloco "ml" do dados.json).
