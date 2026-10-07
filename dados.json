@@ -12,7 +12,8 @@
     "comissao_plataforma": 0.18,
     "ml_atualizado_em": "13/09/2026",
     "ml_fonte": "Metrify — tela Margem prospectiva de cada anuncio",
-    "aliquota_simples": 0.04
+    "aliquota_simples": 0.0306,
+    "aliquota_fonte": "efetiva de setembro/2026 (DAS R$ 359,95 / receita R$ 11.762,79) - Anexo II com ICMS isento no PR"
   },
   "container": {
     "referencia": "ST260001",
