@@ -229,9 +229,12 @@ const norm = s => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ
 const dataBR = d => d.split('-').reverse().join('/');
 
 const PAG_TAM = 25;
-// DAS do Simples Nacional, Anexo I (comercio), 1a faixa.
-// Sobe para ~5,65% ao passar de R$ 180 mil de faturamento em 12 meses.
-const ALIQUOTA_SIMPLES = 0.04;
+// Aliquota efetiva do Simples Nacional.
+// 3,06% e a aliquota real apurada em setembro/2026 pela contabilidade (R$ 359,95
+// sobre R$ 11.762,79): Anexo II, por sermos importadores equiparados a industrial,
+// com ICMS isento pelo beneficio do Parana. Antes usavamos 4% estimados.
+// >> Conferir todo mes na guia: ela sobe conforme o faturamento dos ultimos 12 meses.
+const ALIQUOTA_SIMPLES = 0.0306;
 /* Meta MercadoLider — medida pelo ML nos ULTIMOS 60 DIAS.
    O painel do ML mostra apenas o que FALTA; o alvo cheio abaixo foi obtido somando
    o que faltava ao que ja tinhamos feito na janela, na leitura de 20/09/2026:
@@ -637,9 +640,10 @@ async function init() {
     <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado
     - DAS. O frete e contado <b>uma vez por nota</b> (o maior entre os itens do pedido) e
     rateado entre os produtos pelo valor de cada um.<br>
-    <b>Imposto:</b> DAS do Simples Nacional, Anexo I, 1a faixa — <b>4% sobre a receita
-    bruta</b>, sem credito do ICMS pago na importacao (CSOSN 102). A aliquota sobe para
-    cerca de 5,65% quando o faturamento passar de R$ 180 mil em 12 meses.<br>
+    <b>Imposto:</b> DAS do Simples Nacional — <b>3,06% sobre a receita bruta</b>, que foi a
+    aliquota efetiva apurada em setembro/2026 (Anexo II, por sermos importadores equiparados
+    a industrial, com ICMS isento no Parana). Ate 05/10/2026 o painel usava 4% estimados.
+    A aliquota sobe conforme o faturamento acumulado em 12 meses — conferir na guia todo mes.<br>
     <b>Comissao e frete:</b> quando o anuncio ja foi lido no Mercado Livre, vale o
     <b>percentual e o frete reais daquele anuncio</b> — varios tem desconto de comissao, de
     7,6% a 16,5%. Sem essa leitura, cai no padrao Classico 11,5% · Premium 16,5%. A ultima
