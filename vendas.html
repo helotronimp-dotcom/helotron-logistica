@@ -95,6 +95,8 @@ tbody tr:hover { background: #1c2129; }
 tbody tr:last-child td { border-bottom: none; }
 tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d; }
 .vazio { padding: 26px; text-align: center; color: #7d8590; font-size: 12px; }
+.nota-full { margin: 10px 14px 2px; font-size: 11px; line-height: 1.6; color: #8b949e; }
+.nota-full b { color: #e3b341; }
 
 .sku { font-size: 10px; color: #7d8590; display: block; margin-top: 2px; }
 .kit {
@@ -149,6 +151,15 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 <div class="cards" id="cards"></div>
 
 <div class="meta-lider" id="meta-lider"></div>
+
+<div class="section">
+  <div class="sec-header">
+    <span>ESTOQUE NO FULL</span>
+    <small id="sub-full"></small>
+  </div>
+  <div class="overflow-x"><table id="tbl-full"></table></div>
+  <p class="nota-full" id="nota-full"></p>
+</div>
 
 <div class="section">
   <div class="sec-header">
@@ -248,6 +259,7 @@ const META_LIDER = {
 const JANELA_DIAS = 60;
 
 let LINHAS = [], NOTAS = [], META = {};
+let GIRO_FULL = {};
 let ordGiro  = {col: 'vendido', dir: -1};
 let ordNotas = {col: 'data', dir: -1};
 let pagina = 1;
@@ -345,6 +357,68 @@ function renderMetaLider() {
       O faturamento usa o <b>valor total da nota</b>, o mesmo criterio do Mercado Livre e da
       contabilidade — por isso e maior que o cartao de faturamento acima, que mostra so os produtos.
     </div>`;
+}
+
+/* O que mandamos ao Full e o que ja saiu de la.
+   Enviado vem das remessas de saida do nosso deposito (CFOP 5949/6949); vendido,
+   das notas que o proprio ML emite a partir do estoque no Full (serie 2, 5106/6106).
+   Nao entram aqui as transferencias que o ML faz entre os CDs dele: naquelas a
+   mercadoria ja estava no Full, so mudou de galpao. */
+function renderFull() {
+  const g = Object.entries(GIRO_FULL);
+  if (!g.length) {
+    document.getElementById('tbl-full').closest('.section').style.display = 'none';
+    return;
+  }
+  const nome = sku => (LINHAS.find(l => l.sku === sku) || {}).nome || '';
+  const linhas = g.map(([sku, r]) => ({sku, nome: nome(sku) || r.produto, ...r}))
+                  .sort((a, b) => (b.giro || 0) - (a.giro || 0));
+
+  const tEnv = linhas.reduce((s, l) => s + l.enviado, 0);
+  const tVen = linhas.reduce((s, l) => s + l.vendido, 0);
+  const tFat = linhas.reduce((s, l) => s + l.faturado, 0);
+
+  const corpo = linhas.map(l => {
+    const gi = l.enviado ? l.vendido / l.enviado : 0;
+    const classe = gi >= 0.3 ? 'pos' : gi < 0.05 ? 'neg' : '';
+    return `<tr>
+      <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
+      <td>${l.enviado}</td>
+      <td>${l.vendido}</td>
+      <td>${l.saldo}</td>
+      <td>
+        <div class="barra ${gi >= 0.3 ? 'q' : ''}"><i style="width:${(gi * 100).toFixed(1)}%"></i></div>
+        <span class="sku ${classe}">${PCT(gi)}</span>
+      </td>
+      <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('tbl-full').innerHTML = `
+    <thead><tr>
+      <th>Produto</th><th>Enviado</th><th>Vendido</th>
+      <th>No Full</th><th>Giro</th><th>Faturado</th>
+    </tr></thead>
+    <tbody>${corpo}</tbody>
+    <tfoot><tr>
+      <td>TOTAL</td>
+      <td>${tEnv}</td><td>${tVen}</td><td>${tEnv - tVen}</td>
+      <td>${PCT(tEnv ? tVen / tEnv : 0)}</td>
+      <td>${BRL(tFat)}</td>
+    </tr></tfoot>`;
+
+  document.getElementById('sub-full').textContent =
+    `${tVen} de ${tEnv} unidades vendidas · ${tEnv - tVen} ainda no Full`;
+
+  const parados = linhas.filter(l => l.enviado && l.vendido / l.enviado < 0.05);
+  const unParadas = parados.reduce((s, l) => s + l.saldo, 0);
+  document.getElementById('nota-full').innerHTML = parados.length
+    ? `<b>${unParadas} unidades em ${parados.length} produtos giraram menos de 5%</b>
+       (${parados.map(l => esc(l.sku)).join(', ')}). A armazenagem no Full e cobrada
+       por volume e tempo, entao produto parado la custa mais caro que no deposito.
+       Vale avaliar retirada em vez de reposicao.`
+    : 'Saldo e uma conta fiscal: remessas menos vendas. Nao desconta avaria, ' +
+      'extravio nem unidade retirada, e so enxerga o que ja virou nota.';
 }
 
 function renderGiro() {
@@ -551,6 +625,8 @@ async function init() {
     return {...n, lucroNota, itensTxt: n.itens.map(i => `${i.qtd}x ${i.sku}`).join(' · ')};
   });
 
+  GIRO_FULL = vendas.giro_full || {};
+
   LINHAS = (prod.produtos || []).map(p => {
     const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
     const ini = p.qtd || 0;
@@ -632,6 +708,7 @@ async function init() {
   document.getElementById('badge').innerHTML = `atualizado em <span>${esc(META.gerado_em)}</span>`;
 
   renderMetaLider();
+  renderFull();
   renderGiro();
   renderNotas();
 
