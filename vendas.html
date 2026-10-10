@@ -117,6 +117,7 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
 .pill.dup { background: #3d2c00; color: #e3b341; }
 .pill.full { background: #0b2b2e; color: #39c5cf; }
 .pill.dev  { background: #271d0a; color: #f0883e; border: 1px solid #f0883e55; }
+.pill.mov  { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
 
 .paginacao {
   display: flex; gap: 8px; align-items: center; justify-content: center;
@@ -204,6 +205,9 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
         <option value="devolucao">Devoluções</option>
         <option value="duplicada">Duplicadas</option>
         <option value="full">Vendas pelo Full</option>
+        <option value="remessa">Remessas ao Full</option>
+        <option value="transferencia">Transferências entre CDs</option>
+        <option value="retiro">Retiradas simbólicas</option>
       </select>
     </div>
     <div class="grupo">
@@ -506,7 +510,8 @@ function filtrarNotas() {
   }
 
   return NOTAS.filter(n => {
-    if (st && n.status !== st) return false;
+    if (st === 'full') { if (!(n.status === 'valida' && n.origem === 'full')) return false; }
+    else if (st && n.status !== st) return false;
     if (uf && n.uf !== uf) return false;
     if (sku && !n.itens.some(i => i.sku === sku)) return false;
     if (corte && n.data < corte) return false;
@@ -534,6 +539,10 @@ function renderNotas() {
                  : n.status === 'duplicada' ? '<span class="pill dup">duplicada</span>'
                  : n.status === 'valida' && n.origem === 'full' ? '<span class="pill full">venda Full</span>'
                  : n.status === 'devolucao' ? '<span class="pill dev">devolucao</span>'
+                 : n.status === 'estorno' ? '<span class="pill dev">estorno</span>'
+                 : n.status === 'remessa' ? '<span class="pill mov">remessa ao Full</span>'
+                 : n.status === 'transferencia' ? '<span class="pill mov">transf. entre CDs</span>'
+                 : n.status === 'retiro' ? '<span class="pill mov">retirada simbolica</span>'
                  : '<span class="pill ok">valida</span>';
       const canc = n.status === 'cancelada';
       return `<tr>
