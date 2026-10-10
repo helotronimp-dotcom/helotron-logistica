@@ -516,7 +516,7 @@ function filtrarNotas() {
     if (sku && !n.itens.some(i => i.sku === sku)) return false;
     if (corte && n.data < corte) return false;
     if (busca) {
-      const alvo = norm(n.cliente) + ' ' + n.nf + ' ' + norm(n.itensTxt);
+      const alvo = norm(n.cliente || '') + ' ' + n.nf + ' ' + norm(n.itensTxt);
       if (!alvo.includes(busca)) return false;
     }
     return true;
@@ -548,7 +548,7 @@ function renderNotas() {
       return `<tr>
         <td><b>${n.nf}</b><span class="sku">serie ${esc(n.serie)}</span></td>
         <td>${dataBR(n.data)}</td>
-        <td>${esc(n.cliente)}${n.motivo ? `<span class="sku">${esc(n.motivo)}</span>` : ''}</td>
+        <td>${n.cliente ? esc(n.cliente) : '<span class="mut">—</span>'}${n.motivo ? `<span class="sku">${esc(n.motivo)}</span>` : ''}</td>
         <td>${esc(n.uf)}</td>
         <td style="text-align:left">${esc(n.itensTxt)}</td>
         <td class="${canc ? 'mut' : ''}">${BRL(n.vProdutos)}</td>
@@ -723,6 +723,9 @@ async function init() {
 
   const est = Object.entries(par).filter(([, v]) => v.frete_estimado).map(([k]) => k);
   document.getElementById('rodape').innerHTML = `
+    <b>Sem dado pessoal.</b> Esta pagina e publica, entao o arquivo que a alimenta
+    nao traz nome de comprador nem a chave da NF-e. Os dados completos ficam apenas
+    na maquina, para a contabilidade.<br>
     <b>Como o lucro e calculado.</b> Venda x (1 - comissao) - frete - custo nacionalizado
     - DAS. O frete e contado <b>uma vez por nota</b> (o maior entre os itens do pedido) e
     rateado entre os produtos pelo valor de cada um.<br>
