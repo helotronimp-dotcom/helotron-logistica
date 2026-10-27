@@ -21,6 +21,24 @@ header p  { font-size: 11px; color: #7d8590; margin-top: 3px; }
 }
 .badge-update span { font-weight: 700; color: #e6edf3; }
 
+.periodo {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 28px 0; font-size: 12px; color: #8b949e;
+}
+.periodo-tit { font-weight: 700; color: #e6edf3; letter-spacing: 0.4px; }
+.presets { display: flex; gap: 6px; flex-wrap: wrap; }
+.presets button {
+  background: #21262d; color: #8b949e; border: 1px solid #30363d;
+  border-radius: 20px; padding: 4px 12px; font-size: 11px; cursor: pointer;
+}
+.presets button:hover { color: #e6edf3; border-color: #58a6ff55; }
+.presets button.on { background: #1f6feb33; color: #58a6ff; border-color: #58a6ff; }
+.periodo label { display: flex; align-items: center; gap: 5px; }
+.periodo input[type=date] {
+  background: #0d1117; color: #e6edf3; border: 1px solid #30363d;
+  border-radius: 6px; padding: 4px 8px; font-size: 11px; color-scheme: dark;
+}
+.periodo-info { color: #7d8590; font-size: 11px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; padding: 18px 28px 6px; }
 @media (max-width: 760px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 .card {
@@ -149,6 +167,20 @@ tfoot td { background: #1b2028; font-weight: 700; border-top: 1px solid #30363d;
   <div class="badge-update" id="badge">carregando…</div>
 </header>
 
+<div class="periodo" id="periodo">
+  <span class="periodo-tit">Período</span>
+  <div class="presets" id="presets">
+    <button data-p="tudo" class="on">Tudo</button>
+    <button data-p="mes">Este mês</button>
+    <button data-p="mes-1">Mês passado</button>
+    <button data-p="30">30 dias</button>
+    <button data-p="60">60 dias</button>
+  </div>
+  <label>de <input type="date" id="p-de"></label>
+  <label>até <input type="date" id="p-ate"></label>
+  <span class="periodo-info" id="periodo-info"></span>
+</div>
+
 <div class="cards" id="cards"></div>
 
 <div class="meta-lider" id="meta-lider"></div>
@@ -264,6 +296,30 @@ const JANELA_DIAS = 60;
 
 let LINHAS = [], NOTAS = [], META = {};
 let GIRO_FULL = {};
+let PROD = [];
+const PER = {de: '', ate: ''};
+
+/* a nota entra no periodo quando a data dela cai no intervalo; campo vazio
+   significa "sem limite daquele lado" */
+function dentroDoPeriodo(n) {
+  if (PER.de && n.data < PER.de) return false;
+  if (PER.ate && n.data > PER.ate) return false;
+  return true;
+}
+
+function mesAtras(k) {
+  const h = new Date();
+  const d = new Date(h.getFullYear(), h.getMonth() - k, 1);
+  const f = new Date(h.getFullYear(), h.getMonth() - k + 1, 0);
+  const iso = x => x.toISOString().slice(0, 10);
+  return [iso(d), iso(f)];
+}
+
+function diasAtras(n) {
+  const d = new Date();
+  d.setDate(d.getDate() - Number(n));
+  return d.toISOString().slice(0, 10);
+}
 let ordGiro  = {col: 'vendido', dir: -1};
 let ordNotas = {col: 'data', dir: -1};
 let pagina = 1;
@@ -368,15 +424,36 @@ function renderMetaLider() {
    das notas que o proprio ML emite a partir do estoque no Full (serie 2, 5106/6106).
    Nao entram aqui as transferencias que o ML faz entre os CDs dele: naquelas a
    mercadoria ja estava no Full, so mudou de galpao. */
-function renderFull() {
-  const g = Object.entries(GIRO_FULL);
-  if (!g.length) {
-    document.getElementById('tbl-full').closest('.section').style.display = 'none';
-    return;
-  }
-  const nome = sku => (LINHAS.find(l => l.sku === sku) || {}).nome || '';
-  const linhas = g.map(([sku, r]) => ({sku, nome: nome(sku) || r.produto, ...r}))
-                  .sort((a, b) => (b.giro || 0) - (a.giro || 0));
+function renderFull(vis) {
+  /* Enviado  = remessas nossas ao Full (CFOP 5949/6949, status "remessa").
+     Vendido  = notas que o proprio ML emite a partir do estoque de la.
+     Nao entram as transferencias que o ML faz entre os CDs dele: naquelas a
+     mercadoria ja estava no Full, so mudou de galpao.
+     Com filtro de periodo, "No Full" e o saldo DO PERIODO, nao o estoque atual —
+     se o filtro comecar depois de um envio, o saldo sai negativo. */
+  const g = {};
+  const pega = (sku, nome) => (g[sku] ??= {nome, enviado: 0, vendido: 0, faturado: 0});
+
+  vis.forEach(n => {
+    if (n.status === 'remessa') {
+      n.itens.forEach(i => { pega(i.sku, i.produto).enviado += i.qtd; });
+    } else if (n.status === 'valida' && n.origem === 'full') {
+      n.itens.forEach(i => {
+        const r = pega(i.sku, i.produto);
+        r.vendido += i.qtd; r.faturado += i.vTotal;
+      });
+    }
+  });
+
+  const sec = document.getElementById('tbl-full').closest('.section');
+  const linhas = Object.entries(g).map(([sku, r]) => ({sku, ...r}));
+  if (!linhas.length) { sec.style.display = 'none'; return; }
+  sec.style.display = '';
+
+  const nome = sku => (LINHAS.find(l => l.sku === sku) || {}).nome;
+  linhas.forEach(l => { l.nome = nome(l.sku) || l.nome; });
+  linhas.sort((a, b) => (b.enviado ? b.vendido / b.enviado : 0)
+                      - (a.enviado ? a.vendido / a.enviado : 0));
 
   const tEnv = linhas.reduce((s, l) => s + l.enviado, 0);
   const tVen = linhas.reduce((s, l) => s + l.vendido, 0);
@@ -389,10 +466,10 @@ function renderFull() {
       <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
       <td>${l.enviado}</td>
       <td>${l.vendido}</td>
-      <td>${l.saldo}</td>
+      <td>${l.enviado - l.vendido}</td>
       <td>
-        <div class="barra ${gi >= 0.3 ? 'q' : ''}"><i style="width:${(gi * 100).toFixed(1)}%"></i></div>
-        <span class="sku ${classe}">${PCT(gi)}</span>
+        <div class="barra ${gi >= 0.3 ? 'q' : ''}"><i style="width:${Math.min(100, gi * 100).toFixed(1)}%"></i></div>
+        <span class="sku ${classe}">${l.enviado ? PCT(gi) : '—'}</span>
       </td>
       <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
     </tr>`;
@@ -407,22 +484,21 @@ function renderFull() {
     <tfoot><tr>
       <td>TOTAL</td>
       <td>${tEnv}</td><td>${tVen}</td><td>${tEnv - tVen}</td>
-      <td>${PCT(tEnv ? tVen / tEnv : 0)}</td>
+      <td>${tEnv ? PCT(tVen / tEnv) : '—'}</td>
       <td>${BRL(tFat)}</td>
     </tr></tfoot>`;
 
   document.getElementById('sub-full').textContent =
     `${tVen} de ${tEnv} unidades vendidas · ${tEnv - tVen} ainda no Full`;
 
-  const parados = linhas.filter(l => l.enviado && l.vendido / l.enviado < 0.05);
-  const unParadas = parados.reduce((s, l) => s + l.saldo, 0);
+  const parados = linhas.filter(l => l.enviado >= 20 && l.vendido / l.enviado < 0.05);
+  const unParadas = parados.reduce((s, l) => s + l.enviado - l.vendido, 0);
   document.getElementById('nota-full').innerHTML = parados.length
     ? `<b>${unParadas} unidades em ${parados.length} produtos giraram menos de 5%</b>
        (${parados.map(l => esc(l.sku)).join(', ')}). A armazenagem no Full e cobrada
-       por volume e tempo, entao produto parado la custa mais caro que no deposito.
-       Vale avaliar retirada em vez de reposicao.`
-    : 'Saldo e uma conta fiscal: remessas menos vendas. Nao desconta avaria, ' +
-      'extravio nem unidade retirada, e so enxerga o que ja virou nota.';
+       por volume e tempo, entao produto parado la custa mais caro que no deposito.`
+    : 'Enviado e vendido sao contados dentro do periodo escolhido. Se o filtro ' +
+      'comecar depois de um envio, o saldo "No Full" nao representa o estoque atual.';
 }
 
 function renderGiro() {
@@ -618,6 +694,7 @@ async function init() {
     const valida = n.status === 'valida', dev = n.status === 'devolucao';
     const freteNota = valida ? Math.max(...n.itens.map(i => freteDe(i.sku))) : 0;
     let lucroNota = 0;
+    const li = [];
     n.itens.forEach(i => {
       if (!valida && !dev) return;
       const sinal = dev ? -1 : 1;
@@ -630,31 +707,64 @@ async function init() {
       a.faturado += sinal * i.vTotal;
       a.lucro += sinal * lucro;
       lucroNota += sinal * lucro;
+      li.push({sku: i.sku, qtd: sinal * i.qtd, fat: sinal * i.vTotal, lucro: sinal * lucro});
     });
-    return {...n, lucroNota, itensTxt: n.itens.map(i => `${i.qtd}x ${i.sku}`).join(' · ')};
+    return {...n, lucroNota, li,
+            itensTxt: n.itens.map(i => `${i.qtd}x ${i.sku}`).join(' · ')};
   });
 
   GIRO_FULL = vendas.giro_full || {};
 
-  LINHAS = (prod.produtos || []).map(p => {
-    const a = agg[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
-    const ini = p.qtd || 0;
-    const ppk = p.pecas_por_kit || 1;
-    return {...p, ...a, ppk, inicial: ini, atual: ini - a.vendido, giro: ini ? a.vendido / ini : 0};
-  });
+  /* ---- periodo ----------------------------------------------------------
+     O painel inteiro — cards, giro por produto e estoque no Full — passa a ser
+     recalculado sobre a faixa de datas escolhida. Guardamos o lucro de cada
+     item dentro da nota (campo li) justamente para poder reagregar sem
+     reprocessar as regras de comissao e frete.
+     A meta do MercadoLider nao entra nisso: ela tem janela propria de 60 dias,
+     definida pelo Mercado Livre.                                             */
+  PROD = prod.produtos || [];
 
-  /* ---- cards (sempre sobre o total, nao sobre o filtro) ---- */
-  const totFat = LINHAS.reduce((s, l) => s + l.faturado, 0);
-  const totUn  = LINHAS.reduce((s, l) => s + l.vendido, 0);
-  const totLuc = LINHAS.reduce((s, l) => s + l.lucro, 0);
-  const estIni = LINHAS.reduce((s, l) => s + l.inicial, 0);
-  const pecasIni = LINHAS.reduce((s, l) => s + l.inicial * (l.pecas_por_kit || 1), 0);
-  const comVenda = LINHAS.filter(l => l.vendido > 0).length;
+  window.aplicarPeriodo = function () {
+    const vis = NOTAS.filter(dentroDoPeriodo);
 
-  /* quanto do giro ja sai do Fulfillment — as notas emitidas pelo proprio ML */
-  const notasFull = NOTAS.filter(n => n.status === 'valida' && n.origem === 'full');
-  const unFull  = notasFull.reduce((s, n) => s + n.itens.reduce((a, i) => a + i.qtd, 0), 0);
-  const fatFull = notasFull.reduce((s, n) => s + n.vProdutos, 0);
+    const ag = {};
+    vis.forEach(n => (n.li || []).forEach(x => {
+      const a = (ag[x.sku] ??= {vendido: 0, faturado: 0, lucro: 0});
+      a.vendido += x.qtd; a.faturado += x.fat; a.lucro += x.lucro;
+    }));
+
+    LINHAS = PROD.map(p => {
+      const a = ag[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
+      const ini = p.qtd || 0;
+      const ppk = p.pecas_por_kit || 1;
+      return {...p, ...a, ppk, inicial: ini, atual: ini - a.vendido,
+              giro: ini ? a.vendido / ini : 0};
+    });
+
+    renderCards(vis);
+    renderFull(vis);
+    renderGiro();
+    pagina = 1;
+    renderNotas();
+
+    const n = vis.length;
+    document.getElementById('periodo-info').textContent =
+      PER.de || PER.ate
+        ? `${n} notas no periodo · a meta do MercadoLider ignora este filtro`
+        : `todas as ${n} notas · desde o inicio`;
+  };
+
+  function renderCards(vis) {
+    const totFat = LINHAS.reduce((s, l) => s + l.faturado, 0);
+    const totUn  = LINHAS.reduce((s, l) => s + l.vendido, 0);
+    const totLuc = LINHAS.reduce((s, l) => s + l.lucro, 0);
+    const estIni = LINHAS.reduce((s, l) => s + l.inicial, 0);
+    const pecasIni = LINHAS.reduce((s, l) => s + l.inicial * (l.pecas_por_kit || 1), 0);
+    const comVenda = LINHAS.filter(l => l.vendido > 0).length;
+
+    const notasFull = vis.filter(n => n.status === 'valida' && n.origem === 'full');
+    const unFull  = notasFull.reduce((s, n) => s + n.itens.reduce((a, i) => a + i.qtd, 0), 0);
+    const fatFull = notasFull.reduce((s, n) => s + n.vProdutos, 0);
 
   document.getElementById('cards').innerHTML = `
     <div class="card verd">
@@ -683,6 +793,8 @@ async function init() {
       <div class="card-sub">${totUn} de ${estIni.toLocaleString('pt-BR')} unidades vendáveis${
         pecasIni !== estIni ? ` &middot; ${pecasIni.toLocaleString('pt-BR')} peças físicas` : ''}</div>
     </div>`;
+
+  }
 
   /* ---- popula selects ---- */
   const selSku = document.getElementById('f-sku');
@@ -716,10 +828,32 @@ async function init() {
     `${META.total_notas} notas · ${(META.canceladas || []).length} cancelada(s) · ${(META.devolucoes || []).length} devolucao(oes)`;
   document.getElementById('badge').innerHTML = `atualizado em <span>${esc(META.gerado_em)}</span>`;
 
+  /* ---- controles do periodo ---- */
+  const pDe = document.getElementById('p-de');
+  const pAte = document.getElementById('p-ate');
+  const marcar = alvo => document.querySelectorAll('#presets button')
+    .forEach(b => b.classList.toggle('on', b.dataset.p === alvo));
+
+  document.querySelectorAll('#presets button').forEach(b => {
+    b.onclick = () => {
+      const k = b.dataset.p;
+      if (k === 'tudo') { PER.de = ''; PER.ate = ''; }
+      else if (k === 'mes') [PER.de, PER.ate] = mesAtras(0);
+      else if (k === 'mes-1') [PER.de, PER.ate] = mesAtras(1);
+      else { PER.de = diasAtras(k); PER.ate = ''; }
+      pDe.value = PER.de; pAte.value = PER.ate;
+      marcar(k);
+      aplicarPeriodo();
+    };
+  });
+  [pDe, pAte].forEach(el => el.addEventListener('change', () => {
+    PER.de = pDe.value; PER.ate = pAte.value;
+    marcar(PER.de || PER.ate ? '' : 'tudo');
+    aplicarPeriodo();
+  }));
+
   renderMetaLider();
-  renderFull();
-  renderGiro();
-  renderNotas();
+  aplicarPeriodo();
 
   const est = Object.entries(par).filter(([, v]) => v.frete_estimado).map(([k]) => k);
   document.getElementById('rodape').innerHTML = `
