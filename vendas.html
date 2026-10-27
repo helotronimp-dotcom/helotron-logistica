@@ -741,6 +741,10 @@ async function init() {
               giro: ini ? a.vendido / ini : 0};
     });
 
+    const comVenda = LINHAS.filter(l => l.vendido > 0).length;
+    document.getElementById('sub-giro').textContent =
+      `${comVenda} com venda · ${LINHAS.length - comVenda} ainda sem giro`;
+
     renderCards(vis);
     renderFull(vis);
     renderGiro();
@@ -822,8 +826,6 @@ async function init() {
     pagina = 1; renderNotas();
   };
 
-  document.getElementById('sub-giro').textContent =
-    `${comVenda} com venda · ${LINHAS.length - comVenda} ainda sem giro`;
   document.getElementById('sub-notas').textContent =
     `${META.total_notas} notas · ${(META.canceladas || []).length} cancelada(s) · ${(META.devolucoes || []).length} devolucao(oes)`;
   document.getElementById('badge').innerHTML = `atualizado em <span>${esc(META.gerado_em)}</span>`;
