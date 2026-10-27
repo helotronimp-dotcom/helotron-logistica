@@ -28,7 +28,8 @@
       1083
     ],
     "remessas": [
-      "2/2"
+      "2/2",
+      "661/2"
     ],
     "transferencias_entre_cds": [
       "10/2",
@@ -121,7 +122,6 @@
       "638/2",
       "656/2",
       "658/2",
-      "661/2",
       "669/2",
       "671/2",
       "675/2",
@@ -408,12 +408,12 @@
       "giro": 0.14
     },
     "HEL-COZ-002": {
-      "enviado": 100,
+      "enviado": 140,
       "vendido": 111,
       "faturado": 4414.4,
       "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
-      "saldo": -11,
-      "giro": 1.11
+      "saldo": 29,
+      "giro": 0.793
     },
     "HEL-COZ-003": {
       "enviado": 200,
@@ -424,20 +424,20 @@
       "giro": 0.02
     },
     "HEL-COZ-005": {
-      "enviado": 200,
+      "enviado": 320,
       "vendido": 176,
       "faturado": 4174.89,
       "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
-      "saldo": 24,
-      "giro": 0.88
+      "saldo": 144,
+      "giro": 0.55
     },
     "HEL-COZ-007": {
-      "enviado": 50,
+      "enviado": 110,
       "vendido": 44,
       "faturado": 1591.6,
       "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
-      "saldo": 6,
-      "giro": 0.88
+      "saldo": 66,
+      "giro": 0.4
     },
     "HEL-COZ-008": {
       "enviado": 100,
@@ -464,12 +464,12 @@
       "giro": 0.1
     },
     "HEL-JAR-004": {
-      "enviado": 50,
+      "enviado": 86,
       "vendido": 52,
       "faturado": 3978.8,
       "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
-      "saldo": -2,
-      "giro": 1.04
+      "saldo": 34,
+      "giro": 0.605
     },
     "HEL-JAR-005": {
       "enviado": 50,
@@ -22513,7 +22513,7 @@
           "vTotal": 908.4
         }
       ],
-      "status": "transferencia",
+      "status": "remessa",
       "origem": "deposito"
     },
     {
