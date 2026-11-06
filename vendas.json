@@ -1,8 +1,8 @@
 {
   "meta": {
-    "gerado_em": "27/10/2026",
+    "gerado_em": "05/11/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 1435,
+    "total_notas": 1457,
     "canceladas": [
       14,
       23,
@@ -39,6 +39,20 @@
       "1076/2",
       "1078/2",
       "1088/2",
+      "1104/2",
+      "1106/2",
+      "1125/2",
+      "1135/2",
+      "1183/2",
+      "1188/2",
+      "1192/2",
+      "1196/2",
+      "1200/2",
+      "1220/2",
+      "1224/2",
+      "1238/2",
+      "1254/2",
+      "1256/2",
       "133/2",
       "135/2",
       "140/2",
@@ -79,6 +93,10 @@
       "336/2",
       "338/2",
       "344/2",
+      "348/1",
+      "349/1",
+      "350/1",
+      "351/1",
       "352/2",
       "354/2",
       "356/2",
@@ -306,7 +324,151 @@
         504,
         505,
         662,
-        663
+        663,
+        1099,
+        1100,
+        1101,
+        1102,
+        1103,
+        1105,
+        1107,
+        1108,
+        1109,
+        1110,
+        1111,
+        1112,
+        1113,
+        1114,
+        1115,
+        1116,
+        1117,
+        1118,
+        1119,
+        1120,
+        1121,
+        1122,
+        1123,
+        1124,
+        1126,
+        1127,
+        1128,
+        1129,
+        1130,
+        1131,
+        1132,
+        1133,
+        1134,
+        1136,
+        1137,
+        1138,
+        1139,
+        1140,
+        1141,
+        1142,
+        1143,
+        1144,
+        1145,
+        1146,
+        1147,
+        1148,
+        1149,
+        1150,
+        1151,
+        1152,
+        1153,
+        1154,
+        1155,
+        1156,
+        1157,
+        1158,
+        1159,
+        1160,
+        1161,
+        1162,
+        1163,
+        1164,
+        1165,
+        1166,
+        1167,
+        1168,
+        1169,
+        1170,
+        1171,
+        1172,
+        1173,
+        1174,
+        1175,
+        1176,
+        1177,
+        1178,
+        1179,
+        1180,
+        1181,
+        1182,
+        1184,
+        1185,
+        1186,
+        1187,
+        1189,
+        1190,
+        1191,
+        1193,
+        1194,
+        1195,
+        1197,
+        1198,
+        1199,
+        1201,
+        1202,
+        1203,
+        1204,
+        1205,
+        1206,
+        1207,
+        1208,
+        1209,
+        1210,
+        1211,
+        1212,
+        1213,
+        1214,
+        1215,
+        1216,
+        1217,
+        1218,
+        1219,
+        1221,
+        1222,
+        1223,
+        1225,
+        1226,
+        1227,
+        1228,
+        1229,
+        1230,
+        1231,
+        1232,
+        1233,
+        1234,
+        1235,
+        1236,
+        1237,
+        1239,
+        1240,
+        1241,
+        1242,
+        1243,
+        1244,
+        1245,
+        1246,
+        1247,
+        1248,
+        1249,
+        1250,
+        1251,
+        1252,
+        1253,
+        1255
       ]
     },
     "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace.",
@@ -8000,6 +8162,27 @@
       "motivo": "anula nota emitida em duplicidade"
     },
     {
+      "nf": 346,
+      "serie": "1",
+      "data": "2026-10-10",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 44.9,
+      "vNF": 39.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "valida"
+    },
+    {
       "nf": 347,
       "serie": "1",
       "data": "2026-10-13",
@@ -8016,6 +8199,157 @@
           "qtd": 1.0,
           "vUnit": 71.01,
           "vTotal": 71.01
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "nf": 348,
+      "serie": "1",
+      "data": "2026-10-19",
+      "natOp": "Remessa de mercadoria em substituicao",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 35.9,
+      "vNF": 35.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 35.9,
+          "vTotal": 35.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 349,
+      "serie": "1",
+      "data": "2026-10-19",
+      "natOp": "Remessa de mercadoria em substituicao",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 35.9,
+      "vNF": 35.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 35.9,
+          "vTotal": 35.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 350,
+      "serie": "1",
+      "data": "2026-10-20",
+      "natOp": "Remessa de mercadoria em substituicao",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 35.9,
+      "vNF": 35.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 35.9,
+          "vTotal": 35.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 351,
+      "serie": "1",
+      "data": "2026-10-20",
+      "natOp": "Remessa de mercadoria em substituicao",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 35.9,
+      "vNF": 35.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "FATIADOR ROTATIVO MANUAL DE LEGUMES MATERIAL PLSTICO E AO INOXIDVEL COR VERDE USO DOMSTICO.",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 35.9,
+          "vTotal": 35.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 358,
+      "serie": "1",
+      "data": "2026-10-20",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 73.62,
+      "vNF": 91.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "nf": 359,
+      "serie": "1",
+      "data": "2026-10-21",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 92.05,
+      "vNF": 92.05,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 92.05,
+          "vTotal": 92.05
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "nf": 360,
+      "serie": "1",
+      "data": "2026-10-21",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 92.05,
+      "vNF": 92.05,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 92.05,
+          "vTotal": 92.05
         }
       ],
       "status": "valida"
@@ -32060,6 +32394,322 @@
       ],
       "status": "valida",
       "origem": "full"
+    },
+    {
+      "nf": 1104,
+      "serie": "2",
+      "data": "2026-10-27",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "PE",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1106,
+      "serie": "2",
+      "data": "2026-10-27",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1125,
+      "serie": "2",
+      "data": "2026-10-28",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 23.47,
+      "vNF": 23.47,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        },
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 15.9,
+          "vTotal": 15.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1135,
+      "serie": "2",
+      "data": "2026-10-28",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "PE",
+      "vProdutos": 15.9,
+      "vNF": 15.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 15.9,
+          "vTotal": 15.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1183,
+      "serie": "2",
+      "data": "2026-10-29",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 15.9,
+      "vNF": 15.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 15.9,
+          "vTotal": 15.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1188,
+      "serie": "2",
+      "data": "2026-10-29",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 22.71,
+      "vNF": 22.71,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 3.0,
+          "vUnit": 7.57,
+          "vTotal": 22.71
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1192,
+      "serie": "2",
+      "data": "2026-10-29",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "PE",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1196,
+      "serie": "2",
+      "data": "2026-10-30",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "PE",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1200,
+      "serie": "2",
+      "data": "2026-10-30",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1220,
+      "serie": "2",
+      "data": "2026-10-30",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1224,
+      "serie": "2",
+      "data": "2026-10-30",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 15.9,
+      "vNF": 15.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 15.9,
+          "vTotal": 15.9
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1238,
+      "serie": "2",
+      "data": "2026-10-31",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1254,
+      "serie": "2",
+      "data": "2026-10-31",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1256,
+      "serie": "2",
+      "data": "2026-10-31",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
     },
     {
       "nf": 37,
