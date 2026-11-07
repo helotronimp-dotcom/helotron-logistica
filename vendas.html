@@ -344,6 +344,7 @@ function cabecalho(cols, estado) {
 const COLS_GIRO = [
   {k: 'nome', t: 'Produto'}, {k: 'inicial', t: 'Estoque inicial'},
   {k: 'vendido', t: 'Vendido'}, {k: 'atual', t: 'Estoque atual'},
+  {k: 'full', t: 'No Full'}, {k: 'deposito', t: 'No depósito'},
   {k: 'faturado', t: 'Faturado'}, {k: 'lucro', t: 'Lucro estimado'},
   {k: 'giro', t: 'Giro'},
 ];
@@ -455,9 +456,21 @@ function renderFull(vis) {
   linhas.sort((a, b) => (b.enviado ? b.vendido / b.enviado : 0)
                       - (a.enviado ? a.vendido / a.enviado : 0));
 
+  /* "No Full" vem do relatorio de estoque do ML quando ele existe. A conta por
+     notas (enviado - vendido) superestima, porque o ML emite parte das notas de
+     venda com atraso: em 06/11/2026 dava 706 contra 598 reais. */
+  linhas.forEach(l => {
+    const m = LINHAS.find(x => x.sku === l.sku);
+    l.medido = m && m.full != null;
+    l.noFull = l.medido ? m.full : l.enviado - l.vendido;
+    l.transito = m ? (m.transito || 0) : 0;
+  });
+
   const tEnv = linhas.reduce((s, l) => s + l.enviado, 0);
   const tVen = linhas.reduce((s, l) => s + l.vendido, 0);
   const tFat = linhas.reduce((s, l) => s + l.faturado, 0);
+  const tNoFull = linhas.reduce((s, l) => s + l.noFull, 0);
+  const tTran = linhas.reduce((s, l) => s + l.transito, 0);
 
   const corpo = linhas.map(l => {
     const gi = l.enviado ? l.vendido / l.enviado : 0;
@@ -466,7 +479,8 @@ function renderFull(vis) {
       <td>${esc(l.nome)}<span class="sku">${esc(l.sku)}</span></td>
       <td>${l.enviado}</td>
       <td>${l.vendido}</td>
-      <td>${l.enviado - l.vendido}</td>
+      <td><b>${l.noFull.toLocaleString('pt-BR')}</b>${
+        l.transito ? `<span class="pecas">+${l.transito.toLocaleString('pt-BR')} a caminho</span>` : ''}</td>
       <td>
         <div class="barra ${gi >= 0.3 ? 'q' : ''}"><i style="width:${Math.min(100, gi * 100).toFixed(1)}%"></i></div>
         <span class="sku ${classe}">${l.enviado ? PCT(gi) : '—'}</span>
@@ -483,16 +497,19 @@ function renderFull(vis) {
     <tbody>${corpo}</tbody>
     <tfoot><tr>
       <td>TOTAL</td>
-      <td>${tEnv}</td><td>${tVen}</td><td>${tEnv - tVen}</td>
+      <td>${tEnv}</td><td>${tVen}</td>
+      <td>${tNoFull.toLocaleString('pt-BR')}${
+        tTran ? `<span class="pecas">+${tTran.toLocaleString('pt-BR')} a caminho</span>` : ''}</td>
       <td>${tEnv ? PCT(tVen / tEnv) : '—'}</td>
       <td>${BRL(tFat)}</td>
     </tr></tfoot>`;
 
   document.getElementById('sub-full').textContent =
-    `${tVen} de ${tEnv} unidades vendidas · ${tEnv - tVen} ainda no Full`;
+    `${tVen} de ${tEnv} unidades vendidas · ${tNoFull.toLocaleString('pt-BR')} ainda no Full`
+    + (tTran ? ` · ${tTran.toLocaleString('pt-BR')} a caminho` : '');
 
   const parados = linhas.filter(l => l.enviado >= 20 && l.vendido / l.enviado < 0.05);
-  const unParadas = parados.reduce((s, l) => s + l.enviado - l.vendido, 0);
+  const unParadas = parados.reduce((s, l) => s + l.noFull, 0);
   document.getElementById('nota-full').innerHTML = parados.length
     ? `<b>${unParadas} unidades em ${parados.length} produtos giraram menos de 5%</b>
        (${parados.map(l => esc(l.sku)).join(', ')}). A armazenagem no Full e cobrada
@@ -520,6 +537,10 @@ function renderGiro() {
   const sVend = vis.reduce((s, l) => s + l.vendido, 0);
   const sFat  = vis.reduce((s, l) => s + l.faturado, 0);
   const sLuc  = vis.reduce((s, l) => s + l.lucro, 0);
+  const sFull = vis.reduce((s, l) => s + (l.full ?? 0), 0);
+  const sTran = vis.reduce((s, l) => s + (l.transito ?? 0), 0);
+  const sDep  = vis.reduce((s, l) => s + (l.deposito ?? 0), 0);
+  const temSaldos = vis.some(l => l.full != null);
 
   document.getElementById('tbl-giro').innerHTML =
     cabecalho(COLS_GIRO, ordGiro) +
@@ -532,6 +553,10 @@ function renderGiro() {
         <td>${l.vendido ? '<b>' + l.vendido + '</b>' : '<span class="mut">—</span>'}</td>
         <td><b>${l.atual.toLocaleString('pt-BR')}</b>${
           l.ppk > 1 ? `<span class="pecas">${(l.atual * l.ppk).toLocaleString('pt-BR')} peças</span>` : ''}</td>
+        <td>${l.full == null ? '<span class="mut">—</span>'
+            : `<b>${l.full.toLocaleString('pt-BR')}</b>${
+               l.transito ? `<span class="pecas">+${l.transito.toLocaleString('pt-BR')} a caminho</span>` : ''}`}</td>
+        <td class="mut">${l.deposito == null ? '—' : l.deposito.toLocaleString('pt-BR')}</td>
         <td>${l.faturado ? BRL(l.faturado) : '<span class="mut">—</span>'}</td>
         <td class="${l.lucro > 0 ? 'pos' : l.lucro < 0 ? 'neg' : 'mut'}">${l.lucro ? BRL(l.lucro) : '—'}</td>
         <td>
@@ -544,13 +569,16 @@ function renderGiro() {
         <td>${sInicial.toLocaleString('pt-BR')}${
           temKit ? `<span class="pecas">${sPecas.toLocaleString('pt-BR')} peças</span>` : ''}</td>
         <td>${sVend}</td>
-        <td>${(sInicial - sVend).toLocaleString('pt-BR')}${
+        <td>${vis.reduce((s, l) => s + l.atual, 0).toLocaleString('pt-BR')}${
           temKit ? `<span class="pecas">${sPecasAtual.toLocaleString('pt-BR')} peças</span>` : ''}</td>
+        <td>${temSaldos ? sFull.toLocaleString('pt-BR') + (
+              sTran ? `<span class="pecas">+${sTran.toLocaleString('pt-BR')} a caminho</span>` : '') : '—'}</td>
+        <td>${temSaldos ? sDep.toLocaleString('pt-BR') : '—'}</td>
         <td>${BRL(sFat)}</td>
         <td class="${sLuc >= 0 ? 'pos' : 'neg'}">${BRL(sLuc)}</td>
         <td>${sInicial ? PCT(sVend / sInicial) : '—'}</td>
       </tr></tfoot>`
-    : '<tbody><tr><td colspan="7" class="vazio">Nenhum produto encontrado com esses filtros.</td></tr></tbody>');
+    : '<tbody><tr><td colspan="9" class="vazio">Nenhum produto encontrado com esses filtros.</td></tr></tbody>');
 
   document.getElementById('cont-giro').innerHTML =
     `<b>${vis.length}</b> de ${LINHAS.length} produtos`;
@@ -737,13 +765,27 @@ async function init() {
       const a = ag[p.sku] || {vendido: 0, faturado: 0, lucro: 0};
       const ini = p.qtd || 0;
       const ppk = p.pecas_por_kit || 1;
-      return {...p, ...a, ppk, inicial: ini, atual: ini - a.vendido,
+      /* saldos reais, gravados por gravar_saldos.py: o Full vem do relatorio do
+         Mercado Livre e o deposito vem das notas. Ficam null nos produtos que
+         ainda nao foram atualizados, para nao exibir zero como se fosse medido. */
+      const temSaldo = p.saldo_data != null;
+      /* Com saldo medido, "atual" passa a ser Full + transito + deposito. A conta
+         antiga (inicial - vendido) superestimava: em 06/11/2026 dava 15.881 contra
+         15.773 reais, porque o ML emite parte das notas de venda com atraso. */
+      const medido = (p.saldo_full || 0) + (p.saldo_transito || 0) + (p.saldo_deposito || 0);
+      return {...p, ...a, ppk, inicial: ini,
+              atual: temSaldo ? medido : ini - a.vendido,
+              full: temSaldo ? (p.saldo_full || 0) : null,
+              transito: temSaldo ? (p.saldo_transito || 0) : 0,
+              deposito: temSaldo ? (p.saldo_deposito || 0) : null,
               giro: ini ? a.vendido / ini : 0};
     });
 
     const comVenda = LINHAS.filter(l => l.vendido > 0).length;
+    const dataSaldo = (PROD.find(p => p.saldo_data) || {}).saldo_data;
     document.getElementById('sub-giro').textContent =
-      `${comVenda} com venda · ${LINHAS.length - comVenda} ainda sem giro`;
+      `${comVenda} com venda · ${LINHAS.length - comVenda} ainda sem giro`
+      + (dataSaldo ? ` · Full e depósito medidos em ${dataSaldo.split('-').reverse().join('/')}` : '');
 
     renderCards(vis);
     renderFull(vis);
