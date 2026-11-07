@@ -1,8 +1,8 @@
 {
   "meta": {
-    "gerado_em": "05/11/2026",
+    "gerado_em": "06/11/2026",
     "fonte": "XMLs de NF-e emitidas (Bling, serie 1)",
-    "total_notas": 1457,
+    "total_notas": 1659,
     "canceladas": [
       14,
       23,
@@ -25,9 +25,15 @@
       774,
       1055,
       1069,
-      1083
+      1083,
+      1305,
+      1345,
+      1350,
+      1413,
+      1422
     ],
     "remessas": [
+      "1384/2",
       "2/2",
       "661/2"
     ],
@@ -53,9 +59,14 @@
       "1238/2",
       "1254/2",
       "1256/2",
+      "1280/2",
+      "1306/2",
+      "1324/2",
       "133/2",
+      "1349/2",
       "135/2",
       "140/2",
+      "1406/2",
       "144/2",
       "146/2",
       "148/2",
@@ -468,7 +479,16 @@
         1251,
         1252,
         1253,
-        1255
+        1255,
+        1257,
+        1258,
+        1259,
+        1260,
+        1261,
+        1262,
+        1369,
+        1370,
+        1427
       ]
     },
     "obs_lucro": "Lucro estimado: venda x (1 - comissao) - frete - custo_nac - DAS 4%. Nao e o repasse real do marketplace.",
@@ -563,35 +583,35 @@
   "giro_full": {
     "HEL-COZ-001": {
       "enviado": 50,
-      "vendido": 7,
-      "faturado": 269.3,
+      "vendido": 9,
+      "faturado": 333.14,
       "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
-      "saldo": 43,
-      "giro": 0.14
+      "saldo": 41,
+      "giro": 0.18
     },
     "HEL-COZ-002": {
-      "enviado": 140,
-      "vendido": 111,
-      "faturado": 4414.4,
+      "enviado": 340,
+      "vendido": 117,
+      "faturado": 4718.14,
       "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
-      "saldo": 29,
-      "giro": 0.793
+      "saldo": 223,
+      "giro": 0.344
     },
     "HEL-COZ-003": {
       "enviado": 200,
-      "vendido": 4,
-      "faturado": 113.56,
+      "vendido": 5,
+      "faturado": 137.99,
       "produto": "KIT COM 4 SUPORTES DE SILICONE PARA PANELAS FORMATO REDONDO 17,5CM DE DIAMETRO COR VERMELHA USO DOMESTICO",
-      "saldo": 196,
-      "giro": 0.02
+      "saldo": 195,
+      "giro": 0.025
     },
     "HEL-COZ-005": {
-      "enviado": 320,
-      "vendido": 176,
-      "faturado": 4174.89,
+      "enviado": 620,
+      "vendido": 245,
+      "faturado": 5623.2,
       "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
-      "saldo": 144,
-      "giro": 0.55
+      "saldo": 375,
+      "giro": 0.395
     },
     "HEL-COZ-007": {
       "enviado": 110,
@@ -619,35 +639,35 @@
     },
     "HEL-JAR-003": {
       "enviado": 30,
-      "vendido": 3,
-      "faturado": 299.7,
+      "vendido": 4,
+      "faturado": 385.43,
       "produto": "HORTENSIA DECORATIVA AZUL 62CM HASTE DE FERRO LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
-      "saldo": 27,
-      "giro": 0.1
+      "saldo": 26,
+      "giro": 0.133
     },
     "HEL-JAR-004": {
-      "enviado": 86,
-      "vendido": 52,
-      "faturado": 3978.8,
+      "enviado": 158,
+      "vendido": 67,
+      "faturado": 5135.7,
       "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
-      "saldo": 34,
-      "giro": 0.605
+      "saldo": 91,
+      "giro": 0.424
     },
     "HEL-JAR-005": {
-      "enviado": 50,
-      "vendido": 30,
-      "faturado": 2887.05,
+      "enviado": 122,
+      "vendido": 34,
+      "faturado": 3256.67,
       "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
-      "saldo": 20,
-      "giro": 0.6
+      "saldo": 88,
+      "giro": 0.279
     },
     "HEL-JAR-006": {
       "enviado": 120,
-      "vendido": 6,
-      "faturado": 421.78,
+      "vendido": 18,
+      "faturado": 1070.54,
       "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
-      "saldo": 114,
-      "giro": 0.05
+      "saldo": 102,
+      "giro": 0.15
     }
   },
   "notas": [
@@ -8350,6 +8370,48 @@
           "qtd": 1.0,
           "vUnit": 92.05,
           "vTotal": 92.05
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "nf": 361,
+      "serie": "1",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 73.62,
+      "vNF": 69.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM E",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 73.62,
+          "vTotal": 73.62
+        }
+      ],
+      "status": "valida"
+    },
+    {
+      "nf": 362,
+      "serie": "1",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadoria a nao contribuinte",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 46.9,
+      "vNF": 38.35,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO COM 3 POTES HERMTICOS PARA ARMAZENAMENTO DE ALIMENTOS MATERIAL PP GRAU ALIMENTAR TAMPA PP COM GAX",
+          "cfop": "6108",
+          "qtd": 1.0,
+          "vUnit": 46.9,
+          "vTotal": 46.9
         }
       ],
       "status": "valida"
@@ -32710,6 +32772,4376 @@
       ],
       "status": "transferencia",
       "origem": "deposito"
+    },
+    {
+      "nf": 1263,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 23.94,
+      "vNF": 23.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 23.94,
+          "vTotal": 23.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1264,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 31.92,
+      "vNF": 31.92,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 31.92,
+          "vTotal": 31.92
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1265,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1266,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1267,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1268,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1269,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "BA",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1270,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PI",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1271,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1272,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 84.91,
+      "vNF": 84.91,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 84.91,
+          "vTotal": 84.91
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1273,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RS",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1274,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1275,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1276,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1277,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1278,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1279,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1280,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1281,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1282,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1283,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 54.22,
+      "vNF": 54.22,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        },
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1284,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 159.8,
+      "vNF": 159.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 79.9,
+          "vTotal": 159.8
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1285,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 42.65,
+      "vNF": 42.65,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 42.65,
+          "vTotal": 42.65
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1286,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1287,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PA",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1288,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 44.9,
+      "vNF": 44.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1289,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1290,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1291,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1292,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "ES",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1293,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1294,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1295,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1296,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1297,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1298,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 59.9,
+      "vNF": 59.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 59.9,
+          "vTotal": 59.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1299,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1300,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1301,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1302,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1303,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1304,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1305,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Retorno de mercadoria nao entregue",
+      "tipo": "entrada",
+      "uf": "PE",
+      "vProdutos": 31.92,
+      "vNF": 31.92,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 31.92,
+          "vTotal": 31.92
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "nf": 1306,
+      "serie": "2",
+      "data": "2026-11-01",
+      "natOp": "Outras Saidas - Remessa Simbolica para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 23.94,
+      "vNF": 23.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 23.94,
+          "vTotal": 23.94
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1307,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 179.8,
+      "vNF": 179.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 89.9,
+          "vTotal": 179.8
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1308,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 110.12,
+      "vNF": 110.12,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 55.06,
+          "vTotal": 110.12
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1309,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1310,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1311,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1312,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1313,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "BA",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1314,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 34.24,
+      "vNF": 34.24,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 34.24,
+          "vTotal": 34.24
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1315,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1316,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1317,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1318,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1319,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1320,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1321,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1322,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1323,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1324,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1325,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 42.65,
+      "vNF": 42.65,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 42.65,
+          "vTotal": 42.65
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1326,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 44.9,
+      "vNF": 44.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 44.9,
+          "vTotal": 44.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1327,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1328,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1329,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 89.9,
+      "vNF": 89.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1330,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PE",
+      "vProdutos": 52.07,
+      "vNF": 52.07,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 52.07,
+          "vTotal": 52.07
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1331,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 23.94,
+      "vNF": 23.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 23.94,
+          "vTotal": 23.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1332,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 31.92,
+      "vNF": 31.92,
+      "itens": [
+        {
+          "sku": "HEL-COZ-001",
+          "produto": "CORTADOR DE ALIMENTOS 16 EM 1 MATERIAL ABS PET PP E ACO INOXIDAVEL 201/402 CONJUNTO COM 16 PECAS USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 31.92,
+          "vTotal": 31.92
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1333,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 89.9,
+      "vNF": 89.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1334,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 52.07,
+      "vNF": 52.07,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 52.07,
+          "vTotal": 52.07
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1335,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 89.9,
+      "vNF": 89.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1336,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 52.07,
+      "vNF": 52.07,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 52.07,
+          "vTotal": 52.07
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1337,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1338,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1339,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 54.22,
+      "vNF": 54.22,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 27.11,
+          "vTotal": 54.22
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1340,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 159.8,
+      "vNF": 159.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 79.9,
+          "vTotal": 159.8
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1341,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1342,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1343,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1344,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1345,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Retorno de mercadoria nao entregue",
+      "tipo": "entrada",
+      "uf": "ES",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "nf": 1346,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 27.11,
+      "vNF": 27.11,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1347,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1348,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1349,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "BA",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1350,
+      "serie": "2",
+      "data": "2026-11-02",
+      "natOp": "Retorno de mercadoria nao entregue",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "nf": 1351,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1352,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PI",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1353,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 89.9,
+      "vNF": 89.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1354,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 55.06,
+      "vNF": 55.06,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 55.06,
+          "vTotal": 55.06
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1355,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1356,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1357,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1358,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RN",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1359,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1360,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1361,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1362,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1363,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RS",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1364,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1365,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1366,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1367,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1368,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1371,
+      "serie": "2",
+      "data": "2026-11-03",
+      "natOp": "Outras Entradas - Retorno de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "PR",
+      "vProdutos": 35.9,
+      "vNF": 35.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-007",
+          "produto": "RALADOR FATIADOR ROTATIVO MANUAL 6 LAMINAS ACO INOXIDAVEL BASE COM VENTOSA CONJUNTO 12 PECAS COR VERDE",
+          "cfop": "1949",
+          "qtd": 1.0,
+          "vUnit": 35.9,
+          "vTotal": 35.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1372,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 179.8,
+      "vNF": 179.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1373,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 110.12,
+      "vNF": 110.12,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 55.06,
+          "vTotal": 55.06
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 55.06,
+          "vTotal": 55.06
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1374,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1375,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1376,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1377,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1378,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1379,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1380,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1381,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1382,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1383,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 59.9,
+      "vNF": 59.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 59.9,
+          "vTotal": 59.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1384,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 10734.68,
+      "vNF": 10734.68,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6949",
+          "qtd": 300.0,
+          "vUnit": 7.57,
+          "vTotal": 2271.0
+        },
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 72.0,
+          "vUnit": 27.11,
+          "vTotal": 1951.92
+        },
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "6949",
+          "qtd": 72.0,
+          "vUnit": 37.83,
+          "vTotal": 2723.76
+        },
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6949",
+          "qtd": 200.0,
+          "vUnit": 18.94,
+          "vTotal": 3788.0
+        }
+      ],
+      "status": "remessa",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1385,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1386,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1387,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1388,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1389,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1390,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1391,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "PE",
+      "vProdutos": 54.22,
+      "vNF": 54.22,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        },
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1392,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 143.16,
+      "vNF": 143.16,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 71.58,
+          "vTotal": 143.16
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1393,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 81.33,
+      "vNF": 81.33,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 3.0,
+          "vUnit": 27.11,
+          "vTotal": 81.33
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1394,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 214.74,
+      "vNF": 214.74,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 3.0,
+          "vUnit": 71.58,
+          "vTotal": 214.74
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1395,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1396,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1397,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1398,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1399,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1400,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1401,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1402,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1403,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1404,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1405,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1406,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Saidas - Remessa para Deposito Temporario",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6905",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "transferencia",
+      "origem": "deposito"
+    },
+    {
+      "nf": 1407,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1408,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1409,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1410,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RS",
+      "vProdutos": 84.91,
+      "vNF": 84.91,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 84.91,
+          "vTotal": 84.91
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1411,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 108.44,
+      "vNF": 108.44,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 4.0,
+          "vUnit": 27.11,
+          "vTotal": 108.44
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1412,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PA",
+      "vProdutos": 319.6,
+      "vNF": 319.6,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 4.0,
+          "vUnit": 79.9,
+          "vTotal": 319.6
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1413,
+      "serie": "2",
+      "data": "2026-11-04",
+      "natOp": "Retorno de mercadoria nao entregue",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "nf": 1414,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1415,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1416,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 27.11,
+      "vNF": 27.11,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 27.11,
+          "vTotal": 27.11
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1417,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 79.9,
+      "vNF": 79.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-004",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 2 PECAS LUZ BRANCA MATERIAL PVC LED PAINEL SOLAR INCLUSO USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 79.9,
+          "vTotal": 79.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1418,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 89.9,
+      "vNF": 89.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1419,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 55.06,
+      "vNF": 55.06,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 55.06,
+          "vTotal": 55.06
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1420,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1421,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1422,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Devolucao de mercadorias",
+      "tipo": "entrada",
+      "uf": "GO",
+      "vProdutos": 24.9,
+      "vNF": 24.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2202",
+          "qtd": 1.0,
+          "vUnit": 24.9,
+          "vTotal": 24.9
+        }
+      ],
+      "status": "devolucao"
+    },
+    {
+      "nf": 1423,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1424,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1425,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1426,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1428,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "BA",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1429,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SE",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1430,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1431,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1432,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1433,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1434,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1435,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1436,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 142.96,
+      "vNF": 142.96,
+      "itens": [
+        {
+          "sku": "HEL-JAR-003",
+          "produto": "HORTENSIA DECORATIVA AZUL 62CM HASTE DE FERRO LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 53.06,
+          "vTotal": 53.06
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 89.9,
+          "vTotal": 89.9
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1437,
+      "serie": "2",
+      "data": "2026-11-05",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "GO",
+      "vProdutos": 137.8,
+      "vNF": 137.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-003",
+          "produto": "HORTENSIA DECORATIVA AZUL 62CM HASTE DE FERRO LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 85.73,
+          "vTotal": 85.73
+        },
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 52.07,
+          "vTotal": 52.07
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1438,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 15.14,
+      "vNF": 15.14,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 7.57,
+          "vTotal": 15.14
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1439,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 41.98,
+      "vNF": 41.98,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 20.99,
+          "vTotal": 41.98
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1440,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "RJ",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1441,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1442,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "PE",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1443,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "CE",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1444,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 16.16,
+      "vNF": 16.16,
+      "itens": [
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "KIT COM 4 SUPORTES DE SILICONE PARA PANELAS FORMATO REDONDO 17,5CM DE DIAMETRO COR VERMELHA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 16.16,
+          "vTotal": 16.16
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1445,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 24.43,
+      "vNF": 24.43,
+      "itens": [
+        {
+          "sku": "HEL-COZ-003",
+          "produto": "KIT COM 4 SUPORTES DE SILICONE PARA PANELAS FORMATO REDONDO 17,5CM DE DIAMETRO COR VERMELHA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 24.43,
+          "vTotal": 24.43
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1446,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 179.8,
+      "vNF": 179.8,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 2.0,
+          "vUnit": 89.9,
+          "vTotal": 179.8
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1447,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 110.12,
+      "vNF": 110.12,
+      "itens": [
+        {
+          "sku": "HEL-JAR-006",
+          "produto": "KIT 2 HORTENSIAS DECORATIVAS 70CM HASTE METALICA LED PAINEL SOLAR BATERIA RECARREGAVEL USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 2.0,
+          "vUnit": 55.06,
+          "vTotal": 110.12
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1448,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1449,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1450,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 18.94,
+      "vNF": 18.94,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 18.94,
+          "vTotal": 18.94
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1451,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 59.9,
+      "vNF": 59.9,
+      "itens": [
+        {
+          "sku": "HEL-COZ-002",
+          "produto": "CONJUNTO 3 POTES HERMETICOS COM CESTO ESCORREDOR PP GRAU ALIMENTAR CAPACIDADES 850ML 1750ML 3300ML",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 59.9,
+          "vTotal": 59.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1452,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1453,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "RJ",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1454,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1455,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "MG",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1456,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 37.83,
+      "vNF": 37.83,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 37.83,
+          "vTotal": 37.83
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1457,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 99.9,
+      "vNF": 99.9,
+      "itens": [
+        {
+          "sku": "HEL-JAR-005",
+          "produto": "FLAMINGO DECORATIVO CONJUNTO COM 1 PAINEL SOLAR E 3 FLAMINGOS LUZ BRANCA MATERIAL PVC LED USO JARDIM EXTERNO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 99.9,
+          "vTotal": 99.9
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1458,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "BA",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1459,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "CE",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1460,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1461,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SC",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1462,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SP",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1463,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "SP",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "6106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
+    },
+    {
+      "nf": 1464,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Outras Entradas - Retorno Simbolico de Deposito Temporario",
+      "tipo": "entrada",
+      "uf": "SC",
+      "vProdutos": 7.57,
+      "vNF": 7.57,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "2949",
+          "qtd": 1.0,
+          "vUnit": 7.57,
+          "vTotal": 7.57
+        }
+      ],
+      "status": "retiro"
+    },
+    {
+      "nf": 1465,
+      "serie": "2",
+      "data": "2026-11-06",
+      "natOp": "Venda de mercadorias",
+      "tipo": "saida",
+      "uf": "PR",
+      "vProdutos": 20.99,
+      "vNF": 20.99,
+      "itens": [
+        {
+          "sku": "HEL-COZ-005",
+          "produto": "BORRIFADOR DOSADOR DE OLEO 2 EM 1 CORPO EM VIDRO CAPACIDADE 470ML COR PRETA USO DOMESTICO",
+          "cfop": "5106",
+          "qtd": 1.0,
+          "vUnit": 20.99,
+          "vTotal": 20.99
+        }
+      ],
+      "status": "valida",
+      "origem": "full"
     },
     {
       "nf": 37,
